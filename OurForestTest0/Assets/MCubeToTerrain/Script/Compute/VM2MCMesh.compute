@@ -1,0 +1,123 @@
+﻿#pragma kernel generate
+#include "MarchTable.compute"
+
+struct Triangle
+{
+    float4 A;
+    float4 B;
+    float4 C;
+};
+
+
+
+//Marching Cube Data
+StructuredBuffer<float> volume;
+float volume_size_x;
+float volume_size_y;
+float volume_size_z;
+
+//Configs
+float iso_value;
+float cube_size;
+float4 origin_pos;
+
+//Output
+AppendStructuredBuffer<Triangle> v;
+
+
+int xyz2index(int x, int y, int z)
+{
+    return x + y * volume_size_x + z * volume_size_y * volume_size_x;
+}
+
+
+float4 xyz2obj_pos(int x, int y, int z)
+{
+    return float4(origin_pos.xyz + cube_size * float3(x, y, z), volume[xyz2index(x, y, z)]);
+}
+
+
+float4 interpolate_v(float4 v1, float4 v2)
+{
+    float t = (iso_value - v1.w) / (v2.w - v1.w);
+    float3 p = v1.xyz + t * (v2.xyz - v1.xyz);
+    return float4(p.xyz, 1.0);
+}
+
+bool check_bound(int x,int y,int z)
+{
+    return
+    (0 <= x < volume_size_x) &&
+    (0 <= y < volume_size_y) &&
+    (0 <= z < volume_size_z);
+
+}
+
+[numthreads(8, 8, 8)]
+void generate(uint3 pos:SV_DispatchThreadID)
+{
+    int x = pos.x;
+    int y = pos.y;
+    int z = pos.z;
+    
+    if (!check_bound(x, y, z))
+        return;
+    
+	// 8 corners of the current cube
+    float4 cubeCorners[8] =
+    {
+        xyz2obj_pos(x, y, z),
+		xyz2obj_pos(x + 1, y, z),
+		xyz2obj_pos(x + 1, y, z + 1),
+		xyz2obj_pos(x, y, z + 1),
+		xyz2obj_pos(x, y + 1, z),
+		xyz2obj_pos(x + 1, y + 1, z),
+		xyz2obj_pos(x + 1, y + 1, z + 1),
+		xyz2obj_pos(x, y + 1, z + 1)
+    };
+
+	// Calculate unique index for each cube configuration.
+	// There are 256 possible values
+	// A value of 0 means cube is entirely inside surface; 255 entirely outside.
+	// The value is used to look up the edge table, which indicates which edges of the cube are cut by the isosurface.
+    int cubeIndex = 0;
+    cubeIndex = cubeIndex | ((cubeCorners[0].w < iso_value ? 1 : 0) << 0);
+    cubeIndex = cubeIndex | ((cubeCorners[1].w < iso_value ? 1 : 0) << 1);
+    cubeIndex = cubeIndex | ((cubeCorners[2].w < iso_value ? 1 : 0) << 2);
+    cubeIndex = cubeIndex | ((cubeCorners[3].w < iso_value ? 1 : 0) << 3);
+    cubeIndex = cubeIndex | ((cubeCorners[4].w < iso_value ? 1 : 0) << 4);
+    cubeIndex = cubeIndex | ((cubeCorners[5].w < iso_value ? 1 : 0) << 5);
+    cubeIndex = cubeIndex | ((cubeCorners[6].w < iso_value ? 1 : 0) << 6);
+    cubeIndex = cubeIndex | ((cubeCorners[7].w < iso_value ? 1 : 0) << 7);
+	// Create triangles for current cube configuration
+    for (int i = 0; triangulation[cubeIndex][i] != -1; i += 3)
+    {
+        Triangle t;
+        
+		// Get indices of corner points A and B for each of the three edges
+		// of the cube that need to be joined to form the triangle.
+        int a0 = cornerIndexAFromEdge[triangulation[cubeIndex][i]];
+        int b0 = cornerIndexBFromEdge[triangulation[cubeIndex][i]];
+
+        int a1 = cornerIndexAFromEdge[triangulation[cubeIndex][i + 1]];
+        int b1 = cornerIndexBFromEdge[triangulation[cubeIndex][i + 1]];
+
+        int a2 = cornerIndexAFromEdge[triangulation[cubeIndex][i + 2]];
+        int b2 = cornerIndexBFromEdge[triangulation[cubeIndex][i + 2]];
+
+        t.A = interpolate_v(cubeCorners[a0], cubeCorners[b0]);
+        t.B = interpolate_v(cubeCorners[a1], cubeCorners[b1]);
+        t.C = interpolate_v(cubeCorners[a2], cubeCorners[b2]);
+
+		//Normal
+        float4 vX = t.C - t.B;
+        float4 vY = t.A - t.B;
+        //float4 normal = float4(cross(vY, vX), 0.0);
+        //cur_v.obj_normal = normalize(normal);
+
+        v.Append(t);
+    }
+}
+
+
+
