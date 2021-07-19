@@ -1,18 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class TerrainGenerator2DPerlin : MonoBehaviour
+namespace MCubeToTerrain.Script.Generator
 {
-    // Start is called before the first frame update
-    void Start()
+    public class TerrainGenerator2DPerlin : MonoBehaviour
     {
+        // Start is called before the first frame update
+        void Start()
+        {
         
-    }
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
+        // Update is called once per frame
+        void Update()
+        {
         
+        }
     }
 }
