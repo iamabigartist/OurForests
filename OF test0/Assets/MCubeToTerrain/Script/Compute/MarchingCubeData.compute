@@ -11,7 +11,7 @@ static const int vertices_convert1[8] = //8
 	//0b011,//7
 	0,
 	3,
-	4,
+	4
 	7,
 	1,
 	2,
