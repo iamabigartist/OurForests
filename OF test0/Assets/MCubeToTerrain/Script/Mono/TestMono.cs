@@ -1,6 +1,13 @@
 using UnityEngine;
 
-public class TestMono : MonoBehaviour
+namespace MCubeToTerrain.Script.Mono
 {
-
+    public class TestMono : MonoBehaviour
+    {
+        public int test1 ()
+        {
+            int a = 0;
+            return a;
+        }
+    }
 }

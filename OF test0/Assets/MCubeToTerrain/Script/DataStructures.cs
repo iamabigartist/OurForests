@@ -1,9 +1,11 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
 using UnityEngine;
 
+// ReSharper disable once CheckNamespace
 namespace MarchingCube1
 {
     public class Particles
@@ -54,11 +56,11 @@ namespace MarchingCube1
             set => data[idx.x + idx.y * size.x + idx.z * size.y * size.x] = value;
         }
 
-        public int count => size.x * size.y * size.z;
+        public int Count => size.x * size.y * size.z;
 
-        public int voxel_count => ( size.x - 1 ) * ( size.y - 1 ) * ( size.z - 1 );
+        public int VoxelCount => ( size.x - 1 ) * ( size.y - 1 ) * ( size.z - 1 );
 
-        public int index ( int x, int y, int z )
+        public int Index ( int x, int y, int z )
         {
             return x + y * size.x + z * size.y * size.x;
         }
@@ -73,6 +75,7 @@ namespace MarchingCube1
             Debug.Log( "volume data saved to " + path );
         }
 
+        [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
         public static VolumeMatrix LoadFromFile ( string path )
         {
             if (!File.Exists( path ))
@@ -83,8 +86,8 @@ namespace MarchingCube1
             var formatter = new BinaryFormatter();
             var fs = new FileStream( path, FileMode.Open );
             var int3 = formatter.Deserialize( fs ) as Dimension;
-            var ret = new VolumeMatrix( new Vector3Int( int3.x, int3.y, int3.z ) );
-            ret.data = formatter.Deserialize( fs ) as float[];
+            var ret = new VolumeMatrix( new Vector3Int( int3.x, int3.y, int3.z ) )
+                { data = formatter.Deserialize( fs ) as float[] };
             fs.Close();
             Debug.Log( "Volume data loaded from " + path );
             return ret;
