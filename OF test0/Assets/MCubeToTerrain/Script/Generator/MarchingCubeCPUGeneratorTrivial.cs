@@ -6,9 +6,9 @@ using UnityEngine;
 namespace MarchingCube1
 {
     /// <summary>
-    /// This class use a <see cref="VolumeMatrix"/> to generate a <see cref="MarchingCubeMesh"/>
+    /// This class use a <see cref="VolumeMatrix"/> to generate a <see cref="MarchingCubeMesh"/> on CPU without any optimization
     /// </summary>
-    public class MarchingCubeCPUGenerator
+    public class MarchingCubeCPUGeneratorTrivial
     {
         #region FixData
 
