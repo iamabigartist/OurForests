@@ -3,9 +3,15 @@
 
 struct Triangle
 {
-    float4 A;
-    float4 B;
-    float4 C;
+    float3 A;
+    float3 B;
+    float3 C;
+};
+
+struct TriangleCubePack
+{
+	Triangle t;
+	int cube_index;
 };
 
 
@@ -19,7 +25,7 @@ float volume_size_z;
 //Configs
 float iso_value;
 float cube_size;
-float4 origin_pos;
+float3 origin_pos;
 
 //Output
 AppendStructuredBuffer<Triangle> v;
@@ -37,14 +43,14 @@ float4 xyz2obj_pos(int x, int y, int z)
 }
 
 
-float4 interpolate_v(const float4 v1, const float4 v2)
+float3 interpolate_v(const float4 v1, const float4 v2)
 {
     float t = (iso_value - v1.w) / (v2.w - v1.w);
     float3 p = v1.xyz + t * (v2.xyz - v1.xyz);
-    return float4(p.xyz, 1.0);
+    return p;
 }
 
-bool check_bound(int x,int y,int z)
+bool check_bound(const int x, const int y, const int z)
 {
     return
     (0 <= x < volume_size_x) &&
@@ -62,7 +68,9 @@ void generate(const uint3 pos:SV_DispatchThreadID)
     
     if (!check_bound(x, y, z))
         return;
-    
+
+
+
 	// 8 corners of the current cube
     float4 cube_corners[8] =
     {
@@ -80,40 +88,40 @@ void generate(const uint3 pos:SV_DispatchThreadID)
 	// There are 256 possible values
 	// A value of 0 means cube is entirely inside surface; 255 entirely outside.
 	// The value is used to look up the edge table, which indicates which edges of the cube are cut by the isosurface.
-    int cubeIndex = 0;
-    cubeIndex = cubeIndex | ((cube_corners[0].w < iso_value ? 1 : 0) << 0);
-    cubeIndex = cubeIndex | ((cube_corners[1].w < iso_value ? 1 : 0) << 1);
-    cubeIndex = cubeIndex | ((cube_corners[2].w < iso_value ? 1 : 0) << 2);
-    cubeIndex = cubeIndex | ((cube_corners[3].w < iso_value ? 1 : 0) << 3);
-    cubeIndex = cubeIndex | ((cube_corners[4].w < iso_value ? 1 : 0) << 4);
-    cubeIndex = cubeIndex | ((cube_corners[5].w < iso_value ? 1 : 0) << 5);
-    cubeIndex = cubeIndex | ((cube_corners[6].w < iso_value ? 1 : 0) << 6);
-    cubeIndex = cubeIndex | ((cube_corners[7].w < iso_value ? 1 : 0) << 7);
+    int cube_index = 0;
+    cube_index = cube_index | ((cube_corners[0].w < iso_value ? 1 : 0) << 0);
+    cube_index = cube_index | ((cube_corners[1].w < iso_value ? 1 : 0) << 1);
+    cube_index = cube_index | ((cube_corners[2].w < iso_value ? 1 : 0) << 2);
+    cube_index = cube_index | ((cube_corners[3].w < iso_value ? 1 : 0) << 3);
+    cube_index = cube_index | ((cube_corners[4].w < iso_value ? 1 : 0) << 4);
+    cube_index = cube_index | ((cube_corners[5].w < iso_value ? 1 : 0) << 5);
+    cube_index = cube_index | ((cube_corners[6].w < iso_value ? 1 : 0) << 6);
+    cube_index = cube_index | ((cube_corners[7].w < iso_value ? 1 : 0) << 7);
 	// Create triangles for current cube configuration
-    for (int i = 0; triangulation[cubeIndex][i] != -1; i += 3)
+    for (int i = 0; triangulation[cube_index][i] != -1; i += 3)
     {
         Triangle t;
-        
+
 		// Get indices of corner points A and B for each of the three edges
 		// of the cube that need to be joined to form the triangle.
-        int a0 = cornerIndexAFromEdge[triangulation[cubeIndex][i]];
-        int b0 = cornerIndexBFromEdge[triangulation[cubeIndex][i]];
+        int a0 = cornerIndexAFromEdge[triangulation[cube_index][i]];
+        int b0 = cornerIndexBFromEdge[triangulation[cube_index][i]];
 
-        int a1 = cornerIndexAFromEdge[triangulation[cubeIndex][i + 1]];
-        int b1 = cornerIndexBFromEdge[triangulation[cubeIndex][i + 1]];
+        int a1 = cornerIndexAFromEdge[triangulation[cube_index][i + 1]];
+        int b1 = cornerIndexBFromEdge[triangulation[cube_index][i + 1]];
 
-        int a2 = cornerIndexAFromEdge[triangulation[cubeIndex][i + 2]];
-        int b2 = cornerIndexBFromEdge[triangulation[cubeIndex][i + 2]];
+        int a2 = cornerIndexAFromEdge[triangulation[cube_index][i + 2]];
+        int b2 = cornerIndexBFromEdge[triangulation[cube_index][i + 2]];
 
         t.A = interpolate_v(cube_corners[a0], cube_corners[b0]);
         t.B = interpolate_v(cube_corners[a1], cube_corners[b1]);
         t.C = interpolate_v(cube_corners[a2], cube_corners[b2]);
 
-		//Normal
-        float4 vX = t.C - t.B;
-        float4 vY = t.A - t.B;
-        //float4 normal = float4(cross(vY, vX), 0.0);
-        //cur_v.obj_normal = normalize(normal);
+//		Normal
+//        float3 vX = t.C - t.B;
+//        float3 vY = t.A - t.B;
+//        float3 normal = float3(cross(vY, vX), 0.0);
+//        cur_v.obj_normal = normalize(normal);
 
         v.Append(t);
     }

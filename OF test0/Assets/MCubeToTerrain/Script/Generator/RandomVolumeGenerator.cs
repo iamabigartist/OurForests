@@ -12,17 +12,10 @@ namespace MarchingCube1
     {
         #region Input
 
-        private Vector3 _original_point;
-
         /// <summary>
-        /// The volume scale in three dimension
+        /// The number of volume in each dimension
         /// </summary>
-        private Vector3 _scale;
-
-        /// <summary>
-        /// The step to put one particle
-        /// </summary>
-        private float _step;
+        private int number;
 
         #endregion Input
 
@@ -30,19 +23,14 @@ namespace MarchingCube1
 
         /// <summary>
         /// </summary>
-        /// <param name="original_point"></param>
-        /// <param name="scale">The volume scale in three dimension</param>
-        /// <param name="step">The step to put one particle</param>
-        public void Input ( Vector3 original_point , Vector3 scale , float step )
+        public void Input ( int number )
         {
-            _original_point = original_point;
-            _scale = scale;
-            _step = step;
+            this.number = number;
         }
 
         public void Output ( out VolumeMatrix volumeMatrix )
         {
-            Vector3Int size = Vector3Int.FloorToInt( _scale / _step );
+            Vector3Int size = Vector3Int.one * this.number;
             volumeMatrix = new VolumeMatrix( size );
             for ( int z = 0; z < size.z; z++ )
             {
