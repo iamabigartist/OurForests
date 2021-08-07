@@ -28,7 +28,7 @@ public class TextureMesh : MonoBehaviour
         if (GUILayout.Button("Generate"))
         {
             this._volumeGenerator.Input(this.number);
-            this._volumeGenerator.Output(out VolumeMatrix volume);
+            this._volumeGenerator.Output(out MarchingCube1.VolumeMatrix volume);
             this._cubeGenerator.Input(
                 volume, this.iso_value,
                 Vector3.one * this.scale,
