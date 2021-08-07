@@ -2,32 +2,11 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-
 using UnityEngine;
 
 // ReSharper disable once CheckNamespace
 namespace MarchingCube1
 {
-    public class Particles
-    {
-        public readonly int size;
-        public Vector3[] data;
-    }
-
-    [Serializable]
-    public class Dimension
-    {
-        public int x;
-        public int y;
-        public int z;
-
-        public Dimension ( Vector3Int int3 )
-        {
-            x = int3.x;
-            y = int3.y;
-            z = int3.z;
-        }
-    }
 
     /// <summary>
     ///     A uniform partice filed
@@ -36,60 +15,62 @@ namespace MarchingCube1
     public class VolumeMatrix
     {
         public float[] data;
-        public readonly Vector3Int size;
 
-        public VolumeMatrix ( Vector3Int size )
+        [SerializeField]
+        public Vector3Int size;
+
+        public VolumeMatrix(Vector3Int size)
         {
             this.size = size;
-            data = new float[size.x * size.y * size.z];
+            this.data = new float[size.x * size.y * size.z];
         }
 
-        public float this [ int x, int y, int z ]
+        public float this[int x, int y, int z]
         {
-            get => data[x + y * size.x + z * size.y * size.x];
-            set => data[x + y * size.x + z * size.y * size.x] = value;
+            get => this.data[x + y * this.size.x + z * this.size.y * this.size.x];
+            set => this.data[x + y * this.size.x + z * this.size.y * this.size.x] = value;
         }
 
-        public float this [ Vector3Int idx ]
+        public float this[Vector3Int idx]
         {
-            get => data[idx.x + idx.y * size.x + idx.z * size.y * size.x];
-            set => data[idx.x + idx.y * size.x + idx.z * size.y * size.x] = value;
+            get => this.data[idx.x + idx.y * this.size.x + idx.z * this.size.y * this.size.x];
+            set => this.data[idx.x + idx.y * this.size.x + idx.z * this.size.y * this.size.x] = value;
         }
 
-        public int Count => size.x * size.y * size.z;
+        public int Count => this.size.x * this.size.y * this.size.z;
 
-        public int VoxelCount => ( size.x - 1 ) * ( size.y - 1 ) * ( size.z - 1 );
+        public int VoxelCount => (this.size.x - 1) * (this.size.y - 1) * (this.size.z - 1);
 
-        public int Index ( int x, int y, int z )
+        public int Index(int x, int y, int z)
         {
-            return x + y * size.x + z * size.y * size.x;
+            return x + y * this.size.x + z * this.size.y * this.size.x;
         }
 
-        public void SaveToFile ( string path )
+        public void SaveToFile(string path)
         {
             var formatter = new BinaryFormatter();
-            var fs = new FileStream( path, FileMode.Create );
-            formatter.Serialize( fs, new Dimension( size ) );
-            formatter.Serialize( fs, data );
+            var fs = new FileStream(path, FileMode.Create);
+            formatter.Serialize(fs, this.size);
+            formatter.Serialize(fs, this.data);
             fs.Close();
-            Debug.Log( "volume data saved to " + path );
+            Debug.Log("volume data saved to " + path);
         }
 
-        [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
-        public static VolumeMatrix LoadFromFile ( string path )
+        [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
+        public static VolumeMatrix LoadFromFile(string path)
         {
-            if (!File.Exists( path ))
+            if (!File.Exists(path))
             {
-                Debug.LogError( "No volume data found in " + path );
+                Debug.LogError("No volume data found in " + path);
                 return null;
             }
             var formatter = new BinaryFormatter();
-            var fs = new FileStream( path, FileMode.Open );
-            var int3 = formatter.Deserialize( fs ) as Dimension;
-            var ret = new VolumeMatrix( new Vector3Int( int3.x, int3.y, int3.z ) )
-                { data = formatter.Deserialize( fs ) as float[] };
+            var fs = new FileStream(path, FileMode.Open);
+            var int3 = (Vector3Int)formatter.Deserialize(fs);
+            var ret = new VolumeMatrix(new Vector3Int(int3.x, int3.y, int3.z))
+                {data = formatter.Deserialize(fs) as float[]};
             fs.Close();
-            Debug.Log( "Volume data loaded from " + path );
+            Debug.Log("Volume data loaded from " + path);
             return ret;
         }
     }
