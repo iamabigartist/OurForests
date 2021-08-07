@@ -4,7 +4,6 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
-// ReSharper disable once CheckNamespace
 namespace MarchingCube1
 {
 
