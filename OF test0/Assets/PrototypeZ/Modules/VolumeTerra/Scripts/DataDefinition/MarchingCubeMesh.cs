@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class MarchingCubeMesh
 {
-    
+    void a(ComputeBuffer b)
+    {
+        b.get
+    }
 }
