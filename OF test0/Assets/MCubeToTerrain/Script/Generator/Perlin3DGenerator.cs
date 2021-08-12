@@ -12,9 +12,9 @@ namespace MarchingCube1
     {
         #region Interface
 
-        public void Generate(out VolumeMatrix volumeMatrix)
+        public void Generate ( out VolumeMatrix volumeMatrix )
         {
-            volumeMatrix = new VolumeMatrix(new Vector3Int(1, 1, 1));
+            volumeMatrix = new VolumeMatrix( new Vector3Int( 1 , 1 , 1 ) );
         }
 
         #endregion Interface

@@ -21,6 +21,7 @@ namespace MarchingCube1
         public VolumeMatrix(Vector3Int size)
         {
             this.size = size;
+
             this.data = new float[size.x * size.y * size.z];
         }
 
