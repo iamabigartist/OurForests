@@ -15,11 +15,11 @@ C:/Users/15480/Documents/Unity Projects/OurForests/OF test0
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-5809
+11359
 Successfully changed project path to: C:/Users/15480/Documents/Unity Projects/OurForests/OF test0
 C:/Users/15480/Documents/Unity Projects/OurForests/OF test0
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 42.63 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 49.05 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.12f1c1 (5887f62ce680)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.12f1c1/Editor/Data/Resources/UnitySubsystems
@@ -35,694 +35,37 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.12f1c1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.12f1c1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.12f1c1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56900
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56440
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.12f1c1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.014687 seconds.
+Registered in 0.010448 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 61.72 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 54.86 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  3.807 seconds
+- Completed reload, in  1.750 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.034835 seconds.
+Registered in 0.018203 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.50 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.49 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.595 seconds
+- Completed reload, in  2.481 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.15 seconds
-Refreshing native plugins compatible for Editor in 0.34 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.12 seconds
+Refreshing native plugins compatible for Editor in 0.49 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1399 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 66.1 MB.
-System memory in use after: 66.2 MB.
-
-Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 1833.
-Total: 2.026200 ms (FindLiveObjects: 0.197100 ms CreateObjectMapping: 0.084100 ms MarkObjects: 1.675300 ms  DeleteObjects: 0.068800 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelData.compute
-  artifactKey: Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelData.compute using Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e782bb626a1faa92ea899f624f8e277') in 0.109347 seconds 
-  Import took 0.113377 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 33.384212 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dcc8e39cbea38d528829b4cd355548db') in 0.007115 seconds 
-  Import took 0.010419 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 13.885067 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9024b167c79d84c80e9ff49cfd87ce5') in 0.006264 seconds 
-  Import took 0.009492 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 34.090810 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ce0e07f8efa3971ce5a3cd6133223a4') in 0.006912 seconds 
-  Import took 0.010480 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 44.588863 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd6852fec0b96d3bcbde9e98795045f2') in 0.007066 seconds 
-  Import took 0.010677 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 29.129307 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9bcfaccfd5c1be42638a43cdf430899e') in 0.006010 seconds 
-  Import took 0.009585 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 25.960762 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '792a54d30d3e672feb5ffedd2305aa9f') in 0.006264 seconds 
-  Import took 0.009687 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 8.002449 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef10fc209a9de3c65a11b883eb237901') in 0.006224 seconds 
-  Import took 0.009170 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 7.979269 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd2dadaaf825ba4fe33946f0b30e65f3') in 0.005971 seconds 
-  Import took 0.008287 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 18.009227 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39f9df403a73e4cdfdff6237794f1585') in 0.005723 seconds 
-  Import took 0.008774 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 52.594785 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50e628f7da3465a2a3179f90e19faf26') in 0.007203 seconds 
-  Import took 0.010653 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 21.118390 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '011386f0592bd1f0bdcd8f6e5f1c484d') in 0.006969 seconds 
-  Import took 0.009633 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 131.046684 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '15e4504449bd9beaf139601d4be6fce2') in 0.005580 seconds 
-  Import took 0.008146 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 63.839026 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '597a0eaca3e4f196714a74029e5eb658') in 0.006465 seconds 
-  Import took 0.009405 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 39.303161 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '813a43516561bf7e8ef293af61f0d88b') in 0.006342 seconds 
-  Import took 0.009673 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 7.780428 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f2c6268d2bdb89ae496ff22498c26dd') in 0.005955 seconds 
-  Import took 0.010018 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.203788 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a27b4734df019ea81e4ad5ab6042166') in 0.005954 seconds 
-  Import took 0.009070 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.474994 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '515ad13001aaab15276a5f36dad9014b') in 0.005717 seconds 
-  Import took 0.008148 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 7.474123 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bcf629511e1d7664f92479c9d45395ad') in 0.006730 seconds 
-  Import took 0.009782 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 58.580842 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0bad239e28de2a568417260119a24bb2') in 0.006983 seconds 
-  Import took 0.009920 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 18.605511 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '474533bd36bbe3539b4e45802e7987ee') in 0.005956 seconds 
-  Import took 0.008415 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 64.967179 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '765322b1d81cff2bcc830e8e080e0ed1') in 0.006976 seconds 
-  Import took 0.010549 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 13.861515 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '689adc830594e1ae99d3369101debb37') in 0.007226 seconds 
-  Import took 0.012621 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.004255 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '689adc830594e1ae99d3369101debb37') in 0.007974 seconds 
-  Import took 0.014061 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 16.710386 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cece3200beb57be2ebce5f843cae88ba') in 0.006053 seconds 
-  Import took 0.008995 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 91.649318 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4810d84117bb6e1c0d6ee528171cfc42') in 0.007757 seconds 
-  Import took 0.011293 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 10.417813 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c42ae66acac0d7122ad856b55c5c3053') in 0.008039 seconds 
-  Import took 0.012026 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 277.266347 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f97ac130b28fbbcf3616598b22c14894') in 0.007175 seconds 
-  Import took 0.010115 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 40.621575 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c96db982f0e4dafee0f7502b13fa78bc') in 0.006612 seconds 
-  Import took 0.010047 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.003683 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c96db982f0e4dafee0f7502b13fa78bc') in 0.008952 seconds 
-  Import took 0.013460 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 94.312303 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d3b27fce9dfde6e3888d9148d543131') in 0.008783 seconds 
-  Import took 0.012405 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 15.442449 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ecb2e5618b4b213783e593ad41b7a52') in 0.006345 seconds 
-  Import took 0.008890 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 12.963883 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c8be07afe1cab456a222bbc43a61ea3') in 0.006485 seconds 
-  Import took 0.009419 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.709728 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '38e0d20144e82a36db0b792cdb37bcb9') in 0.007144 seconds 
-  Import took 0.011049 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 10.194858 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '11e4aa0e814e77bc38ca67f9a0156290') in 0.005769 seconds 
-  Import took 0.009372 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.124529 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1bed7a56c281ff85b46d54af93970e86') in 0.006368 seconds 
-  Import took 0.008646 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 9.781826 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b3733df3c5d65e22586a5b125194f4eb') in 0.007754 seconds 
-  Import took 0.010488 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 7.809133 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7af40b1cd09ed03d12c3a52248bc01f2') in 0.008183 seconds 
-  Import took 0.011326 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 125.840926 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '73be1472ea1f3af5163949dcac7fad96') in 0.006368 seconds 
-  Import took 0.008856 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 99.220240 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7dee7f694a18d0bd175f21a76b4334d4') in 0.006790 seconds 
-  Import took 0.010264 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.004942 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7dee7f694a18d0bd175f21a76b4334d4') in 0.010151 seconds 
-  Import took 0.014926 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 37.765725 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d5c864f7798d8e2a4f791e29f0acc7b') in 0.006621 seconds 
-  Import took 0.010911 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.134446 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7bc5bd33f62e5e4c75a5da5a616c3979') in 0.006725 seconds 
-  Import took 0.009745 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 35.784855 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '64b29db26f83a4952e9f335675a9057c') in 0.005923 seconds 
-  Import took 0.008580 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 87.329448 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '84d57103b63087c5b167d185bca6254a') in 0.006518 seconds 
-  Import took 0.010006 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.003708 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '84d57103b63087c5b167d185bca6254a') in 0.007019 seconds 
-  Import took 0.011310 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 36.574735 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f4e9bebde605eba9f8626eacddda71b8') in 0.006080 seconds 
-  Import took 0.008846 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 310.498538 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e0890f759efefcefb566fc7e3c5cbca') in 0.008314 seconds 
-  Import took 0.012358 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 266.121094 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd68bb8300a836783ed6c51de90e17fb') in 0.006664 seconds 
-  Import took 0.010061 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 8.618391 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '003415f4adfd9617a0d5bda1d7d8ea78') in 0.008637 seconds 
-  Import took 0.012469 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 7.422300 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec072db288de7d3ed4dd39e0ea42e3b6') in 0.006992 seconds 
-  Import took 0.009406 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 51.742160 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8601e7c124afab6c9cd5c099ca9715e') in 0.006202 seconds 
-  Import took 0.009703 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 9.287268 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2222a156f3eec86a4647a9871b9af319') in 0.006923 seconds 
-  Import took 0.009739 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 13.381815 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0727b1c2b34418d2ee9ad3bfa9cabf03') in 0.007007 seconds 
-  Import took 0.009686 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.003243 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0727b1c2b34418d2ee9ad3bfa9cabf03') in 0.010060 seconds 
-  Import took 0.015187 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 45.012671 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'beb46fc8040adc318cfd9dc7ad78c9df') in 0.007188 seconds 
-  Import took 0.010721 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.002734 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'beb46fc8040adc318cfd9dc7ad78c9df') in 0.007351 seconds 
-  Import took 0.011888 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 18.343030 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b93739bf21e0a3f34f9e7dc8fdbdb35') in 0.006066 seconds 
-  Import took 0.008314 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 16.343023 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e420d42c4114c9444613d4ffcc3c965') in 0.006262 seconds 
-  Import took 0.008774 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.002203 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e420d42c4114c9444613d4ffcc3c965') in 0.008533 seconds 
-  Import took 0.012458 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 65.302658 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77fedc82a058a0209c88fef0b8313794') in 0.008022 seconds 
-  Import took 0.010969 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.155340 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5dfaaf00b3379f08985a9b4d22c05922') in 0.006392 seconds 
-  Import took 0.009177 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 933.056497 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74e50519874c6da9817912c7ea36e362') in 0.019617 seconds 
-  Import took 0.047160 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 82.603376 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c02ff090ec29de7080d24fce12c870d') in 0.007475 seconds 
-  Import took 0.011202 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.537188 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dc6cedb7520aa9f767d1bb430a2e998a') in 0.006515 seconds 
-  Import took 0.010347 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.003672 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dc6cedb7520aa9f767d1bb430a2e998a') in 0.008460 seconds 
-  Import took 0.012535 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 13.698246 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc8a537d80d7577420c5757bba016f34') in 0.007189 seconds 
-  Import took 0.010671 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.001746 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc8a537d80d7577420c5757bba016f34') in 0.007613 seconds 
-  Import took 0.012066 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 52.168908 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ffaae54055d228b82fe9e55fc4712881') in 0.008600 seconds 
-  Import took 0.013326 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.001888 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ffaae54055d228b82fe9e55fc4712881') in 0.007725 seconds 
-  Import took 0.011489 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.637888 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute
-  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46625bdd163103f2ce941300f6107beb') in 0.006763 seconds 
-  Import took 0.010260 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.024936 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.47 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.948 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.33 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1393 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 65.9 MB.
-System memory in use after: 66.1 MB.
-
-Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 1836.
-Total: 16.486100 ms (FindLiveObjects: 1.869100 ms CreateObjectMapping: 0.111200 ms MarkObjects: 14.294500 ms  DeleteObjects: 0.209500 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.023263 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.52 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.839 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.41 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1828 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 89.8 MB.
+Unloading 1835 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 89.7 MB.
 System memory in use after: 89.8 MB.
 
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2273.
-Total: 3.945000 ms (FindLiveObjects: 0.353100 ms CreateObjectMapping: 0.113000 ms MarkObjects: 1.986900 ms  DeleteObjects: 1.490500 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.017365 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.57 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.467 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.39 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1828 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 89.8 MB.
-System memory in use after: 89.9 MB.
-
-Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2278.
-Total: 1.988700 ms (FindLiveObjects: 0.166900 ms CreateObjectMapping: 0.062900 ms MarkObjects: 1.713400 ms  DeleteObjects: 0.044400 ms)
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2269.
+Total: 2.088700 ms (FindLiveObjects: 0.192500 ms CreateObjectMapping: 0.070900 ms MarkObjects: 1.752800 ms  DeleteObjects: 0.070400 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -736,69 +79,30 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 420.029588 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelData.compute
-  artifactKey: Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelData.compute using Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '359b8807579f27a886a41161d6f57780') in 0.054321 seconds 
-  Import took 0.057800 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.001808 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelData.compute
-  artifactKey: Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelData.compute using Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '359b8807579f27a886a41161d6f57780') in 0.026245 seconds 
-  Import took 0.029512 seconds .
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCS.compute
+  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCS.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07a4a3a823901fc300b0970e8f17b101') in 0.063975 seconds 
+  Import took 0.067153 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.025499 seconds.
+Registered in 0.024174 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.49 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.989 seconds
+- Completed reload, in  1.538 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.43 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1827 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 89.8 MB.
-System memory in use after: 89.9 MB.
-
-Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2283.
-Total: 11.220500 ms (FindLiveObjects: 0.949900 ms CreateObjectMapping: 0.274300 ms MarkObjects: 8.970500 ms  DeleteObjects: 1.024300 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.023540 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.42 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.543 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.39 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.44 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1828 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 89.9 MB.
-System memory in use after: 90.0 MB.
+System memory in use before: 89.5 MB.
+System memory in use after: 89.6 MB.
 
-Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2289.
-Total: 2.087600 ms (FindLiveObjects: 0.173600 ms CreateObjectMapping: 0.067300 ms MarkObjects: 1.802800 ms  DeleteObjects: 0.042600 ms)
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2274.
+Total: 2.268300 ms (FindLiveObjects: 0.193200 ms CreateObjectMapping: 0.071500 ms MarkObjects: 1.983400 ms  DeleteObjects: 0.019000 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -813,22 +117,60 @@ AssetImportParameters requested are different than current active one (requested
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.015650 seconds.
+Registered in 0.016096 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.37 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.472 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.38 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1828 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 89.6 MB.
+System memory in use after: 89.7 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2279.
+Total: 2.157600 ms (FindLiveObjects: 0.196000 ms CreateObjectMapping: 0.073000 ms MarkObjects: 1.867200 ms  DeleteObjects: 0.020000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 384.182265 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCS.compute
+  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCS.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f60b01440021684f94baa657532aaede') in 0.024319 seconds 
+  Import took 0.028240 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.015226 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.38 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.568 seconds
+- Completed reload, in  1.468 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.64 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.37 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1828 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 89.9 MB.
-System memory in use after: 90.0 MB.
+System memory in use before: 89.6 MB.
+System memory in use after: 89.7 MB.
 
-Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2294.
-Total: 2.565000 ms (FindLiveObjects: 0.191500 ms CreateObjectMapping: 0.076200 ms MarkObjects: 2.241200 ms  DeleteObjects: 0.054700 ms)
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2284.
+Total: 2.168900 ms (FindLiveObjects: 0.169200 ms CreateObjectMapping: 0.064900 ms MarkObjects: 1.918100 ms  DeleteObjects: 0.015800 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -841,54 +183,78 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.014718 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.45 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.418 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.38 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1828 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 89.9 MB.
-System memory in use after: 90.0 MB.
+Received Import Request.
+  Time since last request: 55.472353 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCS.compute
+  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCS.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1c810b3c501472bcf383c6bac8653de') in 0.014775 seconds 
+  Import took 0.017933 seconds .
 
-Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2299.
-Total: 2.212900 ms (FindLiveObjects: 0.164700 ms CreateObjectMapping: 0.063400 ms MarkObjects: 1.944400 ms  DeleteObjects: 0.039400 ms)
+========================================================================
+Received Import Request.
+  Time since last request: 28.467070 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCS.compute
+  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCS.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1c810b3c501472bcf383c6bac8653de') in 0.023327 seconds 
+  Import took 0.027057 seconds .
 
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.017434 seconds.
+Registered in 0.015500 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.39 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.421 seconds
+- Completed reload, in  1.428 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.41 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.39 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1828 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 89.9 MB.
-System memory in use after: 90.0 MB.
+System memory in use before: 89.6 MB.
+System memory in use after: 89.7 MB.
 
-Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2304.
-Total: 2.415800 ms (FindLiveObjects: 0.168800 ms CreateObjectMapping: 0.064800 ms MarkObjects: 2.132700 ms  DeleteObjects: 0.048300 ms)
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2289.
+Total: 2.148600 ms (FindLiveObjects: 0.173800 ms CreateObjectMapping: 0.067900 ms MarkObjects: 1.890100 ms  DeleteObjects: 0.016000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 185.327746 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCS.compute
+  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCS.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ead818b34a255365bbaf613ca02df1d') in 0.024837 seconds 
+  Import took 0.029871 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.018882 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.46 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.907 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.37 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1828 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 89.6 MB.
+System memory in use after: 89.7 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2294.
+Total: 12.054800 ms (FindLiveObjects: 1.026400 ms CreateObjectMapping: 0.095400 ms MarkObjects: 10.889600 ms  DeleteObjects: 0.042000 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -903,22 +269,22 @@ AssetImportParameters requested are different than current active one (requested
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.023861 seconds.
+Registered in 0.014725 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.51 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.448 seconds
+Platform modules already initialized, skipping
 Refreshing native plugins compatible for Editor in 0.40 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.157 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.47 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1828 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 89.9 MB.
-System memory in use after: 90.0 MB.
+System memory in use before: 89.6 MB.
+System memory in use after: 89.7 MB.
 
-Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2309.
-Total: 9.536800 ms (FindLiveObjects: 0.364300 ms CreateObjectMapping: 0.121200 ms MarkObjects: 8.394600 ms  DeleteObjects: 0.654800 ms)
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2299.
+Total: 2.364500 ms (FindLiveObjects: 0.177500 ms CreateObjectMapping: 0.069500 ms MarkObjects: 2.095600 ms  DeleteObjects: 0.020500 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -931,24 +297,41 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
+Received Import Request.
+  Time since last request: 1046.863798 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCS.compute
+  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCS.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '306a5ce7414a0246f03aacfc23d9c94d') in 0.019732 seconds 
+  Import took 0.023070 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 32.100903 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCS.compute
+  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCS.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.003632 seconds  code(4) message(Build asset version error: assets/prototypez/scripts/tests/computeshader/resources/voxelgeneratorcs.compute in SourceAssetDB has modification time of '2021-08-29T12:12:37.99559Z' while content on disk has modification time of '2021-08-29T12:13:26.9939209Z')
+  ERROR: Build asset version error: assets/prototypez/scripts/tests/computeshader/resources/voxelgeneratorcs.compute in SourceAssetDB has modification time of '2021-08-29T12:12:37.99559Z' while content on disk has modification time of '2021-08-29T12:13:26.9939209Z'
+  Import took 0.006367 seconds .
+
+========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.016656 seconds.
+Registered in 0.015094 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.49 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.41 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.443 seconds
+- Completed reload, in  1.469 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.39 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.37 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1828 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 89.9 MB.
-System memory in use after: 90.0 MB.
+System memory in use before: 89.6 MB.
+System memory in use after: 89.8 MB.
 
-Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2314.
-Total: 2.186800 ms (FindLiveObjects: 0.183500 ms CreateObjectMapping: 0.068500 ms MarkObjects: 1.886700 ms  DeleteObjects: 0.046900 ms)
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2304.
+Total: 2.608100 ms (FindLiveObjects: 0.169900 ms CreateObjectMapping: 0.066000 ms MarkObjects: 2.352600 ms  DeleteObjects: 0.018800 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -960,3 +343,49 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 5.433222 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCS.compute
+  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCS.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a7c5b87a2313648fc6dd7db7fde31be') in 0.017138 seconds 
+  Import took 0.020227 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.021491 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.53 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.598 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.38 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1828 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 89.6 MB.
+System memory in use after: 89.8 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2309.
+Total: 2.063100 ms (FindLiveObjects: 0.204900 ms CreateObjectMapping: 0.070100 ms MarkObjects: 1.770700 ms  DeleteObjects: 0.016600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 50.061700 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCS.compute
+  artifactKey: Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCS.compute using Guid(3e4bc805b95a92943bb916bcf95246c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6106158c21efe2f0b80a20dd07598e36') in 0.015945 seconds 
+  Import took 0.019018 seconds .
+

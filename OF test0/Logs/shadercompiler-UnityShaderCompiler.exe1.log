@@ -2,86 +2,23 @@ Base path: 'C:/Program Files/Unity/Hub/Editor/2020.3.12f1c1/Editor/Data', plugin
 Cmd: initializeCompiler
 
 Cmd: compileComputeKernel
-  insize=614 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 2 plat 4 at TestRunCompute.compute(22): syntax error: unexpected token 'auto'
- ok=0 outsize=0
+  insize=8273 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCS.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 1 plat 4 at VoxelGeneratorCS.compute(80): 'z_axis': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used
+  error: 1 plat 4 at VoxelGeneratorCS.compute(127): 'z_axis': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used
+  error: 1 plat 4 at test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelData.compute(23): integer divides may be much slower, try using uints if possible.
+  error: 1 plat 4 at test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelData.compute(25): integer divides may be much slower, try using uints if possible.
+ ok=1 outsize=4217
 
 Cmd: compileComputeKernel
-  insize=661 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0 ok=1 outsize=451
+  insize=8273 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCS.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 1 plat 4 at VoxelGeneratorCS.compute(80): 'z_axis': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used
+  error: 1 plat 4 at VoxelGeneratorCS.compute(127): 'z_axis': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used
+  error: 1 plat 4 at test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelData.compute(23): integer divides may be much slower, try using uints if possible.
+  error: 1 plat 4 at test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelData.compute(25): integer divides may be much slower, try using uints if possible.
+ ok=1 outsize=4217
 
 Cmd: compileComputeKernel
-  insize=822 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0 ok=1 outsize=451
-
-Cmd: compileComputeKernel
-  insize=1250 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0 ok=1 outsize=451
-
-Cmd: compileComputeKernel
-  insize=1201 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0 ok=1 outsize=451
-
-Cmd: compileComputeKernel
-  insize=1354 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 1 plat 4 at TestRunCompute.compute(47): 'z_axis': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used
- ok=1 outsize=451
-
-Cmd: compileComputeKernel
-  insize=1944 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 1 plat 4 at TestRunCompute.compute(54): 'z_axis': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used
-  error: 2 plat 4 at TestRunCompute.compute(65): syntax error: unexpected token ')'
- ok=0 outsize=0
-
-Cmd: compileComputeKernel
-  insize=2307 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 1 plat 4 at TestRunCompute.compute(53): 'z_axis': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used
- ok=1 outsize=451
-
-Cmd: initializeCompiler
-
-Cmd: compileSnippet
-  insize=942 file=Packages/com.unity.test-framework.performance/Editor/TestReportGraph/Unlit/TestReportShader pass=<Unnamed Pass> cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 rsLen=0 pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW= dKW=UNITY_NO_DXT5nm UNITY_ENABLE_NATIVE_SHADOW_LOOKUPS UNITY_METAL_SHADOWS_USE_POINT_FILTERING UNITY_NO_SCREENSPACE_SHADOWS UNITY_PBS_USE_BRDF2 UNITY_PBS_USE_BRDF3 UNITY_NO_FULL_STANDARD_SHADER UNITY_HARDWARE_TIER1 UNITY_HARDWARE_TIER2 UNITY_HARDWARE_TIER3 UNITY_HALF_PRECISION_FRAGMENT_SHADER_REGISTERS UNITY_LIGHTMAP_DLDR_ENCODING UNITY_LIGHTMAP_RGBM_ENCODING UNITY_VIRTUAL_TEXTURING UNITY_PRETRANSFORM_TO_DISPLAY_ORIENTATION UNITY_ASTC_NORMALMAP_ENCODING SHADER_API_GLES30 flags=0 lang=0 type=Fragment platform=d3d11 reqs=33 mask=6 start=16 ok=1 outsize=282
-
-Cmd: compileComputeKernel
-  insize=2499 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 1 plat 4 at TestRunCompute.compute(53): 'z_axis': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used
- ok=1 outsize=451
-
-Cmd: compileComputeKernel
-  insize=2941 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 1 plat 4 at TestRunCompute.compute(51): 'z_axis': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used
-  error: 2 plat 4 at TestRunCompute.compute(74): unrecognized identifier 'QuadMaker'
-  error: 2 plat 4 at TestRunCompute.compute(74): unrecognized identifier 'q'
- ok=0 outsize=0
-
-Cmd: compileComputeKernel
-  insize=3136 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 1 plat 4 at TestRunCompute.compute(51): 'z_axis': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used
-  error: 2 plat 4 at TestRunCompute.compute(78): unrecognized identifier 'QuadMaker'
-  error: 2 plat 4 at TestRunCompute.compute(78): unrecognized identifier 'q'
- ok=0 outsize=0
-
-Cmd: compileComputeKernel
-  insize=3145 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 2 plat 4 at TestRunCompute.compute(22): syntax error: unexpected token '>'
- ok=0 outsize=0
-
-Cmd: compileComputeKernel
-  insize=3463 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 1 plat 4 at TestRunCompute.compute(67): 'z_axis': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used
-  error: 1 plat 4 at TestRunCompute.compute(78): implicit truncation of vector type
-  error: 1 plat 4 at TestRunCompute.compute(81): implicit truncation of vector type
-  error: 2 plat 4 at TestRunCompute.compute(89): unrecognized identifier 'QuadMaker'
-  error: 2 plat 4 at TestRunCompute.compute(89): unrecognized identifier 'q_m'
- ok=0 outsize=0
-
-Cmd: compileComputeKernel
-  insize=3457 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 1 plat 4 at TestRunCompute.compute(67): 'z_axis': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used
-  error: 2 plat 4 at TestRunCompute.compute(77): syntax error: unexpected token 'v0'
-  error: 2 plat 4 at TestRunCompute.compute(81): undeclared identifier 'v0'
- ok=0 outsize=0
-
-Cmd: compileComputeKernel
-  insize=3588 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 1 plat 4 at TestRunCompute.compute(63): 'z_axis': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used
-  error: 1 plat 4 at TestRunCompute.compute(76): implicit truncation of vector type
-  error: 1 plat 4 at TestRunCompute.compute(79): implicit truncation of vector type
-  error: 2 plat 4 at TestRunCompute.compute(87): unrecognized identifier 'QuadMaker'
-  error: 2 plat 4 at TestRunCompute.compute(87): unrecognized identifier 'q_m'
- ok=0 outsize=0
-
-Cmd: compileComputeKernel
-  insize=3696 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 2 plat 4 at TestRunCompute.compute(31): undeclared identifier 'x_xyz_index'
- ok=0 outsize=0
-
-Cmd: compileComputeKernel
-  insize=7164 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 2 plat 4 at TestRunCompute.compute(30): undeclared identifier 'x_xyz_index'
- ok=0 outsize=0
+  insize=8285 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCS.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 1 plat 4 at VoxelGeneratorCS.compute(80): 'z_axis': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used
+  error: 1 plat 4 at VoxelGeneratorCS.compute(127): 'z_axis': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used
+  error: 1 plat 4 at test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelData.compute(23): integer divides may be much slower, try using uints if possible.
+  error: 1 plat 4 at test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelData.compute(25): integer divides may be much slower, try using uints if possible.
+ ok=1 outsize=4217
 

@@ -90,7 +90,8 @@ void CSMain(uint3 id : SV_DispatchThreadID)
                 int4 v1 = int4(index[z_axis][y_axis][1], v[z_axis][y_axis][1]);
 
                 //Average lerp
-                float3 mid_v = float3(lerp(v0, v1, 0.5f).xyz);
+                // float3 mid_v = float3(lerp(v0, v1, 0.5f).xyz);
+    float3 mid_v = 1;
 
                 //Lerp via threshold
                 // float3 threshold_lerp_v = lerp(v0, v1, v0.w / (v0.w + v1.w));
@@ -136,7 +137,8 @@ void CSMain(uint3 id : SV_DispatchThreadID)
                 int4 v1 = int4(index[z_axis][1][x_axis], v[z_axis][1][x_axis]);
 
                 //Average lerp
-                float3 mid_v = float3(lerp(v0, v1, 0.5f).xyz);
+                // float3 mid_v = float3(lerp(v0, v1, 0.5f).xyz);
+                float3 mid_v = 1;
 
                 //Lerp via threshold
                 // float3 threshold_lerp_v = lerp(v0, v1, v0.w / (v0.w + v1.w));
@@ -182,7 +184,8 @@ void CSMain(uint3 id : SV_DispatchThreadID)
                 int4 v1 = int4(index[1][y_axis][x_axis], v[1][y_axis][x_axis]);
 
                 //Average lerp
-                float3 mid_v = float3(lerp(v0, v1, 0.5f).xyz);
+                // float3 mid_v = float3(lerp(v0, v1, 0.5f).xyz);
+    float3 mid_v = 1;
 
                 //Lerp via threshold
                 // float3 threshold_lerp_v = lerp(v0, v1, v0.w / (v0.w + v1.w));

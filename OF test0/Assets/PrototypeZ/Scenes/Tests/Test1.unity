@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe398cffe232477a9e2d0873e94b586e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VolumeSize: 10
+  VolumeSize: 2
   Threshold: 5
   GridSize: 1
 --- !u!4 &1454013160
