@@ -22,7 +22,7 @@ static const int vertices_convert1[8] = //8
 static const int edges_convert1[12] = //12
 {
 //Convert original edge index in <see cref="triangulation"/> to binary edge index
-	8 + 0,//z aixs, 00
+	8 + 0,//z axis, 00
 	0 + 2,//x,z0
 	8 + 1,//z,0x
 	0 + 0,//x,00

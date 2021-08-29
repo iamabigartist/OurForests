@@ -1,0 +1,134 @@
+bool in_range(int3 size, int3 index)
+{
+    return
+    index.x < size.x &&
+    index.y < size.y &&
+    index.z < size.z;
+}
+
+//Turn 3d index to 1d index
+//The dimension order should be x->y->z
+int xyz_x_index(int3 size, in int3 xyz)
+{
+    return
+    xyz.x +
+    xyz.y * size.x +
+    xyz.z * size.y * size.x;
+}
+
+//Turn 1d index to 3d index
+//The dimension order should be x->y->z
+int3 x_xyz_index(int3 size, in int i)
+{
+    int z = floor(i / size.y * size.z);
+    i -= z * size.y * size.z;
+    int y = floor(i / size.x);
+    i -= y * size.x;
+    int x = i;
+
+    return int3(x, y, z);
+}
+
+//Clock wise
+/*
+ *  A-----B
+ *   \   /
+ *    \ /
+ *     C
+ */
+struct Triangle
+{
+    float3 A;
+    float3 B;
+    float3 C;
+
+    void make(float3 a, float3 b, float3 c)
+    {
+        A = a;
+        B = b;
+        C = c;
+    }
+};
+
+//
+// Triangle make_Triangle(float3 v1, float3 v2, float3 v3)
+// {
+//     Triangle t;
+//
+//     return t;
+// }
+
+
+struct Quad
+{
+    Triangle T00;
+    Triangle T11;
+
+    void make(Triangle t00, Triangle t11)
+    {
+        T00 = t00;
+        T11 = t11;
+    }
+};
+
+//Clock wise
+/*
+ * B---C
+ * |  /|
+ * | / |
+ * A---D
+ *
+ * Axis:
+ *
+ * ^y
+ * |
+ * |     x
+ * O----->
+ *
+ * ABC Triangle00
+ * CDA Triangle11
+ */
+struct QuadMaker
+{
+    float3 A;
+    float3 B;
+    float3 C;
+    float3 D;
+
+    void make(float3 a, float3 b, float3 c, float3 d)
+    {
+        A = a;
+        B = b;
+        C = c;
+        D = d;
+    }
+
+    Triangle Triangle00()
+    {
+        Triangle t00;
+        t00.make(A, B, C);
+        return t00;
+    }
+
+    Triangle Triangle11()
+    {
+        Triangle t11;
+        t11.make(C, D, A);
+        return t11;
+    }
+
+    void ToTriangles(out Triangle t00, out Triangle t11)
+    {
+        t00 = Triangle00();
+        t11 = Triangle11();
+    }
+
+    Quad ToQuad()
+    {
+        Triangle t00 = Triangle00();
+        Triangle t11 = Triangle11();
+        Quad q;
+        q.make(t00, t11);
+        return q;
+    }
+};

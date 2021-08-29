@@ -5,11 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8aa6f73-f44f-4013-b18c-6364ab72914d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelData.compute" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelData.compute.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/VoxelGenerator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/VoxelGenerator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Editor.csproj.DotSettings" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MCubeToTerrain/Script/DataStructures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MCubeToTerrain/Script/DataStructures.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MCubeToTerrain/Script/Generator/MarchingCubeCPUGeneratorTrivial.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MCubeToTerrain/Script/Generator/MarchingCubeCPUGeneratorTrivial.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MCubeToTerrain/Script/Generator/MarchingCubeCPUGeneratorTrivial.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MCubeToTerrain/Script/Generator/Perlin3DGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MCubeToTerrain/Script/Generator/Perlin3DGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.Player.csproj.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.Player.csproj.DotSettings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MCubeToTerrain/Script/Compute/MarchingCubeData.compute" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MCubeToTerrain/Script/Compute/MarchingCubeData.compute" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MCubeToTerrain/Script/Compute/VM2MCMesh.compute" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MCubeToTerrain/Script/Compute/VM2MCMesh.compute" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PrototypeZ/Modules/VolumeTerra/Scripts/DataDefinition/MarchingCubeMesh.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Modules/VolumeTerra/Scripts/DataDefinition/MarchingCubeMesh.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker0-prev.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker0-prev.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker0.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-AssetImportWorker0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-AssetImportWorker0.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe0.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +46,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/Editor/Editor.asmdef" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../BugViewMap/Version1/Assets/Plugins/BugReporter/BugReporterMono.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@1.2.1/Unity.Mathematics/float3.gen.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -46,6 +63,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -99,6 +117,8 @@
       <workItem from="1628388757239" duration="3264000" />
       <workItem from="1628418989249" duration="596000" />
       <workItem from="1628565013201" duration="7125000" />
+      <workItem from="1630209547651" duration="4344000" />
+      <workItem from="1630214008046" duration="10995000" />
     </task>
     <servers />
   </component>
@@ -121,6 +141,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

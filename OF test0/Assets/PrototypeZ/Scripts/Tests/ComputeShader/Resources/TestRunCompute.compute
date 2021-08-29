@@ -1,14 +1,221 @@
-// Each #kernel tells which function to compile; you can have many kernels
+#include "VoxelData.compute"
 #pragma kernel CSMain
 
-// Create a RenderTexture with enableRandomWrite flag and set it
-// with cs.SetTexture
-RWTexture2D<float4> Result;
 
-[numthreads(32,32,1)]
-void CSMain (uint3 id : SV_DispatchThreadID)
+//How many volumes in each dimension of the volume matrix
+int3 volume_number_size;
+//How many cubes in each dimension that need to be processed by the threads
+int3 cube_number_size;
+//The volume smaller than threshold will be inside the voxel
+float threshold;
+StructuredBuffer<float> volume_matrix;
+
+float grid_size;
+RWStructuredBuffer<Quad> quads;
+
+//The quad_centers array will be covert to a dictionary by CPU.
+//The Pair uses
+//1. the center position of a Quad as the key
+//2. the index of the Quad in the quad_centers array as the value
+//It aims to make CPU be able to find the quad index position
+//via the changed 2 volume points by querying their mid position
+//Note that the quads array has the counter shared with the quad_centers array
+RWStructuredBuffer<float3> quad_centers;
+
+void face_make_quad(
+    int quad_index,
+    float3 mid_v,
+    float3 face_v[2][2],
+    bool outside_v1)
 {
-    // TODO: insert actual code here!
+    QuadMaker q_m;
+    //00 01 11 10
+    //00 10 11 01
+    if (outside_v1)
+    {
+        q_m.make(face_v[0][0], face_v[0][1], face_v[1][1], face_v[1][0]);
+    }
+    else //if(outside_v0)
+    {
+        q_m.make(face_v[0][0], face_v[1][0], face_v[1][1], face_v[0][1]);
+    }
+    Quad q = q_m.ToQuad();
+    quads[quad_index] = q;
+    quad_centers[quad_index] = mid_v;
+}
 
-    Result[id.xy] = float4(id.x & id.y, (id.x & 15)/15.0, (id.y & 15)/15.0, 1.0);
+[numthreads(1024,1,1)]
+void CSMain(uint3 id : SV_DispatchThreadID)
+{
+    int i = id.x;
+    if (!(i < cube_number_size.x * cube_number_size.y * cube_number_size.z))return;
+    int3 cube_xyz = x_xyz_index(cube_number_size, i);
+
+    //The volume index
+    int3 index[2][2][2];
+    //The volume value
+    float v[2][2][2];
+    //Whether a volume is outside the voxel
+    bool outside[2][2][2];
+    //Init the cube
+    for (int z_axis = 0; z_axis < 2; z_axis++)
+    {
+        for (int y_axis = 0; y_axis < 2; y_axis++)
+        {
+            for (int x_axis = 0; x_axis < 2; x_axis++)
+            {
+                index[z_axis][y_axis][x_axis] =
+                int3(
+                    cube_xyz.x + x_axis,
+                    cube_xyz.y + y_axis,
+                    cube_xyz.z + z_axis);
+
+                v[z_axis][y_axis][x_axis] =
+                volume_matrix[
+                    xyz_x_index(volume_number_size,
+                                index[z_axis][y_axis][x_axis])];
+
+                outside[z_axis][y_axis][x_axis] =
+                v[z_axis][y_axis][x_axis] > threshold;
+            }
+        }
+    }
+
+    //X normal faces
+    for (int z_axis = 0; z_axis < 2; z_axis++)
+    {
+        for (int y_axis = 0; y_axis < 2; y_axis++)
+        {
+            if (outside[z_axis][y_axis][0] != outside[z_axis][y_axis][1])
+            {
+                int quad_index = quads.IncrementCounter();
+
+                //The two volume point being checked
+                int4 v0 = int4(index[z_axis][y_axis][0], v[z_axis][y_axis][0]);
+                int4 v1 = int4(index[z_axis][y_axis][1], v[z_axis][y_axis][1]);
+
+                //Average lerp
+                float3 mid_v = lerp(v0, v1, 0.5);
+
+                //Lerp via threshold
+                float3 threshold_lerp_v = lerp(v0, v1, v0.w / (v0.w + v1.w));
+
+                //z,y
+                float3 face_v[2][2];
+                face_v[0][0] = int3(mid_v.x, mid_v.y, mid_v.z) * grid_size;
+                face_v[0][1] = int3(mid_v.x, mid_v.y + 0.5, mid_v.z) * grid_size;
+                face_v[1][0] = int3(mid_v.x, mid_v.y, mid_v.z + 0.5) * grid_size;
+                face_v[1][1] = int3(mid_v.x, mid_v.y + 0.5, mid_v.z + 0.5) * grid_size;
+
+                face_make_quad(quad_index, mid_v, face_v, outside[z_axis][y_axis][1]);
+                //
+                // QuadMaker q_m;
+                // //00 01 11 10
+                // //00 10 11 01
+                // if (outside[z_axis][y_axis][1])
+                // {
+                //     q_m.make(face_v[0][0], face_v[0][1], face_v[1][1], face_v[1][0]);
+                // }
+                // else //if(outside[z_axis][y_axis][0])
+                // {
+                //     q_m.make(face_v[0][0], face_v[1][0], face_v[1][1], face_v[0][1]);
+                // }
+                // Quad q = q_m.ToQuad();
+                // quads[quad_index] = q;
+                // quad_centers[quad_index] = mid_v;
+            }
+        }
+    }
+
+    //Y normal faces
+    for (int z_axis = 0; z_axis < 2; z_axis++)
+    {
+        for (int x_axis = 0; x_axis < 2; x_axis++)
+        {
+            if (outside[z_axis][0][x_axis] != outside[z_axis][1][x_axis])
+            {
+                int quad_index = quads.IncrementCounter();
+
+                //The two volume point being checked
+                int4 v0 = int4(index[z_axis][0][x_axis], v[z_axis][0][x_axis]);
+                int4 v1 = int4(index[z_axis][1][x_axis], v[z_axis][1][x_axis]);
+
+                //Average lerp
+                float3 mid_v = lerp(v0, v1, 0.5);
+
+                //Lerp via threshold
+                float3 threshold_lerp_v = lerp(v0, v1, v0.w / (v0.w + v1.w));
+
+                //z,x
+                float3 face_v[2][2];
+                face_v[0][0] = int3(mid_v.x, mid_v.y, mid_v.z) * grid_size;
+                face_v[0][1] = int3(mid_v.x + 0.5, mid_v.y, mid_v.z) * grid_size;
+                face_v[1][0] = int3(mid_v.x, mid_v.y, mid_v.z + 0.5) * grid_size;
+                face_v[1][1] = int3(mid_v.x + 0.5, mid_v.y, mid_v.z + 0.5) * grid_size;
+
+                face_make_quad(quad_index, mid_v, face_v, outside[z_axis][1][x_axis]);
+
+                // QuadMaker q_m;
+                // //00 01 11 10
+                // //00 10 11 01
+                // if (outside[z_axis][1][x_axis])
+                // {
+                //     q_m.make(face_v[0][0], face_v[0][1], face_v[1][1], face_v[1][0]);
+                // }
+                // else //if(outside[z_axis][y_axis][0])
+                // {
+                //     q_m.make(face_v[0][0], face_v[1][0], face_v[1][1], face_v[0][1]);
+                // }
+                // Quad q = q_m.ToQuad();
+                // quads[quad_index] = q;
+                // quad_centers[quad_index] = mid_v;
+            }
+        }
+    }
+
+    //Z normal faces
+    for (int y_axis = 0; y_axis < 2; y_axis++)
+    {
+        for (int x_axis = 0; x_axis < 2; x_axis++)
+        {
+            if (outside[0][y_axis][x_axis] != outside[1][y_axis][x_axis])
+            {
+                int quad_index = quads.IncrementCounter();
+
+                //The two volume point being checked
+                int4 v0 = int4(index[0][y_axis][x_axis], v[0][y_axis][x_axis]);
+                int4 v1 = int4(index[1][y_axis][x_axis], v[1][y_axis][x_axis]);
+
+                //Average lerp
+                float3 mid_v = lerp(v0, v1, 0.5);
+
+                //Lerp via threshold
+                float3 threshold_lerp_v = lerp(v0, v1, v0.w / (v0.w + v1.w));
+
+                //y,x
+                float3 face_v[2][2];
+                face_v[0][0] = int3(mid_v.x, mid_v.y, mid_v.z) * grid_size;
+                face_v[0][1] = int3(mid_v.x + 0.5, mid_v.y, mid_v.z) * grid_size;
+                face_v[1][0] = int3(mid_v.x, mid_v.y + 0.5, mid_v.z) * grid_size;
+                face_v[1][1] = int3(mid_v.x + 0.5, mid_v.y + 0.5, mid_v.z) * grid_size;
+
+                face_make_quad(quad_index, mid_v, face_v, outside[1][y_axis][x_axis]);
+
+                // QuadMaker q_m;
+                // //00 01 11 10
+                // //00 10 11 01
+                // if (outside[1][y_axis][x_axis])
+                // {
+                //     q_m.make(face_v[0][0], face_v[0][1], face_v[1][1], face_v[1][0]);
+                // }
+                // else //if(outside[z_axis][y_axis][0])
+                // {
+                //     q_m.make(face_v[0][0], face_v[1][0], face_v[1][1], face_v[0][1]);
+                // }
+                // Quad q = q_m.ToQuad();
+                // quads[quad_index] = q;
+                // quad_centers[quad_index] = mid_v;
+            }
+        }
+    }
 }

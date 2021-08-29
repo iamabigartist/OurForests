@@ -46,7 +46,7 @@ int xyz2index(const int x, const int y, const int z)
 
 float4 xyz2obj_pos(int x, int y, int z)
 {
-    return float4(origin_pos.xyz + cube_size * float3(x, y, z), volume[xyz2index(x, y, z)]);
+    return float4(origin_pos + cube_size * float3(x, y, z), volume[xyz2index(x, y, z)]);
 }
 
 
@@ -132,7 +132,7 @@ void generate(const uint3 pos:SV_DispatchThreadID)
     cube_index = cube_index | (cube_corners[6].w < iso_value ? 1 : 0) << 6;
     cube_index = cube_index | (cube_corners[7].w < iso_value ? 1 : 0) << 7;
 
-    if(triangulation[cube_index][0]!=-1)
+    if (triangulation[cube_index][0] != -1)
     {
         int a0 = cornerIndexAFromEdge[triangulation[cube_index][0]];
         int b0 = cornerIndexBFromEdge[triangulation[cube_index][0]];

@@ -1,0 +1,110 @@
+Base path: 'C:/Program Files/Unity/Hub/Editor/2020.3.12f1c1/Editor/Data', plugins path 'C:/Program Files/Unity/Hub/Editor/2020.3.12f1c1/Editor/Data/PlaybackEngines'
+Cmd: initializeCompiler
+
+Cmd: compileComputeKernel
+  insize=639 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0 ok=1 outsize=451
+
+Cmd: compileComputeKernel
+  insize=1285 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0 ok=1 outsize=451
+
+Cmd: compileComputeKernel
+  insize=1454 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 1 plat 4 at TestRunCompute.compute(47): 'z_axis': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used
+ ok=1 outsize=451
+
+Cmd: initializeCompiler
+
+Cmd: compileComputeKernel
+  insize=2452 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 1 plat 4 at TestRunCompute.compute(52): 'z_axis': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used
+ ok=1 outsize=451
+
+Cmd: compileComputeKernel
+  insize=2438 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 2 plat 4 at TestRunCompute.compute(24): syntax error: unexpected token 'out'
+  error: 2 plat 4 at TestRunCompute.compute(45): syntax error: unexpected token 'out'
+  error: 1 plat 4 at TestRunCompute.compute(52): 'z_axis': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used
+  error: 2 plat 4 at TestRunCompute.compute(56): syntax error: unexpected token 'out'
+  error: 2 plat 4 at TestRunCompute.compute(65): undeclared identifier 'mid_v'
+ ok=0 outsize=0
+
+Cmd: compileComputeKernel
+  insize=2454 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 1 plat 4 at TestRunCompute.compute(52): 'z_axis': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used
+ ok=1 outsize=451
+
+Cmd: compileComputeKernel
+  insize=2556 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 1 plat 4 at TestRunCompute.compute(54): 'z_axis': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used
+ ok=1 outsize=451
+
+Cmd: compileComputeKernel
+  insize=2453 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 1 plat 4 at TestRunCompute.compute(52): 'z_axis': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used
+ ok=1 outsize=451
+
+Cmd: compileComputeKernel
+  insize=2639 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 1 plat 4 at TestRunCompute.compute(52): 'z_axis': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used
+  error: 2 plat 4 at TestRunCompute.compute(73): struct Quad does not have method 'make'
+ ok=0 outsize=0
+
+Cmd: compileComputeKernel
+  insize=3069 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 2 plat 4 at TestRunCompute.compute(34): cannot implicitly convert from 'const int3' to 'int4'
+ ok=0 outsize=0
+
+Cmd: compileComputeKernel
+  insize=3048 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 1 plat 4 at TestRunCompute.compute(51): 'z_axis': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used
+  error: 2 plat 4 at TestRunCompute.compute(77): unrecognized identifier 'QuadMaker'
+  error: 2 plat 4 at TestRunCompute.compute(77): unrecognized identifier 'q'
+ ok=0 outsize=0
+
+Cmd: compileComputeKernel
+  insize=2942 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 1 plat 4 at TestRunCompute.compute(51): 'z_axis': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used
+  error: 1 plat 4 at TestRunCompute.compute(61): implicit truncation of vector type
+  error: 1 plat 4 at TestRunCompute.compute(64): implicit truncation of vector type
+  error: 2 plat 4 at TestRunCompute.compute(72): unrecognized identifier 'QuadMaker'
+  error: 2 plat 4 at TestRunCompute.compute(72): unrecognized identifier 'q'
+ ok=0 outsize=0
+
+Cmd: compileComputeKernel
+  insize=3294 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 2 plat 4 at TestRunCompute.compute(25): syntax error: unexpected token '>'
+ ok=0 outsize=0
+
+Cmd: compileComputeKernel
+  insize=3302 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 2 plat 4 at TestRunCompute.compute(25): syntax error: unexpected token '>'
+ ok=0 outsize=0
+
+Cmd: compileComputeKernel
+  insize=3366 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 2 plat 4 at TestRunCompute.compute(29): undeclared identifier 'numthreads'
+ ok=0 outsize=0
+
+Cmd: compileComputeKernel
+  insize=3427 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 1 plat 4 at TestRunCompute.compute(67): 'z_axis': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used
+  error: 1 plat 4 at TestRunCompute.compute(78): implicit truncation of vector type
+  error: 1 plat 4 at TestRunCompute.compute(81): implicit truncation of vector type
+  error: 2 plat 4 at TestRunCompute.compute(89): unrecognized identifier 'QuadMaker'
+  error: 2 plat 4 at TestRunCompute.compute(89): unrecognized identifier 'q'
+ ok=0 outsize=0
+
+Cmd: compileComputeKernel
+  insize=3628 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 1 plat 4 at TestRunCompute.compute(66): 'z_axis': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used
+  error: 1 plat 4 at TestRunCompute.compute(79): implicit truncation of vector type
+  error: 1 plat 4 at TestRunCompute.compute(82): implicit truncation of vector type
+  error: 2 plat 4 at TestRunCompute.compute(90): unrecognized identifier 'QuadMaker'
+  error: 2 plat 4 at TestRunCompute.compute(90): unrecognized identifier 'q_m'
+ ok=0 outsize=0
+
+Cmd: compileComputeKernel
+  insize=7127 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 2 plat 4 at TestRunCompute.compute(30): undeclared identifier 'x_xyz_index'
+ ok=0 outsize=0
+
+Cmd: compileComputeKernel
+  insize=7134 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 2 plat 4 at TestRunCompute.compute(30): undeclared identifier 'x_xyz_index'
+ ok=0 outsize=0
+
+Cmd: compileComputeKernel
+  insize=7118 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 2 plat 4 at TestRunCompute.compute(30): undeclared identifier 'x_xyz_index'
+ ok=0 outsize=0
+
+Cmd: compileComputeKernel
+  insize=7168 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 2 plat 4 at TestRunCompute.compute(30): undeclared identifier 'x_xyz_index'
+ ok=0 outsize=0
+
+Cmd: compileComputeKernel
+  insize=7167 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 2 plat 4 at TestRunCompute.compute(30): undeclared identifier 'x_xyz_index'
+ ok=0 outsize=0
+

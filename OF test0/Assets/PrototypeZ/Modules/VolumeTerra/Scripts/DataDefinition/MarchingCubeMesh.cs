@@ -6,6 +6,6 @@ public class MarchingCubeMesh
 {
     void a(ComputeBuffer b)
     {
-        b.get
+
     }
 }
