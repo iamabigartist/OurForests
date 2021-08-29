@@ -1,6 +1,5 @@
-#include "VoxelData.compute"
+#include "Inlcude/VoxelData.compute"
 #pragma kernel CSMain
-
 
 //How many volumes in each dimension of the volume matrix
 int3 volume_number_size;
@@ -22,11 +21,7 @@ RWStructuredBuffer<Quad> quads;
 //Note that the quads array has the counter shared with the quad_centers array
 RWStructuredBuffer<float3> quad_centers;
 
-void face_make_quad(
-    int quad_index,
-    float3 mid_v,
-    float3 face_v[2][2],
-    bool outside_v1)
+void face_make_quad(int quad_index, float3 mid_v, float3 face_v[2][2], bool outside_v1)
 {
     QuadMaker q_m;
     //00 01 11 10
@@ -95,17 +90,17 @@ void CSMain(uint3 id : SV_DispatchThreadID)
                 int4 v1 = int4(index[z_axis][y_axis][1], v[z_axis][y_axis][1]);
 
                 //Average lerp
-                float3 mid_v = lerp(v0, v1, 0.5);
+                float3 mid_v = float3(lerp(v0, v1, 0.5f).xyz);
 
                 //Lerp via threshold
-                float3 threshold_lerp_v = lerp(v0, v1, v0.w / (v0.w + v1.w));
+                // float3 threshold_lerp_v = lerp(v0, v1, v0.w / (v0.w + v1.w));
 
                 //z,y
                 float3 face_v[2][2];
-                face_v[0][0] = int3(mid_v.x, mid_v.y, mid_v.z) * grid_size;
-                face_v[0][1] = int3(mid_v.x, mid_v.y + 0.5, mid_v.z) * grid_size;
-                face_v[1][0] = int3(mid_v.x, mid_v.y, mid_v.z + 0.5) * grid_size;
-                face_v[1][1] = int3(mid_v.x, mid_v.y + 0.5, mid_v.z + 0.5) * grid_size;
+                face_v[0][0] = float3(mid_v.x, mid_v.y, mid_v.z) * grid_size;
+                face_v[0][1] = float3(mid_v.x, mid_v.y + 0.5, mid_v.z) * grid_size;
+                face_v[1][0] = float3(mid_v.x, mid_v.y, mid_v.z + 0.5) * grid_size;
+                face_v[1][1] = float3(mid_v.x, mid_v.y + 0.5, mid_v.z + 0.5) * grid_size;
 
                 face_make_quad(quad_index, mid_v, face_v, outside[z_axis][y_axis][1]);
                 //
@@ -141,17 +136,17 @@ void CSMain(uint3 id : SV_DispatchThreadID)
                 int4 v1 = int4(index[z_axis][1][x_axis], v[z_axis][1][x_axis]);
 
                 //Average lerp
-                float3 mid_v = lerp(v0, v1, 0.5);
+                float3 mid_v = float3(lerp(v0, v1, 0.5f).xyz);
 
                 //Lerp via threshold
-                float3 threshold_lerp_v = lerp(v0, v1, v0.w / (v0.w + v1.w));
+                // float3 threshold_lerp_v = lerp(v0, v1, v0.w / (v0.w + v1.w));
 
                 //z,x
                 float3 face_v[2][2];
-                face_v[0][0] = int3(mid_v.x, mid_v.y, mid_v.z) * grid_size;
-                face_v[0][1] = int3(mid_v.x + 0.5, mid_v.y, mid_v.z) * grid_size;
-                face_v[1][0] = int3(mid_v.x, mid_v.y, mid_v.z + 0.5) * grid_size;
-                face_v[1][1] = int3(mid_v.x + 0.5, mid_v.y, mid_v.z + 0.5) * grid_size;
+                face_v[0][0] = float3(mid_v.x, mid_v.y, mid_v.z) * grid_size;
+                face_v[0][1] = float3(mid_v.x + 0.5, mid_v.y, mid_v.z) * grid_size;
+                face_v[1][0] = float3(mid_v.x, mid_v.y, mid_v.z + 0.5) * grid_size;
+                face_v[1][1] = float3(mid_v.x + 0.5, mid_v.y, mid_v.z + 0.5) * grid_size;
 
                 face_make_quad(quad_index, mid_v, face_v, outside[z_axis][1][x_axis]);
 
@@ -187,17 +182,17 @@ void CSMain(uint3 id : SV_DispatchThreadID)
                 int4 v1 = int4(index[1][y_axis][x_axis], v[1][y_axis][x_axis]);
 
                 //Average lerp
-                float3 mid_v = lerp(v0, v1, 0.5);
+                float3 mid_v = float3(lerp(v0, v1, 0.5f).xyz);
 
                 //Lerp via threshold
-                float3 threshold_lerp_v = lerp(v0, v1, v0.w / (v0.w + v1.w));
+                // float3 threshold_lerp_v = lerp(v0, v1, v0.w / (v0.w + v1.w));
 
                 //y,x
                 float3 face_v[2][2];
-                face_v[0][0] = int3(mid_v.x, mid_v.y, mid_v.z) * grid_size;
-                face_v[0][1] = int3(mid_v.x + 0.5, mid_v.y, mid_v.z) * grid_size;
-                face_v[1][0] = int3(mid_v.x, mid_v.y + 0.5, mid_v.z) * grid_size;
-                face_v[1][1] = int3(mid_v.x + 0.5, mid_v.y + 0.5, mid_v.z) * grid_size;
+                face_v[0][0] = float3(mid_v.x, mid_v.y, mid_v.z) * grid_size;
+                face_v[0][1] = float3(mid_v.x + 0.5, mid_v.y, mid_v.z) * grid_size;
+                face_v[1][0] = float3(mid_v.x, mid_v.y + 0.5, mid_v.z) * grid_size;
+                face_v[1][1] = float3(mid_v.x + 0.5, mid_v.y + 0.5, mid_v.z) * grid_size;
 
                 face_make_quad(quad_index, mid_v, face_v, outside[1][y_axis][x_axis]);
 

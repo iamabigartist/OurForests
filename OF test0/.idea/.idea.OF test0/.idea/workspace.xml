@@ -5,26 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8aa6f73-f44f-4013-b18c-6364ab72914d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelData.compute" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelData.compute.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/VoxelGenerator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/VoxelGenerator.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Editor.csproj.DotSettings" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/MUtility.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/MUtility/VectorUtility.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/MUtility/VectorUtility.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Modules/VolumeTerra/Scripts/Generate.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Modules/VolumeTerra/Scripts/Generate/VolumeMatrixGeneration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Modules/VolumeTerra/Scripts/Generate/VolumeMatrixGeneration.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCS.compute" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCS.compute.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp.Player.csproj.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.Player.csproj.DotSettings" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MCubeToTerrain/Script/Compute/MarchingCubeData.compute" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MCubeToTerrain/Script/Compute/MarchingCubeData.compute" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MCubeToTerrain/Script/Compute/VM2MCMesh.compute" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MCubeToTerrain/Script/Compute/VM2MCMesh.compute" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MCubeToTerrain/Script/DataStructures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MCubeToTerrain/Script/DataStructures.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MCubeToTerrain/Script/Generator/MarchingCubeCPUGeneratorTrivial.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MCubeToTerrain/Script/Generator/MarchingCubeCPUGeneratorTrivial.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MCubeToTerrain/Script/Generator/MarchingCubeGPUGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MCubeToTerrain/Script/Generator/MarchingCubeGPUGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/OutScript.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/OutScript.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/PrototypeZ/Modules/VolumeTerra/Scripts/DataDefinition/MarchingCubeMesh.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Modules/VolumeTerra/Scripts/DataDefinition/MarchingCubeMesh.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PrototypeZ/Modules/VolumeTerra/Scripts/DataDefinition/VolumeMatrix.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Modules/VolumeTerra/Scripts/DataDefinition/VolumeMatrix.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PrototypeZ/Modules/VolumeTerra/VolumeTerra.asmdef" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PrototypeZ/Modules/VolumeTerra/VolumeTerra.asmdef.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PrototypeZ/Scenes/Tests/Test1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Scenes/Tests/Test1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestRunCompute.compute.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelData.compute" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelData.compute" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelData.compute.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelData.compute.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/VoxelGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/VoxelGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Editor.csproj.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/Editor.csproj.DotSettings" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker0-prev.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker0-prev.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker0.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-AssetImportWorker0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-AssetImportWorker0.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe0.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +53,9 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/PrototypeZ/Modules/VolumeTerra/Scripts/DataDefinition/VolumeMatrix.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/Editor/Editor.asmdef" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/MUtility/VectorUtility.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../BugViewMap/Version1/Assets/Plugins/BugReporter/BugReporterMono.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@1.2.1/Unity.Mathematics/float3.gen.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -90,10 +101,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="6840">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="6840" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -118,7 +129,8 @@
       <workItem from="1628418989249" duration="596000" />
       <workItem from="1628565013201" duration="7125000" />
       <workItem from="1630209547651" duration="4344000" />
-      <workItem from="1630214008046" duration="10995000" />
+      <workItem from="1630214008046" duration="13621000" />
+      <workItem from="1630230019170" duration="4758000" />
     </task>
     <servers />
   </component>
@@ -143,6 +155,25 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/VoxelGenerator.cs</url>
+          <line>167</line>
+          <properties documentPath="C:\Users\15480\Documents\Unity Projects\OurForests\OF test0\Assets\PrototypeZ\Scripts\Tests\VoxelGenerator.cs" initialLine="167" containingFunctionPresentation="method 'Start'">
+            <startOffsets>
+              <option value="5664" />
+            </startOffsets>
+            <endOffsets>
+              <option value="5679" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

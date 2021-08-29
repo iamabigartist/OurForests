@@ -1,10 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class MarchingCubeMesh
+namespace VolumeTerra.DataDefinition
 {
-    void a(ComputeBuffer b)
+    public class MarchingCubeMesh
     {
 
     }

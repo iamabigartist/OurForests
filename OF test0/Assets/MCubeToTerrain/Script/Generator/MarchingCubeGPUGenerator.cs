@@ -378,7 +378,7 @@ namespace MarchingCube1
         /// </summary>
         private int XYZToVertexIndex ( int x , int y , int z )
         {
-            return x + y * _volume_matrix.size.x + z * _volume_matrix.size.y * _volume_matrix.size.x;
+            return x + y * _volume_matrix.volume_size.x + z * _volume_matrix.volume_size.y * _volume_matrix.volume_size.x;
         }
 
         /// <summary>
@@ -388,8 +388,8 @@ namespace MarchingCube1
         private int XYZToEdgeIndex ( int x , int y , int z , int axis )
         {
             int start = _start_indices[axis];
-            int s_x = _volume_matrix.size.x - ( axis == 0 ? 1 : 0 );
-            int s_y = _volume_matrix.size.y - ( axis == 1 ? 1 : 0 );
+            int s_x = _volume_matrix.volume_size.x - ( axis == 0 ? 1 : 0 );
+            int s_y = _volume_matrix.volume_size.y - ( axis == 1 ? 1 : 0 );
             int offset = x + y * s_x + z * s_x * s_y;
             return start + offset;
         }
@@ -447,12 +447,12 @@ namespace MarchingCube1
             for (int i = 0; i < _mark_matrix.Length; i++) { _mark_matrix[i] = false; }
 
             _start_indices = Vector3Int.zero;
-            _start_indices.y = ( _volume_matrix.size.x - 1 ) * _volume_matrix.size.y * _volume_matrix.size.z;
+            _start_indices.y = ( _volume_matrix.volume_size.x - 1 ) * _volume_matrix.volume_size.y * _volume_matrix.volume_size.z;
             _start_indices.z = _start_indices.y +
-                _volume_matrix.size.x * ( _volume_matrix.size.y - 1 ) * _volume_matrix.size.z;
+                _volume_matrix.volume_size.x * ( _volume_matrix.volume_size.y - 1 ) * _volume_matrix.volume_size.z;
 
             _vertices_indices = new int[_start_indices.z +
-                _volume_matrix.size.x * _volume_matrix.size.y * ( _volume_matrix.size.z - 1 )];
+                _volume_matrix.volume_size.x * _volume_matrix.volume_size.y * ( _volume_matrix.volume_size.z - 1 )];
             for (int i = 0; i < _vertices_indices.Length; i++) { _vertices_indices[i] = -1; }
 
             if (_vertices == null) _vertices = new List<Vector3>();
@@ -474,14 +474,14 @@ namespace MarchingCube1
 
         private void FindVertices ()
         {
-            for (int z = 0; z < _volume_matrix.size.z; z++)
+            for (int z = 0; z < _volume_matrix.volume_size.z; z++)
             {
-                for (int y = 0; y < _volume_matrix.size.y; y++)
+                for (int y = 0; y < _volume_matrix.volume_size.y; y++)
                 {
-                    for (int x = 0; x < _volume_matrix.size.x; x++)
+                    for (int x = 0; x < _volume_matrix.volume_size.x; x++)
                     {
                         if (
-                            x != _volume_matrix.size.x - 1 &&
+                            x != _volume_matrix.volume_size.x - 1 &&
                             _mark_matrix[XYZToVertexIndex( x , y , z )] ^ _mark_matrix[XYZToVertexIndex( x + 1 , y , z )])
                         {
                             _vertices.Add( InterpolateVertex(
@@ -490,7 +490,7 @@ namespace MarchingCube1
                             _vertices_indices[XYZToEdgeIndex( x , y , z , 0 )] = _vertices.Count - 1;
                         }
                         if (
-                            y != _volume_matrix.size.y - 1 &&
+                            y != _volume_matrix.volume_size.y - 1 &&
                             _mark_matrix[XYZToVertexIndex( x , y , z )] ^ _mark_matrix[XYZToVertexIndex( x , y + 1 , z )])
                         {
                             _vertices.Add( InterpolateVertex(
@@ -499,7 +499,7 @@ namespace MarchingCube1
                             _vertices_indices[XYZToEdgeIndex( x , y , z , 1 )] = _vertices.Count - 1;
                         }
                         if (
-                            z != _volume_matrix.size.z - 1 &&
+                            z != _volume_matrix.volume_size.z - 1 &&
                             _mark_matrix[XYZToVertexIndex( x , y , z )] ^ _mark_matrix[XYZToVertexIndex( x , y , z + 1 )])
                         {
                             _vertices.Add( InterpolateVertex(
@@ -514,11 +514,11 @@ namespace MarchingCube1
 
         private void Triangulation ()
         {
-            for (int z = 0; z < _volume_matrix.size.z - 1; z++)
+            for (int z = 0; z < _volume_matrix.volume_size.z - 1; z++)
             {
-                for (int y = 0; y < _volume_matrix.size.y - 1; y++)
+                for (int y = 0; y < _volume_matrix.volume_size.y - 1; y++)
                 {
-                    for (int x = 0; x < _volume_matrix.size.x - 1; x++)
+                    for (int x = 0; x < _volume_matrix.volume_size.x - 1; x++)
                     {
                         int grid_index =
                                 ( Convert.ToInt32( _mark_matrix[XYZToVertexIndex( x , y , z )] ) << vertices_convert1[0b000] ) |
@@ -540,10 +540,10 @@ namespace MarchingCube1
 
         #endregion MarchingCubeSteps
 
-        //µÚÒ»²½£¬±ê¼ÇÌå»ýÖÐËùÓÐµãÊÇ·ñ´óÓÚisovalue. bool ¾ØÕó.
-        //µÚ¶þ²½£¬È·¶¨ËùÓÐ¸ñ×ÓµÄcorner_index. ºÍÈ·¶¨ËùÓÐmeshµÄvertices, ¼ÇÂ¼ÏÂ±êµ½Ã¿¸ö¸ñ×Ó.
-        //µÚÈý²½£¬È·¶¨ËùÓÐ¸ñ×ÓµÄÈý½Ç»¯µÄ±ß.
-        //µÚËÄ²½£¬È·¶¨ÉÏÊö±ß¶ÔÓ¦µãµÄ±¾µØË÷Òý.
-        //µÚÎå²½£¬½«±¾µØË÷ÒýÍ¨¹ý¸ñ×ÓÄÚ¼ÇÂ¼×ª»¯ÎªÈ«¾ÖË÷Òý.
+        //ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½isovalue. bool ï¿½ï¿½ï¿½ï¿½.
+        //ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½Ð¸ï¿½ï¿½Óµï¿½corner_index. ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½meshï¿½ï¿½vertices, ï¿½ï¿½Â¼ï¿½Â±êµ½Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½Ð¸ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½Ç»ï¿½ï¿½Ä±ï¿½.
+        //ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¶ï¿½Ó¦ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+        //ï¿½ï¿½ï¿½å²½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¼ï¿½Â¼×ªï¿½ï¿½ÎªÈ«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
     }
 }
