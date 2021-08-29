@@ -5,25 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8aa6f73-f44f-4013-b18c-6364ab72914d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Modules/VolumeTerra/Scripts/Generate/SimplexNoiseGenerator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Modules/VolumeTerra/Scripts/Generate/SimplexNoiseGenerator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/PureVoxel.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/PureVoxel.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestTransferCS.compute" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/TestTransferCS.compute.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/Editor/TestTransferWindow.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/Editor/TestTransferWindow.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MUtility/VectorUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MUtility/VectorUtility.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PrototypeZ/Modules/VolumeTerra/Scripts/Generate/VolumeMatrixGeneration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Modules/VolumeTerra/Scripts/Generate/VolumeMatrixGeneration.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/PrototypeZ/Scenes/Tests/Test1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Scenes/Tests/Test1.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCS.compute" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCS.compute" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/VoxelGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/VoxelGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker0-prev.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker0-prev.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-AssetImportWorker0.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker0.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-AssetImportWorker0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-AssetImportWorker0.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe0.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe1.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe10.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe11.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe2.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe3.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe4.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe5.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe6.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe7.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe8.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe1.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe1.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe2.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe2.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe3.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe3.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,9 +46,12 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/PrototypeZ/Modules/VolumeTerra/Scripts/DataDefinition/VolumeMatrix.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/Editor/Editor.asmdef" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://D:/我的文件/百度云Download/UnityNoiseTexture3D-master/UnityNoiseTexture3D-master/Assets/NoiseTexture3D/Scripts/Texture3DNoiseGenerator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MUtility/VectorUtility.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../BugViewMap/Version1/Assets/Plugins/BugReporter/BugReporterMono.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@1.2.1/Unity.Mathematics/float3.gen.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://D:/我的文件/百度云Download/UnityNoiseTexture3D-master/UnityNoiseTexture3D-master/Assets/NoiseTexture3D/Scripts/SimplexNoiseGenerator.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -65,14 +70,14 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.30574554" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.19699043" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="XThreadsFramesViewSplitterKey" value="0.57399106" />
+    <property name="XThreadsFramesViewSplitterKey" value="0.8919861" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -93,10 +98,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="316">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="23180">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="316" />
+      <option name="pid" value="23180" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -123,6 +128,9 @@
       <workItem from="1630209547651" duration="4344000" />
       <workItem from="1630214008046" duration="13621000" />
       <workItem from="1630230019170" duration="5882000" />
+      <workItem from="1630240213894" duration="3489000" />
+      <workItem from="1630243840040" duration="799000" />
+      <workItem from="1630244707903" duration="5936000" />
     </task>
     <servers />
   </component>
@@ -130,7 +138,7 @@
     <option name="version" value="3" />
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
-  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -153,19 +161,26 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/PrototypeZ/Scripts/Tests/VoxelGenerator.cs</url>
-          <line>166</line>
-          <properties documentPath="C:\Users\15480\Documents\Unity Projects\OurForests\OF test0\Assets\PrototypeZ\Scripts\Tests\VoxelGenerator.cs" initialLine="167" containingFunctionPresentation="method 'Start'">
+          <line>92</line>
+          <properties documentPath="C:\Users\15480\Documents\Unity Projects\OurForests\OF test0\Assets\PrototypeZ\Scripts\Tests\VoxelGenerator.cs" initialLine="79" containingFunctionPresentation="method 'Update'">
             <startOffsets>
-              <option value="5608" />
+              <option value="2567" />
             </startOffsets>
             <endOffsets>
-              <option value="5625" />
+              <option value="2568" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="UNITY_DEBUG_RUN_CONFIGURATION">
+        <watch expression="QuadCenters" />
+        <watch expression="QuadVertices" />
+        <watch expression="QuadVertices" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

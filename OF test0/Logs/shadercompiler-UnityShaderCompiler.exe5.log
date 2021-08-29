@@ -1,0 +1,27 @@
+Base path: 'C:/Program Files/Unity/Hub/Editor/2020.3.12f1c1/Editor/Data', plugins path 'C:/Program Files/Unity/Hub/Editor/2020.3.12f1c1/Editor/Data/PlaybackEngines'
+Cmd: initializeCompiler
+
+Cmd: compileComputeKernel
+  insize=8744 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCS.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 1 plat 4 at (0): Program 'CSMain', warning X4714: sum of temp registers and indexable temp registers times 1024 threads exceeds the recommended total 16384.  Performance may be reduced
+  error: 1 plat 4 at VoxelGeneratorCS.compute(82): 'z_axis': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used
+  error: 1 plat 4 at VoxelGeneratorCS.compute(130): 'z_axis': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used
+  error: 1 plat 4 at test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelData.compute(23): integer divides may be much slower, try using uints if possible.
+  error: 1 plat 4 at test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelData.compute(25): integer divides may be much slower, try using uints if possible.
+ ok=1 outsize=5461
+
+Cmd: compileComputeKernel
+  insize=8747 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCS.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 1 plat 4 at (0): Program 'CSMain', warning X4714: sum of temp registers and indexable temp registers times 1024 threads exceeds the recommended total 16384.  Performance may be reduced
+  error: 1 plat 4 at VoxelGeneratorCS.compute(82): 'z_axis': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used
+  error: 1 plat 4 at VoxelGeneratorCS.compute(130): 'z_axis': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used
+  error: 1 plat 4 at test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelData.compute(23): integer divides may be much slower, try using uints if possible.
+  error: 1 plat 4 at test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelData.compute(25): integer divides may be much slower, try using uints if possible.
+ ok=1 outsize=5417
+
+Cmd: compileComputeKernel
+  insize=8801 file=C:/Users/15480/Documents/Unity Projects/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCS.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 1 plat 4 at (0): Program 'CSMain', warning X4714: sum of temp registers and indexable temp registers times 1024 threads exceeds the recommended total 16384.  Performance may be reduced
+  error: 1 plat 4 at VoxelGeneratorCS.compute(82): 'z_axis': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used
+  error: 1 plat 4 at VoxelGeneratorCS.compute(131): 'z_axis': loop control variable conflicts with a previous declaration in the outer scope; most recent declaration will be used
+  error: 1 plat 4 at test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelData.compute(23): integer divides may be much slower, try using uints if possible.
+  error: 1 plat 4 at test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelData.compute(25): integer divides may be much slower, try using uints if possible.
+ ok=1 outsize=5573
+

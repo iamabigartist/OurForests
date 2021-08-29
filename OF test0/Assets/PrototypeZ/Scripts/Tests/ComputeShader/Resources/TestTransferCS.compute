@@ -1,0 +1,12 @@
+// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel CSMain
+
+RWStructuredBuffer<float3> buffer;
+
+
+[numthreads(5,1,1)]
+void CSMain(uint3 id : SV_DispatchThreadID)
+{
+
+    buffer[id.x] = float3(id);
+}
