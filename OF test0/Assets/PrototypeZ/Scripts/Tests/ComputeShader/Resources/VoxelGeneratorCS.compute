@@ -1,4 +1,4 @@
-#include "Inlcude/VoxelData.compute"
+#include "Inlcude/VoxelStructs.compute"
 #pragma kernel CSMain
 
 //How many volumes in each dimension of the volume matrix
