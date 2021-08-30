@@ -2,6 +2,27 @@ Base path: 'C:/Program Files/Unity 2020.3.12f1c1/Editor/Data', plugins path 'C:/
 Cmd: initializeCompiler
 
 Cmd: compileComputeKernel
-  insize=8802 file=C:/Users/yangchenghua/Documents/GitHub/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCS.compute kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 2 plat 25 at VoxelGeneratorCS.compute(0): Couldn't open include file 'Inlcude/VoxelData.compute'.
+  insize=9099 file=C:/Users/yangchenghua/Documents/GitHub/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute kernel=GenerateTriangles cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 2 plat 4 at VoxelGeneratorCSV2.compute(60): cannot convert from 'struct Quad' to 'struct IndexQuad'
+ ok=0 outsize=0
+
+Cmd: compileComputeKernel
+  insize=9311 file=C:/Users/yangchenghua/Documents/GitHub/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute kernel=GenerateTriangles cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 2 plat 4 at VoxelGeneratorCSV2.compute(41): syntax error: unexpected token ')'
+  error: 2 plat 4 at VoxelGeneratorCSV2.compute(52): undeclared identifier 'outside_v1'
+ ok=0 outsize=0
+
+Cmd: compileComputeKernel
+  insize=9198 file=C:/Users/yangchenghua/Documents/GitHub/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute kernel=GenerateTriangles cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 2 plat 4 at VoxelGeneratorCSV2.compute(97): cannot convert from 'const int[3]' to 'int3'
+ ok=0 outsize=0
+
+Cmd: compileComputeKernel
+  insize=9303 file=C:/Users/yangchenghua/Documents/GitHub/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute kernel=GenerateTriangles cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 2 plat 4 at VoxelGeneratorCSV2.compute(97): cannot convert from 'const int[3]' to 'int3'
+ ok=0 outsize=0
+
+Cmd: compileComputeKernel
+  insize=10553 file=C:/Users/yangchenghua/Documents/GitHub/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute kernel=GenerateTriangles cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 2 plat 4 at VoxelGeneratorCSV2.compute(64): undeclared identifier 'quad_index'
+ ok=0 outsize=0
+
+Cmd: compileComputeKernel
+  insize=10542 file=C:/Users/yangchenghua/Documents/GitHub/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute kernel=GenerateTriangles cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 2 plat 4 at VoxelGeneratorCSV2.compute(117): undeclared identifier 'quad_2_corner_index_offset_in_cube'
  ok=0 outsize=0
 

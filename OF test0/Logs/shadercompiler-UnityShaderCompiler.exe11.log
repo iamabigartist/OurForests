@@ -1,0 +1,26 @@
+Base path: 'C:/Program Files/Unity 2020.3.12f1c1/Editor/Data', plugins path 'C:/Program Files/Unity 2020.3.12f1c1/Editor/Data/PlaybackEngines'
+Cmd: initializeCompiler
+
+Cmd: compileComputeKernel
+  insize=9452 file=C:/Users/yangchenghua/Documents/GitHub/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute kernel=GenerateTriangles cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 2 plat 4 at VoxelGeneratorCSV2.compute(63): cannot convert from 'struct Quad' to 'struct IndexQuad'
+ ok=0 outsize=0
+
+Cmd: compileComputeKernel
+  insize=10045 file=C:/Users/yangchenghua/Documents/GitHub/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute kernel=GenerateTriangles cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 2 plat 4 at VoxelGeneratorCSV2.compute(64): cannot convert from 'struct Quad' to 'struct IndexQuad'
+ ok=0 outsize=0
+
+Cmd: compileComputeKernel
+  insize=10142 file=C:/Users/yangchenghua/Documents/GitHub/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute kernel=GenerateTriangles cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 2 plat 4 at VoxelGeneratorCSV2.compute(64): undeclared identifier 'quad_index'
+ ok=0 outsize=0
+
+Cmd: compileComputeKernel
+  insize=10414 file=C:/Users/yangchenghua/Documents/GitHub/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute kernel=GenerateVertices cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 2 plat 4 at VoxelGeneratorCSV2.compute(64): undeclared identifier 'quad_index'
+ ok=0 outsize=0
+
+Cmd: compileComputeKernel
+  insize=10623 file=C:/Users/yangchenghua/Documents/GitHub/OurForests/OF test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute kernel=GenerateTriangles cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=19 km=<UNITY_VERSION=202039> pKW=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=0  error: 1 plat 4 at (0): Program 'GenerateTriangles', warning X4714: sum of temp registers and indexable temp registers times 1024 threads exceeds the recommended total 16384.  Performance may be reduced
+  error: 1 plat 4 at VoxelGeneratorCSV2.compute(132): 'QuadKey::make': implicit truncation of vector type
+  error: 1 plat 4 at test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute(23): integer divides may be much slower, try using uints if possible.
+  error: 1 plat 4 at test0/Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute(25): integer divides may be much slower, try using uints if possible.
+ ok=1 outsize=8408
+

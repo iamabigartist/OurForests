@@ -132,3 +132,99 @@ struct QuadMaker
         return q;
     }
 };
+
+
+//Clock wise
+/*
+*  A-----B
+*   \   /
+*    \ /
+*     C
+*/
+struct IndexTriangle
+{
+    int A;
+    int B;
+    int C;
+
+    void make(int a, int b, int c)
+    {
+        A = a;
+        B = b;
+        C = c;
+    }
+};
+
+struct IndexQuad
+{
+    IndexTriangle T00;
+    IndexTriangle T11;
+
+    void make(IndexTriangle t00, IndexTriangle t11)
+    {
+        T00 = t00;
+        T11 = t11;
+    }
+};
+
+//Clock wise
+/*
+* B---C
+* |  /|
+* | / |
+* A---D
+*
+* Axis:
+*
+* ^y
+* |
+* |     x
+* O----->
+*
+* ABC Triangle00
+* CDA Triangle11
+*/
+struct IndexQuadMaker
+{
+    int A;
+    int B;
+    int C;
+    int D;
+
+    void make(int a, int b, int c, int d)
+    {
+        A = a;
+        B = b;
+        C = c;
+        D = d;
+    }
+
+    IndexTriangle IndexTriangle00()
+    {
+        IndexTriangle t00;
+        t00.make(A, B, C);
+        return t00;
+    }
+
+    IndexTriangle IndexTriangle11()
+    {
+        IndexTriangle t11;
+        t11.make(C, D, A);
+        return t11;
+    }
+
+    void ToIndexTriangles(out IndexTriangle t00, out IndexTriangle t11)
+    {
+        t00 = IndexTriangle00();
+        t11 = IndexTriangle11();
+    }
+
+    IndexQuad ToIndexQuad()
+    {
+        IndexTriangle t00 = IndexTriangle00();
+        IndexTriangle t11 = IndexTriangle11();
+        IndexQuad q;
+        q.make(t00, t11);
+        return q;
+    }
+};

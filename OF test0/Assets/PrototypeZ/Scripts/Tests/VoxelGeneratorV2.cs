@@ -6,19 +6,7 @@ using VolumeTerra.DataDefinition;
 using VolumeTerra.Generate;
 namespace Tests
 {
-    public class ShaderData<T>
-    {
-        public int id;
-        public T data;
-
-        public ShaderData(int id, T data)
-        {
-            this.id = id;
-            this.data = data;
-        }
-    }
-
-    public class VoxelGenerator : MonoBehaviour
+    public class VoxelGeneratorV2 : MonoBehaviour
     {
         Mesh m_mesh;
         MeshFilter m_meshFilter;
@@ -30,21 +18,13 @@ namespace Tests
 
         public int VolumeSize = 100;
         public int Threshold = 5;
-        public float GridSize = 1;
+        // public float GridSize = 1;
 
         VolumeMatrix<float> volume_matrix;
 
         ComputeShader cs;
 
-        (
-            ShaderData<Vector3Int> volume_number_size,
-            ShaderData<Vector3Int> cube_number_size,
-            ShaderData<float> threshold,
-            ShaderData<ComputeBuffer> volume_matrix,
-            ShaderData<float> grid_size,
-            ShaderData<ComputeBuffer> quads,
-            ShaderData<ComputeBuffer> quad_centers
-            ) cs_data;
+        (ShaderData<Vector3Int> volume_number_size, ShaderData<float> threshold, ShaderData<ComputeBuffer> volume_matrix, ShaderData<ComputeBuffer> quads, ShaderData<ComputeBuffer> quad_dict) cs_data;
 
 
         void Start()
@@ -102,30 +82,25 @@ namespace Tests
 
         void InitShader()
         {
-            cs = Resources.Load<ComputeShader>( "VoxelGeneratorCS" );
+            cs = Resources.Load<ComputeShader>( "VoxelGeneratorCSV1" );
             cs_data =
                 (
                 new ShaderData<Vector3Int>(
                     Shader.PropertyToID( nameof(cs_data.volume_number_size) ),
                     volume_matrix.volume_size ),
-                new ShaderData<Vector3Int>(
-                    Shader.PropertyToID( nameof(cs_data.cube_number_size) ),
-                    volume_matrix.cube_size ),
                 new ShaderData<float>(
                     Shader.PropertyToID( nameof(cs_data.threshold) ), Threshold ),
                 new ShaderData<ComputeBuffer>(
                     Shader.PropertyToID( nameof(cs_data.volume_matrix) ),
                     new ComputeBuffer(
                         volume_matrix.Count, sizeof(float) ) ),
-                new ShaderData<float>(
-                    Shader.PropertyToID( nameof(cs_data.grid_size) ), GridSize ),
                 new ShaderData<ComputeBuffer>(
                     Shader.PropertyToID( nameof(cs_data.quads) ),
                     new ComputeBuffer(
                         volume_matrix.VoxelMeshQuadCount, 2 * 3 * sizeof(float) * 3,
                         ComputeBufferType.Counter ) ),
                 new ShaderData<ComputeBuffer>(
-                    Shader.PropertyToID( nameof(cs_data.quad_centers) ),
+                    Shader.PropertyToID( nameof(cs_data.quad_dict) ),
                     new ComputeBuffer(
                         volume_matrix.VoxelMeshQuadCount, sizeof(float) * 3 ) )
                 );
@@ -139,10 +114,6 @@ namespace Tests
                 cs_data.volume_number_size.id,
                 v3i1.x, v3i1.y, v3i1.z );
 
-            var v3i2 = cs_data.cube_number_size.data;
-            cs.SetInts(
-                cs_data.cube_number_size.id,
-                v3i2.x, v3i2.y, v3i2.z );
 
             cs.SetFloat(
                 cs_data.threshold.id,
@@ -150,27 +121,20 @@ namespace Tests
             cs.SetBuffer( 0,
                 cs_data.volume_matrix.id,
                 cs_data.volume_matrix.data );
-            cs.SetFloat(
-                cs_data.grid_size.id,
-                cs_data.grid_size.data );
             cs.SetBuffer( 0,
                 cs_data.quads.id,
                 cs_data.quads.data );
             cs.SetBuffer( 0,
-                cs_data.quad_centers.id,
-                cs_data.quad_centers.data );
+                cs_data.quad_dict.id,
+                cs_data.quad_dict.data );
         }
 
         void RefreshBind()
         {
             cs_data.threshold.data = Threshold;
-            cs_data.grid_size.data = GridSize;
             cs.SetFloat(
                 cs_data.threshold.id,
                 cs_data.threshold.data );
-            cs.SetFloat(
-                cs_data.grid_size.id,
-                cs_data.grid_size.data );
         }
 
         void GenerateMesh()
@@ -188,7 +152,7 @@ namespace Tests
             m_meshFilter.sharedMesh = m_mesh;
             m_meshCollider.sharedMesh = m_mesh;
 
-            cs_data.quad_centers.data.GetData( QuadCenters );
+            cs_data.quad_dict.data.GetData( QuadCenters );
             // QuadCenterToIndexDictionary =
             //     QuadCenters.
             //         Select(
@@ -221,7 +185,8 @@ namespace Tests
         {
             cs_data.volume_matrix.data.Release();
             cs_data.quads.data.Release();
-            cs_data.quad_centers.data.Release();
+            cs_data.quad_dict.data.Release();
         }
     }
+
 }

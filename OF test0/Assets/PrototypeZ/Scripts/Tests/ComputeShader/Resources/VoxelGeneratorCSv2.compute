@@ -1,0 +1,292 @@
+#include "Inlcude/VoxelStructs.compute"
+#include "Inlcude/VoxelGenerationBranches.compute"
+#pragma kernel GenerateTriangles
+
+struct QuadKey
+{
+    int i_a;
+    int i_b;
+
+    void make(int _i_a, int _i_b)
+    {
+        i_a = _i_a;
+        i_b = _i_b;
+    }
+};
+
+//How many volumes in each dimension of the volume matrix
+int3 volume_number_size;
+//The volume smaller than threshold will be inside the voxel
+float threshold;
+StructuredBuffer<float> volume_matrix;
+
+float grid_size;
+/*RWStructuredBuffer<float3> volume_positions;*/
+
+RWStructuredBuffer<Quad> quads;
+
+//The quad_centers array will be covert to a dictionary by CPU.
+//The Pair uses
+//1. the center position of a Quad as the key
+//2. the index of the Quad in the quad_centers array as the value
+//It aims to make CPU be able to find the quad index position
+//via the changed 2 volume points by querying their mid position
+//Note that the quads array has the counter shared with the quad_centers array
+RWStructuredBuffer<QuadKey> quad_dict;
+
+/*
+[numthreads(1024, 1, 1)]
+void GenerateVertices(uint3 id : SV_DispatchThreadID)
+{
+    int i = id.x;
+    int volume_number =
+    volume_number_size.x *
+    volume_number_size.y *
+    volume_number_size.z;
+    if (!(i < volume_number))return;
+    volume_positions[i] = x_xyz_index(volume_number_size, i) * grid_size;
+}
+
+void face_make_quad(float3 mid_v, float3 face_v[2][2], bool outside_v1)
+{
+    QuadMaker q_m;
+    //00 01 11 10
+    //00 10 11 01
+    if (outside_v1)
+    {
+        q_m.make(face_v[0][0], face_v[0][1], face_v[1][1], face_v[1][0]);
+    }
+    else //if(outside_v0)
+    {
+        q_m.make(face_v[0][0], face_v[1][0], face_v[1][1], face_v[0][1]);
+    }
+    Quad q = q_m.ToQuad();
+    quads[quad_index] = q;
+    quad_dict[quad_index] = mid_v;
+}
+*/
+
+[numthreads(1024, 1, 1)]
+void GenerateTriangles(uint3 id : SV_DispatchThreadID)
+{
+    int3 cube_number_size = int3(
+        volume_number_size.x - 1,
+        volume_number_size.y - 1,
+        volume_number_size.z - 1);
+    int cube_number = cube_number_size.x * cube_number_size.y * cube_number_size.z;
+
+    int i = id.x;
+    if (!(i < cube_number))
+        return;
+
+    //The index position of the leftdownback corner of the cube
+    int3 cube_xyz = x_xyz_index(cube_number_size, i);
+
+    //The index positions of the 8 volume corner of the cube
+    int3 index[2][2][2];
+
+    // //The volume value
+    // float v[2][2][2];
+
+
+    //Whether a volume is outside the voxel
+    bool outside[2][2][2];
+    //Init the cube
+    for (int z_axis = 0; z_axis < 2; z_axis++)
+    {
+        for (int y_axis = 0; y_axis < 2; y_axis++)
+        {
+            for (int x_axis = 0; x_axis < 2; x_axis++)
+            {
+                index[z_axis][y_axis][x_axis] =
+                int3(
+                    cube_xyz.x + x_axis,
+                    cube_xyz.y + y_axis,
+                    cube_xyz.z + z_axis);
+                //
+                // v[z_axis][y_axis][x_axis] =
+                // volume_matrix[
+                //     xyz_x_index(volume_number_size,
+                //                 index[z_axis][y_axis][x_axis])];
+
+                outside[z_axis][y_axis][x_axis] =
+                volume_matrix[
+                    xyz_x_index(volume_number_size,
+                                index[z_axis][y_axis][x_axis])] > threshold;
+            }
+        }
+    }
+
+    for (int n = 0; n < 12; n++)
+    {
+        int3 c0 = quad_2_corner_in_cube[n][0];
+        int3 c1 = quad_2_corner_in_cube[n][1];
+        if (outside[c0.z][c0.y][c0.x] != outside[c1.z][c1.y][c1.x])
+        {
+            int axis_dir = quad_direction_in_cube[n];
+            //0 represent the face normal dir is positive axis
+            //1 represent the face normal dir is negative axis
+            int reverse_dir = outside[c1.z][c1.y][c1.x] ? 0 : 1;
+            int3 quad_corners[4] = corner_index_offset_in_quad[axis_dir][reverse_dir];
+            QuadMaker maker;
+            maker.make(quad_corners[0], quad_corners[1], quad_corners[2], quad_corners[3]);
+            Quad q = maker.ToQuad();
+            QuadKey key;
+            key.make(
+                xyz_x_index(volume_number_size, index[c0.z][c0.y][c0.x]),
+                xyz_x_index(volume_number_size, index[c1.z][c1.y][c1.x]));
+            int quad_index = quads.IncrementCounter();
+            quads[quad_index] = q;
+            quad_dict[quad_index] = key;
+        }
+    }
+
+
+    /*
+    //X normal faces
+    for (int z_axis = 0; z_axis < 2; z_axis++)
+    {
+        for (int y_axis = 0; y_axis < 2; y_axis++)
+        {
+            if (outside[z_axis][y_axis][0] != outside[z_axis][y_axis][1])
+            {
+                int quad_index = quads.IncrementCounter();
+
+                //The two volume point being checked
+                int4 v0 = int4(index[z_axis][y_axis][0], v[z_axis][y_axis][0]);
+                int4 v1 = int4(index[z_axis][y_axis][1], v[z_axis][y_axis][1]);
+
+                //Average lerp
+                float3 mid_v = float3(lerp(v0, v1, 0.5f).xyz);
+                // float3 mid_v = float3(1,1,1);
+
+                //Lerp via threshold
+                // float3 threshold_lerp_v = lerp(v0, v1, v0.w / (v0.w + v1.w));
+
+                //z,y
+                float3 face_v[2][2];
+                face_v[0][0] = float3(mid_v.x, mid_v.y - 0.5, mid_v.z - 0.5) * grid_size;
+                face_v[0][1] = float3(mid_v.x, mid_v.y + 0.5, mid_v.z - 0.5) * grid_size;
+                face_v[1][0] = float3(mid_v.x, mid_v.y - 0.5, mid_v.z + 0.5) * grid_size;
+                face_v[1][1] = float3(mid_v.x, mid_v.y + 0.5, mid_v.z + 0.5) * grid_size;
+
+                face_make_quad(quad_index, mid_v, face_v, outside[z_axis][y_axis][1]);
+                // face_make_quad(2, mid_v, face_v, outside[z_axis][y_axis][1]);
+                //
+                // QuadMaker q_m;
+                // //00 01 11 10
+                // //00 10 11 01
+                // if (outside[z_axis][y_axis][1])
+                // {
+                //     q_m.make(face_v[0][0], face_v[0][1], face_v[1][1], face_v[1][0]);
+                // }
+                // else //if(outside[z_axis][y_axis][0])
+                // {
+                //     q_m.make(face_v[0][0], face_v[1][0], face_v[1][1], face_v[0][1]);
+                // }
+                // Quad q = q_m.ToQuad();
+                // quads[quad_index] = q;
+                // quad_centers[quad_index] = mid_v;
+
+                // quad_centers[i] = quad_index;
+            }
+        }
+    }
+    //Y normal faces
+    for (int z_axis = 0; z_axis < 2; z_axis++)
+    {
+        for (int x_axis = 0; x_axis < 2; x_axis++)
+        {
+            if (outside[z_axis][0][x_axis] != outside[z_axis][1][x_axis])
+            {
+                int quad_index = quads.IncrementCounter();
+
+                //The two volume point being checked
+                int4 v0 = int4(index[z_axis][0][x_axis], v[z_axis][0][x_axis]);
+                int4 v1 = int4(index[z_axis][1][x_axis], v[z_axis][1][x_axis]);
+
+                //Average lerp
+                float3 mid_v = float3(lerp(v0, v1, 0.5f).xyz);
+                // float3 mid_v = float3(1,1,1);
+
+                //Lerp via threshold
+                // float3 threshold_lerp_v = lerp(v0, v1, v0.w / (v0.w + v1.w));
+
+                //z,x
+                float3 face_v[2][2];
+                face_v[0][0] = float3(mid_v.x - 0.5, mid_v.y, mid_v.z - 0.5) * grid_size;
+                face_v[0][1] = float3(mid_v.x + 0.5, mid_v.y, mid_v.z - 0.5) * grid_size;
+                face_v[1][0] = float3(mid_v.x - 0.5, mid_v.y, mid_v.z + 0.5) * grid_size;
+                face_v[1][1] = float3(mid_v.x + 0.5, mid_v.y, mid_v.z + 0.5) * grid_size;
+
+                face_make_quad(quad_index, mid_v, face_v, !outside[z_axis][1][x_axis]);
+                // face_make_quad(2, mid_v, face_v, outside[z_axis][1][x_axis]);
+
+                // QuadMaker q_m;
+                // //00 01 11 10
+                // //00 10 11 01
+                // if (outside[z_axis][1][x_axis])
+                // {
+                //     q_m.make(face_v[0][0], face_v[0][1], face_v[1][1], face_v[1][0]);
+                // }
+                // else //if(outside[z_axis][y_axis][0])
+                // {
+                //     q_m.make(face_v[0][0], face_v[1][0], face_v[1][1], face_v[0][1]);
+                // }
+                // Quad q = q_m.ToQuad();
+                // quads[quad_index] = q;
+                // quad_centers[quad_index] = mid_v;
+                // quad_centers[i] = float3(1, 1, 1);
+            }
+        }
+    }
+
+    //Z normal faces
+    for (int y_axis = 0; y_axis < 2; y_axis++)
+    {
+        for (int x_axis = 0; x_axis < 2; x_axis++)
+        {
+            if (outside[0][y_axis][x_axis] != outside[1][y_axis][x_axis])
+            {
+                int quad_index = quads.IncrementCounter();
+
+                //The two volume point being checked
+                int4 v0 = int4(index[0][y_axis][x_axis], v[0][y_axis][x_axis]);
+                int4 v1 = int4(index[1][y_axis][x_axis], v[1][y_axis][x_axis]);
+
+                //Average lerp
+                float3 mid_v = float3(lerp(v0, v1, 0.5f).xyz);
+                // float3 mid_v = float3(1,1,1);
+
+                //Lerp via threshold
+                // float3 threshold_lerp_v = lerp(v0, v1, v0.w / (v0.w + v1.w));
+
+                //y,x
+                float3 face_v[2][2];
+                face_v[0][0] = float3(mid_v.x - 0.5, mid_v.y - 0.5, mid_v.z) * grid_size;
+                face_v[0][1] = float3(mid_v.x + 0.5, mid_v.y - 0.5, mid_v.z) * grid_size;
+                face_v[1][0] = float3(mid_v.x - 0.5, mid_v.y + 0.5, mid_v.z) * grid_size;
+                face_v[1][1] = float3(mid_v.x + 0.5, mid_v.y + 0.5, mid_v.z) * grid_size;
+
+                face_make_quad(quad_index, mid_v, face_v, outside[1][y_axis][x_axis]);
+                // face_make_quad(2, mid_v, face_v, outside[1][y_axis][x_axis]);
+
+                // QuadMaker q_m;
+                // //00 01 11 10
+                // //00 10 11 01
+                // if (outside[1][y_axis][x_axis])
+                // {
+                //     q_m.make(face_v[0][0], face_v[0][1], face_v[1][1], face_v[1][0]);
+                // }
+                // else //if(outside[z_axis][y_axis][0])
+                // {
+                //     q_m.make(face_v[0][0], face_v[1][0], face_v[1][1], face_v[0][1]);
+                // }
+                // Quad q = q_m.ToQuad();
+                // quads[quad_index] = q;
+                // quad_centers[quad_index] = mid_v;
+                // quad_centers[i] = float3(1, 1, 1);
+            }
+        }
+    }*/
+}
