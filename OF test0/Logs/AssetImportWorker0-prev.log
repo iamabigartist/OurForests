@@ -15,11 +15,11 @@ C:/Users/yangchenghua/Documents/GitHub/OurForests/OF test0
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-59086
+58448
 Successfully changed project path to: C:/Users/yangchenghua/Documents/GitHub/OurForests/OF test0
 C:/Users/yangchenghua/Documents/GitHub/OurForests/OF test0
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 34.21 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 46.31 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.12f1c1 (5887f62ce680)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity 2020.3.12f1c1/Editor/Data/Resources/UnitySubsystems
@@ -35,106 +35,37 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity 2020.3.12f1c1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity 2020.3.12f1c1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity 2020.3.12f1c1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56200
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56756
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity 2020.3.12f1c1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.004499 seconds.
+Registered in 0.004683 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 30.49 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 37.44 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.965 seconds
+- Completed reload, in  1.052 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.009661 seconds.
+Registered in 0.012110 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.37 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.40 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.492 seconds
+- Completed reload, in  1.548 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.11 seconds
-Refreshing native plugins compatible for Editor in 0.54 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 0.47 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1837 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 1838 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 89.8 MB.
-System memory in use after: 89.8 MB.
+System memory in use after: 89.9 MB.
 
-Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2271.
-Total: 2.407000 ms (FindLiveObjects: 0.207400 ms CreateObjectMapping: 0.070700 ms MarkObjects: 2.074000 ms  DeleteObjects: 0.053900 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  path: Assets/MCubeToTerrain/Script/DataStructures.cs
-  artifactKey: Guid(1e0e24509868d0947b0197e38d7756b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/MCubeToTerrain/Script/DataStructures.cs using Guid(1e0e24509868d0947b0197e38d7756b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8b84d08be2fb4464469ea2d92003396') in 0.023194 seconds 
-  Import took 0.025625 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 12.189227 seconds.
-  path: Assets/MCubeToTerrain/Script/Compute/MarchingCubeData.compute
-  artifactKey: Guid(8489987d1f7f5d14c88023c6291a1e5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/MCubeToTerrain/Script/Compute/MarchingCubeData.compute using Guid(8489987d1f7f5d14c88023c6291a1e5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2cb9b7156dfaaa403e5be449dd3615a1') in 0.012126 seconds 
-  Import took 0.014646 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.047509 seconds.
-  path: Assets/PrototypeZ
-  artifactKey: Guid(e6fe0f50d30c403a8f458af7567dcfa4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ using Guid(e6fe0f50d30c403a8f458af7567dcfa4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '30b0a3f4c95051507cee2505add35edb') in 0.004395 seconds 
-  Import took 0.006792 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.703987 seconds.
-  path: Assets/PrototypeZ/Modules
-  artifactKey: Guid(265e37adf23eff346ab5d268fad0cfe8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Modules using Guid(265e37adf23eff346ab5d268fad0cfe8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ce1c96c17242abc4a371d68b905f19f') in 0.004258 seconds 
-  Import took 0.006871 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.928561 seconds.
-  path: Assets/PrototypeZ/Modules/VolumeTerra
-  artifactKey: Guid(c983df2472fb4bb4f91d2c2a53d3b79c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Modules/VolumeTerra using Guid(c983df2472fb4bb4f91d2c2a53d3b79c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6237affc06ba77fc0e9433a1bd3407dd') in 0.004244 seconds 
-  Import took 0.006635 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.008796 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.34 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.980 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.35 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1830 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 89.6 MB.
-System memory in use after: 89.7 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2276.
-Total: 1.886000 ms (FindLiveObjects: 0.153000 ms CreateObjectMapping: 0.059100 ms MarkObjects: 1.657900 ms  DeleteObjects: 0.014900 ms)
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2272.
+Total: 2.695100 ms (FindLiveObjects: 0.205800 ms CreateObjectMapping: 0.064600 ms MarkObjects: 2.366000 ms  DeleteObjects: 0.057500 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -148,721 +79,342 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 13.465469 seconds.
-  path: Assets/PrototypeZ/Scripts
-  artifactKey: Guid(87698cfb3b18a5944ba834775eedd28b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts using Guid(87698cfb3b18a5944ba834775eedd28b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8fda2e39c0d6ab1b352b9c66c3e7a99a') in 0.006633 seconds 
-  Import took 0.009221 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.151095 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests
-  artifactKey: Guid(4606f7ef9602e0345b6563499f7798e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests using Guid(4606f7ef9602e0345b6563499f7798e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de1f6aecd187f6da284dd9d814b2fcf9') in 0.004459 seconds 
-  Import took 0.006863 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.917339 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/Editor
-  artifactKey: Guid(b980f7f7e00924444ae278d3de169f04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/Editor using Guid(b980f7f7e00924444ae278d3de169f04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0667f04cbcd96b5962c93b9eee37f940') in 0.005197 seconds 
-  Import took 0.007936 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.608201 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/Editor/Editor.asmdef
-  artifactKey: Guid(6a40e4c1b1fbc164ab4e9a73052807cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/Editor/Editor.asmdef using Guid(6a40e4c1b1fbc164ab4e9a73052807cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '552dfc3f058dae6e15a79de942a5d51a') in 0.004891 seconds 
-  Import took 0.007259 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.844892 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader
-  artifactKey: Guid(7db6ca7954032b34bab49b8c152792f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader using Guid(7db6ca7954032b34bab49b8c152792f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb8b5ec219b5b565667cfc1cb4ae18cc') in 0.004464 seconds 
-  Import took 0.006964 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.818914 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources
-  artifactKey: Guid(bfaeff1538b053042892d5a7c2f24771) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources using Guid(bfaeff1538b053042892d5a7c2f24771) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9684ac23e73e5667db16b1c81627e4b3') in 0.004310 seconds 
-  Import took 0.006786 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.069821 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude
-  artifactKey: Guid(944252477317410ca155ec9c74894266) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude using Guid(944252477317410ca155ec9c74894266) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c5e7de15cafd83b127dc589aed3070b1') in 0.004719 seconds 
-  Import took 0.007222 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.475805 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelData.compute
-  artifactKey: Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelData.compute using Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5aad3a5e151009d9339d3b1a5bbe2513') in 0.009773 seconds 
-  Import took 0.014084 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 41.854125 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute
-  artifactKey: Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute using Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fed251c8d7fcff31de7d5dee5cfad80f') in 0.005637 seconds 
-  Import took 0.009912 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 83.520633 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute
-  artifactKey: Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute using Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '587ecb03a79a2104488d50d9b8dec8a9') in 0.006443 seconds 
-  Import took 0.010970 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 125.740769 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute
-  artifactKey: Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute using Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7052df0a5939183c2af10331682fcc41') in 0.005944 seconds 
-  Import took 0.009100 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 10.042864 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute
-  artifactKey: Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute using Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8688f708ebd9a2f458a3b5e3393ae34c') in 0.005044 seconds 
-  Import took 0.008646 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 33.504103 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute
-  artifactKey: Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute using Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bfe9cfa00bbf7c77a67d2933b620de26') in 0.004988 seconds 
-  Import took 0.008248 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 28.437654 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute
-  artifactKey: Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute using Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c74bf9c75e02217e467323fbaf89a4d8') in 0.006221 seconds 
-  Import took 0.009333 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 15.505181 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute
-  artifactKey: Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute using Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77ca6c226d0455bb0984559f5071882d') in 0.005829 seconds 
-  Import took 0.009199 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 51.328963 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute
-  artifactKey: Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute using Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b66720ba14ccb9c51b198572a895272') in 0.006013 seconds 
-  Import took 0.008989 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 78.501874 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute
-  artifactKey: Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute using Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ba972c942e5cceddb407c70bf783dd0') in 0.005526 seconds 
-  Import took 0.008329 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 28.447308 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute
-  artifactKey: Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute using Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b9bafce54ce809d5a6ffee43e53fd0e') in 0.006669 seconds 
-  Import took 0.010166 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 30.597132 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute
-  artifactKey: Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute using Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8835379a70d3d359a51aebc8cbfa9422') in 0.005237 seconds 
-  Import took 0.007982 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 245.635293 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute
-  artifactKey: Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute using Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '734a5587933d58bc15a19f7d028523a8') in 0.005433 seconds 
-  Import took 0.008850 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 32.719597 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute
-  artifactKey: Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute using Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b863a4633df1a89f8582fcc55823fc9') in 0.005015 seconds 
-  Import took 0.008286 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 57.007452 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute
-  artifactKey: Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute using Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a9b9b41ad49dd63e6c80998729df6da') in 0.006047 seconds 
-  Import took 0.009178 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 124.304398 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute
-  artifactKey: Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute using Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b0903418e49217623d71bb26fa396044') in 0.005056 seconds 
-  Import took 0.008110 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 669.387001 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute
-  artifactKey: Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute using Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf60dfb1e23caa37c0752880ce37a89d') in 0.005239 seconds 
-  Import took 0.008556 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 9.624761 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute
-  artifactKey: Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute using Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e857d8b6c8de6eea1cf340da13e1a06') in 0.004564 seconds 
-  Import took 0.007227 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 62.979904 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute
-  artifactKey: Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute using Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5939f84efed0606cc24d0de637ba917') in 0.004476 seconds 
-  Import took 0.007051 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 29.724718 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute
-  artifactKey: Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute using Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '38e35b6cfce653681509c4d749bf2acb') in 0.005471 seconds 
-  Import took 0.008778 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 92.628384 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute
-  artifactKey: Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute using Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0cc132c0307cac9cfd5e2d4ccee83f7f') in 0.005683 seconds 
-  Import took 0.009946 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 14.304448 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute
-  artifactKey: Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute using Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef9161e0a01297a502bc88cad3f9ffcd') in 0.004762 seconds 
-  Import took 0.007479 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 68.662006 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute
-  artifactKey: Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute using Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a5d8fc049a15d6a7411dafb9d551ee0') in 0.005142 seconds 
-  Import took 0.007942 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 444.368821 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute
-  artifactKey: Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute using Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '137e300a9c6ec439736f46054d44d6ce') in 0.005140 seconds 
-  Import took 0.008388 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 6.834238 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute
-  artifactKey: Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute using Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4ff0da677277d160c1c6c468ecf450ea') in 0.005307 seconds 
-  Import took 0.008076 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 24.559739 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute
-  artifactKey: Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute using Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff8192107a7eb42bcad86a9565af07d0') in 0.004869 seconds 
-  Import took 0.007686 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.547725 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute
-  artifactKey: Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute using Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a70b8ff17ca19b64eb1b4c5685a172e6') in 0.004818 seconds 
-  Import took 0.007418 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 27.462943 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute
-  artifactKey: Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute using Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '355269c7112314497aeaf8be9eb53811') in 0.004788 seconds 
-  Import took 0.007368 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 32.013753 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute
-  artifactKey: Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute using Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e6fd3c7fa32aad0689e7afa7317232bc') in 0.006203 seconds 
-  Import took 0.009583 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.852832 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute
-  artifactKey: Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelGenerationBranches.compute using Guid(3bf8da4f423719c44aba614087997aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dc12e569b096aefe61328c0c85c04a4c') in 0.005080 seconds 
-  Import took 0.007930 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.010683 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.35 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.017 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.34 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1830 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 89.6 MB.
-System memory in use after: 89.7 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2281.
-Total: 1.839300 ms (FindLiveObjects: 0.154200 ms CreateObjectMapping: 0.058400 ms MarkObjects: 1.610000 ms  DeleteObjects: 0.015600 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 23.479037 seconds.
-  path: Assets/PrototypeZ/Scenes
-  artifactKey: Guid(3eef2531d6f58c04baa84427fc79c991) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scenes using Guid(3eef2531d6f58c04baa84427fc79c991) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '358340011bde78e8eeade8634b32b0db') in 0.006225 seconds 
-  Import took 0.008632 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.159532 seconds.
-  path: Assets/PrototypeZ/Scenes/Tests
-  artifactKey: Guid(27c6a2a8aed971349b7331c18c9dd0fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scenes/Tests using Guid(27c6a2a8aed971349b7331c18c9dd0fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f581a4509e7c2f0b5c116de8b0b8587') in 0.004124 seconds 
-  Import took 0.006894 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.493665 seconds.
-  path: Assets/PrototypeZ/Scenes/Tests/Test1.unity
-  artifactKey: Guid(ac2607c6333689e41b1e1716b1456ca6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scenes/Tests/Test1.unity using Guid(ac2607c6333689e41b1e1716b1456ca6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4eed870f03c912222f406afe5b446ec') in 0.009732 seconds 
-  Import took 0.012104 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.012012 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.34 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.981 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.35 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1830 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 89.7 MB.
-System memory in use after: 89.8 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2286.
-Total: 1.842600 ms (FindLiveObjects: 0.152800 ms CreateObjectMapping: 0.060400 ms MarkObjects: 1.611900 ms  DeleteObjects: 0.016600 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.011989 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.35 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.997 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.34 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1830 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 89.7 MB.
-System memory in use after: 89.8 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2291.
-Total: 2.185800 ms (FindLiveObjects: 0.230900 ms CreateObjectMapping: 0.089000 ms MarkObjects: 1.839800 ms  DeleteObjects: 0.024900 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.009026 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.43 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.953 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.33 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1830 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 89.7 MB.
-System memory in use after: 89.8 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2296.
-Total: 1.910600 ms (FindLiveObjects: 0.156300 ms CreateObjectMapping: 0.060700 ms MarkObjects: 1.677400 ms  DeleteObjects: 0.015200 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.009033 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.34 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.981 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.34 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1830 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 89.7 MB.
-System memory in use after: 89.8 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2301.
-Total: 1.821300 ms (FindLiveObjects: 0.166200 ms CreateObjectMapping: 0.061700 ms MarkObjects: 1.576800 ms  DeleteObjects: 0.015400 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.009162 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.45 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.039 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.44 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1831 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 89.7 MB.
-System memory in use after: 89.8 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2307.
-Total: 2.235400 ms (FindLiveObjects: 0.212500 ms CreateObjectMapping: 0.075500 ms MarkObjects: 1.925600 ms  DeleteObjects: 0.020600 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 6514.627650 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSv1.compute
-  artifactKey: Guid(32ded3476828284448ca0a8de4bdea78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSv1.compute using Guid(32ded3476828284448ca0a8de4bdea78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d4546b9b23fc3a5eea1f509eefd9759') in 0.015225 seconds 
-  Import took 0.017825 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.432663 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSv1 1.compute
-  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSv1 1.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b501e26aafe82960524ce87688bbf8f') in 0.005006 seconds 
-  Import took 0.007573 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 6.528903 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSv2.compute
-  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSv2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '16739f95fb279333b410a9b8d636236d') in 0.005426 seconds 
-  Import took 0.008198 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 9.421041 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
-  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '12cd0ce802b3ca96f0bb13296f218db2') in 0.005371 seconds 
-  Import took 0.007965 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.879764 seconds.
   path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV1.compute
   artifactKey: Guid(32ded3476828284448ca0a8de4bdea78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV1.compute using Guid(32ded3476828284448ca0a8de4bdea78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4c7cb74a45381a610f9f3a6b913e031') in 0.005570 seconds 
-  Import took 0.008174 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.009009 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.35 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.963 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.34 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1831 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 89.7 MB.
-System memory in use after: 89.8 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2312.
-Total: 1.923300 ms (FindLiveObjects: 0.207500 ms CreateObjectMapping: 0.074100 ms MarkObjects: 1.626200 ms  DeleteObjects: 0.014500 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 102.347913 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute
-  artifactKey: Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute using Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e6cc722b64cf11334da86b15eb51eab') in 0.016747 seconds 
-  Import took 0.020631 seconds .
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV1.compute using Guid(32ded3476828284448ca0a8de4bdea78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44c9d16dd29d8fdf55fcfa841ef91aee') in 0.027476 seconds 
+  Import took 0.029945 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 12.099023 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute
-  artifactKey: Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute using Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '10db62bcf5585852315c4b52bc5a5e61') in 0.005321 seconds 
+  Time since last request: 567.276802 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c7ab55b02dff8d4b2d619f4444421d2') in 0.007247 seconds 
+  Import took 0.010846 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 75.055985 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e1e7518b56389627715afa820cd6dd8c') in 0.005829 seconds 
+  Import took 0.008707 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 38.555441 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd8bb88e5dede778b16bdbcbc425d8649') in 0.006119 seconds 
+  Import took 0.010515 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.656853 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '35699d896dc7466f2a9814a721dc9bd1') in 0.005285 seconds 
+  Import took 0.009478 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1930.417751 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '299489c34166899632407dbd580b469c') in 0.006873 seconds 
+  Import took 0.011990 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 51.495171 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e2626d8c8eb768692fdb6ea16102d40') in 0.005535 seconds 
+  Import took 0.008408 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 32.159948 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9681f1044129ed8bd6fa71bc3fac2baf') in 0.005348 seconds 
+  Import took 0.008201 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 19.287003 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c00621ea98b079e5f2405024d8de24ea') in 0.005696 seconds 
+  Import took 0.008684 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.542992 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02dda7ae2bfd3042e0e3effa8e50c021') in 0.005476 seconds 
+  Import took 0.008875 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.928149 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1158e298fe81c331aaff063382bc8676') in 0.005710 seconds 
+  Import took 0.010415 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 29.998380 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39a507f25355255143f5da3ef80fa0e3') in 0.005546 seconds 
+  Import took 0.008389 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 18.795381 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3bb3c00a29260db69acf9a4e3b5d57f5') in 0.005182 seconds 
+  Import took 0.008977 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 55.557743 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '13a576b2ad94fc60f3b7c9f6e56e30ef') in 0.005463 seconds 
+  Import took 0.008851 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.306215 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5a513c49050b00b445401614c77bda8') in 0.005965 seconds 
+  Import took 0.009499 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 18.198061 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '311597b5523c2314885eea8f144a8a8c') in 0.006167 seconds 
+  Import took 0.009228 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 64.593991 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1642c02c122762d1d04af927b1c8a4c') in 0.005722 seconds 
+  Import took 0.008400 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.982111 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1845bc7d5187e21d1621ce56d4b88319') in 0.005174 seconds 
+  Import took 0.008038 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 754.354819 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1aba27fc6c37d0f074bbb23fa7c24809') in 0.007492 seconds 
+  Import took 0.011987 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 254.930957 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '62c5ca9b0411fa0cb8abd53603bdd6d8') in 0.005539 seconds 
+  Import took 0.009770 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 46.283391 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e30f29ea38c0c17964622ecd5c4d5aa3') in 0.004932 seconds 
+  Import took 0.008310 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 34.923941 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57c2ec515977dd3cd8409edac0d7798a') in 0.004857 seconds 
+  Import took 0.007787 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 61.811940 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ef3e3b41be8186efac1c196536da13e') in 0.005144 seconds 
   Import took 0.008145 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 13.751124 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute
-  artifactKey: Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute using Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2f75cf2af047052311fd63bad6a2977') in 0.005296 seconds 
-  Import took 0.008518 seconds .
+  Time since last request: 37.023790 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e00dbabceeed767e2d128dd002c206ba') in 0.005338 seconds 
+  Import took 0.008509 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 13.457033 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute
-  artifactKey: Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute using Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47a3fe3d27e726dc12e078d76abf24b9') in 0.005666 seconds 
-  Import took 0.008860 seconds .
+  Time since last request: 86.750310 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1783958c1b568d105a8357f665032a17') in 0.004883 seconds 
+  Import took 0.008304 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 13.455700 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute
-  artifactKey: Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute using Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'adf0b990e91295604aea18402240547a') in 0.005130 seconds 
-  Import took 0.008020 seconds .
+  Time since last request: 3.516144 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e68b8300ac1d1c3a663d19c8ba2564a2') in 0.005047 seconds 
+  Import took 0.007765 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 6.659359 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute
-  artifactKey: Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute using Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c63454466b6181e09c5986fa78f332f5') in 0.005635 seconds 
-  Import took 0.009445 seconds .
+  Time since last request: 115.618806 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8266312c7220053b5226cc9b5757502') in 0.006280 seconds 
+  Import took 0.009993 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 7.580850 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute
-  artifactKey: Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute using Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd975b1e12249b21b46bda6859a82bd7e') in 0.004824 seconds 
-  Import took 0.008757 seconds .
+  Time since last request: 10.593785 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '042339fd861c49836a6acfe427b95455') in 0.005737 seconds 
+  Import took 0.008932 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 18.502415 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute
-  artifactKey: Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute using Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96fec07286c7ad1e36c35cc4b9e21daa') in 0.004775 seconds 
-  Import took 0.007441 seconds .
+  Time since last request: 232.221676 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c8276cf193444448e15e52e88d7b3e6') in 0.005346 seconds 
+  Import took 0.008510 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 22.099928 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute
-  artifactKey: Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute using Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42917f60dfbeda59a4dee70f6bd4ad82') in 0.005287 seconds 
-  Import took 0.008025 seconds .
+  Time since last request: 12.070911 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '421ee1eaed47edc1bf6fbcb3f699d0ee') in 0.004905 seconds 
+  Import took 0.008018 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 6.759798 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute
-  artifactKey: Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute using Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9713c250daa79cdebbe4bce8f65d615') in 0.004590 seconds 
-  Import took 0.007395 seconds .
+  Time since last request: 158.164614 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bbedadf3f56ecd22b83559fd4f15b6e5') in 0.005443 seconds 
+  Import took 0.008647 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 11.471595 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute
-  artifactKey: Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute using Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b276425dd7d79804268172d52973abbe') in 0.005795 seconds 
-  Import took 0.009992 seconds .
+  Time since last request: 243.791580 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dbc40b1c30a840e56ee82496f92ae4ee') in 0.005210 seconds 
+  Import took 0.008411 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 21.099822 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute
-  artifactKey: Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute using Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f5dc71ccc8f05faea661bcacdecfa2d') in 0.005403 seconds 
-  Import took 0.008982 seconds .
+  Time since last request: 12.521280 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd01f505ad9d5b49eea841fab6f31abd') in 0.004867 seconds 
+  Import took 0.007987 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 36.131003 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute
-  artifactKey: Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute using Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '194fe69865d7f9e45009ee0962602d80') in 0.004513 seconds 
-  Import took 0.007238 seconds .
+  Time since last request: 12.536352 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f62eadaaf828951f5ba0d8c3e5fb285') in 0.005170 seconds 
+  Import took 0.008234 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 4.702383 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute
-  artifactKey: Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute using Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a23cbfe199c531749ce045b7ad4f3886') in 0.004684 seconds 
-  Import took 0.007243 seconds .
+  Time since last request: 2.682411 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af1936748cf057575310301dd57ef3b5') in 0.005603 seconds 
+  Import took 0.008471 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 10.869248 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute
-  artifactKey: Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute using Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c54fc2758aa6426b9402d484b9156af') in 0.004702 seconds 
-  Import took 0.007733 seconds .
+  Time since last request: 23.482744 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4353608f819f15c8d318729df23abb4a') in 0.005879 seconds 
+  Import took 0.008697 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 27.269724 seconds.
-  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute
-  artifactKey: Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/Inlcude/VoxelStructs.compute using Guid(2b86c95db6fa73a49aae38ce4f85e190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50710bd6d49148f83dbb4184be7849bd') in 0.004756 seconds 
-  Import took 0.007686 seconds .
+  Time since last request: 100.981313 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f667bd5fa5bef872aecd8d6f89c741bc') in 0.005392 seconds 
+  Import took 0.008510 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 139.127392 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '500914fd0363cf14915013ce686bb4f1') in 0.005117 seconds 
+  Import took 0.008092 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 52.029145 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de544b1d2c773a0030ce759151b9f4e4') in 0.005567 seconds 
+  Import took 0.008436 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 57.110981 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'abfd2d629c23ca004de177d01e8c2012') in 0.005691 seconds 
+  Import took 0.009326 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.011479 seconds.
+Registered in 0.009155 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.36 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.066 seconds
+- Completed reload, in  1.017 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.35 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.36 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1831 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 89.7 MB.
 System memory in use after: 89.8 MB.
 
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2317.
-Total: 1.912400 ms (FindLiveObjects: 0.160300 ms CreateObjectMapping: 0.061500 ms MarkObjects: 1.640800 ms  DeleteObjects: 0.048800 ms)
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2277.
+Total: 1.989500 ms (FindLiveObjects: 0.224300 ms CreateObjectMapping: 0.064800 ms MarkObjects: 1.679300 ms  DeleteObjects: 0.019900 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -874,4 +426,151 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-AssetImportWorkerClient::OnTransportError - code=2 error=End of file
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.008983 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.35 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.969 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.34 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1831 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 89.7 MB.
+System memory in use after: 89.8 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2282.
+Total: 1.872700 ms (FindLiveObjects: 0.157400 ms CreateObjectMapping: 0.059100 ms MarkObjects: 1.639500 ms  DeleteObjects: 0.015700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.009094 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.35 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.969 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.36 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1831 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 89.7 MB.
+System memory in use after: 89.8 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2287.
+Total: 2.298800 ms (FindLiveObjects: 0.181800 ms CreateObjectMapping: 0.069100 ms MarkObjects: 2.029700 ms  DeleteObjects: 0.017100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 1476.872660 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fba1a7c097aa2d5a7e9329343f4e5e49') in 0.015689 seconds 
+  Import took 0.018321 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 35.014158 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '24125cf8723f212eea40c4570c0d570f') in 0.006985 seconds 
+  Import took 0.010536 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.195805 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9c287b0cb050c3dca24e9e5dd9fd0507') in 0.005420 seconds 
+  Import took 0.008434 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 293.926169 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '249e87ca259fa06ef76c6e54a14042c2') in 0.006240 seconds 
+  Import took 0.010193 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.226570 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '531cffa722dc064899ccc9992d222f3e') in 0.005653 seconds 
+  Import took 0.008985 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.598866 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bfe1538e43d98a6abf82d283ca46650b') in 0.005841 seconds 
+  Import took 0.008679 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.882370 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa1c1de531d09c9fd6894c017f17b660') in 0.004809 seconds 
+  Import took 0.007435 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 115.816527 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7665feabbd8091c9ab2472adf2e85f06') in 0.004844 seconds 
+  Import took 0.007738 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 208.091617 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df5f05270b5be86f35a919c52182b122') in 0.006242 seconds 
+  Import took 0.010127 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.988137 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20f02fef11472ac2ef18bad449586d5d') in 0.005518 seconds 
+  Import took 0.008838 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 89.470110 seconds.
+  path: Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute
+  artifactKey: Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PrototypeZ/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSV2.compute using Guid(96f1a0b7b9e243a43b95f3f004169bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed2ccb20954d9ffe72415cdf9118cff4') in 0.005534 seconds 
+  Import took 0.008418 seconds .
+

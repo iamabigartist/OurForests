@@ -13,7 +13,7 @@ namespace VolumeTerra.Generate
             }
         }
 
-        public static void GenerateSimpleNoise<T>(this VolumeMatrix<T> matrix, Vector2 range, string seed)
+        public static void GenerateCoherentNoise<T>(this VolumeMatrix<T> matrix, Vector2 range, string seed)
         {
             var noisier = new SimplexNoiseGenerator( seed );
             for (int z = 0; z < matrix.volume_size.z; z++)
