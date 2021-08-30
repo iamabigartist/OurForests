@@ -12,31 +12,32 @@
 //called c1 ( can be up, right, forward )
 //The first point is c0, the second point is c1
 //There are 12 quads in a cube at most.
-//This array represents the 2 cube corner of each quad.
+//This array represents the 2 cube corners' index offset of each quad.
 //
 // The indices: [quad number][c0/c1]
 static const int3 quad_2_corner_in_cube[12][2] =
 {
 
-    {{0, 0, 0}, {0, 0, 1}},
-    {{0, 0, 0}, {0, 1, 0}},
-    {{0, 0, 0}, {1, 0, 0}},
+    {int3(0, 0, 0), int3(0, 0, 1)},
+    {int3(0, 0, 0), int3(0, 1, 0)},
+    {int3(0, 0, 0), int3(1, 0, 0)},
 
-    {{0, 0, 1}, {0, 1, 1}},
-    {{0, 0, 1}, {1, 0, 1}},
+    {int3(0, 0, 1), int3(0, 1, 1)},
+    {int3(0, 0, 1), int3(1, 0, 1)},
 
-    {{0, 1, 0}, {0, 1, 1}},
-    {{0, 1, 0}, {1, 1, 0}},
+    {int3(0, 1, 0), int3(0, 1, 1)},
+    {int3(0, 1, 0), int3(1, 1, 0)},
 
-    {{1, 0, 0}, {1, 0, 1}},
-    {{1, 0, 0}, {1, 1, 0}},
+    {int3(1, 0, 0), int3(1, 0, 1)},
+    {int3(1, 0, 0), int3(1, 1, 0)},
 
-    {{0, 1, 1}, {1, 1, 1}},
+    {int3(0, 1, 1), int3(1, 1, 1)},
 
-    {{1, 0, 1}, {1, 1, 1}},
+    {int3(1, 0, 1), int3(1, 1, 1)},
 
-    {{1, 1, 0}, {1, 1, 1}}
+    {int3(1, 1, 0), int3(1, 1, 1)}
 };
+
 
 //This array represents the directions of the 12 quads. 0/1/2 -> x/y/z axis direction
 //
@@ -70,18 +71,18 @@ static const int3 corner_index_offset_in_quad[3][2][4] =
 {
     //quad of x normal
     {
-        {{0, 0, 0}, {0, 1, 0}, {0, 1, 1}, {0, 0, 1}},
-        {{0, 0, 0}, {0, 0, 1}, {0, 1, 1}, {0, 1, 0}}
+        {int3(0, 0, 0), int3(0, 1, 0), int3(0, 1, 1), int3(0, 0, 1)},
+        {int3(0, 0, 0), int3(0, 0, 1), int3(0, 1, 1), int3(0, 1, 0)}
     },
     //quad of y normal
     {
-        {{0, 0, 0}, {1, 0, 0}, {1, 0, 1}, {0, 0, 1}},
-        {{0, 0, 0}, {0, 0, 1}, {1, 0, 1}, {1, 0, 0}}
+        {int3(0, 0, 0), int3(1, 0, 0), int3(1, 0, 1), int3(0, 0, 1)},
+        {int3(0, 0, 0), int3(0, 0, 1), int3(1, 0, 1), int3(1, 0, 0)},
     },
 
     //quad of z normal
     {
-        {{0, 0, 0}, {1, 0, 0}, {1, 1, 0}, {0, 1, 0}},
-        {{0, 0, 0}, {0, 1, 0}, {1, 1, 0}, {1, 0, 0}}
+        {int3(0, 0, 0), int3(1, 0, 0), int3(1, 1, 0), int3(0, 1, 0)},
+        {int3(0, 0, 0), int3(0, 1, 0), int3(1, 1, 0), int3(1, 0, 0)}
     },
 };

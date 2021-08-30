@@ -56,6 +56,8 @@ namespace VolumeTerra.DataDefinition
         /// </summary>
         public int VoxelMeshVertexCount => VoxelMeshQuadCount * 6;
 
+        public Vector3Int CenterPoint => volume_size / 2;
+
         public int Index(int x, int y, int z)
         {
             return x + y * volume_size.x + z * volume_size.y * volume_size.x;

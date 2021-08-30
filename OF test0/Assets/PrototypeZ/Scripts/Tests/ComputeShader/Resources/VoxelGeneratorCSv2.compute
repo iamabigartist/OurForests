@@ -112,7 +112,7 @@ void GenerateTriangles(uint3 id : SV_DispatchThreadID)
                 outside[z_axis][y_axis][x_axis] =
                 volume_matrix[
                     xyz_x_index(volume_number_size,
-                                index[z_axis][y_axis][x_axis])] > threshold;
+                                index[z_axis][y_axis][x_axis])] < threshold;
             }
         }
     }
@@ -127,14 +127,24 @@ void GenerateTriangles(uint3 id : SV_DispatchThreadID)
             //0 represent the face normal dir is positive axis
             //1 represent the face normal dir is negative axis
             int reverse_dir = outside[c1.z][c1.y][c1.x] ? 0 : 1;
+
+            //These are the offset from c1 of the 4 corner
             int3 quad_corners[4] = corner_index_offset_in_quad[axis_dir][reverse_dir];
+
             QuadMaker maker;
-            maker.make(quad_corners[0], quad_corners[1], quad_corners[2], quad_corners[3]);
+            //Apply the global index position of the 4 corner into the quad
+            maker.make(
+                quad_corners[0] + index[c1.z][c1.y][c1.x],
+                quad_corners[1] + index[c1.z][c1.y][c1.x],
+                quad_corners[2] + index[c1.z][c1.y][c1.x],
+                quad_corners[3] + index[c1.z][c1.y][c1.x]);
             Quad q = maker.ToQuad();
+
             QuadKey key;
             key.make(
                 xyz_x_index(volume_number_size, index[c0.z][c0.y][c0.x]),
                 xyz_x_index(volume_number_size, index[c1.z][c1.y][c1.x]));
+
             int quad_index = quads.IncrementCounter();
             quads[quad_index] = q;
             quad_dict[quad_index] = key;

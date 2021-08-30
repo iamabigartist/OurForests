@@ -72,7 +72,7 @@ void CSMain(uint3 id : SV_DispatchThreadID)
                                 index[z_axis][y_axis][x_axis])];
 
                 outside[z_axis][y_axis][x_axis] =
-                v[z_axis][y_axis][x_axis] > threshold;
+                v[z_axis][y_axis][x_axis] < threshold;
             }
         }
     }

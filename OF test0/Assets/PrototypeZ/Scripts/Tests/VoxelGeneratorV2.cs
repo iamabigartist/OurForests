@@ -24,7 +24,14 @@ namespace Tests
 
         ComputeShader cs;
 
-        (ShaderData<Vector3Int> volume_number_size, ShaderData<float> threshold, ShaderData<ComputeBuffer> volume_matrix, ShaderData<ComputeBuffer> quads, ShaderData<ComputeBuffer> quad_dict) cs_data;
+        (
+            ShaderData<Vector3Int> volume_number_size,
+            ShaderData<float> threshold,
+            ShaderData<ComputeBuffer> volume_matrix,
+            ShaderData<ComputeBuffer> quads,
+            ShaderData<ComputeBuffer> quad_dict
+            )
+            cs_data;
 
 
         void Start()
@@ -43,8 +50,10 @@ namespace Tests
             {
                 m_triangles[i] = i;
             }
-            m_mesh = new Mesh();
-            m_mesh.indexFormat = IndexFormat.UInt32;
+            m_mesh = new Mesh
+            {
+                indexFormat = IndexFormat.UInt32
+            };
 
 
 
@@ -82,7 +91,7 @@ namespace Tests
 
         void InitShader()
         {
-            cs = Resources.Load<ComputeShader>( "VoxelGeneratorCSV1" );
+            cs = Resources.Load<ComputeShader>( "VoxelGeneratorCSV2" );
             cs_data =
                 (
                 new ShaderData<Vector3Int>(
@@ -164,7 +173,8 @@ namespace Tests
 
         void GenerateVolumeMatrix()
         {
-            volume_matrix.GenerateSimpleNoise( "new Vector2( 0, 10 )" );
+            volume_matrix.GenerateSphere( 10, 0, 7, volume_matrix.CenterPoint );
+            // volume_matrix.GenerateSimpleNoise( new Vector2( 0, 10 ), "new Vector2( 0, 10 )" );
             cs_data.volume_matrix.data.SetData( volume_matrix.data );
         }
 

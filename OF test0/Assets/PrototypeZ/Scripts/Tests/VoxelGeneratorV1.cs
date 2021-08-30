@@ -199,7 +199,8 @@ namespace Tests
 
         void GenerateVolumeMatrix()
         {
-            volume_matrix.GenerateSimpleNoise( "new Vector2( 0, 10 )" );
+            volume_matrix.GenerateSphere( 10, 0, 7, volume_matrix.CenterPoint );
+            // volume_matrix.GenerateSimpleNoise( new Vector2( 0, 10 ), "new Vector2( 0, 10 )" );
             cs_data.volume_matrix.data.SetData( volume_matrix.data );
         }
 
