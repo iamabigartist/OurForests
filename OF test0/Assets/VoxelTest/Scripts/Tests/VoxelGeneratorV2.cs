@@ -155,7 +155,6 @@ namespace Tests
                 Mathf.CeilToInt( volume_matrix.CubeCount / 1024f ), 1, 1 );
         }
 
-        int threshold_getback = 0;
 
 
         void GetMeshAndDict()
@@ -183,7 +182,6 @@ namespace Tests
 
 
 
-            Debug.Log( $"{nameof(threshold_getback)}: {threshold_getback}" );
 
             // QuadCenterToIndexDictionary =
             //     QuadCenters.
