@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using VolumeTerra.DataDefinition;
 using VolumeTerra.Generate;
-namespace Tests
+namespace VoxelTest.Tests
 {
     public class ShaderData<T>
     {
@@ -73,7 +73,6 @@ namespace Tests
             GenerateVolumeMatrix();
             GenerateMesh();
             GetMeshAndDict();
-            Debug.Log( "1" );
         }
 
         // bool contains_1;

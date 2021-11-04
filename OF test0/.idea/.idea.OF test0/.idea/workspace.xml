@@ -5,7 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8aa6f73-f44f-4013-b18c-6364ab72914d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/VoxelTest/Resources.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/VoxelTest/Resources/Cube1.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/VoxelTest/Resources/Cube1.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/VoxelTest/Resources/Texture11.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/VoxelTest/Resources/Texture11/enchanting_table_side.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/VoxelTest/Resources/Texture11/enchanting_table_side.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/VoxelTest/Resources/Texture11/enchanting_table_top.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/VoxelTest/Resources/Texture11/enchanting_table_top.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/VoxelTest/Resources/Texture11/end_portal_frame_side.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/VoxelTest/Resources/Texture11/end_portal_frame_side.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/VoxelTest/Resources/Texture11/end_portal_frame_top.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/VoxelTest/Resources/Texture11/end_portal_frame_top.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/VoxelTest/Resources/Texture11/end_stone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/VoxelTest/Resources/Texture11/end_stone.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/VoxelTest/Resources/Texture11/end_stone_bricks.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/VoxelTest/Resources/Texture11/end_stone_bricks.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/VoxelTest/Scripts/Tests/UVCubeShow.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/VoxelTest/Scripts/Tests/UVCubeShow.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/VoxelTest/Scenes/Tests/Test1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VoxelTest/Scenes/Tests/Test1.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/VoxelTest/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSv2.compute" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VoxelTest/Scripts/Tests/ComputeShader/Resources/VoxelGeneratorCSv2.compute" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/VoxelTest/Scripts/Tests/Editor/ComputePerformanceTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VoxelTest/Scripts/Tests/Editor/ComputePerformanceTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/VoxelTest/Scripts/Tests/Editor/MeshSerializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VoxelTest/Scripts/Tests/Editor/MeshSerializer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/VoxelTest/Scripts/Tests/Editor/TestTransferWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VoxelTest/Scripts/Tests/Editor/TestTransferWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/VoxelTest/Scripts/Tests/VoxelGeneratorV1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VoxelTest/Scripts/Tests/VoxelGeneratorV1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/VoxelTest/Scripts/Tests/VoxelGeneratorV2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VoxelTest/Scripts/Tests/VoxelGeneratorV2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Editor.csproj.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/Editor.csproj.DotSettings" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +51,9 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd824cfb55004855b9e6d51b008c90e4568778/df/f734cd01/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MUtility/VectorUtility.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/VoxelTest/Scripts/Tests/UVCubeShow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@1.2.1/Unity.Mathematics/float3.gen.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -57,7 +86,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.deploy.options" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
     <property name="settings.editor.splitter.proportion" value="0.2272309" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -110,7 +139,7 @@
       <workItem from="1635826783492" duration="263000" />
       <workItem from="1635827120844" duration="1798000" />
       <workItem from="1635991079653" duration="534000" />
-      <workItem from="1636007794942" duration="2492000" />
+      <workItem from="1636007794942" duration="5266000" />
     </task>
     <servers />
   </component>

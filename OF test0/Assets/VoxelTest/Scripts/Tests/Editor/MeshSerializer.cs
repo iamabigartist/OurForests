@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEditor;
 using UnityEngine;
-namespace Tests
+namespace VoxelTest.Tests.Editor
 {
     [Serializable]
     public class MeshSerializer : EditorWindow
@@ -22,7 +22,7 @@ namespace Tests
   #endregion
 
         [SerializeField] private Mesh m_mesh;
-        private Editor mesh_editor;
+        private UnityEditor.Editor mesh_editor;
 
 
         private void OnEnable()
@@ -52,7 +52,7 @@ namespace Tests
 
             if (this.m_mesh != null)
             {
-                if (this.mesh_editor == null) this.mesh_editor = Editor.CreateEditor(this.m_mesh);
+                if (this.mesh_editor == null) this.mesh_editor = UnityEditor.Editor.CreateEditor(this.m_mesh);
 
                 this.mesh_editor.OnInspectorGUI();
 

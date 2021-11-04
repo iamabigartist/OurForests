@@ -27,7 +27,7 @@ RWStructuredBuffer<Quad> quads;
 
 //The Pair is
 //1. the index of a Quad as the key
-//2. the 2 cube position c_a, c_b as the value
+//2. the 2 cube corners (which is volume points) position c_a, c_b as the value
 //The quad_dict will be covert to a dictionary by CPU,
 //the value and key will be reversed.
 //It aims to make CPU be able to find the quad index
