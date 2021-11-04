@@ -1,5 +1,5 @@
-#include "Inlcude/VoxelStructs.compute"
-#include "Inlcude/VoxelGenerationBranches.compute"
+#include "Include/VoxelStructs.compute"
+#include "Include/VoxelGenerationBranches.compute"
 #pragma kernel GenerateTriangles
 
 struct QuadKey
@@ -7,7 +7,7 @@ struct QuadKey
     int3 c_a;
     int3 c_b;
 
-    void make(int _c_a, int _c_b)
+    void make(int3 _c_a, int3 _c_b)
     {
         c_a = _c_a;
         c_b = _c_b;
@@ -100,6 +100,8 @@ void GenerateTriangles(uint3 id : SV_DispatchThreadID)
     {
         int3 c0 = quad_2_corner_in_cube[n][0];
         int3 c1 = quad_2_corner_in_cube[n][1];
+        int3 c0_pos = index[c0.z][c0.y][c0.x];
+        int3 c1_pos = index[c1.z][c1.y][c1.x];
         if (outside[c0.z][c0.y][c0.x] != outside[c1.z][c1.y][c1.x])
         {
             int axis_dir = quad_direction_in_cube[n];
@@ -113,16 +115,14 @@ void GenerateTriangles(uint3 id : SV_DispatchThreadID)
             QuadMaker maker;
             //Apply the global index position of the 4 corner into the quad
             maker.make(
-                quad_corners[0] + index[c1.z][c1.y][c1.x],
-                quad_corners[1] + index[c1.z][c1.y][c1.x],
-                quad_corners[2] + index[c1.z][c1.y][c1.x],
-                quad_corners[3] + index[c1.z][c1.y][c1.x]);
+                quad_corners[0] + c1_pos,
+                quad_corners[1] + c1_pos,
+                quad_corners[2] + c1_pos,
+                quad_corners[3] + c1_pos);
             Quad q = maker.ToQuad();
 
             QuadKey key;
-            key.make(
-                index[c0.z][c0.y][c0.x],
-                index[c1.z][c1.y][c1.x]);
+            key.make(c0_pos, c1_pos);
 
             int quad_index = quads.IncrementCounter();
             quads[quad_index] = q;

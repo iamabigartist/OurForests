@@ -58,7 +58,6 @@ namespace VoxelTest.Tests
             GenerateVolumeMatrix();
             GenerateMesh();
             GetMeshAndDict();
-            Debug.Log( "1" );
         }
 
         // bool contains_1;
@@ -217,6 +216,7 @@ namespace VoxelTest.Tests
             cs_data.volume_matrix.data.Release();
             cs_data.quads.data.Release();
             cs_data.quad_dict.data.Release();
+            test_b.Release();
         }
     }
 

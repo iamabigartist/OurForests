@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using UnityEngine;
 namespace VoxelTest.Tests
@@ -7,7 +6,6 @@ namespace VoxelTest.Tests
     {
         MeshFilter mesh_filter;
         MeshRenderer mesh_renderer;
-
         void Start()
         {
             mesh_filter = gameObject.AddComponent<MeshFilter>();
