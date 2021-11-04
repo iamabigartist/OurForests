@@ -39,7 +39,6 @@ RWStructuredBuffer<QuadKey> quad_dict;
 //Debug use
 RWStructuredBuffer<int> test_b;
 
-
 [numthreads(1024, 1, 1)]
 void GenerateTriangles(uint3 id : SV_DispatchThreadID)
 {
