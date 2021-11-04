@@ -1,5 +1,7 @@
 using System.Linq;
+using Unity.Mathematics;
 using UnityEngine;
+using VoxelTest.Tests.Include;
 namespace VoxelTest.Tests
 {
     public class UVCubeShow : MonoBehaviour
@@ -16,7 +18,10 @@ namespace VoxelTest.Tests
         void GenerateUVCube()
         {
             var m_triangle = Enumerable.Range( 0, 6 * 6 ).ToArray();
-
+            for (int i = 0; i < 6; i++)
+            {
+                int3[] quad_corners = VoxelGenerationUtility.corner_index_offset_in_quad[0][0];
+            }
         }
 
     }

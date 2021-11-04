@@ -64,10 +64,6 @@ void GenerateTriangles(uint3 id : SV_DispatchThreadID)
     //The index positions of the 8 volume corner of the cube
     int3 index[2][2][2];
 
-    // //The volume value
-    // float v[2][2][2];
-
-
     //Whether a volume is outside the voxel
     bool outside[2][2][2];
     //Init the cube
