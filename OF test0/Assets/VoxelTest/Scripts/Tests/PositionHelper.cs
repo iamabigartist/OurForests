@@ -15,7 +15,7 @@ namespace VoxelTest.Tests
 
         void Update()
         {
-            text_component.text = (scale * transform.position + offset).ToString();
+            text_component.text = (scale * transform.localPosition + offset).ToString();
         }
     }
 }

@@ -1,6 +1,6 @@
+using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
-using VoxelTest.Tests.Include;
 namespace MUtility
 {
     public static class VectorUtility
@@ -14,13 +14,23 @@ namespace MUtility
             return new Vector4( v.x, v.y, v.z, w );
         }
 
-        public static Vector3 ToVector(this int3 int3)
+        public static Vector3 ToVector(this float3 f)
         {
-            return new Vector3( int3.x, int3.y, int3.z );
+            return new Vector3( f.x, f.y, f.z );
+        }
+        public static Vector2 ToVector(this int2 i)
+        {
+            return new Vector2( i.x, i.y );
+        }
+    }
+    public static class EnumerableUtility
+    {
+        public static string ToMString<T>(this IEnumerable<T> array)
+        {
+            return string.Join( ",", array );
         }
 
-
-        public static Vector3[] ToVectorArray(this int3[] array)
+        public static Vector3[] ToVectorArray(this float3[] array)
         {
             var v_array = new Vector3[array.Length];
             for (int i = 0; i < array.Length; i++)
@@ -29,20 +39,14 @@ namespace MUtility
             }
             return v_array;
         }
-
-        public static int3[] ToVerticesArray(this VoxelGenerationUtility.Quad[] quads)
+        public static Vector2[] ToVectorArray(this int2[] array)
         {
-            var vertices = new int3[quads.Length * 6];
-            for (int i = 0; i < quads.Length; i++)
+            var v_array = new Vector2[array.Length];
+            for (int i = 0; i < array.Length; i++)
             {
-
-                for (int j = 0; j < 6; j++)
-                {
-
-                }
+                v_array[i] = array[i].ToVector();
             }
-            return vertices;
+            return v_array;
         }
-
     }
 }

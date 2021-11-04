@@ -96,32 +96,50 @@ namespace VoxelTest.Tests.Include
         };
 
 
+
+        //The four corner uv of any quad,
+        //The order is as below:
+        /*
+         *  1-----3
+         *  |     |
+         *  |     |
+         *  0-----2
+         */
+        public static readonly int2[] uv_4p =
+        {
+            new int2( 0, 0 ), //00
+            new int2( 0, 1 ), //01
+            new int2( 1, 0 ), //10
+            new int2( 1, 1 ) //11
+        };
+
+        //The uv index of every point in a quad, the order is identical to corner_index_offset_in_quad.
         /// <summary>
         ///     <para>The indices: [normal direction x/y/z][normal direction +/-][which point of the quad(in order for rendering)]</para>
         ///     <para>total: [3][2][4]</para>
         /// </summary>
-        public static readonly int3[][][] corner_uv_in_quad =
+        public static readonly int[][][] corner_uv_index_in_quad =
         {
 
             //quad of x normal
             new[]
             {
-                new[] { new int3( 0, 0, 0 ), new int3( 0, 1, 0 ), new int3( 0, 1, 1 ), new int3( 0, 0, 1 ) },
-                new[] { new int3( 0, 0, 0 ), new int3( 0, 0, 1 ), new int3( 0, 1, 1 ), new int3( 0, 1, 0 ) }
+                new[] { 0, 1, 3, 2 },
+                new[] { 2, 0, 1, 3 }
             },
 
             //quad of y normal
             new[]
             {
-                new[] { new int3( 0, 0, 0 ), new int3( 0, 0, 1 ), new int3( 1, 0, 1 ), new int3( 1, 0, 0 ) },
-                new[] { new int3( 0, 0, 0 ), new int3( 1, 0, 0 ), new int3( 1, 0, 1 ), new int3( 0, 0, 1 ) }
+                new[] { 0, 1, 3, 2 },
+                new[] { 1, 3, 2, 0 }
             },
 
             //quad of z normal
             new[]
             {
-                new[] { new int3( 0, 0, 0 ), new int3( 1, 0, 0 ), new int3( 1, 1, 0 ), new int3( 0, 1, 0 ) },
-                new[] { new int3( 0, 0, 0 ), new int3( 0, 1, 0 ), new int3( 1, 1, 0 ), new int3( 1, 0, 0 ) }
+                new[] { 2, 0, 1, 3 },
+                new[] { 0, 1, 3, 2 }
             }
         };
 
@@ -222,5 +240,9 @@ namespace VoxelTest.Tests.Include
                 return new[] { A, B, C, C, D, A };
             }
         };
+
+        //The vertex order used in quad maker to build 2 triangles.
+        //This order must be used in all arrays that store info of vertices.
+        public static readonly int[] triangle_order_in_quad = { 0, 1, 2, 2, 3, 0 };
     }
 }
