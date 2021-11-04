@@ -1,7 +1,7 @@
 ﻿using Unity.Mathematics;
 namespace VoxelTest.Tests.Include
 {
-    static class VoxelGenerationUtility
+    public static class VoxelGenerationUtility
     {
         //The point is (x,y,z)
         //(0,0,0) is the original point of the cube
@@ -64,13 +64,43 @@ namespace VoxelTest.Tests.Include
         //3. There are 6 case in total, whose quad face normal is +/- x/y/z axis direction.
         //4. When c0 is inside the mesh and c1 is outside the mesh,
         //the quad face normal should be positive axis direction
-        //5. Look towards the quad face, the corners should be clockwise
+        //5. Look above the quad face, the corners should be clockwise
         //6. Note that the order of quad corner of y normal is inverse with other 2 to make it clockwise
         /// <summary>
         ///     <para>The indices: [normal direction x/y/z][normal direction +/-][which point of the quad(in order for rendering)]</para>
         ///     <para>total: [3][2][4]</para>
         /// </summary>
         public static readonly int3[][][] corner_index_offset_in_quad =
+        {
+
+            //quad of x normal
+            new[]
+            {
+                new[] { new int3( 0, 0, 0 ), new int3( 0, 1, 0 ), new int3( 0, 1, 1 ), new int3( 0, 0, 1 ) },
+                new[] { new int3( 0, 0, 0 ), new int3( 0, 0, 1 ), new int3( 0, 1, 1 ), new int3( 0, 1, 0 ) }
+            },
+
+            //quad of y normal
+            new[]
+            {
+                new[] { new int3( 0, 0, 0 ), new int3( 0, 0, 1 ), new int3( 1, 0, 1 ), new int3( 1, 0, 0 ) },
+                new[] { new int3( 0, 0, 0 ), new int3( 1, 0, 0 ), new int3( 1, 0, 1 ), new int3( 0, 0, 1 ) }
+            },
+
+            //quad of z normal
+            new[]
+            {
+                new[] { new int3( 0, 0, 0 ), new int3( 1, 0, 0 ), new int3( 1, 1, 0 ), new int3( 0, 1, 0 ) },
+                new[] { new int3( 0, 0, 0 ), new int3( 0, 1, 0 ), new int3( 1, 1, 0 ), new int3( 1, 0, 0 ) }
+            }
+        };
+
+
+        /// <summary>
+        ///     <para>The indices: [normal direction x/y/z][normal direction +/-][which point of the quad(in order for rendering)]</para>
+        ///     <para>total: [3][2][4]</para>
+        /// </summary>
+        public static readonly int3[][][] corner_uv_in_quad =
         {
 
             //quad of x normal
@@ -105,9 +135,9 @@ namespace VoxelTest.Tests.Include
          */
         public struct Triangle
         {
-            float3 A;
-            float3 B;
-            float3 C;
+            public float3 A;
+            public float3 B;
+            public float3 C;
 
             public Triangle(float3 a, float3 b, float3 c)
             {
@@ -120,14 +150,16 @@ namespace VoxelTest.Tests.Include
 
         public struct Quad
         {
-            Triangle T00;
-            Triangle T11;
+            public Triangle T00;
+            public Triangle T11;
 
             public Quad(Triangle t00, Triangle t11)
             {
                 T00 = t00;
                 T11 = t11;
             }
+
+
         };
 
         //Clock wise
@@ -183,6 +215,11 @@ namespace VoxelTest.Tests.Include
                 return new Quad(
                     Triangle00(),
                     Triangle11() );
+            }
+
+            public float3[] ToVertices()
+            {
+                return new[] { A, B, C, C, D, A };
             }
         };
     }

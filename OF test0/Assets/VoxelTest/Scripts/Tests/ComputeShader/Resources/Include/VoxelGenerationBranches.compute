@@ -63,7 +63,7 @@ static const int quad_direction_in_cube[12] =
 //3. There are 6 case in total, whose quad face normal is +/- x/y/z axis direction.
 //4. When c0 is inside the mesh and c1 is outside the mesh,
 //the quad face normal should be positive axis direction
-//5. Look towards the quad face, the corners should be clockwise
+//5. Look above the quad face, the corners should be clockwise
 //6. Note that the order of quad corner of y normal is inverse with other 2 to make it clockwise
 //
 // The indices: [normal direction x/y/z][normal direction +/-][which point of the quad(in order for rendering)]
