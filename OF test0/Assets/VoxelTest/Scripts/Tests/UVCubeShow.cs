@@ -11,16 +11,24 @@ namespace VoxelTest.Tests
         MeshFilter mesh_filter;
         MeshRenderer mesh_renderer;
         Mesh m_mesh;
+
+        Texture2D ta;
+        Rect[] rects;
+
         void Start()
         {
             mesh_filter = gameObject.GetComponent<MeshFilter>();
             mesh_renderer = gameObject.GetComponent<MeshRenderer>();
+
+            var ts = Resources.LoadAll<Texture2D>( "Texture11" );
+            ta = new Texture2D( 16 * 6, 16 );
+            rects = ta.PackTextures( ts, 0 );
+
             m_mesh = new Mesh()
             {
                 indexFormat = IndexFormat.UInt32
             };
             GenerateUVCube();
-
             mesh_filter.sharedMesh = m_mesh;
         }
 
@@ -44,8 +52,7 @@ namespace VoxelTest.Tests
             const int vertices_count = quad_count * 6;
             var triangles = Enumerable.Range( 0, vertices_count ).ToArray();
             var vertices = new float3[vertices_count];
-            var uv = new int2[vertices_count];
-            var uv2 = new int2[vertices_count];
+            var uv = new float3[vertices_count];
             for (int i = 0; i < quad_count; i++)
             {
                 (int3 c1, int axis, int dir) = quad_iteration[i];
@@ -61,32 +68,30 @@ namespace VoxelTest.Tests
                 );
                 quad_maker.ToVertices().CopyTo( vertices, 6 * i );
 
-                //Generate uv0: position
+                //Generate uv0: position and texture index
                 var quad_corner_uv_indices =
                     VoxelGenerationUtility.corner_uv_index_in_quad[axis][dir];
                 var quad_corner_uv =
                     VoxelGenerationUtility.triangle_order_in_quad.Select(
-                        (index) =>
+                        (index) => new float3(
                             VoxelGenerationUtility.uv_4p
-                                [quad_corner_uv_indices[index]] ).ToArray();
+                                [quad_corner_uv_indices[index]], i )
+                    ).ToArray();
                 quad_corner_uv.CopyTo( uv, 6 * i );
 
-                //Generate uv1:texture index
-                var quad_texture_index =
-                    Enumerable.Repeat( new int2( i, 0 ), 6 ).ToArray();
-                quad_texture_index.CopyTo( uv2, 6 * i );
             }
 
-            print( vertices.ToMString() );
-            print( uv.ToMString() );
-            print( uv2.ToMString() );
-            m_mesh.vertices = vertices.ToVectorArray();
-            m_mesh.triangles = triangles;
-            m_mesh.uv = uv.ToVectorArray();
-            m_mesh.uv2 = uv2.ToVectorArray();
-            m_mesh.RecalculateBounds();
+            m_mesh.SetVertices( vertices.ToVectorArray() );
+            m_mesh.SetTriangles( triangles, 0 );
+            m_mesh.SetUVs( 0, uv.ToVectorArray() );
             m_mesh.RecalculateNormals();
+            m_mesh.RecalculateTangents();
         }
 
+        void OnGUI()
+        {
+            GUI.skin.box.
+            GUILayout.Box( ta );
+        }
     }
 }

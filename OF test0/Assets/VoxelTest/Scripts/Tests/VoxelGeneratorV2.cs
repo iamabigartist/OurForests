@@ -199,16 +199,16 @@ namespace VoxelTest.Tests
         }
 
 
-        void OnGUI()
-        {
-            if (GUILayout.Button( "Regenerate volume matrix" ))
-            {
-                GenerateVolumeMatrix();
-                RefreshBind();
-                GenerateMesh();
-                GetMeshAndDict();
-            }
-        }
+        // void OnGUI()
+        // {
+        //     if (GUILayout.Button( "Regenerate volume matrix" ))
+        //     {
+        //         GenerateVolumeMatrix();
+        //         RefreshBind();
+        //         GenerateMesh();
+        //         GetMeshAndDict();
+        //     }
+        // }
 
 
         void OnDestroy()
