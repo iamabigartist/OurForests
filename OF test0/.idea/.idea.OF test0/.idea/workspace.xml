@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8aa6f73-f44f-4013-b18c-6364ab72914d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/MUtility/TextureUtility.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/MUtility/TextureUtility.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/VoxelTest/Resources/Cube1Graph.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VoxelTest/Resources/Cube1Graph.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/VoxelTest/Resources/Cube1Mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VoxelTest/Resources/Cube1Mat.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/VoxelTest/Resources/Texture11/enchanting_table_side.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VoxelTest/Resources/Texture11/enchanting_table_side.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/VoxelTest/Resources/Texture11/enchanting_table_top.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VoxelTest/Resources/Texture11/enchanting_table_top.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/VoxelTest/Resources/Texture11/end_portal_frame_side.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VoxelTest/Resources/Texture11/end_portal_frame_side.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/VoxelTest/Resources/Texture11/end_portal_frame_top.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VoxelTest/Resources/Texture11/end_portal_frame_top.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/VoxelTest/Resources/Texture11/end_stone.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VoxelTest/Resources/Texture11/end_stone.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/VoxelTest/Resources/Texture11/end_stone_bricks.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VoxelTest/Resources/Texture11/end_stone_bricks.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/VoxelTest/Scenes/Tests/Test1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VoxelTest/Scenes/Tests/Test1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/VoxelTest/Scripts/Tests/UVCubeShow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VoxelTest/Scripts/Tests/UVCubeShow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-    </list>
+    <list default="true" id="a8aa6f73-f44f-4013-b18c-6364ab72914d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -130,7 +115,7 @@
       <workItem from="1635991079653" duration="534000" />
       <workItem from="1636007794942" duration="20325000" />
       <workItem from="1636086104181" duration="4190000" />
-      <workItem from="1636420408818" duration="8027000" />
+      <workItem from="1636420408818" duration="8437000" />
     </task>
     <servers />
   </component>
