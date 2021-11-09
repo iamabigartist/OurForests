@@ -12,8 +12,9 @@ namespace VoxelTest.Tests
         MeshRenderer mesh_renderer;
         Mesh m_mesh;
 
-        Texture2D ta;
-        Rect[] rects;
+        Texture2DArray ta;
+
+        static readonly int array = Shader.PropertyToID( "TArray" );
 
         void Start()
         {
@@ -21,8 +22,24 @@ namespace VoxelTest.Tests
             mesh_renderer = gameObject.GetComponent<MeshRenderer>();
 
             var ts = Resources.LoadAll<Texture2D>( "Texture11" );
-            ta = new Texture2D( 16 * 6, 16 );
-            rects = ta.PackTextures( ts, 0 );
+
+            // foreach (Texture2D texture2D in ts)
+            // {
+            //     print( $"{texture2D.name}: " +
+            //            $"\n graphic: {texture2D.graphicsFormat}" +
+            //            $"\n texture: {texture2D.format}" );
+            // }
+
+            ta = new Texture2DArray(
+                ts[0].width, ts[0].height, ts.Length, ts[0].format, true, true );
+            for (int i = 0; i < ts.Length; i++)
+            {
+                Graphics.CopyTexture( ts[i].CPU_DXT1ToDXT5(),
+                    0, 0, ta, i, 0 );
+            }
+
+            mesh_renderer.material.SetTexture( array, ta );
+
 
             m_mesh = new Mesh()
             {
@@ -31,6 +48,8 @@ namespace VoxelTest.Tests
             GenerateUVCube();
             mesh_filter.sharedMesh = m_mesh;
         }
+
+
 
         (int3 c1, int axis, int dir)[] quad_iteration =
         {
@@ -43,8 +62,6 @@ namespace VoxelTest.Tests
             (new int3( 0, 0, 1 ), 2, 0),
             (new int3( 0, 0, 0 ), 2, 1)
         };
-
-
 
         void GenerateUVCube()
         {
@@ -88,10 +105,6 @@ namespace VoxelTest.Tests
             m_mesh.RecalculateTangents();
         }
 
-        void OnGUI()
-        {
-            GUI.skin.box.
-            GUILayout.Box( ta );
-        }
     }
+
 }
