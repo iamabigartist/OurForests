@@ -6,66 +6,63 @@ namespace VoxelTest.Tests.Editor
     [Serializable]
     public class MeshSerializer : EditorWindow
     {
-        [MenuItem("Tests/MeshSerialiser")]
-        private static void Init()
+        [MenuItem( "Tests/MeshSerialiser" )]
+        static void Init()
         {
             var window = GetWindow<MeshSerializer>();
-            window.titleContent = new GUIContent("MeshSerialiser");
+            window.titleContent = new GUIContent( "MeshSerialiser" );
             window.Show();
         }
 
-#region Serialized
+    #region Serialized
 
-        private SerializedObject this_;
-        private SerializedProperty m_mesh_;
+        SerializedObject this_;
+        SerializedProperty m_mesh_;
 
-  #endregion
+    #endregion
 
-        [SerializeField] private Mesh m_mesh;
-        private UnityEditor.Editor mesh_editor;
+        [SerializeField]
+        Mesh m_mesh;
+        UnityEditor.Editor mesh_editor;
 
 
-        private void OnEnable()
+        void OnEnable()
         {
-            this.m_mesh = new Mesh();
 
-            this.this_ = new SerializedObject(this);
-            this.m_mesh_ = this.this_.FindProperty("m_mesh");
+            this_ = new SerializedObject( this );
+            m_mesh_ = this_.FindProperty( "m_mesh" );
         }
 
-        private Vector2 pos_scroll_view;
-        private void OnGUI()
+        void OnGUI()
         {
-            if (GUILayout.Button("Copy"))
+            if (GUILayout.Button( "Copy" ))
             {
                 var _ = new TextEditor();
-                _.text = JsonUtility.ToJson(this.m_mesh);
+                _.text = JsonUtility.ToJson( m_mesh );
                 _.OnFocus();
                 _.Copy();
             }
 
-            using (var s = new EditorGUILayout.ScrollViewScope(this.pos_scroll_view))
+            EditorGUILayout.PropertyField( m_mesh_ );
+
+            this_.ApplyModifiedProperties();
+
+            if (m_mesh != null)
             {
-                this.pos_scroll_view = s.scrollPosition;
-                EditorGUILayout.PropertyField(this.m_mesh_);
+                mesh_editor = UnityEditor.Editor.CreateEditor( m_mesh );
+
+                mesh_editor.OnInspectorGUI();
+
             }
 
-            if (this.m_mesh != null)
-            {
-                if (this.mesh_editor == null) this.mesh_editor = UnityEditor.Editor.CreateEditor(this.m_mesh);
-
-                this.mesh_editor.OnInspectorGUI();
-
-            }
+            EditorGUILayout.LabelField( $"Triangles: {string.Join( ",", m_mesh.triangles )}" );
 
 
-            this.this_.ApplyModifiedProperties();
-
-            EditorGUILayout.IntField("UInt16: ",sizeof(UInt16));
-            EditorGUILayout.IntField("uint: ",sizeof(uint));
-            EditorGUILayout.IntField("Byte: ",sizeof(Byte));
-            EditorGUILayout.IntField("Boolean: ",sizeof(Boolean));
-            EditorGUILayout.IntField("bool: ",sizeof(bool));
+            EditorGUILayout.IntField( "UInt16: ", sizeof(ushort) );
+            EditorGUILayout.IntField( "uint: ", sizeof(uint) );
+            EditorGUILayout.IntField( "Byte: ", sizeof(byte) );
+            EditorGUILayout.IntField( "Boolean: ", sizeof(bool) );
+            EditorGUILayout.IntField( "bool: ", sizeof(bool) );
 
 
 
