@@ -13,7 +13,7 @@ namespace VolumeTerra.Generate
             }
         }
 
-        public static void GenerateCoherentNoise<T>(this VolumeMatrix<T> matrix, Vector2 range, string seed)
+        public static void GenerateCoherentNoiseThreshold<T>(this VolumeMatrix<T> matrix, Vector2 range, string seed)
         {
             var noisier = new SimplexNoiseGenerator( seed );
             for (int z = 0; z < matrix.volume_size.z; z++)
@@ -31,7 +31,7 @@ namespace VolumeTerra.Generate
             }
         }
 
-        public static void GenerateSphere<T>(this VolumeMatrix<T> matrix, T inside_value, T outside_value, float radius, Vector3Int mid_point)
+        public static void GenerateSphereThreshold<T>(this VolumeMatrix<T> matrix, T inside_value, T outside_value, float radius, Vector3Int mid_point)
         {
             for (int z = 0; z < matrix.volume_size.z; z++)
             {
@@ -48,6 +48,55 @@ namespace VolumeTerra.Generate
                     }
                 }
             }
+        }
+
+
+        /// <summary>
+        ///     <para>0 for air.</para>
+        ///     <para>1 for soil.</para>
+        ///     <para>2 for stone.</para>
+        /// </summary>
+        public static void GenerateSimpleTerrain(
+            this VolumeMatrix<int> matrix,
+            float stone_height_scale,
+            float soil_height_scale,
+            Vector2 noise_offset,
+            float noise_scale = 1)
+        {
+
+            Vector2 transform(Vector2 position)
+            {
+                return position * noise_scale + noise_offset;
+            }
+
+
+            for (int y = 0; y < matrix.volume_size.y; y++)
+            {
+                for (int x = 0; x < matrix.volume_size.x; x++)
+                {
+                    var stone_noise_position = transform( new Vector2( x, y ) );
+                    float stone_height = Mathf.PerlinNoise( stone_noise_position.x, stone_noise_position.y );
+                    var soil_noise_position = transform( new Vector2( x + 5000, y + 5000 ) );
+                    float soil_height = Mathf.PerlinNoise( soil_noise_position.x, soil_noise_position.y );
+                    for (int z = 0; z < matrix.volume_size.z; z++)
+                    {
+                        if (z <= stone_height)
+                        {
+                            matrix[x, y, z] = 2;
+                        }
+                        else if (z <= stone_height + soil_height)
+                        {
+                            matrix[x, y, z] = 1;
+                        }
+                        else
+                        {
+                            matrix[x, y, z] = 0;
+                        }
+                    }
+
+                }
+            }
+
         }
     }
 }

@@ -51,7 +51,7 @@ public class VolumeGenerateTest : MonoBehaviour
 
     void GenerateVolumeMatrix()
     {
-        volume_matrix.GenerateCoherentNoise( new Vector2( 0, 10 ), "aszdas" );
+        volume_matrix.GenerateCoherentNoiseThreshold( new Vector2( 0, 10 ), "aszdas" );
     }
 
     void AddOnce(Vector3 position)

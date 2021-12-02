@@ -200,8 +200,8 @@ namespace VoxelTest.Tests
 
         void GenerateVolumeMatrix()
         {
-            volume_matrix.GenerateSphere( 10, 0, 7, volume_matrix.CenterPoint );
-            // volume_matrix.GenerateCoherentNoise( new Vector2( 0, 10 ), "new Vector2( 0, 10 )" );
+            volume_matrix.GenerateSphereThreshold( 10, 0, 7, volume_matrix.CenterPoint );
+            // volume_matrix.GenerateCoherentNoiseThreshold( new Vector2( 0, 10 ), "new Vector2( 0, 10 )" );
             cs_data.volume_matrix.data.SetData( volume_matrix.data );
         }
 
