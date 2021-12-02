@@ -23,5 +23,13 @@ namespace MUtility
             target_texture.Compress( true );
             return target_texture;
         }
+
+        public static (Rect[], Texture2D ) LoadTextureAtlas(string resources_path, int padding = 0)
+        {
+            var textures = Resources.LoadAll<Texture2D>( resources_path );
+            var t = new Texture2D( 0, 0 );
+            return (t.PackTextures( textures, padding ), t);
+        }
     }
+
 }

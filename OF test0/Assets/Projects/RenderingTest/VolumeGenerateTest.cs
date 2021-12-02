@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using MUtility;
@@ -74,6 +75,33 @@ public class VolumeGenerateTest : MonoBehaviour
 
     }
 
+    void DeletePiece(
+        LinkedListNode<Vector3> v_start_last,
+        LinkedListNode<Vector2> uv1_start_last,
+        LinkedListNode<Vector2> uv2_start_last,
+        int v_count,
+        LinkedListNode<int> t_start_last,
+        int t_count)
+    {
+        for (int i = 0; i < v_count; i++)
+        {
+            ll_vertices.Remove( v_start_last.Next! );
+            ll_uv1.Remove( uv1_start_last.Next! );
+            ll_uv2.Remove( uv2_start_last.Next! );
+        }
+
+        for (int i = 0; i < t_count; i++)
+        {
+            ll_triangles.Remove( t_start_last.Next! );
+        }
+
+        for (var cur_t_node = t_start_last.Next; cur_t_node != null; cur_t_node = cur_t_node.Next)
+        {
+            cur_t_node.Value -= v_count;
+        }
+
+    }
+
     void AddAllMesh()
     {
         for (int z = 0; z < volume_matrix.volume_size.z; z++)
@@ -99,6 +127,11 @@ public class VolumeGenerateTest : MonoBehaviour
         mesh.RecalculateNormals();
         mesh.RecalculateTangents();
         m_meshFilter.sharedMesh = mesh;
+    }
+
+    void OnDestroy()
+    {
+
     }
 
 }
