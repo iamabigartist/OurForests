@@ -13,6 +13,10 @@ namespace VolumeTerra.DataDefinition
         public TData[] data;
 
         public Vector3Int volume_size;
+
+        /// <summary>
+        /// The cubes which are integrated by four volumes.
+        /// </summary>
         public Vector3Int cube_size;
 
         public VolumeMatrix(Vector3Int volumeSize)
@@ -61,7 +65,6 @@ namespace VolumeTerra.DataDefinition
         public int Index(int x, int y, int z)
         {
             return x + y * volume_size.x + z * volume_size.y * volume_size.x;
-
         }
     }
 }

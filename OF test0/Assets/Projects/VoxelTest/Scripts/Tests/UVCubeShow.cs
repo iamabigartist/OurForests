@@ -91,9 +91,9 @@ namespace VoxelTest.Tests
                     VoxelGenerationUtility.corner_uv_index_in_quad[axis][dir];
                 var quad_corner_uv =
                     VoxelGenerationUtility.triangle_order_in_quad.Select(
-                        (index) => new float2(
+                        (index) => new float3(
                             VoxelGenerationUtility.uv_4p
-                                [quad_corner_uv_indices[index]] )
+                                [quad_corner_uv_indices[index]], i )
                     ).ToArray();
                 quad_corner_uv.CopyTo( uv, 6 * i );
 

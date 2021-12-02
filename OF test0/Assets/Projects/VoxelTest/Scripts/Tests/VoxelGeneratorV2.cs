@@ -179,6 +179,7 @@ namespace VoxelTest.Tests
             cs_data.quad_dict.data.GetData( QuadCenters );
 
 
+            print( m_mesh.vertices.Length );
 
 
 
