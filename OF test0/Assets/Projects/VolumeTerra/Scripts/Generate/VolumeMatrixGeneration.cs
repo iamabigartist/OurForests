@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-using VolumeTerra.DataDefinition;
-namespace VolumeTerra.Generate
+using VolumeTerra.Scripts.DataDefinition;
+namespace VolumeTerra.Scripts.Generate
 {
     public static class VolumeMatrixGeneration
     {

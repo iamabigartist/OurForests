@@ -1,11 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using UnityEngine;
 using UnityEngine.Rendering;
-
-namespace MarchingCube1
+namespace MCubeToTerrain.Script.Generator
 {
     /// <summary>
     ///     This class use a <see cref="VolumeMatrix" /> to generate a <see cref="MarchingCubeMesh" /> on CPU without any
@@ -560,10 +558,10 @@ namespace MarchingCube1
 
         #endregion MarchingCubeSteps
 
-        //µÚÒ»²½£¬±ê¼ÇÌå»ıÖĞËùÓĞµãÊÇ·ñ´óÓÚisovalue. bool ¾ØÕó.
-        //µÚ¶ş²½£¬È·¶¨ËùÓĞ¸ñ×ÓµÄcorner_index. ºÍÈ·¶¨ËùÓĞmeshµÄvertices, ¼ÇÂ¼ÏÂ±êµ½Ã¿¸ö¸ñ×Ó.
-        //µÚÈı²½£¬È·¶¨ËùÓĞ¸ñ×ÓµÄÈı½Ç»¯µÄ±ß.
-        //µÚËÄ²½£¬È·¶¨ÉÏÊö±ß¶ÔÓ¦µãµÄ±¾µØË÷Òı.
-        //µÚÎå²½£¬½«±¾µØË÷ÒıÍ¨¹ı¸ñ×ÓÄÚ¼ÇÂ¼×ª»¯ÎªÈ«¾ÖË÷Òı.
+        //ç¬¬ä¸€æ­¥ï¼Œæ ‡è®°ä½“ç§¯ä¸­æ‰€æœ‰ç‚¹æ˜¯å¦å¤§äºisovalue. bool çŸ©é˜µ.
+        //ç¬¬äºŒæ­¥ï¼Œç¡®å®šæ‰€æœ‰æ ¼å­çš„corner_index. å’Œç¡®å®šæ‰€æœ‰meshçš„vertices, è®°å½•ä¸‹æ ‡åˆ°æ¯ä¸ªæ ¼å­.
+        //ç¬¬ä¸‰æ­¥ï¼Œç¡®å®šæ‰€æœ‰æ ¼å­çš„ä¸‰è§’åŒ–çš„è¾¹.
+        //ç¬¬å››æ­¥ï¼Œç¡®å®šä¸Šè¿°è¾¹å¯¹åº”ç‚¹çš„æœ¬åœ°ç´¢å¼•.
+        //ç¬¬äº”æ­¥ï¼Œå°†æœ¬åœ°ç´¢å¼•é€šè¿‡æ ¼å­å†…è®°å½•è½¬åŒ–ä¸ºå…¨å±€ç´¢å¼•.
     }
 }

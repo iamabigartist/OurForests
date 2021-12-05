@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using UnityEditor;
 using UnityEngine;
-namespace RenderingTest.Editor
+namespace RenderingTest.Scripts
 {
     public class MeshTrans : EditorWindow
     {

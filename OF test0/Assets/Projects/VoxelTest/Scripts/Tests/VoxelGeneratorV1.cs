@@ -2,9 +2,9 @@
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering;
-using VolumeTerra.DataDefinition;
-using VolumeTerra.Generate;
-namespace VoxelTest.Tests
+using VolumeTerra.Scripts.DataDefinition;
+using VolumeTerra.Scripts.Generate;
+namespace VoxelTest.Scripts.Tests
 {
     public class ShaderData<T>
     {
@@ -33,7 +33,7 @@ namespace VoxelTest.Tests
 
         VolumeMatrix<float> volume_matrix;
 
-        ComputeShader cs;
+        UnityEngine.ComputeShader cs;
 
         (
             ShaderData<Vector3Int> volume_number_size,
@@ -100,7 +100,7 @@ namespace VoxelTest.Tests
 
         void InitShader()
         {
-            cs = Resources.Load<ComputeShader>( "VoxelGeneratorCSV1" );
+            cs = Resources.Load<UnityEngine.ComputeShader>( "VoxelGeneratorCSV1" );
             cs_data =
                 (
                 new ShaderData<Vector3Int>(

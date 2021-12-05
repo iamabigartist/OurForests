@@ -1,9 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-
 using UnityEngine;
-
-namespace MarchingCube1
+namespace MCubeToTerrain.Script.Generator
 {
     /// <summary>
     /// This class uses 3d perlin noise to generate a <see cref="VolumeMatrix"/>

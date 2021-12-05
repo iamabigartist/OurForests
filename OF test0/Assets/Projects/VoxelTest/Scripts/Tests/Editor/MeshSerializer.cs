@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEditor;
 using UnityEngine;
-namespace VoxelTest.Tests.Editor
+namespace VoxelTest.Scripts.Tests
 {
     [Serializable]
     public class MeshSerializer : EditorWindow

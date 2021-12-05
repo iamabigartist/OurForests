@@ -1,10 +1,5 @@
-
-using System.Collections;
-using System.Collections.Generic;
-
 using UnityEngine;
-
-namespace MarchingCube1
+namespace MCubeToTerrain.Script.Generator
 {
     /// <summary>
     /// This class generate a random <see cref="VolumeMatrix"/>.

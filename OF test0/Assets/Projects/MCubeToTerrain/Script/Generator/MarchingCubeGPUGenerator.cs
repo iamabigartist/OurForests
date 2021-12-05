@@ -1,10 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-
 using UnityEngine;
-
-namespace MarchingCube1
+namespace MCubeToTerrain.Script.Generator
 {
     /// <summary>
     /// This class use a <see cref="VolumeMatrix"/> to generate a <see cref="MarchingCubeMesh"/> on GPU

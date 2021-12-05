@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
-namespace MarchingCube1
+namespace MCubeToTerrain.Script
 {
 
     /// <summary>

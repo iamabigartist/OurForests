@@ -1,6 +1,6 @@
 ﻿using UnityEditor;
 using UnityEngine;
-namespace VoxelTest.Tests.Editor
+namespace VoxelTest.Scripts.Tests
 {
     public class TestTransferWindow : EditorWindow
     {

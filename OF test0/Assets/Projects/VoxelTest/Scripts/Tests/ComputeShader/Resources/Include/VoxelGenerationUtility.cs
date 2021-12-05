@@ -1,5 +1,5 @@
 ﻿using Unity.Mathematics;
-namespace VoxelTest.Tests.Include
+namespace VoxelTest.Scripts.Tests.ComputeShader.Resources.Include
 {
     public static class VoxelGenerationUtility
     {
