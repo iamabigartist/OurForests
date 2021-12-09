@@ -48,7 +48,7 @@ namespace RenderingTest.Scripts.Tests
             AddAllMesh();
 
 
-            Debug.Log( $"Memory in GB: {ll_vertices.GetObjectByte()/(1024*1024*1024)}" );
+            Debug.Log( $"Memory in GB: {ll_vertices.GetObjectByte() / (1024f * 1024f * 1024f)}" );
 
         }
 
