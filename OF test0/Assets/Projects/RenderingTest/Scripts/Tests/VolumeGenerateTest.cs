@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using MUtility;
@@ -5,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using VolumeTerra.Scripts.DataDefinition;
 using VolumeTerra.Scripts.Generate;
-namespace RenderingTest.Scripts.Tests
+namespace RenderingTest.Tests
 {
     public class VolumeGenerateTest : MonoBehaviour
     {
@@ -18,6 +19,7 @@ namespace RenderingTest.Scripts.Tests
         Mesh prefab_mesh;
         Material prefab_material;
 
+        Mesh m_mesh;
         LinkedList<Vector3> ll_vertices;
         LinkedList<int> ll_triangles;
         LinkedList<Vector2> ll_uv1;
@@ -48,7 +50,8 @@ namespace RenderingTest.Scripts.Tests
             AddAllMesh();
 
 
-            Debug.Log( $"Memory in GB: {ll_vertices.GetObjectByte() / (1024f * 1024f * 1024f)}" );
+            Debug.Log( $"Memory in GB: {m_mesh.GetObjectByte() / (1024f * 1024f * 1024f)}" );
+            Debug.Log( $"Vertices Length: {ll_vertices.Count}" );
 
         }
 
@@ -118,25 +121,31 @@ namespace RenderingTest.Scripts.Tests
                 }
             }
 
-            var mesh = new Mesh()
+            m_mesh = new Mesh
             {
-                indexFormat = IndexFormat.UInt32
+                indexFormat = IndexFormat.UInt32,
+                vertices = ll_vertices.ToArray(),
+                triangles = ll_triangles.ToArray(),
+                uv = ll_uv1.ToArray(),
+                uv2 = ll_uv2.ToArray()
             };
-            mesh.vertices = ll_vertices.ToArray();
-            mesh.triangles = ll_triangles.ToArray();
-            mesh.uv = ll_uv1.ToArray();
-            mesh.uv2 = ll_uv2.ToArray();
-            mesh.RecalculateBounds();
-            mesh.RecalculateNormals();
-            mesh.RecalculateTangents();
-            m_meshFilter.mesh = mesh;
+            m_mesh.RecalculateBounds();
+            m_mesh.RecalculateNormals();
+            m_mesh.RecalculateTangents();
+            // m_meshFilter.mesh = mesh;
         }
 
-        void OnDestroy()
+        void OnDisable()
         {
             var f_mesh = m_meshFilter.mesh;
             Destroy( f_mesh );
             Destroy( m_meshFilter );
+            Destroy( this );
+            Debug.Log( $"{GC.GetTotalMemory( false )}" );
+            GC.Collect();
+            Debug.Log( $"{GC.GetTotalMemory( false )}" );
+
+
         }
 
 

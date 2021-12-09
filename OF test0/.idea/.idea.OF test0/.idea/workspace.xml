@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8aa6f73-f44f-4013-b18c-6364ab72914d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Projects/AssetTest/Editor/LListTest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Projects/AssetTest/Editor/LListTest.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj.DotSettings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/RenderingTest/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/RenderingTest/Main.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Projects/RenderingTest/Scripts/Tests/VolumeGenerateTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/RenderingTest/Scripts/Tests/VolumeGenerateTest.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,16 +30,19 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Projects/AssetTest/MyAssetImporter.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/127e81e1cb3441cc97d26b1910daae7713b000/66/4c2d3e63/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@10.5.1/Runtime/ShadowUtils.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Tests/UVCubeShow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@1.2.1/Unity.Mathematics/float3.gen.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Projects/AssetTest/MyAssetImporter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Tests/UVCubeShow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@10.5.1/Runtime/Volume/VolumeComponent.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/MCubeToTerrain/Script/DataStructures.cs" />
     </changedPaths>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="1wORpp4Nfpws3nFKjy46jmWcsfx" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -61,6 +69,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="rider.run.widget.enabled.cache" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="settings.editor.splitter.proportion" value="0.2272309" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -131,6 +140,9 @@
       <workItem from="1638708738231" duration="1129000" />
       <workItem from="1638709916680" duration="1202000" />
       <workItem from="1639024386105" duration="894000" />
+      <workItem from="1639036660357" duration="159000" />
+      <workItem from="1639036978829" duration="1830000" />
+      <workItem from="1639039153120" duration="2946000" />
     </task>
     <servers />
   </component>
@@ -150,7 +162,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -168,14 +179,7 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Projects/AssetTest/SOAssetSaver.cs</url>
           <line>10</line>
-          <properties documentPath="C:\Users\15480\Documents\Unity Projects\OurForests\OF test0\Assets\Projects\AssetTest\SOAssetSaver.cs" initialLine="10" containingFunctionPresentation="method 'Start'">
-            <startOffsets>
-              <option value="287" />
-            </startOffsets>
-            <endOffsets>
-              <option value="366" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Users\15480\Documents\Unity Projects\OurForests\OF test0\Assets\Projects\AssetTest\SOAssetSaver.cs" initialLine="10" containingFunctionPresentation="method 'Start'" />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
