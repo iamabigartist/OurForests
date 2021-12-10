@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using MUtility;
 using UnityEditor;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 namespace AssetTest
 {
     public class LListTest : EditorWindow
@@ -20,12 +22,16 @@ namespace AssetTest
         int[] test_array;
         float record1;
 
+        LinkedList<List<int>> test_lll;
+        List<List<int>> test_llll;
 
         int len;
 
         void OnEnable()
         {
             test_ll = new LinkedList<int>();
+            test_lll = new LinkedList<List<int>>();
+            test_llll = new List<List<int>>();
             record1 = 0;
         }
 
@@ -34,17 +40,36 @@ namespace AssetTest
             len = EditorGUILayout.IntField( "List Length", len );
             if (GUILayout.Button( "Run" ))
             {
-                InitList();
-                TurnList();
+                InitLLList();
+
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
-                AddList();
+                for (int i = 0; i < 100; i++)
+                {
+                    test_llll.RemoveAt( Random.Range( 0, test_llll.Count ) );
+                }
                 stopwatch.Stop();
                 record1 = stopwatch.ElapsedTicks / 10000f;
+                Debug.Log( test_array.Length );
+
             }
             EditorGUILayout.LabelField( $"Record: {record1} ms" );
         }
 
+
+        // void IterateThroughLink()
+        // {
+        //     const int thread_num = 10;
+        //     int node_count_thread = Mathf.CeilToInt( (float)test_lll.Count / thread_num );
+        //     for (int i = 0; i < thread_num; i++)
+        //     {
+        //         LinkedListNode<int> cur_node=
+        //         for (int j = 0; j < node_count_thread; j++)
+        //         {
+        //
+        //         }
+        //     }
+        // }
 
         void InitList()
         {
@@ -56,9 +81,68 @@ namespace AssetTest
         }
 
 
+        void InitLList()
+        {
+            test_lll.Clear();
+
+            var list = new List<int>();
+            for (int i = 0; i < 24; i++)
+            {
+                list.Add( 1 );
+            }
+
+            for (int i = 0; i < Mathf.CeilToInt( len / 24f ); i++)
+            {
+                test_lll.AddLast( list );
+            }
+        }
+
+        List<int> test_llll_start_indices;
+
+        void InitLLList()
+        {
+            test_llll.Clear();
+
+            var list = new List<int>();
+            for (int i = 0; i < 24; i++)
+            {
+                list.Add( 1 );
+            }
+
+            int count = Mathf.CeilToInt( len / 24f );
+            for (int i = 0; i < count; i++)
+            {
+                test_llll.Add( list );
+            }
+
+            test_llll_start_indices = new List<int>
+            {
+                Capacity = test_llll.Count
+            };
+
+            int cur_sum = 0;
+            for (int i = 0; i < test_llll.Count; i++)
+            {
+                test_llll_start_indices.Add( cur_sum );
+                cur_sum += test_llll[i].Count;
+            }
+
+        }
+
+
         void TurnList()
         {
             test_array = test_ll.ToArray();
+        }
+
+        void TurnLList()
+        {
+            test_array = test_lll.ToFlattenedArray();
+        }
+
+        void TurnLLList()
+        {
+            test_array = test_llll.ToFlattenedArrayParallel( test_llll_start_indices );
         }
 
         void AddList()

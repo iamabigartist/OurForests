@@ -1,6 +1,6 @@
 ﻿using UnityEditor;
 using UnityEngine;
-namespace AssetTest.Editor
+namespace AssetTest
 {
     public class ShowString : EditorWindow
     {

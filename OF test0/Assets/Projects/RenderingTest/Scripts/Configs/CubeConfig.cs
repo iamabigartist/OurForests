@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-namespace RenderingTest.Scripts.Configs
+namespace RenderingTest.Configs
 {
     [CreateAssetMenu( fileName = "Cube1", menuName = "", order = 0 )]
     public class CubeConfig : ScriptableObject

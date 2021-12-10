@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace RenderingTest.Scripts.Tests
+namespace RenderingTest.Tests
 {
     public class CubeManeger : MonoBehaviour
     {

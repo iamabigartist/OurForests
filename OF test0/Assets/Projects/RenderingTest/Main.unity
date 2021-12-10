@@ -294,7 +294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Threshold: 5
-  VolumeSize: 46
+  VolumeSize: 20
   m_prefab: {fileID: 3524280255944845384, guid: 57fa3b7fab80a184ba1ebbdcf7cb3ecd, type: 3}
 --- !u!4 &1419423936
 Transform:

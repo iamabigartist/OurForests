@@ -132,7 +132,7 @@ namespace RenderingTest.Tests
             m_mesh.RecalculateBounds();
             m_mesh.RecalculateNormals();
             m_mesh.RecalculateTangents();
-            // m_meshFilter.mesh = mesh;
+            m_meshFilter.mesh = m_mesh;
         }
 
         void OnDisable()

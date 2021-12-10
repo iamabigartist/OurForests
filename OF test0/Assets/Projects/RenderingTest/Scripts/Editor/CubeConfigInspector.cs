@@ -1,7 +1,7 @@
-﻿using RenderingTest.Scripts.Configs;
+﻿using RenderingTest.Configs;
 using UnityEditor;
 using UnityEngine;
-namespace RenderingTest.Scripts
+namespace RenderingTest
 {
     [CustomEditor( typeof(CubeConfig) )]
     public class CubeConfigInspector : Editor

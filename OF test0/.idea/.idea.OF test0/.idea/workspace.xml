@@ -5,13 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8aa6f73-f44f-4013-b18c-6364ab72914d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Projects/AssetTest/Editor/LListTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Projects/AssetTest/Editor/LListTest.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj.DotSettings" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/AssetTest/Editor/LListTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/AssetTest/Editor/LListTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/AssetTest/Editor/ShowString.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/AssetTest/Editor/ShowString.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/MUtility/EnumerateUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/MUtility/EnumerateUtility.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Projects/RenderingTest/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/RenderingTest/Main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/RenderingTest/Scripts/Configs/CubeConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/RenderingTest/Scripts/Configs/CubeConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/RenderingTest/Scripts/Editor/CubeConfigInspector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/RenderingTest/Scripts/Editor/CubeConfigInspector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/RenderingTest/Scripts/Editor/MeshTrans.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/RenderingTest/Scripts/Editor/MeshTrans.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/RenderingTest/Scripts/Tests/CubeManeger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/RenderingTest/Scripts/Tests/CubeManeger.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Projects/RenderingTest/Scripts/Tests/VolumeGenerateTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/RenderingTest/Scripts/Tests/VolumeGenerateTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,10 +34,11 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@10.5.1/Runtime/ShadowUtils.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@1.2.1/Unity.Mathematics/float3.gen.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/AssetTest/MyAssetImporter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5db3cb5776704b90a1ee60dfe561e643e2a00/1c/bc4c502f/JsonFormatWriterInterpreter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@10.5.1/Runtime/ShadowUtils.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Tests/UVCubeShow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@1.2.1/Unity.Mathematics/float3.gen.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@10.5.1/Runtime/Volume/VolumeComponent.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -85,10 +90,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="23628">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="23628" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -143,6 +148,7 @@
       <workItem from="1639036660357" duration="159000" />
       <workItem from="1639036978829" duration="1830000" />
       <workItem from="1639039153120" duration="2946000" />
+      <workItem from="1639046460054" duration="8305000" />
     </task>
     <servers />
   </component>
@@ -162,6 +168,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
