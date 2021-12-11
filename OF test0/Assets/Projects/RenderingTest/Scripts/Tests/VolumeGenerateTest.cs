@@ -4,8 +4,8 @@ using System.Linq;
 using MUtility;
 using UnityEngine;
 using UnityEngine.Rendering;
-using VolumeTerra.Scripts.DataDefinition;
-using VolumeTerra.Scripts.Generate;
+using VolumeTerra.DataDefinition;
+using VolumeTerra.Generate;
 namespace RenderingTest.Tests
 {
     public class VolumeGenerateTest : MonoBehaviour

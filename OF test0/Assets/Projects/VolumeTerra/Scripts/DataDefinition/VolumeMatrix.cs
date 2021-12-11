@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-namespace VolumeTerra.Scripts.DataDefinition
+namespace VolumeTerra.DataDefinition
 {
     /// <summary>
     ///     A 3D matrix which represents particles align to uniform grid in a rectangular.
@@ -15,7 +15,7 @@ namespace VolumeTerra.Scripts.DataDefinition
         public Vector3Int volume_size;
 
         /// <summary>
-        /// The cubes which are integrated by four volumes.
+        ///     The cubes which are integrated by four volumes.
         /// </summary>
         public Vector3Int cube_size;
 
@@ -65,6 +65,38 @@ namespace VolumeTerra.Scripts.DataDefinition
         public int Index(int x, int y, int z)
         {
             return x + y * volume_size.x + z * volume_size.y * volume_size.x;
+        }
+
+        // public Vector3Int Position(int i)
+        // {
+        //     int z = i / (volume_size.x * volume_size.y);
+        //     int y = i % (volume_size.x * volume_size.y) / volume_size.x;
+        //     int x = i % volume_size.x;
+        //
+        //     return new Vector3Int( x, y, z );
+        // } Slower version
+
+        public Vector3Int Position(int i)
+        {
+            int z = i / (volume_size.x * volume_size.y);
+            int y = (i - z * volume_size.x * volume_size.y) / volume_size.x;
+            int x = i - y * volume_size.x;
+
+            return new Vector3Int( x, y, z );
+        }
+
+        public void PositionFor(Action<int, int, int> action)
+        {
+            for (int z = 0; z < volume_size.z; z++)
+            {
+                for (int y = 0; y < volume_size.y; y++)
+                {
+                    for (int x = 0; x < volume_size.x; x++)
+                    {
+                        action( x, y, z );
+                    }
+                }
+            }
         }
     }
 }

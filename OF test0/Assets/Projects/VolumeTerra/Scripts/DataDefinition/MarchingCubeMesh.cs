@@ -1,4 +1,4 @@
-namespace VolumeTerra.Scripts.DataDefinition
+namespace VolumeTerra.DataDefinition
 {
     public class MarchingCubeMesh
     {

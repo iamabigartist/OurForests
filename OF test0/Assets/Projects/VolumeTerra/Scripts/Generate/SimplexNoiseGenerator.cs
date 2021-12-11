@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-namespace VolumeTerra.Scripts.Generate
+namespace VolumeTerra.Generate
 {
 	public class SimplexNoiseGenerator {
 		private int[] A = new int[3];

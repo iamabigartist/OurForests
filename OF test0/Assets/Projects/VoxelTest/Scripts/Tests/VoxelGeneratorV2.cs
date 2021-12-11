@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
-using VolumeTerra.Scripts.DataDefinition;
-using VolumeTerra.Scripts.Generate;
+using VolumeTerra.DataDefinition;
+using VolumeTerra.Generate;
 namespace VoxelTest.Scripts.Tests
 {
     public class VoxelGeneratorV2 : MonoBehaviour

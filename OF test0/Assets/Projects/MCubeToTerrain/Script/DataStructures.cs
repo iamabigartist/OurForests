@@ -9,6 +9,7 @@ namespace MCubeToTerrain.Script
     /// <summary>
     ///     A uniform partice filed
     /// </summary>
+    [Obsolete( "Old structures with wjw" )]
     [Serializable]
     public class VolumeMatrix
     {

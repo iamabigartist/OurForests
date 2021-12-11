@@ -1,10 +1,20 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 namespace MUtility
 {
     public static class EnumerateUtility
     {
+
+        public static T[] Copy<T>(this T[] array)
+        {
+            var new_array = new T[array.Length];
+            Array.Copy( array, new_array, 0 );
+            return new_array;
+        }
+
+    #region LinkedList
 
         public static LinkedListNode<T> AppendLast<T>(this LinkedList<T> list, T[] array)
         {
@@ -15,6 +25,11 @@ namespace MUtility
             }
             return head;
         }
+
+
+    #endregion
+
+    #region Flatten
 
         public static int FlattenedCount<T>(this IEnumerable<IEnumerable<T>> lists)
         {
@@ -38,19 +53,17 @@ namespace MUtility
         {
             var array = new T[lists.FlattenedCount()];
 
-            // int cur_sum = 0;
-            // Stopwatch stopwatch = new Stopwatch();
-            // stopwatch.Start();
-            //
-            // for (int i = 0; i < lists.Count; i++)
-            // {
-            //     start_indices.Add( cur_sum );
-            //     cur_sum += lists[i].Count;
-            // }
-            //
-            // stopwatch.Stop();
-            // var record = stopwatch.ElapsedTicks / 10000f;
-            // Debug.Log( $"Record: {record} ms" );
+            Parallel.For( 0, lists.Count, i =>
+            {
+                var cur_list = lists[i];
+                cur_list.CopyTo( array, start_indices[i] );
+            } );
+            return array;
+        }
+
+        public static T[] ToFlattenedArrayParallel<T>(this List<T[]> lists, List<int> start_indices)
+        {
+            var array = new T[lists.FlattenedCount()];
 
             Parallel.For( 0, lists.Count, i =>
             {
@@ -59,5 +72,9 @@ namespace MUtility
             } );
             return array;
         }
+
+    #endregion
+
+
     }
 }

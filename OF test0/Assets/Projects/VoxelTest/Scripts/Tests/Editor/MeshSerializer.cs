@@ -56,6 +56,9 @@ namespace VoxelTest.Scripts.Tests
             }
 
             EditorGUILayout.LabelField( $"Triangles: {string.Join( ",", m_mesh.triangles )}" );
+            EditorGUILayout.LabelField( $"Vertex Count: {string.Join( ",", m_mesh.vertices.Length )}" );
+            EditorGUILayout.LabelField( $"UV Count: {string.Join( ",", m_mesh.uv.Length )}" );
+
 
 
             EditorGUILayout.IntField( "UInt16: ", sizeof(ushort) );

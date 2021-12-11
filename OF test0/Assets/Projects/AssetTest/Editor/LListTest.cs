@@ -4,7 +4,6 @@ using System.Linq;
 using MUtility;
 using UnityEditor;
 using UnityEngine;
-using Debug = UnityEngine.Debug;
 namespace AssetTest
 {
     public class LListTest : EditorWindow
@@ -23,7 +22,7 @@ namespace AssetTest
         float record1;
 
         LinkedList<List<int>> test_lll;
-        List<List<int>> test_llll;
+        List<int[]> test_llll;
 
         int len;
 
@@ -31,7 +30,7 @@ namespace AssetTest
         {
             test_ll = new LinkedList<int>();
             test_lll = new LinkedList<List<int>>();
-            test_llll = new List<List<int>>();
+            test_llll = new List<int[]>();
             record1 = 0;
         }
 
@@ -40,17 +39,19 @@ namespace AssetTest
             len = EditorGUILayout.IntField( "List Length", len );
             if (GUILayout.Button( "Run" ))
             {
-                InitLLList();
 
+
+                InitLLList();
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
-                for (int i = 0; i < 100; i++)
+                int cur_sum = 0;
+                for (int i = 0; i < test_llll.Count; i++)
                 {
-                    test_llll.RemoveAt( Random.Range( 0, test_llll.Count ) );
+                    test_llll_start_indices.Add( cur_sum );
+                    cur_sum += test_llll[i].Length;
                 }
                 stopwatch.Stop();
                 record1 = stopwatch.ElapsedTicks / 10000f;
-                Debug.Log( test_array.Length );
 
             }
             EditorGUILayout.LabelField( $"Record: {record1} ms" );
@@ -101,30 +102,26 @@ namespace AssetTest
 
         void InitLLList()
         {
-            test_llll.Clear();
+            test_llll = new List<int[]>();
 
-            var list = new List<int>();
+            var array = new int[24];
             for (int i = 0; i < 24; i++)
             {
-                list.Add( 1 );
+                array[i] = 1;
             }
 
             int count = Mathf.CeilToInt( len / 24f );
-            for (int i = 0; i < count; i++)
-            {
-                test_llll.Add( list );
-            }
-
+            test_llll.Capacity = count;
             test_llll_start_indices = new List<int>
             {
-                Capacity = test_llll.Count
+                Capacity = count
             };
-
             int cur_sum = 0;
-            for (int i = 0; i < test_llll.Count; i++)
+            for (int i = 0; i < count; i++)
             {
+                test_llll.Add( array.Copy() );
                 test_llll_start_indices.Add( cur_sum );
-                cur_sum += test_llll[i].Count;
+                cur_sum += test_llll[i].Length;
             }
 
         }
