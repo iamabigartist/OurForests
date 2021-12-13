@@ -4,6 +4,7 @@ using System.Linq;
 using MUtility;
 using UnityEditor;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 namespace AssetTest
 {
     public class LListTest : EditorWindow
@@ -44,17 +45,23 @@ namespace AssetTest
                 InitLLList();
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
-                int cur_sum = 0;
-                for (int i = 0; i < test_llll.Count; i++)
-                {
-                    test_llll_start_indices.Add( cur_sum );
-                    cur_sum += test_llll[i].Length;
-                }
+                test_llll.GetFlattenCopyPositions();
                 stopwatch.Stop();
                 record1 = stopwatch.ElapsedTicks / 10000f;
 
+                stopwatch.Restart();
+                TurnLLList();
+                stopwatch.Stop();
+                record1 -= stopwatch.ElapsedTicks / 10000f;
+
+                var AQAA = new List<int>() { 1, 2, 3 };
+                Debug.Log( AQAA.IndexOf( 4 ) );
+
+
             }
             EditorGUILayout.LabelField( $"Record: {record1} ms" );
+
+            var a = new int[23];
         }
 
 
@@ -139,7 +146,12 @@ namespace AssetTest
 
         void TurnLLList()
         {
-            test_array = test_llll.ToFlattenedArrayParallel( test_llll_start_indices );
+            test_array = test_llll.ToFlattenedArrayParallel( test_llll.GetFlattenCopyPositions() );
+        }
+
+        void TurnLLListMany()
+        {
+            test_array = test_llll.SelectMany( (i) => i ).ToArray();
         }
 
         void AddList()
@@ -149,5 +161,6 @@ namespace AssetTest
                 test_array[i] += 1;
             }
         }
+
     }
 }
