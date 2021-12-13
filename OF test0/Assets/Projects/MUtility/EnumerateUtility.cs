@@ -26,7 +26,6 @@ namespace MUtility
             return head;
         }
 
-
     #endregion
 
     #region Flatten
@@ -49,7 +48,7 @@ namespace MUtility
             return array;
         }
 
-        public static T[] ToFlattenedArrayParallel<T>(this List<List<T>> lists, List<int> start_indices)
+        public static T[] ToFlattenedArrayParallel<T>(this List<List<T>> lists, int[] start_indices)
         {
             var array = new T[lists.FlattenedCount()];
 
@@ -61,7 +60,7 @@ namespace MUtility
             return array;
         }
 
-        public static T[] ToFlattenedArrayParallel<T>(this List<T[]> lists, List<int> start_indices)
+        public static T[] ToFlattenedArrayParallel<T>(this List<T[]> lists, int[] start_indices)
         {
             var array = new T[lists.FlattenedCount()];
 
@@ -70,7 +69,52 @@ namespace MUtility
                 var cur_list = lists[i];
                 cur_list.CopyTo( array, start_indices[i] );
             } );
+
             return array;
+        }
+
+        public static int[] GetFlattenCopyPositions<T>(this IEnumerable<IEnumerable<T>> arrays)
+        {
+            var copy_positions = new int[arrays.Count()];
+            int i = 0;
+            int sum = 0;
+            foreach (var array in arrays)
+            {
+                copy_positions[i] = sum;
+                i++;
+                sum += array.Count();
+            }
+            return copy_positions;
+        }
+
+        // public static T[] ToFlattenedArrayParallel<T>(
+        //     this IEnumerable<IEnumerable<T>> arrays,
+        //     int[] write_positions)
+        // {
+        //     var flatten_array = new T[write_positions.Last()];
+        //
+        //     Parallel.ForEach( arrays, (array, state, i) =>
+        //     {
+        //         array.ToArray().CopyTo( flatten_array, write_positions[i] );
+        //     } );
+        //
+        //     return flatten_array;
+        // }
+
+        public static T[] ToFlattenedArray<T>(
+            this IEnumerable<IEnumerable<T>> arrays,
+            int[] write_positions)
+        {
+            var flatten_array = new T[write_positions.Last()];
+
+            int i = 0;
+            foreach (var array in arrays)
+            {
+                array.ToArray().CopyTo( flatten_array, write_positions[i] );
+                i++;
+            }
+
+            return flatten_array;
         }
 
     #endregion
