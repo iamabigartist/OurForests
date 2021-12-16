@@ -1,4 +1,5 @@
 using System;
+using MUtility;
 using UnityEngine;
 namespace VolumeTerra.DataDefinition
 {
@@ -79,10 +80,22 @@ namespace VolumeTerra.DataDefinition
         public Vector3Int Position(int i)
         {
             int z = i / (volume_size.x * volume_size.y);
-            int y = (i - z * volume_size.x * volume_size.y) / volume_size.x;
-            int x = i - y * volume_size.x;
+            i -= z * volume_size.x * volume_size.y;
+            int y = i / volume_size.x;
+            i -= y * volume_size.x;
+            int x = i;
 
             return new Vector3Int( x, y, z );
+        }
+
+        public bool IsEdge(int x, int y, int z)
+        {
+            return
+                x * y * z *
+                (volume_size
+                 - new Vector3Int( x, y, z ) - Vector3Int.one).
+                XYZProduct()
+                == 0;
         }
 
         public void PositionFor(Action<int, int, int> action)

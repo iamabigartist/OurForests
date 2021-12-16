@@ -1,6 +1,6 @@
 using TMPro;
 using UnityEngine;
-namespace VoxelTest.Scripts.Tests
+namespace VoxelTest.Tests
 {
     [ExecuteAlways]
     public class PositionHelper : MonoBehaviour

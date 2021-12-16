@@ -7,6 +7,13 @@ namespace MUtility
     {
         public readonly int SegmentLength;
         public int SegmentCount => Count * SegmentLength;
+
+        public int SegmentCapacity
+        {
+            get => Capacity / SegmentLength;
+            set => Capacity = value * SegmentLength;
+        }
+
         public int SegmentStartIndex(int segment_index) { return SegmentLength * segment_index; }
 
 
@@ -15,7 +22,7 @@ namespace MUtility
             SegmentLength = segment_length;
         }
 
-        public FixedSegmentList(int segment_length, List<T> source) : base( source )
+        public FixedSegmentList(int segment_length, IEnumerable<T> source) : base( source )
         {
             SegmentLength = segment_length;
             if (Count % SegmentLength != 0)
@@ -75,6 +82,7 @@ namespace MUtility
             base.RemoveRange( tail_start_index, remove_length );
 
             return (tail_start_index / SegmentLength, remove_length / SegmentLength);
+
         }
 
     }

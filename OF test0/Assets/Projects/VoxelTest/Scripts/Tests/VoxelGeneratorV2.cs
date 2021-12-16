@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using VolumeTerra.DataDefinition;
 using VolumeTerra.Generate;
-namespace VoxelTest.Scripts.Tests
+namespace VoxelTest.Tests
 {
     public class VoxelGeneratorV2 : MonoBehaviour
     {

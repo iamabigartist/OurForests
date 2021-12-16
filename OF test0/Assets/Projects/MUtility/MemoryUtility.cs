@@ -4,7 +4,7 @@ namespace MUtility
 {
     public static class MemoryUtility
     {
-        public static long GetObjectByte<T>(this T t) where T : class
+        public static long GetObjectByteSize<T>(this T t) where T : class
         {
             DataContractJsonSerializer formatter = new DataContractJsonSerializer( typeof(T) );
             using (MemoryStream stream = new MemoryStream())

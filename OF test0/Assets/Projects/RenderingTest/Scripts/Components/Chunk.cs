@@ -1,124 +1,118 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
+using MUtility;
 using UnityEngine;
+using UnityEngine.Rendering;
 using VolumeTerra.DataDefinition;
 namespace RenderingTest.Components
 {
     public class Chunk
     {
-        public static void InitMeshLists1(
-            out List<Vector3[]> vertices_arrays_list,
-            out List<Vector2[]> uv1_arrays_list,
-            out List<int[]> triangles_arrays_list,
-            out List<int> vertices_array_starts,
-            out List<int> triangles_array_starts,
-            VolumeMatrix<int> matrix,
-            Dictionary<int, Mesh> mesh_dict)
+        public static Mesh[] Cubes = new Mesh[1];
+
+        public Chunk(VolumeMatrix<int> cube_matrix)
         {
-            vertices_arrays_list = new List<Vector3[]>();
-            uv1_arrays_list = new List<Vector2[]>();
-            triangles_arrays_list = new List<int[]>();
-            vertices_array_starts = new List<int>();
-            triangles_array_starts = new List<int>();
-
-            int cur_vertex_count = 0;
-            int cur_triangle_count = 0;
-            for (int z = 0; z < matrix.volume_size.z; z++)
-            {
-                for (int y = 0; y < matrix.volume_size.y; y++)
-                {
-                    for (int x = 0; x < matrix.volume_size.x; x++)
-                    {
-                        int value = matrix[x, y, z];
-
-                        //Check whether empty or inside
-                        if (value == 0 ||
-                            matrix[x + 1, y, z] != 0 &&
-                            matrix[x - 1, y, z] != 0 &&
-                            matrix[x, y + 1, z] != 0 &&
-                            matrix[x, y - 1, z] != 0 &&
-                            matrix[x, y, z + 1] != 0 &&
-                            matrix[x, y, z - 1] != 0) { continue; }
-
-                        var vertices = mesh_dict[value].vertices;
-                        var uv1 = mesh_dict[value].uv;
-                        var triangles = mesh_dict[value].triangles;
-
-                        vertices_arrays_list.Add( vertices );
-                        uv1_arrays_list.Add( uv1 );
-                        triangles_arrays_list.Add( triangles );
-                        vertices_array_starts.Add( cur_vertex_count );
-                        triangles_array_starts.Add( cur_triangle_count );
-                        cur_vertex_count += vertices.Length;
-                        cur_triangle_count += triangles.Length;
-                    }
-                }
-            }
-
+            this.cube_matrix = cube_matrix;
+            list_index_matrix = new VolumeMatrix<int>( cube_matrix.volume_size );
         }
 
-        public static void InitMeshInfos(
-            out List<Vector3[]> vertices_arrays_list,
-            out List<Vector2[]> uv1_arrays_list,
-            out List<int[]> triangles_arrays_list,
-            out List<int> vertices_array_starts,
-            out List<int> triangles_array_starts,
-            out Dictionary<Vector3Int, int> meshes_dict,
-            VolumeMatrix<int> matrix,
-            Dictionary<int, Mesh> mesh_dict)
+        /// <summary>
+        ///     Store the type of every cube in this chunk.
+        /// </summary>
+        public VolumeMatrix<int> cube_matrix;
+
+        /// <summary>
+        ///     Store the index of every mesh in the mesh info lists;
+        /// </summary>
+        VolumeMatrix<int> list_index_matrix;
+        FixedSegmentList<Vector3> vertices_list;
+        FixedSegmentList<Vector2> uv1_list;
+
+        /// <summary>
+        ///     The final result mesh of this chunk
+        /// </summary>
+        public Mesh result_mesh;
+
+        public void VolumeMatrixToSegmentLists()
         {
-            vertices_arrays_list = new List<Vector3[]>();
-            uv1_arrays_list = new List<Vector2[]>();
-            triangles_arrays_list = new List<int[]>();
-            vertices_array_starts = new List<int>();
-            triangles_array_starts = new List<int>();
 
-            int cur_vertex_count = 0;
-            int cur_triangle_count = 0;
+            var segment_length = Cubes[0].vertices.Length;
+            var mesh_vertices_1 = Cubes[0].vertices;
+            var mesh_uv1_1 = Cubes[0].uv;
 
-            meshes_dict = new Dictionary<Vector3Int, int>();
-            int cur_mesh_count = 0;
-            //主要后续想法就是说用一个和矩阵一样长容量的列表去存储，首先是判断模型信息，包括是否有模型，模型位置，模型值；然后把模型信息加入到列表里面，使用lock来操作。然后再将列表的对应下表与模型位置关系加入到字典里面。这样完成了预处理。
-            Parallel.For( 0, matrix.Count, (i, state) =>
+        #region Record which position has what cube at what index in lists
+
+            long cur_mesh_num = 0;
+            var a = new ParallelOptions();
+            var result = Parallel.For( 0, cube_matrix.Count,
+                (i) =>
+                {
+                    (int x, int y, int z) = cube_matrix.Position( i );
+                    int value = cube_matrix[x, y, z];
+
+                    //Check whether empty or inside
+                    if (cube_matrix.IsEdge( x, y, z ) ||
+                        value == 0 ||
+                        cube_matrix[x + 1, y, z] != 0 &&
+                        cube_matrix[x - 1, y, z] != 0 &&
+                        cube_matrix[x, y + 1, z] != 0 &&
+                        cube_matrix[x, y - 1, z] != 0 &&
+                        cube_matrix[x, y, z + 1] != 0 &&
+                        cube_matrix[x, y, z - 1] != 0)
+                    {
+                        list_index_matrix[x, y, z] = -1;
+                    }
+                    else
+                    {
+                        var cur_list_index = (int)Interlocked.Increment( ref cur_mesh_num ) - 1;
+                        list_index_matrix[x, y, z] = cur_list_index;
+                    }
+
+                } );
+
+        #endregion
+
+        #region Build the mesh info lists according to the records
+
+            var vertices_array = new Vector3[cur_mesh_num * segment_length];
+            var uv1_array = new Vector2[cur_mesh_num * segment_length];
+            Parallel.For( 0, cube_matrix.Count, i =>
             {
-                Vector3Int position = matrix.Position( i );
+                int list_index = list_index_matrix[i];
+                if (list_index == -1) { return; }
+                int start_array_index = list_index * segment_length;
+                mesh_vertices_1.CopyTo( vertices_array, start_array_index );
+                mesh_uv1_1.CopyTo( uv1_array, start_array_index );
+
+                //Add local position to mesh vertices
+                (int x, int y, int z) = cube_matrix.Position( i );
+                for (int j = start_array_index; j < start_array_index + segment_length; j++)
+                {
+                    vertices_array[j] += new Vector3( x, y, z );
+                }
 
             } );
+            vertices_list = new FixedSegmentList<Vector3>( segment_length, vertices_array );
+            uv1_list = new FixedSegmentList<Vector2>( segment_length, uv1_array );
 
-            //然后下面多线程实际加入模型操作的时候，遍历模型信息列表，新建模型对象然后拷贝每个模型，到最终的列表里面。并且记录局部加和长度
-            //由于triangle 给的是index是一个局部信息，并且不能通过shader重复计算，每次中间模型被更改的时候都要给每个triangle元素加上修改偏移量，非常麻烦。然后如果使用全顶点模型，体积会加大到1.5倍，但是实际上模型本身就不大，然后在渲染上来说，渲染速度还是取决与实际有多少三角形而非有多少顶点，因此预计不会带来性能问题。所以后面打算放弃使用三角形，而是把看到的所有模型转换成纯顶点模型。
-            for (int z = 0; z < matrix.volume_size.z; z++)
-            {
-                for (int y = 0; y < matrix.volume_size.y; y++)
-                {
-                    for (int x = 0; x < matrix.volume_size.x; x++)
-                    {
-                        int value = matrix[x, y, z];
-
-                        //Check whether empty or inside
-                        if (value == 0 ||
-                            matrix[x + 1, y, z] != 0 &&
-                            matrix[x - 1, y, z] != 0 &&
-                            matrix[x, y + 1, z] != 0 &&
-                            matrix[x, y - 1, z] != 0 &&
-                            matrix[x, y, z + 1] != 0 &&
-                            matrix[x, y, z - 1] != 0) { continue; }
-
-                        var vertices = mesh_dict[value].vertices;
-                        var uv1 = mesh_dict[value].uv;
-                        var triangles = mesh_dict[value].triangles;
-
-                        vertices_arrays_list.Add( vertices );
-                        uv1_arrays_list.Add( uv1 );
-                        triangles_arrays_list.Add( triangles );
-                        vertices_array_starts.Add( cur_vertex_count );
-                        triangles_array_starts.Add( cur_triangle_count );
-                        cur_vertex_count += vertices.Length;
-                        cur_triangle_count += triangles.Length;
-                    }
-                }
-            }
-
+        #endregion
         }
+
+        public void SegmentListToResultMesh()
+        {
+            result_mesh = new Mesh
+            {
+                indexFormat = IndexFormat.UInt32,
+                vertices = vertices_list.ToArray(),
+                uv = uv1_list.ToArray(),
+                triangles = Enumerable.Range( 0, vertices_list.Count ).ToArray()
+
+            };
+            result_mesh.RecalculateBounds();
+            result_mesh.RecalculateNormals();
+            result_mesh.RecalculateTangents();
+        }
+
     }
 }

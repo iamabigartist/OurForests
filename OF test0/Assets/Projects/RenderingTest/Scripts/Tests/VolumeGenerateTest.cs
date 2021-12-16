@@ -50,7 +50,7 @@ namespace RenderingTest.Tests
             AddAllMesh();
 
 
-            Debug.Log( $"Memory in GB: {m_mesh.GetObjectByte() / (1024f * 1024f * 1024f)}" );
+            Debug.Log( $"Memory in GB: {m_mesh.GetObjectByteSize() / (1024f * 1024f * 1024f)}" );
             Debug.Log( $"Vertices Length: {ll_vertices.Count}" );
 
         }

@@ -1,6 +1,6 @@
 ﻿using UnityEditor;
 using UnityEngine;
-namespace VoxelTest.Scripts.Tests
+namespace VoxelTest
 {
     public class ComputePerformanceTest : EditorWindow
     {

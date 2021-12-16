@@ -3,8 +3,8 @@ using MUtility;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Rendering;
-using VoxelTest.Scripts.Tests.ComputeShader.Resources.Include;
-namespace VoxelTest.Scripts.Tests
+using VoxelTest.Tests.ComputeShader.Resources.Include;
+namespace VoxelTest.Tests
 {
     public class UVCubeShow : MonoBehaviour
     {

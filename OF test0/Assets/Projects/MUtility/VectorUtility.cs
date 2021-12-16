@@ -1,10 +1,43 @@
+using System;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 namespace MUtility
 {
+    [Serializable]
+    public struct Triangle
+    {
+        public Vector3 x;
+        public Vector3 y;
+        public Vector3 z;
+        public Triangle(Vector3 x, Vector3 y, Vector3 z)
+        {
+            this.x = x;
+            this.y = y;
+            this.z = z;
+        }
+    }
     public static class VectorUtility
     {
+
+
+        public static int XYZProduct(this Vector3Int v)
+        {
+            return v.x * v.y * v.z;
+        }
+        public static void Deconstruct(this Vector3Int v, out int x, out int y, out int z)
+        {
+            x = v.x;
+            y = v.y;
+            z = v.z;
+        }
+        public static void Deconstruct(this Vector3 v, out float x, out float y, out float z)
+        {
+            x = v.x;
+            y = v.y;
+            z = v.z;
+        }
+
         public static Vector4 ToVector4(this Vector3Int v, float w = default)
         {
             return new Vector4( v.x, v.y, v.z, w );

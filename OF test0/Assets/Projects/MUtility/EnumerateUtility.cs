@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UnityEngine;
 namespace MUtility
 {
     public static class EnumerateUtility
@@ -119,6 +120,22 @@ namespace MUtility
 
     #endregion
 
+    #region Mesh
+
+        public static List<Triangle> VerticesArrayToTrianglesList(this Vector3[] vertices)
+        {
+            var array = new Triangle[vertices.Length / 3];
+            Parallel.For( 0, vertices.Length / 3, i =>
+            {
+                array[i] = new Triangle(
+                    vertices[3 * i],
+                    vertices[3 * i + 1],
+                    vertices[3 * i + 2] );
+            } );
+            return array.ToList();
+        }
+
+    #endregion
 
     }
 }

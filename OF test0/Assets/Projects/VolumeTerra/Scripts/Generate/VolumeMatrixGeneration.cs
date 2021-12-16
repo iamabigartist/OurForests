@@ -5,11 +5,11 @@ namespace VolumeTerra.Generate
     public static class VolumeMatrixGeneration
     {
         /// <param name="range">The range of the volume value</param>
-        public static void GenerateRandom<T>(this VolumeMatrix<T> matrix, Vector2 range)
+        public static void GenerateRandom(this VolumeMatrix<int> matrix, float total, float threshold)
         {
             for (int i = 0; i < matrix.Count; i++)
             {
-                matrix[i] = (dynamic)Random.Range( range.x, range.y );
+                matrix[i] = Random.Range( 0f, total ) > threshold ? 1 : 0;
             }
         }
 
@@ -70,21 +70,21 @@ namespace VolumeTerra.Generate
             }
 
 
-            for (int y = 0; y < matrix.volume_size.y; y++)
+            for (int z = 0; z < matrix.volume_size.z; z++)
             {
                 for (int x = 0; x < matrix.volume_size.x; x++)
                 {
-                    var stone_noise_position = transform( new Vector2( x, y ) );
-                    float stone_height = Mathf.PerlinNoise( stone_noise_position.x, stone_noise_position.y );
-                    var soil_noise_position = transform( new Vector2( x + 5000, y + 5000 ) );
-                    float soil_height = Mathf.PerlinNoise( soil_noise_position.x, soil_noise_position.y );
-                    for (int z = 0; z < matrix.volume_size.z; z++)
+                    var stone_noise_position = transform( new Vector2( x, z ) );
+                    float stone_height = Mathf.PerlinNoise( stone_noise_position.x, stone_noise_position.y ) * stone_height_scale;
+                    var soil_noise_position = transform( new Vector2( x + 5000, z + 5000 ) );
+                    float soil_height = Mathf.PerlinNoise( soil_noise_position.x, soil_noise_position.y ) * soil_height_scale;
+                    for (int y = 0; y < matrix.volume_size.y; y++)
                     {
-                        if (z <= stone_height)
+                        if (y <= stone_height)
                         {
-                            matrix[x, y, z] = 2;
+                            matrix[x, y, z] = 1;
                         }
-                        else if (z <= stone_height + soil_height)
+                        else if (y <= stone_height + soil_height)
                         {
                             matrix[x, y, z] = 1;
                         }
