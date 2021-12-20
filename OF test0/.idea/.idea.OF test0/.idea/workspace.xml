@@ -5,19 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8aa6f73-f44f-4013-b18c-6364ab72914d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scenes/Tests/Test1.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scenes/Tests/Test1/LightingData.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scenes/Tests/Test1/LightingData.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scenes/Tests/Test1/ReflectionProbe-0.exr" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scenes/Tests/Test1/ReflectionProbe-0.exr.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Editor/CubeTextureInfoGenerator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Editor/CubeTextureInfoGenerator.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3D Blocks 2.0/Materials/planks_tropic__block_texture.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D Blocks 2.0/Materials/planks_tropic__block_texture.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scenes/Tests/Test1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scenes/Tests/Test1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Tests/ComputeShader/Resources/PureVoxel.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Tests/ComputeShader/Resources/PureVoxel.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Tests/UVCubeShow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Tests/UVCubeShow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Editor/CubeTextureInfoGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Editor/CubeTextureInfoGenerator.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,8 +28,10 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@10.5.1/Runtime/Volume/VolumeComponent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Editor/MeshSerializer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5db3cb5776704b90a1ee60dfe561e643e2a00/1c/bc4c502f/JsonFormatWriterInterpreter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/127e81e1cb3441cc97d26b1910daae7713b000/f6/eff4aa42/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Tests/UVCubeShow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd824cfb55004855b9e6d51b008c90e4568778/42/b58c2146/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/695d1cc93cca45069c528c15c9fdd7493e2800/b9/2583d81d/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/AssetTest/MyAssetImporter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@1.2.1/Unity.Mathematics/float3.gen.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@10.5.1/Runtime/Utilities/SceneRenderPipeline.cs" root0="SKIP_HIGHLIGHTING" />
@@ -96,10 +87,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="14924">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="14924" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -166,6 +157,7 @@
       <workItem from="1639545710867" duration="675000" />
       <workItem from="1639628411808" duration="3326000" />
       <workItem from="1639981878069" duration="2720000" />
+      <workItem from="1639996338872" duration="9454000" />
     </task>
     <task id="LOCAL-00001" summary="Add some test method">
       <created>1639398343342</created>
@@ -236,6 +228,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Editor/CubeTextureInfoGenerator.cs</url>
+          <line>256</line>
+          <properties documentPath="C:\Users\15480\Documents\Unity Projects\OurForests\OF test0\Assets\Projects\VoxelTest\Scripts\Editor\CubeTextureInfoGenerator.cs" initialLine="256" containingFunctionPresentation="method 'Sort24Cubes'">
+            <startOffsets>
+              <option value="7456" />
+            </startOffsets>
+            <endOffsets>
+              <option value="7497" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
