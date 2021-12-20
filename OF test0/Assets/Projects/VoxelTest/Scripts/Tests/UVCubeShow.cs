@@ -1,6 +1,7 @@
 using System.Linq;
 using MUtility;
 using Unity.Mathematics;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
 using VoxelTest.Tests.ComputeShader.Resources.Include;
@@ -47,6 +48,7 @@ namespace VoxelTest.Tests
             };
             GenerateUVCube();
             mesh_filter.sharedMesh = m_mesh;
+            AssetDatabase.CreateAsset( m_mesh, $"Assets/GeneratedResults/{nameof(UVCubeShow)}-{nameof(m_mesh)}.mesh" );
 
         }
 

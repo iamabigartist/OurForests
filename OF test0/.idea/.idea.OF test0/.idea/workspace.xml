@@ -5,8 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8aa6f73-f44f-4013-b18c-6364ab72914d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scenes/Tests/Test1.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scenes/Tests/Test1/LightingData.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scenes/Tests/Test1/LightingData.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scenes/Tests/Test1/ReflectionProbe-0.exr" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scenes/Tests/Test1/ReflectionProbe-0.exr.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Editor/CubeTextureInfoGenerator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Editor/CubeTextureInfoGenerator.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Editor/MeshSerializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Editor/MeshSerializer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3D Blocks 2.0/Materials/planks_tropic__block_texture.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D Blocks 2.0/Materials/planks_tropic__block_texture.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scenes/Tests/Test1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scenes/Tests/Test1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Tests/ComputeShader/Resources/PureVoxel.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Tests/ComputeShader/Resources/PureVoxel.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Tests/UVCubeShow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Tests/UVCubeShow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,6 +165,7 @@
       <workItem from="1639443976755" duration="10084000" />
       <workItem from="1639545710867" duration="675000" />
       <workItem from="1639628411808" duration="3326000" />
+      <workItem from="1639981878069" duration="2720000" />
     </task>
     <task id="LOCAL-00001" summary="Add some test method">
       <created>1639398343342</created>
