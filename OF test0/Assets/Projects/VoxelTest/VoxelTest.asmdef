@@ -1,0 +1,20 @@
+{
+    "name": "VoxelTest",
+    "rootNamespace": "",
+    "references": [
+        "GUID:15bb901802828ac42829c765c5bc53a1",
+        "GUID:29e4551b046572f41b69a0ae6521d3c0",
+        "GUID:d8b63aba1907145bea998dd612889d6b",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:d9d0bdea73b8e354fb64d6b14c704cee"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

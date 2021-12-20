@@ -5,8 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8aa6f73-f44f-4013-b18c-6364ab72914d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/AssetTest.csproj.DotSettings" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Projects/AssetTest/AssetTest.asmdef" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Projects/AssetTest/AssetTest.asmdef.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Projects/MUtility/MUtility.asmdef" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Projects/MUtility/MUtility.asmdef.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Projects/RenderingTest/RenderingTest.asmdef" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Projects/RenderingTest/RenderingTest.asmdef.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/SurfaceNormalDirection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/SurfaceNormalDirection.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/VolumeTerra.asmdef" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/VolumeTerra.asmdef.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/VoxelTest.asmdef" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/VoxelTest.asmdef.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MUtility.csproj.DotSettings" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RenderingTest.csproj.DotSettings" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/VolumeTerra.csproj.DotSettings" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/VoxelTest.csproj.DotSettings" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Editor/CubeTextureInfoGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Editor/CubeTextureInfoGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Editor/MeshSerializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Editor/MeshSerializer.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,10 +105,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="14924">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="14924" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -157,7 +175,8 @@
       <workItem from="1639545710867" duration="675000" />
       <workItem from="1639628411808" duration="3326000" />
       <workItem from="1639981878069" duration="2720000" />
-      <workItem from="1639996338872" duration="9454000" />
+      <workItem from="1639996338872" duration="9455000" />
+      <workItem from="1640007048174" duration="4539000" />
     </task>
     <task id="LOCAL-00001" summary="Add some test method">
       <created>1639398343342</created>
@@ -218,29 +237,16 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Editor/MeshSerializer.cs</url>
-          <line>60</line>
+          <line>59</line>
           <properties documentPath="C:\Users\15480\Documents\Unity Projects\OurForests\OF test0\Assets\Projects\VoxelTest\Scripts\Editor\MeshSerializer.cs" initialLine="54" containingFunctionPresentation="method 'Reload'">
             <startOffsets>
-              <option value="1702" />
+              <option value="1672" />
             </startOffsets>
             <endOffsets>
-              <option value="1717" />
+              <option value="1687" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Editor/CubeTextureInfoGenerator.cs</url>
-          <line>256</line>
-          <properties documentPath="C:\Users\15480\Documents\Unity Projects\OurForests\OF test0\Assets\Projects\VoxelTest\Scripts\Editor\CubeTextureInfoGenerator.cs" initialLine="256" containingFunctionPresentation="method 'Sort24Cubes'">
-            <startOffsets>
-              <option value="7456" />
-            </startOffsets>
-            <endOffsets>
-              <option value="7497" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

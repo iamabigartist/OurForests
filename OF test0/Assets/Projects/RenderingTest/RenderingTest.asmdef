@@ -1,0 +1,17 @@
+{
+    "name": "RenderingTest",
+    "rootNamespace": "",
+    "references": [
+        "GUID:29e4551b046572f41b69a0ae6521d3c0",
+        "GUID:15bb901802828ac42829c765c5bc53a1"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

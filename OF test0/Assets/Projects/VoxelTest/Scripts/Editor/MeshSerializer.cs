@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using MUtility;
-using Unity.Burst.Intrinsics;
 using UnityEditor;
 using UnityEngine;
 namespace VoxelTest
