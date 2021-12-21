@@ -48,7 +48,10 @@ namespace VoxelTest.Tests
             };
             GenerateUVCube();
             mesh_filter.sharedMesh = m_mesh;
+
             AssetDatabase.CreateAsset( m_mesh, $"Assets/GeneratedResults/{nameof(UVCubeShow)}-{nameof(m_mesh)}.mesh" );
+
+            // AssetDatabase.CreateAsset( ta, $"Assets/GeneratedResults/{nameof(UVCubeShow)}-{nameof(ta)}.asset" );
 
         }
 
@@ -66,6 +69,8 @@ namespace VoxelTest.Tests
             (new int3( 0, 0, 0 ), 2, 1)
         };
 
+        float3 offset = new float3( -0.5f, -0.5f, -0.5f );
+
         void GenerateUVCube()
         {
             const int quad_count = 6;
@@ -81,10 +86,10 @@ namespace VoxelTest.Tests
                 int3[] quad_corner_offsets =
                     VoxelGenerationUtility.corner_index_offset_in_quad[axis][dir];
                 var quad_maker = new VoxelGenerationUtility.QuadMaker(
-                    quad_corner_offsets[0] + c1,
-                    quad_corner_offsets[1] + c1,
-                    quad_corner_offsets[2] + c1,
-                    quad_corner_offsets[3] + c1
+                    quad_corner_offsets[0] + c1 + offset,
+                    quad_corner_offsets[1] + c1 + offset,
+                    quad_corner_offsets[2] + c1 + offset,
+                    quad_corner_offsets[3] + c1 + offset
                 );
                 quad_maker.ToVertices().CopyTo( vertices, 6 * i );
 

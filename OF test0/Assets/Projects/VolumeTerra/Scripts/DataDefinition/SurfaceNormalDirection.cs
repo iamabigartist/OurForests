@@ -6,6 +6,13 @@ namespace VolumeTerra.DataDefinition
     public struct SurfaceNormalDirection
     {
 
+        static SurfaceNormalDirection()
+        {
+            source_cube = Resources.Load<Mesh>( "UVCubeShow-m_mesh" );
+        }
+
+        static Mesh source_cube;
+
         /// <summary>
         ///     Rotate the original direction once
         /// </summary>
@@ -60,7 +67,7 @@ namespace VolumeTerra.DataDefinition
         };
 
         /// <summary>
-        ///     The normal of a cube in the index order.
+        ///     The normal of a source_cube in the index order.
         /// </summary>
         static int[][] index2normal =
         {
@@ -92,6 +99,68 @@ namespace VolumeTerra.DataDefinition
             Vector3.forward,
             Vector3.back
         };
+
+        /// <summary>
+        ///     [up][forward][surface_index]
+        /// </summary>
+        static int[][][] orientation_cube_table =
+        {
+            new int[][]
+            {
+                new int[] { },
+                new int[] { },
+                new[] { 2, 3, 4, 5, 0, 1 },
+                new[] { 2, 3, 5, 4, 1, 0 },
+                new[] { 2, 3, 1, 0, 4, 5 },
+                new[] { 2, 3, 0, 1, 5, 4 }
+            },
+            new int[][]
+            {
+                new int[] { },
+                new int[] { },
+                new[] { 3, 2, 4, 5, 1, 0 },
+                new[] { 3, 2, 5, 4, 0, 1 },
+                new[] { 3, 2, 0, 1, 4, 5 },
+                new[] { 3, 2, 1, 0, 5, 4 }
+            },
+            new int[][]
+            {
+                new[] { 4, 5, 2, 3, 1, 0 },
+                new[] { 5, 4, 2, 3, 0, 1 },
+                new int[] { },
+                new int[] { },
+                new[] { 0, 1, 2, 3, 4, 5 },
+                new[] { 1, 0, 2, 3, 5, 4 }
+            },
+            new int[][]
+            {
+                new[] { 4, 5, 3, 2, 0, 1 },
+                new[] { 5, 4, 3, 2, 1, 0 },
+                new int[] { },
+                new int[] { },
+                new[] { 1, 0, 3, 2, 4, 5 },
+                new[] { 0, 1, 3, 2, 5, 4 }
+            },
+            new int[][]
+            {
+                new[] { 4, 5, 0, 1, 2, 3 },
+                new[] { 5, 4, 1, 0, 2, 3 },
+                new[] { 1, 0, 4, 5, 2, 3 },
+                new[] { 0, 1, 5, 4, 2, 3 },
+                new int[] { },
+                new int[] { }
+            },
+            new int[][]
+            {
+                new[] { 4, 5, 1, 0, 3, 2 },
+                new[] { 5, 4, 0, 1, 3, 2 },
+                new[] { 0, 1, 4, 5, 3, 2 },
+                new[] { 1, 0, 5, 4, 3, 2 },
+                new int[] { },
+                new int[] { }
+            }
+        };
+
 
 
         /// <summary>
@@ -243,9 +312,9 @@ namespace VolumeTerra.DataDefinition
                 foreach (int[] cube in forward_table)
                 {
                     forward_table_string +=
-                        "\t\t" +
+                        "\t\t{" +
                         string.Join( ",", cube ?? new int[] { } ) +
-                        ",\n";
+                        "},\n";
                 }
                 table_string +=
                     "\t{\n" +
@@ -257,6 +326,50 @@ namespace VolumeTerra.DataDefinition
                 table_string +
                 "}\n";
             return table_string;
+        }
+
+        public static void GetSourceSurface(
+            int surface_index,
+            out List<Vector3> vertices,
+            out List<Vector4> uv)
+        {
+            var source_start_index = surface_index * 6;
+            vertices = new List<Vector3>();
+            uv = new List<Vector4>();
+            source_cube.GetVertices( vertices );
+            vertices = vertices.GetRange( source_start_index, 6 );
+            source_cube.GetUVs( 0, uv );
+            uv = uv.GetRange( source_start_index, 6 );
+        }
+
+        public static Quaternion LookRotation(int up_index, int forward_index)
+        {
+            return Quaternion.LookRotation(
+                index2vector3d[forward_index],
+                index2vector3d[up_index] );
+        }
+
+        public static void GetSurface(
+            int surface_index,
+            int up_index,
+            int forward_index,
+            out Vector3[] vertices,
+            out Vector4[] uv)
+        {
+            var new_cube = orientation_cube_table[up_index][forward_index];
+            int ori_surface_index = new_cube[surface_index];
+            GetSourceSurface( ori_surface_index, out var ori_vertices, out var ori_uv );
+
+            //the target uv should be the uv from the position in the source cube.
+            uv = ori_uv.ToArray();
+
+            //the new vertices need to be rotated.
+            vertices = new Vector3[6];
+            var quaternion = LookRotation( up_index, forward_index );
+            for (int i = 0; i < 6; i++)
+            {
+                vertices[i] = quaternion * ori_vertices[i];
+            }
         }
 
 
