@@ -4,8 +4,7 @@ using System.Threading.Tasks;
 using MUtility;
 using UnityEngine;
 using UnityEngine.Rendering;
-using VolumeTerra.DataDefinition;
-namespace RenderingTest.Components
+namespace VolumeTerra.DataDefinition
 {
     public class Chunk
     {
@@ -26,6 +25,9 @@ namespace RenderingTest.Components
         ///     Store the index of every mesh in the mesh info lists;
         /// </summary>
         VolumeMatrix<int> list_index_matrix;
+
+    #region GeneralMesh
+
         FixedSegmentList<Vector3> vertices_list;
         FixedSegmentList<Vector2> uv1_list;
 
@@ -98,6 +100,9 @@ namespace RenderingTest.Components
 
         #endregion
         }
+
+        #endregion
+
 
         public void SegmentListToResultMesh()
         {

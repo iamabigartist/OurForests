@@ -349,6 +349,8 @@ namespace VolumeTerra.DataDefinition
                 index2vector3d[up_index] );
         }
 
+
+
         public static void GetSurface(
             int surface_index,
             int up_index,
@@ -357,6 +359,12 @@ namespace VolumeTerra.DataDefinition
             out Vector4[] uv)
         {
             var new_cube = orientation_cube_table[up_index][forward_index];
+            if (new_cube.Length == 0)
+            {
+                vertices = null;
+                uv = null;
+                return;
+            }
             int ori_surface_index = new_cube[surface_index];
             GetSourceSurface( ori_surface_index, out var ori_vertices, out var ori_uv );
 
