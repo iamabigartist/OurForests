@@ -5,20 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8aa6f73-f44f-4013-b18c-6364ab72914d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Projects/SystemTest.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Projects/SystemTest/Main 1.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Projects/SystemTest/Main 1.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Projects/SystemTest/Main.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Projects/SystemTest/Main.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Projects/SystemTest/Manager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Projects/SystemTest/Manager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Projects/SystemTest/TerrainManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Projects/SystemTest/TerrainManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SystemTest.csproj.DotSettings" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/RenderingTest/Scripts/Components.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/SystemTest/MainManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/SystemTest/MainManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/SystemTest/Manager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/SystemTest/Manager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/SystemTest/SystemTest.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/SystemTest/SystemTest.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/SystemTest/TerrainManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/SystemTest/TerrainManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/Chunk.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/Chunk.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/SurfaceNormalDirection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/VoxelUVGeneration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/SurfaceNormalDirection.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/VoxelUVGeneration.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scenes/Tests/Test1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scenes/Tests/Test1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Editor/CubeTextureInfoGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Editor/CubeTextureInfoGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Tests/RotationCubeShow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Tests/RotationCubeShow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Tests/VoxelGeneratorCPU_V1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Tests/VoxelGeneratorCPU_V1.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,15 +38,14 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@1.2.1/Unity.Mathematics/float3.gen.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@10.5.1/Runtime/ShadowUtils.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Projects/AssetTest/MyAssetImporter.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Tests/UVCubeShow.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Editor/ComputePerformanceTest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@10.5.1/Runtime/Volume/VolumeComponent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Editor/MeshSerializer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6ddf8eac3856492ab1b8cf42618915cc28000/29/7c134732/GUILayout.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Tests/UVCubeShow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@1.2.1/Unity.Mathematics/float3.gen.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Projects/AssetTest/MyAssetImporter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@10.5.1/Runtime/Utilities/SceneRenderPipeline.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@10.5.1/Runtime/ShadowUtils.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Editor/ComputePerformanceTest.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -174,6 +173,7 @@
       <workItem from="1640075001801" duration="4975000" />
       <workItem from="1640229201461" duration="710000" />
       <workItem from="1640248552713" duration="4708000" />
+      <workItem from="1640267860012" duration="4966000" />
     </task>
     <task id="LOCAL-00001" summary="Add some test method">
       <created>1639398343342</created>
@@ -237,19 +237,6 @@
           <line>59</line>
           <properties documentPath="C:\Users\15480\Documents\Unity Projects\OurForests\OF test0\Assets\Projects\VoxelTest\Scripts\Editor\MeshSerializer.cs" initialLine="54" containingFunctionPresentation="method 'Reload'" />
           <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Tests/RotationCubeShow.cs</url>
-          <line>43</line>
-          <properties documentPath="C:\Users\HonorPro162021.11.11\Documents\GitHub\OurForests\OF test0\Assets\Projects\VoxelTest\Scripts\Tests\RotationCubeShow.cs" initialLine="41" containingFunctionPresentation="method 'GenerateSurfaceOnce'">
-            <startOffsets>
-              <option value="1393" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1426" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

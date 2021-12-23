@@ -3,12 +3,37 @@ using System.Linq;
 using UnityEngine;
 namespace VolumeTerra.DataDefinition
 {
+
     public struct SurfaceNormalDirection
     {
 
-        static SurfaceNormalDirection()
+        /// <summary>
+        ///     x->0,y->1,z->2
+        /// </summary>
+        public int axis;
+
+        /// <summary>
+        ///     + -> 0, - -> 1.
+        /// </summary>
+        public int positive;
+
+
+        public SurfaceNormalDirection(int axis, int positive)
+        {
+            this.axis = axis;
+            this.positive = positive;
+        }
+    }
+
+
+    public static class VoxelUVGeneration
+    {
+
+        public static void Init()
         {
             source_cube = Resources.Load<Mesh>( "UVCubeShow-m_mesh" );
+            Generate24CubesTable();
+
         }
 
         static Mesh source_cube;
@@ -95,7 +120,7 @@ namespace VolumeTerra.DataDefinition
             Vector3.right,
             Vector3.left,
             Vector3.up,
-            Vector3.back,
+            Vector3.down,
             Vector3.forward,
             Vector3.back
         };
@@ -160,24 +185,6 @@ namespace VolumeTerra.DataDefinition
                 new int[] { }
             }
         };
-
-
-
-        /// <summary>
-        ///     x->0,y->1,z->2
-        /// </summary>
-        public int axis;
-
-        /// <summary>
-        ///     + -> 0, - -> 1.
-        /// </summary>
-        public int positive;
-
-        public SurfaceNormalDirection(int axis, int positive)
-        {
-            this.axis = axis;
-            this.positive = positive;
-        }
 
         public static SurfaceNormalDirection IndexToNormal(int index)
         {
@@ -298,9 +305,9 @@ namespace VolumeTerra.DataDefinition
             return orientation_24_cube;
         }
 
-        public static int[][][] Generate24CubesTable()
+        public static void Generate24CubesTable()
         {
-            return Sort24Cubes( GenerateOriginal24CubesList() );
+            orientation_cube_table = Sort24Cubes( GenerateOriginal24CubesList() );
         }
 
         public static string Generate24CubeTableCode(int[][][] table)
@@ -349,8 +356,6 @@ namespace VolumeTerra.DataDefinition
                 index2vector3d[up_index] );
         }
 
-
-
         public static void GetSurface(
             int surface_index,
             int up_index,
@@ -374,6 +379,7 @@ namespace VolumeTerra.DataDefinition
             //the new vertices need to be rotated.
             vertices = new Vector3[6];
             var quaternion = LookRotation( up_index, forward_index );
+
             for (int i = 0; i < 6; i++)
             {
                 vertices[i] = quaternion * ori_vertices[i];

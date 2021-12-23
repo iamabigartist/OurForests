@@ -1,7 +1,9 @@
 {
     "name": "SystemTest",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:15bb901802828ac42829c765c5bc53a1"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

@@ -8,12 +8,13 @@ namespace VolumeTerra.DataDefinition
 {
     public class Chunk
     {
+        //TODO 把对于模型的选取放回静态类
         public static Mesh[] Cubes = new Mesh[1];
 
         public Chunk(VolumeMatrix<int> cube_matrix)
         {
             this.cube_matrix = cube_matrix;
-            list_index_matrix = new VolumeMatrix<int>( cube_matrix.volume_size );
+            general_list_index_matrix = new VolumeMatrix<int>( cube_matrix.volume_size );
         }
 
         /// <summary>
@@ -21,22 +22,30 @@ namespace VolumeTerra.DataDefinition
         /// </summary>
         public VolumeMatrix<int> cube_matrix;
 
-        /// <summary>
-        ///     Store the index of every mesh in the mesh info lists;
-        /// </summary>
-        VolumeMatrix<int> list_index_matrix;
+    #region Voxel
+
+        public VolumeMatrix<Vector3Int> voxel_list_index_matrix;
+        FixedSegmentList<Vector3> voxel_vertices_list;
+        FixedSegmentList<Vector2> voxel_uv1_list;
+
+        public void Voxel_VolumeMatrixToSegmentLists()
+        {
+
+        }
+
+    #endregion
 
     #region GeneralMesh
 
-        FixedSegmentList<Vector3> vertices_list;
-        FixedSegmentList<Vector2> uv1_list;
-
         /// <summary>
-        ///     The final result mesh of this chunk
+        ///     Store the index of every mesh in the mesh info lists;
         /// </summary>
-        public Mesh result_mesh;
+        VolumeMatrix<int> general_list_index_matrix;
 
-        public void VolumeMatrixToSegmentLists()
+        FixedSegmentList<Vector3> general_vertices_list;
+        FixedSegmentList<Vector2> general_uv1_list;
+
+        public void General_VolumeMatrixToSegmentLists()
         {
 
             var segment_length = Cubes[0].vertices.Length;
@@ -63,12 +72,12 @@ namespace VolumeTerra.DataDefinition
                         cube_matrix[x, y, z + 1] != 0 &&
                         cube_matrix[x, y, z - 1] != 0)
                     {
-                        list_index_matrix[x, y, z] = -1;
+                        general_list_index_matrix[x, y, z] = -1;
                     }
                     else
                     {
                         var cur_list_index = (int)Interlocked.Increment( ref cur_mesh_num ) - 1;
-                        list_index_matrix[x, y, z] = cur_list_index;
+                        general_list_index_matrix[x, y, z] = cur_list_index;
                     }
 
                 } );
@@ -81,7 +90,7 @@ namespace VolumeTerra.DataDefinition
             var uv1_array = new Vector2[cur_mesh_num * segment_length];
             Parallel.For( 0, cube_matrix.Count, i =>
             {
-                int list_index = list_index_matrix[i];
+                int list_index = general_list_index_matrix[i];
                 if (list_index == -1) { return; }
                 int start_array_index = list_index * segment_length;
                 mesh_vertices_1.CopyTo( vertices_array, start_array_index );
@@ -95,23 +104,31 @@ namespace VolumeTerra.DataDefinition
                 }
 
             } );
-            vertices_list = new FixedSegmentList<Vector3>( segment_length, vertices_array );
-            uv1_list = new FixedSegmentList<Vector2>( segment_length, uv1_array );
+            general_vertices_list = new FixedSegmentList<Vector3>( segment_length, vertices_array );
+            general_uv1_list = new FixedSegmentList<Vector2>( segment_length, uv1_array );
 
         #endregion
         }
 
-        #endregion
+    #endregion
 
 
-        public void SegmentListToResultMesh()
+
+        /// <summary>
+        ///     The final result mesh of this chunk
+        /// </summary>
+        public Mesh result_mesh;
+
+        public void GenerateResultMesh()
         {
+
+            //Concat all the parts of this chunk mesh
             result_mesh = new Mesh
             {
                 indexFormat = IndexFormat.UInt32,
-                vertices = vertices_list.ToArray(),
-                uv = uv1_list.ToArray(),
-                triangles = Enumerable.Range( 0, vertices_list.Count ).ToArray()
+                vertices = general_vertices_list.ToArray(),
+                uv = general_uv1_list.ToArray(),
+                triangles = Enumerable.Range( 0, general_vertices_list.Count ).ToArray()
 
             };
             result_mesh.RecalculateBounds();

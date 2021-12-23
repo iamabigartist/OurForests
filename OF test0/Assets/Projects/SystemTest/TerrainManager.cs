@@ -10,20 +10,8 @@ namespace SystemTest
     /// </summary>
     public static class TerrainManager
     {
-        static HashSet<string> available_contexts=new HashSet<string>()
+        static public void Init()
         {
-            "GameMain",
-        };
-        static public void Init([CallerMemberName] string caller_name = "Default")
-        {
-            if (!available_contexts.Contains( caller_name ))
-            {
-                throw new ApplicationException(
-                    $"Can not call " +
-                    $"{MethodBase.GetCurrentMethod().Name} " +
-                    $"from {caller_name}." );
-            }
-            Debug.Log("Init terrain.");
         }
     }
 }

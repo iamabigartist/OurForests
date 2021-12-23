@@ -14,18 +14,28 @@ namespace VoxelTest.Tests
         {
             up_index = 2;
             Filter = GetComponent<MeshFilter>();
+
+            up_index_string = up_index.ToString();
+            forward_index_string = forward_index.ToString();
+            surface_index_string = surface_index.ToString();
         }
+
+
+        string up_index_string, forward_index_string, surface_index_string;
 
         void OnGUI()
         {
             GUILayout.Label( nameof(up_index) );
-            int.TryParse( GUILayout.TextField( up_index.ToString() ), out up_index );
+            up_index_string = GUILayout.TextField( up_index_string );
             GUILayout.Label( nameof(forward_index) );
-            int.TryParse( GUILayout.TextField( forward_index.ToString() ), out forward_index );
+            forward_index_string = GUILayout.TextField( forward_index_string );
             GUILayout.Label( nameof(surface_index) );
-            int.TryParse( GUILayout.TextField( surface_index.ToString() ), out surface_index );
+            surface_index_string = GUILayout.TextField( surface_index_string );
             if (GUILayout.Button( "Reload" ))
             {
+                if (!int.TryParse( up_index_string, out up_index )) { up_index_string = up_index.ToString(); }
+                if (!int.TryParse( forward_index_string, out forward_index )) { forward_index_string = forward_index.ToString(); }
+                if (!int.TryParse( surface_index_string, out surface_index )) { surface_index_string = surface_index.ToString(); }
                 GenerateSurfaceOnce();
                 RotateSourceCubeOnce();
             }
@@ -34,7 +44,7 @@ namespace VoxelTest.Tests
         void GenerateSurfaceOnce()
         {
             var cur_mesh = new Mesh();
-            SurfaceNormalDirection.GetSurface(
+            VoxelUVGeneration.GetSurface(
                 surface_index,
                 up_index,
                 forward_index,
@@ -51,7 +61,7 @@ namespace VoxelTest.Tests
 
         void RotateSourceCubeOnce()
         {
-            transform.GetChild( 0 ).rotation = SurfaceNormalDirection.LookRotation( up_index, forward_index );
+            transform.GetChild( 0 ).rotation = VoxelUVGeneration.LookRotation( up_index, forward_index );
         }
 
     }

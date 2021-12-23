@@ -1,4 +1,5 @@
 using UnityEngine;
+using VolumeTerra.DataDefinition;
 namespace SystemTest
 {
     /// <summary>
@@ -10,13 +11,8 @@ namespace SystemTest
         [RuntimeInitializeOnLoadMethod( RuntimeInitializeLoadType.AfterAssembliesLoaded )]
         static void GameMain()
         {
-            Debug.Log( "Main!" );
-            aaa();
-        }
-
-        static void aaa()
-        {
             TerrainManager.Init();
+            VoxelUVGeneration.Init();
         }
 
     }

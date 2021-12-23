@@ -52,8 +52,8 @@ namespace VoxelTest.Tests
             matrix.GenerateSimpleTerrain( stone_height, soil_height, NoiseOffset, NoiseScale );
             Debug.Log( $"{matrix.Position( 7128 )}" );
             Chunk = new Chunk( matrix );
-            Chunk.VolumeMatrixToSegmentLists();
-            Chunk.SegmentListToResultMesh();
+            Chunk.General_VolumeMatrixToSegmentLists();
+            Chunk.GenerateResultMesh();
             m_meshFilter.sharedMesh = Chunk.result_mesh;
         }
 

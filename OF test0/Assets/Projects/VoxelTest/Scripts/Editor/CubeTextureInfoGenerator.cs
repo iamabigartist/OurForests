@@ -84,10 +84,6 @@ namespace VoxelTest
 
         void Generate_indices()
         {
-            var table = SurfaceNormalDirection.Generate24CubesTable();
-            var table_string = SurfaceNormalDirection.Generate24CubeTableCode( table );
-
-            Debug.Log( table_string );
         }
 
 
