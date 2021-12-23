@@ -6,20 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a8aa6f73-f44f-4013-b18c-6364ab72914d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/RenderingTest/Scripts/Components.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/SystemTest/MainManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/SystemTest/MainManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/SystemTest/Manager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/SystemTest/Manager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/SystemTest/SystemTest.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/SystemTest/SystemTest.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/SystemTest/TerrainManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/SystemTest/TerrainManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/Chunk.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/Chunk.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/SurfaceNormalDirection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/VoxelUVGeneration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/SurfaceNormalDirection.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/VoxelUVGeneration.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scenes/Tests/Test1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scenes/Tests/Test1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Editor/CubeTextureInfoGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Editor/CubeTextureInfoGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Tests/RotationCubeShow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Tests/RotationCubeShow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Tests/VoxelGeneratorCPU_V1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Tests/VoxelGeneratorCPU_V1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/VoxelUVGeneration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/VoxelUVGeneration.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +160,7 @@
       <workItem from="1640075001801" duration="4975000" />
       <workItem from="1640229201461" duration="710000" />
       <workItem from="1640248552713" duration="4708000" />
-      <workItem from="1640267860012" duration="4966000" />
+      <workItem from="1640267860012" duration="6571000" />
     </task>
     <task id="LOCAL-00001" summary="Add some test method">
       <created>1639398343342</created>

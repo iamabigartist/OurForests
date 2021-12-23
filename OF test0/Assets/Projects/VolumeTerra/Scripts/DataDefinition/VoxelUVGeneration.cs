@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 namespace VolumeTerra.DataDefinition
 {
 
@@ -31,9 +33,14 @@ namespace VolumeTerra.DataDefinition
 
         public static void Init()
         {
+
+            var stop_watch = new Stopwatch();
+            stop_watch.Start();
             source_cube = Resources.Load<Mesh>( "UVCubeShow-m_mesh" );
             Generate24CubesTable();
-
+            GenerateSurfaceTable();
+            stop_watch.Stop();
+            Debug.Log( stop_watch.ElapsedTicks / 10000f );
         }
 
         static Mesh source_cube;
@@ -128,63 +135,12 @@ namespace VolumeTerra.DataDefinition
         /// <summary>
         ///     [up][forward][surface_index]
         /// </summary>
-        static int[][][] orientation_cube_table =
-        {
-            new int[][]
-            {
-                new int[] { },
-                new int[] { },
-                new[] { 2, 3, 4, 5, 0, 1 },
-                new[] { 2, 3, 5, 4, 1, 0 },
-                new[] { 2, 3, 1, 0, 4, 5 },
-                new[] { 2, 3, 0, 1, 5, 4 }
-            },
-            new int[][]
-            {
-                new int[] { },
-                new int[] { },
-                new[] { 3, 2, 4, 5, 1, 0 },
-                new[] { 3, 2, 5, 4, 0, 1 },
-                new[] { 3, 2, 0, 1, 4, 5 },
-                new[] { 3, 2, 1, 0, 5, 4 }
-            },
-            new int[][]
-            {
-                new[] { 4, 5, 2, 3, 1, 0 },
-                new[] { 5, 4, 2, 3, 0, 1 },
-                new int[] { },
-                new int[] { },
-                new[] { 0, 1, 2, 3, 4, 5 },
-                new[] { 1, 0, 2, 3, 5, 4 }
-            },
-            new int[][]
-            {
-                new[] { 4, 5, 3, 2, 0, 1 },
-                new[] { 5, 4, 3, 2, 1, 0 },
-                new int[] { },
-                new int[] { },
-                new[] { 1, 0, 3, 2, 4, 5 },
-                new[] { 0, 1, 3, 2, 5, 4 }
-            },
-            new int[][]
-            {
-                new[] { 4, 5, 0, 1, 2, 3 },
-                new[] { 5, 4, 1, 0, 2, 3 },
-                new[] { 1, 0, 4, 5, 2, 3 },
-                new[] { 0, 1, 5, 4, 2, 3 },
-                new int[] { },
-                new int[] { }
-            },
-            new int[][]
-            {
-                new[] { 4, 5, 1, 0, 3, 2 },
-                new[] { 5, 4, 0, 1, 3, 2 },
-                new[] { 0, 1, 4, 5, 3, 2 },
-                new[] { 1, 0, 5, 4, 3, 2 },
-                new int[] { },
-                new int[] { }
-            }
-        };
+        static int[][][] orientation_cube_table;
+
+        /// <summary>
+        ///     [up][forward][surface_index]
+        /// </summary>
+        static (Vector3[] vertices, Vector4[] uv)[][][] surface_table;
 
         public static SurfaceNormalDirection IndexToNormal(int index)
         {
@@ -356,7 +312,7 @@ namespace VolumeTerra.DataDefinition
                 index2vector3d[up_index] );
         }
 
-        public static void GetSurface(
+        public static bool GetSurface(
             int surface_index,
             int up_index,
             int forward_index,
@@ -364,11 +320,11 @@ namespace VolumeTerra.DataDefinition
             out Vector4[] uv)
         {
             var new_cube = orientation_cube_table[up_index][forward_index];
-            if (new_cube.Length == 0)
+            if (new_cube == null)
             {
                 vertices = null;
                 uv = null;
-                return;
+                return false;
             }
             int ori_surface_index = new_cube[surface_index];
             GetSourceSurface( ori_surface_index, out var ori_vertices, out var ori_uv );
@@ -383,6 +339,29 @@ namespace VolumeTerra.DataDefinition
             for (int i = 0; i < 6; i++)
             {
                 vertices[i] = quaternion * ori_vertices[i];
+            }
+            return true;
+        }
+
+        public static void GenerateSurfaceTable()
+        {
+            surface_table = new (Vector3[] vertices, Vector4[] uv)[6][][];
+            for (int i = 0; i < 6; i++)
+            {
+                surface_table[i] = new (Vector3[] vertices, Vector4[] uv)[6][];
+                for (int j = 0; j < 6; j++)
+                {
+                    surface_table[i][j] = new (Vector3[] vertices, Vector4[] uv)[6];
+                    for (int k = 0; k < 6; k++)
+                    {
+                        surface_table[i][j][k] =
+                            GetSurface(
+                                k, i, j,
+                                out var vertices,
+                                out var uv ) ?
+                                (vertices, uv) : default;
+                    }
+                }
             }
         }
 
