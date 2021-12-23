@@ -1,6 +1,6 @@
-﻿using RenderingTest.Configs;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
+using VolumeTerra;
 namespace RenderingTest
 {
     [CustomEditor( typeof(CubeConfig) )]

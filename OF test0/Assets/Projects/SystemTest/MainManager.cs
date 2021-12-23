@@ -1,4 +1,5 @@
 using UnityEngine;
+using VolumeTerra;
 using VolumeTerra.DataDefinition;
 namespace SystemTest
 {
@@ -8,7 +9,7 @@ namespace SystemTest
     public static class MainManager
     {
 
-        [RuntimeInitializeOnLoadMethod( RuntimeInitializeLoadType.AfterAssembliesLoaded )]
+        [RuntimeInitializeOnLoadMethod( RuntimeInitializeLoadType.SubsystemRegistration )]
         static void GameMain()
         {
             TerrainManager.Init();

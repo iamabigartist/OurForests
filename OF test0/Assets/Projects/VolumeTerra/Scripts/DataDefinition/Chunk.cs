@@ -30,7 +30,10 @@ namespace VolumeTerra.DataDefinition
 
         public void Voxel_VolumeMatrixToSegmentLists()
         {
-
+            //只要不是目前的方块和左下后的要查看的方块都是Voxel，那么就能够记录生成面片。
+            Vector3Int pos = Vector3Int.back;
+            int cur_cube_id = 0;
+            if (TerrainManager.cube_mesh_type_table[cur_cube_id] == TerrainManager.MeshType.Voxel) { }
         }
 
     #endregion

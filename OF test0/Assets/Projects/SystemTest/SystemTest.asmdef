@@ -2,7 +2,8 @@
     "name": "SystemTest",
     "rootNamespace": "",
     "references": [
-        "GUID:15bb901802828ac42829c765c5bc53a1"
+        "GUID:15bb901802828ac42829c765c5bc53a1",
+        "GUID:d9d0bdea73b8e354fb64d6b14c704cee"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

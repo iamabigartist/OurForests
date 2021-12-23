@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using UnityEngine;
-using Debug = UnityEngine.Debug;
 namespace VolumeTerra.DataDefinition
 {
 
@@ -34,13 +32,9 @@ namespace VolumeTerra.DataDefinition
         public static void Init()
         {
 
-            var stop_watch = new Stopwatch();
-            stop_watch.Start();
             source_cube = Resources.Load<Mesh>( "UVCubeShow-m_mesh" );
             Generate24CubesTable();
             GenerateSurfaceTable();
-            stop_watch.Stop();
-            Debug.Log( stop_watch.ElapsedTicks / 10000f );
         }
 
         static Mesh source_cube;
