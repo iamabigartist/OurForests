@@ -1,12 +1,17 @@
 ﻿using UnityEditor;
 using UnityEngine;
-using VolumeTerra;
-namespace RenderingTest
+using UnityEngine.Rendering;
+namespace VolumeTerra.Management
 {
     [CustomEditor( typeof(CubeConfig) )]
     public class CubeConfigInspector : Editor
     {
+        PreviewRenderUtility m_renderUtility;
 
+        void InitRenderUtility()
+        {
+            m_renderUtility = new PreviewRenderUtility();
+        }
 
         public static GameObject CreatePreviewModel(Mesh mesh, Material material)
         {
@@ -34,6 +39,7 @@ namespace RenderingTest
         void OnEnable()
         {
             _target = (CubeConfig)target;
+            InitRenderUtility();
             RegenerateEditor();
         }
 

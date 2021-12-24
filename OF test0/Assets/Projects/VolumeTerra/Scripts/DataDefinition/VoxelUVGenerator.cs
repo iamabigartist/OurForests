@@ -26,18 +26,8 @@ namespace VolumeTerra.DataDefinition
     }
 
 
-    public static class VoxelUVGeneration
+    public class VoxelUVGenerator
     {
-
-        public static void Init()
-        {
-
-            source_cube = Resources.Load<Mesh>( "UVCubeShow-m_mesh" );
-            Generate24CubesTable();
-            GenerateSurfaceTable();
-        }
-
-        static Mesh source_cube;
 
         /// <summary>
         ///     Rotate the original direction once
@@ -125,16 +115,6 @@ namespace VolumeTerra.DataDefinition
             Vector3.forward,
             Vector3.back
         };
-
-        /// <summary>
-        ///     [up][forward][surface_index]
-        /// </summary>
-        static int[][][] orientation_cube_table;
-
-        /// <summary>
-        ///     [up][forward][surface_index]
-        /// </summary>
-        static (Vector3[] vertices, Vector4[] uv)[][][] surface_table;
 
         public static SurfaceNormalDirection IndexToNormal(int index)
         {
@@ -255,9 +235,12 @@ namespace VolumeTerra.DataDefinition
             return orientation_24_cube;
         }
 
-        public static void Generate24CubesTable()
+
+        public static Quaternion LookRotation(int up_index, int forward_index)
         {
-            orientation_cube_table = Sort24Cubes( GenerateOriginal24CubesList() );
+            return Quaternion.LookRotation(
+                index2vector3d[forward_index],
+                index2vector3d[up_index] );
         }
 
         public static string Generate24CubeTableCode(int[][][] table)
@@ -285,7 +268,34 @@ namespace VolumeTerra.DataDefinition
             return table_string;
         }
 
-        public static void GetSourceSurface(
+
+        public VoxelUVGenerator(string source_cube_path)
+        {
+            source_cube = Resources.Load<Mesh>( source_cube_path );
+            Generate24CubesTable();
+            GenerateSurfaceTable();
+        }
+
+        Mesh source_cube;
+
+        /// <summary>
+        ///     [up][forward][surface_index]
+        /// </summary>
+        int[][][] orientation_cube_table;
+
+        /// <summary>
+        ///     [up][forward][surface_index]
+        /// </summary>
+        (Vector3[] vertices, Vector4[] uv)[][][] surface_table;
+
+
+        public void Generate24CubesTable()
+        {
+            orientation_cube_table = Sort24Cubes( GenerateOriginal24CubesList() );
+        }
+
+
+        public void GetSourceSurface(
             int surface_index,
             out List<Vector3> vertices,
             out List<Vector4> uv)
@@ -299,14 +309,8 @@ namespace VolumeTerra.DataDefinition
             uv = uv.GetRange( source_start_index, 6 );
         }
 
-        public static Quaternion LookRotation(int up_index, int forward_index)
-        {
-            return Quaternion.LookRotation(
-                index2vector3d[forward_index],
-                index2vector3d[up_index] );
-        }
 
-        public static bool GetSurface(
+        public bool GetSurface(
             int surface_index,
             int up_index,
             int forward_index,
@@ -337,7 +341,7 @@ namespace VolumeTerra.DataDefinition
             return true;
         }
 
-        public static void GenerateSurfaceTable()
+        public void GenerateSurfaceTable()
         {
             surface_table = new (Vector3[] vertices, Vector4[] uv)[6][][];
             for (int i = 0; i < 6; i++)

@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-namespace VolumeTerra
+namespace VolumeTerra.Management
 {
     [CreateAssetMenu( fileName = "Cube1", menuName = "", order = 0 )]
     public class CubeConfig : ScriptableObject

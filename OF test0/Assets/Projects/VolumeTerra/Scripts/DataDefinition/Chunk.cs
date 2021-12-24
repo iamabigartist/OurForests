@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using MUtility;
 using UnityEngine;
 using UnityEngine.Rendering;
+using VolumeTerra.Management;
 namespace VolumeTerra.DataDefinition
 {
     public class Chunk

@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Projects/SystemTest/Main.unity
+    path: Assets/Projects/MyForestSystem/Main.unity
     guid: 81988e2a8d7c5c5488dc7a67bd466496
   - enabled: 1
-    path: Assets/Projects/SystemTest/Main 1.unity
+    path: Assets/Projects/MyForestSystem/Main 1.unity
     guid: 8f1c866e739630e4793cedd47a28cedf
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: e92a8391a78c8be4b8eea4e6acab344a, type: 2}

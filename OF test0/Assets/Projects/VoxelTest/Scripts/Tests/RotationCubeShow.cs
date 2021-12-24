@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using MyForestSystem;
 using UnityEngine;
 using VolumeTerra.DataDefinition;
 namespace VoxelTest.Tests
@@ -10,11 +11,14 @@ namespace VoxelTest.Tests
         public int forward_index;
 
         MeshFilter Filter;
+
+        VoxelUVGenerator VoxelUVGenerator;
+
         void Start()
         {
             up_index = 2;
             Filter = GetComponent<MeshFilter>();
-
+            VoxelUVGenerator = MainManager.VoxelUVGenerator;
             up_index_string = up_index.ToString();
             forward_index_string = forward_index.ToString();
             surface_index_string = surface_index.ToString();
@@ -44,7 +48,7 @@ namespace VoxelTest.Tests
         void GenerateSurfaceOnce()
         {
             var cur_mesh = new Mesh();
-            VoxelUVGeneration.GetSurface(
+            VoxelUVGenerator.GetSurface(
                 surface_index,
                 up_index,
                 forward_index,
@@ -61,7 +65,7 @@ namespace VoxelTest.Tests
 
         void RotateSourceCubeOnce()
         {
-            transform.GetChild( 0 ).rotation = VoxelUVGeneration.LookRotation( up_index, forward_index );
+            transform.GetChild( 0 ).rotation = VoxelUVGenerator.LookRotation( up_index, forward_index );
         }
 
     }
