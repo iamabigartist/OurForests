@@ -279,29 +279,32 @@
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files/Unity 2020.3.25f1/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
  </Reference>
+ <Reference Include="UnityEditor.WebGL.Extensions">
+ <HintPath>C:/Program Files/Unity 2020.3.25f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>C:/Program Files/Unity 2020.3.25f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="Microsoft.CodeAnalysis">
- <HintPath>C:/Users/15480/Documents/Unity Projects/OurForests/New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/Library/PackageCache/com.unity.code-analysis@0.1.2-preview/Plugins/Microsoft.CodeAnalysis.dll</HintPath>
+ <HintPath>C:/Users/HonorPro162021.11.11/Documents/GitHub/OurForests/New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/Library/PackageCache/com.unity.code-analysis@0.1.2-preview/Plugins/Microsoft.CodeAnalysis.dll</HintPath>
  </Reference>
  <Reference Include="Microsoft.CodeAnalysis.CSharp">
- <HintPath>C:/Users/15480/Documents/Unity Projects/OurForests/New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/Library/PackageCache/com.unity.code-analysis@0.1.2-preview/Plugins/Microsoft.CodeAnalysis.CSharp.dll</HintPath>
+ <HintPath>C:/Users/HonorPro162021.11.11/Documents/GitHub/OurForests/New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/Library/PackageCache/com.unity.code-analysis@0.1.2-preview/Plugins/Microsoft.CodeAnalysis.CSharp.dll</HintPath>
  </Reference>
  <Reference Include="Microsoft.CodeAnalysis.Scripting">
- <HintPath>C:/Users/15480/Documents/Unity Projects/OurForests/New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/Library/PackageCache/com.unity.code-analysis@0.1.2-preview/Plugins/Microsoft.CodeAnalysis.Scripting.dll</HintPath>
+ <HintPath>C:/Users/HonorPro162021.11.11/Documents/GitHub/OurForests/New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/Library/PackageCache/com.unity.code-analysis@0.1.2-preview/Plugins/Microsoft.CodeAnalysis.Scripting.dll</HintPath>
  </Reference>
  <Reference Include="Microsoft.CodeAnalysis.CSharp.Scripting">
- <HintPath>C:/Users/15480/Documents/Unity Projects/OurForests/New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/Library/PackageCache/com.unity.code-analysis@0.1.2-preview/Plugins/Microsoft.CodeAnalysis.CSharp.Scripting.dll</HintPath>
+ <HintPath>C:/Users/HonorPro162021.11.11/Documents/GitHub/OurForests/New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/Library/PackageCache/com.unity.code-analysis@0.1.2-preview/Plugins/Microsoft.CodeAnalysis.CSharp.Scripting.dll</HintPath>
  </Reference>
  <Reference Include="Microsoft.CodeAnalysis.CSharp.Workspaces">
- <HintPath>C:/Users/15480/Documents/Unity Projects/OurForests/New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/Library/PackageCache/com.unity.code-analysis@0.1.2-preview/Plugins/Microsoft.CodeAnalysis.CSharp.Workspaces.dll</HintPath>
+ <HintPath>C:/Users/HonorPro162021.11.11/Documents/GitHub/OurForests/New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/Library/PackageCache/com.unity.code-analysis@0.1.2-preview/Plugins/Microsoft.CodeAnalysis.CSharp.Workspaces.dll</HintPath>
  </Reference>
  <Reference Include="Microsoft.CodeAnalysis.Workspaces">
- <HintPath>C:/Users/15480/Documents/Unity Projects/OurForests/New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/Library/PackageCache/com.unity.code-analysis@0.1.2-preview/Plugins/Microsoft.CodeAnalysis.Workspaces.dll</HintPath>
+ <HintPath>C:/Users/HonorPro162021.11.11/Documents/GitHub/OurForests/New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/Library/PackageCache/com.unity.code-analysis@0.1.2-preview/Plugins/Microsoft.CodeAnalysis.Workspaces.dll</HintPath>
  </Reference>
  <Reference Include="System.Collections.Immutable">
- <HintPath>C:/Users/15480/Documents/Unity Projects/OurForests/New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/Library/PackageCache/com.unity.code-analysis@0.1.2-preview/Plugins/System.Collections.Immutable.dll</HintPath>
+ <HintPath>C:/Users/HonorPro162021.11.11/Documents/GitHub/OurForests/New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/Library/PackageCache/com.unity.code-analysis@0.1.2-preview/Plugins/System.Collections.Immutable.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>C:/Program Files/Unity 2020.3.25f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -658,10 +661,10 @@
  <HintPath>C:/Program Files/Unity 2020.3.25f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Numerics.Vectors.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>C:/Users/15480/Documents/Unity Projects/OurForests/New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>C:/Users/HonorPro162021.11.11/Documents/GitHub/OurForests/New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Users/15480/Documents/Unity Projects/OurForests/New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Users/HonorPro162021.11.11/Documents/GitHub/OurForests/New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
