@@ -43,6 +43,7 @@
   <ItemGroup>
      <Compile Include="Assets\Projects\Automation\RunCodeLab\TryRoslynServices.cs" />
      <Compile Include="Assets\Projects\Serialization\BuildingBlocks.cs" />
+     <Compile Include="Assets\Projects\UI\NewVisualElement.cs" />
      <None Include="Assets\Projects\Projects.asmdef" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.1.0b4\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
