@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e762d9ab36ad42a09fed104b734b2b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TerrainSize: {x: 500, y: 100, z: 500}
+  TerrainSize: {x: 100, y: 100, z: 100}
   stone_height: 20
   soil_height: 10
   NoiseOffset: {x: 0, y: 0}
@@ -585,6 +585,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 0
   m_Antialiasing: 0
   m_AntialiasingQuality: 2

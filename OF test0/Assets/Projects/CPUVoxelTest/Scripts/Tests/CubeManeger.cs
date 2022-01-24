@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace RenderingTest.Tests
+namespace CPUVoxelTest.Scripts.Tests
 {
     public class CubeManeger : MonoBehaviour
     {
