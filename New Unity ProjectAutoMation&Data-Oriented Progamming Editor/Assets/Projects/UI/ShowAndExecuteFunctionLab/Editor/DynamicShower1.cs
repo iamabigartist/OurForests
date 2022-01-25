@@ -4,6 +4,7 @@ using System.Reflection;
 using MyUtils;
 using UnityEditor;
 using UnityEngine;
+using Object = UnityEngine.Object;
 namespace UI.ShowAndExecuteFunctionLab
 {
 
@@ -46,17 +47,13 @@ namespace UI.ShowAndExecuteFunctionLab
 
     #endregion
 
-        [SerializeReference]
-        public object object1;
-        object[] m_objects =
-        {
-            new Set1(),
-            new Set2(),
-            new Set3(),
-            new MethodArgumentsContainer( typeof(ExampleShowedClass).GetMethods() )
-        };
+        // [SerializeReference]
+        public Object object1;
+        Object[] m_objects;
         string[] m_options;
         int option;
+
+
 
 
         Type result_type;
@@ -68,7 +65,16 @@ namespace UI.ShowAndExecuteFunctionLab
 
         void OnEnable()
         {
-            object1 = new Set1();
+
+            m_objects = new Object[]
+            {
+                new Collider(),
+                new MeshRenderer()
+                // new MethodArgumentsContainer( typeof(ExampleShowedClass).GetMethods( BindingFlags.NonPublic | BindingFlags.Public ) )
+
+            };
+
+            // object1 = new Set1();
 
             this_ = new SerializedObject( this );
             object1_ = this_.FindProperty( nameof(object1) );
@@ -132,9 +138,9 @@ namespace UI.ShowAndExecuteFunctionLab
 
 
                 EditorGUILayout.PropertyField( object1_, true );
-                EditorGUILayout.LabelField( object1_.managedReferenceFullTypename );
-                EditorGUILayout.LabelField( object1_.managedReferenceFieldTypename );
-                EditorGUILayout.LabelField( object1_.managedReferenceValue.ToString() );
+                EditorGUILayout.LabelField( $"managed: {object1_.managedReferenceValue}" );
+                EditorGUILayout.LabelField( $"Object: {object1_.objectReferenceValue}" );
+                EditorGUILayout.LabelField( $"exposed: {object1_.exposedReferenceValue}" );
             }
 
             this_.ApplyModifiedProperties();

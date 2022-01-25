@@ -1,27 +1,25 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Reflection;
 using MyUtils;
 using UnityEditor;
 using UnityEngine;
+using static MyUtils.UIUtils;
 namespace UI.ShowAndExecuteFunctionLab
 {
 
     [CustomPropertyDrawer( typeof(MethodArgumentsContainer) )]
     public class MethodArgumentsContainerDrawer : PropertyDrawer
     {
-        public const int arg_height = 20;
+        public const int arg_height = 15;
 
         public int i;
-        public int args_count;
-        public string[] method_names;
-        int GetArgsCount(SerializedProperty property)
+
+        MethodArgumentsContainer GetTarget(SerializedProperty property)
         {
-            return property.
-                FindPropertyRelative( "method_arguments" ).
-                FindPropertyRelative( "args" ).
-                FindPropertyRelative( "Array.size" ).intValue;
+            return (MethodArgumentsContainer)property.managedReferenceValue;
         }
 
         string[] GetMethodNameList(SerializedProperty property)
@@ -40,27 +38,37 @@ namespace UI.ShowAndExecuteFunctionLab
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-            args_count = GetArgsCount( property );
-            method_names = GetMethodNameList( property );
+            var target = GetTarget( property );
+            var args_count = target.method_arguments.args.Length;
             EditorGUI.BeginProperty( position, label, property );
             EditorGUI.LabelField( position.GetPart( 1, args_count + 2, 0, 0 ), label );
             EditorGUI.Popup(
                     position.GetPart( 1, args_count + 2, 0, 1 ),
-                    i, GetMethodNameList( property ) ).
+                    i, target.method_list.Select( m => m.Name ).ToArray() ).
                 Update( ref i, (v, ov) =>
                 {
-                    property.FindPropertyRelative( "Option" ).intValue = v;
+                    target.Option = v;
                 } );
-            EditorGUI.PropertyField( position.GetPart(
+            property.serializedObject.Update();
+
+            args_count = target.method_arguments.args.Length;
+            DrawGridUIs( position.GetPart(
                     1, args_count + 2,
-                    0, 2, 1, args_count ),
-                property.FindPropertyRelative( "method_arguments" ).FindPropertyRelative( "args" ), true );
+                    0, 2, 1, args_count ), 1, args_count,
+                (rect, k) =>
+                {
+                    EditorGUI.PropertyField( rect,
+                        property.FindPropertyRelative( "method_arguments" ).
+                            FindPropertyRelative( "args" ).
+                            GetArrayElementAtIndex( k ), true );
+                } );
+
             EditorGUI.EndProperty();
         }
 
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
-            return (GetArgsCount( property ) + 2) * arg_height;
+            return (GetTarget( property ).method_arguments.args.Length + 2) * arg_height;
         }
     }
 
@@ -88,7 +96,7 @@ namespace UI.ShowAndExecuteFunctionLab
         {
             Trace.Assert( method_list != null && method_list.Length != 0 );
             this.method_list = method_list;
-            Option = 0;
+            method_arguments = new SerializedMethodArguments( method_list[1] );
         }
     }
 

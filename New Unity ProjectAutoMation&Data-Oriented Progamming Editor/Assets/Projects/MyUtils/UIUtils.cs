@@ -25,7 +25,7 @@ namespace MyUtils
             return new_rect;
         }
 
-        public static void DrawGridUIs<T>(
+        public static void DrawGridUIs(
             Rect position,
             int x_grid_count,
             int y_grid_count,
