@@ -7,7 +7,7 @@ onBoardingDoNotAskAgain = true
 showPackageIndexes = false
 showStatusBar = false
 scopes = {
-	"last_search.2EEDD5D8" = "l:hud and rI builder"
+	"last_search.2EEDD5D8" = "auto refre"
 	"OpenInspectorPreview.2EEDD5D8" = "1"
 	"currentGroup.2EEDD5D8" = "all"
 }
@@ -59,6 +59,7 @@ providers = {
 	}
 }
 recentSearches = [
+	"l:hud a"
 	"l:hud UI builder"
 	"l:hud ext:png UI builder"
 	"UI builder"

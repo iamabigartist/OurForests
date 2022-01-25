@@ -52,7 +52,7 @@ public class BuildingBlocks : MonoBehaviour
         {
             // !! DO NOT USE !!
             // Although, this is syntaxically correct, it is NOT supported as a valid serialization construct because the 'bin' serialized field is declared as holding a single reference type.
-            bin = new List<object>() { new Cube() };
+            bin = new Cube();
         }
     }
 }
