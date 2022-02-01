@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e762d9ab36ad42a09fed104b734b2b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TerrainSize: {x: 1000, y: 1000, z: 100}
+  TerrainSize: {x: 1000, y: 100, z: 1000}
   stone_height: 20
   soil_height: 10
   NoiseOffset: {x: 0, y: 0}
