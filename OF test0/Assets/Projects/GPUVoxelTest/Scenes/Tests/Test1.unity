@@ -879,8 +879,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   surface_index: 0
-  up_index: 0
-  forward_index: 0
+  up_index: 2
+  forward_index: 4
 --- !u!1 &1166118977
 GameObject:
   m_ObjectHideFlags: 0

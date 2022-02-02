@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
-using VolumeTerra.DataDefinition;
+using VolumeTerra.Factories;
 using VolumeTerra.Generate;
 namespace VoxelTest.Tests
 {
@@ -15,13 +14,13 @@ namespace VoxelTest.Tests
 
         public GameObject m_prefab;
         Material prefab_material;
-        Chunk Chunk;
+        ChunkMesh m_chunkMesh;
         MeshFilter m_meshFilter;
         MeshRenderer m_meshRenderer;
 
         void Start()
         {
-            Chunk.Cubes[0] = m_prefab.GetComponent<MeshFilter>().sharedMesh;
+            ChunkMesh.Cubes[0] = m_prefab.GetComponent<MeshFilter>().sharedMesh;
             prefab_material = m_prefab.GetComponent<MeshRenderer>().sharedMaterial;
 
             m_meshFilter = GetComponent<MeshFilter>();
@@ -38,30 +37,23 @@ namespace VoxelTest.Tests
             }
         }
 
-        void OnValidate()
-        {
-            if (Application.isPlaying)
-            {
-                GenerateOnce();
-            }
-        }
 
         void GenerateOnce()
         {
             var matrix = new VolumeMatrix<int>( TerrainSize );
             matrix.GenerateSimpleTerrain( stone_height, soil_height, NoiseOffset, NoiseScale );
             Debug.Log( $"{matrix.Position( 7128 )}" );
-            Chunk = new Chunk( matrix );
-            Chunk.General_VolumeMatrixToSegmentLists();
-            Chunk.GenerateResultMesh();
-            m_meshFilter.sharedMesh = Chunk.result_mesh;
+            m_chunkMesh = new ChunkMesh( matrix );
+            m_chunkMesh.General_VolumeMatrixToSegmentLists();
+            m_chunkMesh.GenerateResultMesh();
+            m_meshFilter.sharedMesh = m_chunkMesh.result_mesh;
         }
 
-        void OnApplicationQuit()
-        {
-            var generated_path = "Assets/GeneratedResults/";
-            AssetDatabase.CreateAsset( Chunk.result_mesh, generated_path + $"{name}ResultMesh" + ".mesh" );
-        }
+        // void OnApplicationQuit()
+        // {
+        //     var generated_path = "Assets/GeneratedResults/";
+        //     AssetDatabase.CreateAsset( ChunkMesh.result_mesh, generated_path + $"{name}ResultMesh" + ".mesh" );
+        // }
 
     }
 }

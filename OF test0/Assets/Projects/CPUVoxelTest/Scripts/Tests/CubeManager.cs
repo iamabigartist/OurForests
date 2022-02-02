@@ -1,7 +1,7 @@
 using UnityEngine;
 namespace CPUVoxelTest.Scripts.Tests
 {
-    public class CubeManeger : MonoBehaviour
+    public class CubeManager : MonoBehaviour
     {
         [SerializeField]
         int cube_count;

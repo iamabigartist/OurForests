@@ -4,7 +4,7 @@ using System.Linq;
 using MUtility;
 using UnityEngine;
 using UnityEngine.Rendering;
-using VolumeTerra.DataDefinition;
+using VolumeTerra.Factories;
 using VolumeTerra.Generate;
 namespace CPUVoxelTest.Scripts.Tests
 {

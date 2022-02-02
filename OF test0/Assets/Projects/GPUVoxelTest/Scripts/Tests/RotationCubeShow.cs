@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using MyForestSystem;
 using UnityEngine;
-using VolumeTerra.DataDefinition;
-namespace VoxelTest.Tests
+using VolumeTerra.Factories;
+namespace GPUVoxelTest.Tests
 {
     public class RotationCubeShow : MonoBehaviour
     {
@@ -12,13 +12,13 @@ namespace VoxelTest.Tests
 
         MeshFilter Filter;
 
-        VoxelUVGenerator VoxelUVGenerator;
+        VoxelSurfaceGenerator m_voxelSurfaceGenerator;
 
         void Start()
         {
             up_index = 2;
             Filter = GetComponent<MeshFilter>();
-            VoxelUVGenerator = MainManager.VoxelUVGenerator;
+            m_voxelSurfaceGenerator = MainManager.VoxelSurfaceGenerator;
             up_index_string = up_index.ToString();
             forward_index_string = forward_index.ToString();
             surface_index_string = surface_index.ToString();
@@ -48,7 +48,7 @@ namespace VoxelTest.Tests
         void GenerateSurfaceOnce()
         {
             var cur_mesh = new Mesh();
-            VoxelUVGenerator.GetSurface(
+            m_voxelSurfaceGenerator.GetSurface(
                 surface_index,
                 up_index,
                 forward_index,
@@ -65,7 +65,7 @@ namespace VoxelTest.Tests
 
         void RotateSourceCubeOnce()
         {
-            transform.GetChild( 0 ).rotation = VoxelUVGenerator.LookRotation( up_index, forward_index );
+            transform.GetChild( 0 ).rotation = VoxelSurfaceGenerator.LookRotation( up_index, forward_index );
         }
 
     }

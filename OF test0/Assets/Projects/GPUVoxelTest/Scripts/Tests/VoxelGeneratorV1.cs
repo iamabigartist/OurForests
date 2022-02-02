@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering;
-using VolumeTerra.DataDefinition;
+using VolumeTerra.Factories;
 using VolumeTerra.Generate;
 namespace VoxelTest.Tests
 {

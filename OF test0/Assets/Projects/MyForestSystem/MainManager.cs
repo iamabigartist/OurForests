@@ -1,5 +1,5 @@
 using UnityEngine;
-using VolumeTerra.DataDefinition;
+using VolumeTerra.Factories;
 using VolumeTerra.Management;
 namespace MyForestSystem
 {
@@ -22,7 +22,7 @@ namespace MyForestSystem
     #region GlobalTools
 
         public static TerrainManager TerrainManager { get; private set; }
-        public static VoxelUVGenerator VoxelUVGenerator { get; private set; }
+        public static VoxelSurfaceGenerator VoxelSurfaceGenerator { get; private set; }
 
     #endregion
 
@@ -32,7 +32,7 @@ namespace MyForestSystem
         static void GameMainInit()
         {
             TerrainManager = new TerrainManager();
-            VoxelUVGenerator = new VoxelUVGenerator( SOURCE_CUBE_PATH );
+            VoxelSurfaceGenerator = new VoxelSurfaceGenerator( SOURCE_CUBE_PATH );
         }
 
     #endregion

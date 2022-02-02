@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-namespace VolumeTerra.DataDefinition
+namespace VolumeTerra.Factories
 {
 
     public struct SurfaceNormalDirection
@@ -26,7 +26,7 @@ namespace VolumeTerra.DataDefinition
     }
 
 
-    public class VoxelUVGenerator
+    public class VoxelSurfaceGenerator
     {
 
         /// <summary>
@@ -106,6 +106,9 @@ namespace VolumeTerra.DataDefinition
             new[] { 4, 5 }
         };
 
+        /// <summary>
+        ///     Indicate the surface order of our cube
+        /// </summary>
         static Vector3[] index2vector3d =
         {
             Vector3.right,
@@ -269,7 +272,7 @@ namespace VolumeTerra.DataDefinition
         }
 
 
-        public VoxelUVGenerator(string source_cube_path)
+        public VoxelSurfaceGenerator(string source_cube_path)
         {
             source_cube = Resources.Load<Mesh>( source_cube_path );
             Generate24CubesTable();
@@ -279,23 +282,26 @@ namespace VolumeTerra.DataDefinition
         Mesh source_cube;
 
         /// <summary>
-        ///     [up][forward][surface_index]
+        ///     Each element in each rotated new cube contains
+        ///     the original surface index it holds from the source cube.
+        ///     [up*6][forward*4][surface_index]
         /// </summary>
         int[][][] orientation_cube_table;
 
         /// <summary>
+        ///     The final result of this that can be used to get any surface of a cube with any rotation.
         ///     [up][forward][surface_index]
         /// </summary>
         (Vector3[] vertices, Vector4[] uv)[][][] surface_table;
 
 
-        public void Generate24CubesTable()
+        void Generate24CubesTable()
         {
             orientation_cube_table = Sort24Cubes( GenerateOriginal24CubesList() );
         }
 
 
-        public void GetSourceSurface(
+        void GenerateSourceSurface(
             int surface_index,
             out List<Vector3> vertices,
             out List<Vector4> uv)
@@ -310,7 +316,7 @@ namespace VolumeTerra.DataDefinition
         }
 
 
-        public bool GetSurface(
+        public bool GenerateSurface(
             int surface_index,
             int up_index,
             int forward_index,
@@ -318,14 +324,17 @@ namespace VolumeTerra.DataDefinition
             out Vector4[] uv)
         {
             var new_cube = orientation_cube_table[up_index][forward_index];
+
+            //The up and forward situation does not exist
             if (new_cube == null)
             {
                 vertices = null;
                 uv = null;
                 return false;
             }
+
             int ori_surface_index = new_cube[surface_index];
-            GetSourceSurface( ori_surface_index, out var ori_vertices, out var ori_uv );
+            GenerateSourceSurface( ori_surface_index, out var ori_vertices, out var ori_uv );
 
             //the target uv should be the uv from the position in the source cube.
             uv = ori_uv.ToArray();
@@ -341,7 +350,7 @@ namespace VolumeTerra.DataDefinition
             return true;
         }
 
-        public void GenerateSurfaceTable()
+        void GenerateSurfaceTable()
         {
             surface_table = new (Vector3[] vertices, Vector4[] uv)[6][][];
             for (int i = 0; i < 6; i++)
@@ -353,7 +362,7 @@ namespace VolumeTerra.DataDefinition
                     for (int k = 0; k < 6; k++)
                     {
                         surface_table[i][j][k] =
-                            GetSurface(
+                            GenerateSurface(
                                 k, i, j,
                                 out var vertices,
                                 out var uv ) ?
@@ -361,6 +370,16 @@ namespace VolumeTerra.DataDefinition
                     }
                 }
             }
+        }
+
+        public void GetSurface(
+            int surface_index,
+            int up_index,
+            int forward_index,
+            out Vector3[] vertices,
+            out Vector4[] uv)
+        {
+            (vertices, uv) = surface_table[up_index][forward_index][surface_index];
         }
 
 

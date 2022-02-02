@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 namespace RaycastingTest
 {
     public class CameraRayConclusion : MonoBehaviour
@@ -6,22 +7,23 @@ namespace RaycastingTest
 
         Resolution m_resolution;
         Camera m_camera;
+
+        public Vector3 position;
+        [SerializeField]
+        Vector3 mouse_position;
         void Start()
         {
             m_resolution = Screen.currentResolution;
-            m_camera = Camera.main;
+            m_camera = GetComponent<Camera>();
         }
         void OnDrawGizmos()
         {
+            Gizmos.DrawRay( m_camera.ScreenPointToRay( position ) );
+        }
 
-            for (float i = 0; i < m_resolution.height; i++)
-            {
-                for (float j = 0; j < m_resolution.width; j++)
-                {
-                    Gizmos.DrawRay( m_camera.ScreenPointToRay(
-                        new Vector3( j / m_resolution.width, i / m_resolution.height, 0 ) ) );
-                }
-            }
+        void Update()
+        {
+            mouse_position = Input.mousePosition;
         }
     }
 }

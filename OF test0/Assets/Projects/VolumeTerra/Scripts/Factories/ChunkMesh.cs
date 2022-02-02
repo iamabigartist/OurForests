@@ -1,18 +1,22 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using MUtility;
 using UnityEngine;
 using UnityEngine.Rendering;
 using VolumeTerra.Management;
-namespace VolumeTerra.DataDefinition
+namespace VolumeTerra.Factories
 {
-    public class Chunk
+    /// <summary>
+    ///     Using
+    /// </summary>
+    public class ChunkMesh
     {
         //TODO 把对于模型的选取放回静态类
         public static Mesh[] Cubes = new Mesh[1];
 
-        public Chunk(VolumeMatrix<int> cube_matrix)
+        public ChunkMesh(VolumeMatrix<int> cube_matrix)
         {
             this.cube_matrix = cube_matrix;
             general_list_index_matrix = new VolumeMatrix<int>( cube_matrix.volume_size );
@@ -56,17 +60,27 @@ namespace VolumeTerra.DataDefinition
             var mesh_vertices_1 = Cubes[0].vertices;
             var mesh_uv1_1 = Cubes[0].uv;
 
+            float execute_count = cube_matrix.Count;
+            var thread_count = Environment.ProcessorCount;
+            var for_count = Mathf.CeilToInt( execute_count / thread_count );
+
+
         #region Record which position has what cube at what index in lists
 
             long cur_mesh_num = 0;
-            var a = new ParallelOptions();
             var result = Parallel.For( 0, cube_matrix.Count,
+                new ParallelOptions()
+                {
+                    MaxDegreeOfParallelism = Environment.ProcessorCount
+                },
                 (i) =>
                 {
                     (int x, int y, int z) = cube_matrix.Position( i );
                     int value = cube_matrix[x, y, z];
 
-                    //Check whether empty or inside
+                    //Check whether empty or inside or edge
+                    //The edge will be crossed over 2 unit with other chunks,
+                    //it aims to know the edge situation of one more inside cubes
                     if (cube_matrix.IsEdge( x, y, z ) ||
                         value == 0 ||
                         cube_matrix[x + 1, y, z] != 0 &&
@@ -92,22 +106,27 @@ namespace VolumeTerra.DataDefinition
 
             var vertices_array = new Vector3[cur_mesh_num * segment_length];
             var uv1_array = new Vector2[cur_mesh_num * segment_length];
-            Parallel.For( 0, cube_matrix.Count, i =>
-            {
-                int list_index = general_list_index_matrix[i];
-                if (list_index == -1) { return; }
-                int start_array_index = list_index * segment_length;
-                mesh_vertices_1.CopyTo( vertices_array, start_array_index );
-                mesh_uv1_1.CopyTo( uv1_array, start_array_index );
-
-                //Add local position to mesh vertices
-                (int x, int y, int z) = cube_matrix.Position( i );
-                for (int j = start_array_index; j < start_array_index + segment_length; j++)
+            Parallel.For( 0, cube_matrix.Count,
+                new ParallelOptions()
                 {
-                    vertices_array[j] += new Vector3( x, y, z );
-                }
+                    MaxDegreeOfParallelism = Environment.ProcessorCount
+                },
+                (i) =>
+                {
+                    int list_index = general_list_index_matrix[i];
+                    if (list_index == -1) { return; }
+                    int start_array_index = list_index * segment_length;
+                    mesh_vertices_1.CopyTo( vertices_array, start_array_index );
+                    mesh_uv1_1.CopyTo( uv1_array, start_array_index );
 
-            } );
+                    //Add local position to mesh vertices
+                    (int x, int y, int z) = cube_matrix.Position( i );
+                    for (int j = start_array_index; j < start_array_index + segment_length; j++)
+                    {
+                        vertices_array[j] += new Vector3( x, y, z );
+                    }
+
+                } );
             general_vertices_list = new FixedSegmentList<Vector3>( segment_length, vertices_array );
             general_uv1_list = new FixedSegmentList<Vector2>( segment_length, uv1_array );
 

@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using VolumeTerra.DataDefinition;
+using VolumeTerra.Factories;
 namespace VolumeTerra.Generate
 {
     public static class VolumeMatrixGeneration
