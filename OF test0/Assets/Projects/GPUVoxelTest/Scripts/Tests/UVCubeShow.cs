@@ -1,11 +1,11 @@
 using System.Linq;
+using GPUVoxelTest.Tests.ComputeShader.Resources.Include;
 using MUtility;
 using Unity.Mathematics;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
-using VoxelTest.Tests.ComputeShader.Resources.Include;
-namespace VoxelTest.Tests
+namespace GPUVoxelTest.Tests
 {
     public class UVCubeShow : MonoBehaviour
     {

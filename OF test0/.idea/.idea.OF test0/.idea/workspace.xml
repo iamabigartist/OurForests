@@ -5,33 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8aa6f73-f44f-4013-b18c-6364ab72914d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Factories/RaycastMesh.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Factories/RaycastMesh.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Projects/MUtility/DebugUtils.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Projects/MUtility/DebugUtils.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/AssetTest/Editor/CalculateTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/AssetTest/Editor/CalculateTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/CPUVoxelTest/Scripts/Tests/CubeManeger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/CPUVoxelTest/Scripts/Tests/CubeManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/CPUVoxelTest/Scripts/Tests/CubeManeger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/CPUVoxelTest/Scripts/Tests/CubeManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/CPUVoxelTest/Scripts/Tests/VolumeGenerateTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/CPUVoxelTest/Scripts/Tests/VolumeGenerateTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scenes/Tests/Test1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scenes/Tests/Test1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/CPUVoxelTest/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/CPUVoxelTest/Main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Editor/ComputePerformanceTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Editor/ComputePerformanceTest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Editor/CubeTextureInfoGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Editor/CubeTextureInfoGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Tests/RotationCubeShow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Tests/RotationCubeShow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Editor/MeshSerializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Editor/MeshSerializer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Editor/TestTransferWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Editor/TestTransferWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Tests/ComputeShader/Resources/Include/VoxelGenerationBranches.compute" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Tests/ComputeShader/Resources/Include/VoxelGenerationBranches.compute" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Tests/ComputeShader/Resources/Include/VoxelGenerationUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Tests/ComputeShader/Resources/Include/VoxelGenerationUtility.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Tests/PositionHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Tests/PositionHelper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Tests/UVCubeShow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Tests/UVCubeShow.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Tests/VoxelGeneratorCPU_V1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Tests/VoxelGeneratorCPU_V1.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Tests/VoxelGeneratorV1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Tests/VoxelGeneratorV1.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Tests/VoxelGeneratorV2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Tests/VoxelGeneratorV2.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/MyForestSystem/MainManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/MyForestSystem/MainManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/RaycastingTest/CameraRayConclusion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/RaycastingTest/CameraRayConclusion.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/RaycastingTest/New Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/RaycastingTest/New Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Factories.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/Chunk.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Factories/ChunkMesh.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/Chunk.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Factories/ChunkMesh.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/MarchingCubeMesh.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Factories/MarchingCubeMesh.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/MarchingCubeMesh.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Factories/MarchingCubeMesh.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/VolumeMatrix.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Factories/VolumeMatrix.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/VolumeMatrix.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Factories/VolumeMatrix.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/VoxelUVGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Factories/VoxelSurfaceGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/VoxelUVGenerator.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Factories/VoxelSurfaceGenerator.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Generate/VolumeMatrixGeneration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Generate/VolumeMatrixGeneration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Factories/ChunkMesh.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Factories/ChunkMesh.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Factories/VoxelSurfaceGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Factories/VoxelSurfaceGenerator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VoxelTest.csproj.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/VoxelTest.csproj.DotSettings" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,12 +42,14 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@1.2.1/Unity.Mathematics/float3.gen.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bc1d04d811fc4873ab7d8d9d4daddcc9568788/f7/3a50758c/Array.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Factories/VoxelSurfaceGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Factories/ChunkMesh.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Factories/VolumeMatrix.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/AssetTest/MyAssetImporter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Factories/MarchingCubeMesh.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Factories/RaycastMesh.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bc1d04d811fc4873ab7d8d9d4daddcc9568788/59/afb260d2/List`1.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -196,7 +188,7 @@
       <workItem from="1643704467850" duration="125000" />
       <workItem from="1643704695174" duration="2918000" />
       <workItem from="1643708655795" duration="1143000" />
-      <workItem from="1643710935643" duration="8267000" />
+      <workItem from="1643710935643" duration="20311000" />
     </task>
     <task id="LOCAL-00001" summary="Add some test method">
       <created>1639398343342</created>
@@ -248,12 +240,6 @@
           <line>229</line>
           <properties documentPath="C:\Users\15480\Documents\Unity Projects\OurForests\OF test0\Assets\PrototypeZ\Scripts\Tests\VoxelGenerator.cs" initialLine="79" containingFunctionPresentation="method 'Update'" />
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Projects/AssetTest/SOAssetSaver.cs</url>
-          <line>10</line>
-          <properties documentPath="C:\Users\15480\Documents\Unity Projects\OurForests\OF test0\Assets\Projects\AssetTest\SOAssetSaver.cs" initialLine="10" containingFunctionPresentation="method 'Start'" />
-          <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Projects/VoxelTest/Scripts/Editor/MeshSerializer.cs</url>

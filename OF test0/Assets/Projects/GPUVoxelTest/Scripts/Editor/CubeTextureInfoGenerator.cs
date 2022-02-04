@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-namespace VoxelTest
+namespace GPUVoxelTest
 {
 
     [Serializable]

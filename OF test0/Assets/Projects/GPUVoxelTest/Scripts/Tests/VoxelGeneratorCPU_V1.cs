@@ -1,8 +1,10 @@
-﻿using UnityEditor;
+﻿using System.Diagnostics;
+using MUtility;
 using UnityEngine;
 using VolumeTerra.Factories;
 using VolumeTerra.Generate;
-namespace VoxelTest.Tests
+using Debug = UnityEngine.Debug;
+namespace GPUVoxelTest.Tests
 {
     public class VoxelGeneratorCPU_V1 : MonoBehaviour
     {
@@ -27,6 +29,7 @@ namespace VoxelTest.Tests
             m_meshRenderer = GetComponent<MeshRenderer>();
 
             m_meshRenderer.material = prefab_material;
+
         }
 
         void OnGUI()
@@ -40,13 +43,30 @@ namespace VoxelTest.Tests
 
         void GenerateOnce()
         {
+            var stop = new Stopwatch();
+
+            stop.Start();
             var matrix = new VolumeMatrix<int>( TerrainSize );
             matrix.GenerateSimpleTerrain( stone_height, soil_height, NoiseOffset, NoiseScale );
-            Debug.Log( $"{matrix.Position( 7128 )}" );
+            // Debug.Log( $"{matrix.Position( 7128 )}" );
             m_chunkMesh = new ChunkMesh( matrix );
+            stop.Stop();
+            Debug.Log( $"GenerateSimpleTerrain: {stop.Get_ms()}" );
+
+            stop.Restart();
             m_chunkMesh.General_VolumeMatrixToSegmentLists();
+            stop.Stop();
+            Debug.Log( $"General_VolumeMatrixToSegmentLists: {stop.Get_ms()}" );
+
+            stop.Restart();
             m_chunkMesh.GenerateResultMesh();
+            stop.Stop();
+            Debug.Log( $"GenerateResultMesh: {stop.Get_ms()}" );
+
+            stop.Restart();
             m_meshFilter.sharedMesh = m_chunkMesh.result_mesh;
+            stop.Stop();
+            Debug.Log( $"sharedMesh Assign: {stop.Get_ms()}" );
         }
 
         // void OnApplicationQuit()

@@ -279,6 +279,9 @@ namespace VolumeTerra.Factories
             GenerateSurfaceTable();
         }
 
+        /// <summary>
+        ///     The cube used to generate all the surface of this generator.z
+        /// </summary>
         Mesh source_cube;
 
         /// <summary>
@@ -336,8 +339,6 @@ namespace VolumeTerra.Factories
             int ori_surface_index = new_cube[surface_index];
             GenerateSourceSurface( ori_surface_index, out var ori_vertices, out var ori_uv );
 
-            //the target uv should be the uv from the position in the source cube.
-            uv = ori_uv.ToArray();
 
             //the new vertices need to be rotated.
             vertices = new Vector3[6];
@@ -347,6 +348,10 @@ namespace VolumeTerra.Factories
             {
                 vertices[i] = quaternion * ori_vertices[i];
             }
+
+            //the target uv should be the uv from the position in the source cube.
+            uv = ori_uv.ToArray();
+
             return true;
         }
 

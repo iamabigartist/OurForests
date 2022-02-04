@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -6,6 +7,7 @@ using MUtility;
 using UnityEngine;
 using UnityEngine.Rendering;
 using VolumeTerra.Management;
+using Debug = UnityEngine.Debug;
 namespace VolumeTerra.Factories
 {
     /// <summary>
@@ -51,7 +53,10 @@ namespace VolumeTerra.Factories
         VolumeMatrix<int> general_list_index_matrix;
 
         FixedSegmentList<Vector3> general_vertices_list;
+        int[] general_triangle_list;
         FixedSegmentList<Vector2> general_uv1_list;
+        FixedSegmentList<Vector3> general_normal_list;
+        FixedSegmentList<Vector4> general_tangent_list;
 
         public void General_VolumeMatrixToSegmentLists()
         {
@@ -59,11 +64,8 @@ namespace VolumeTerra.Factories
             var segment_length = Cubes[0].vertices.Length;
             var mesh_vertices_1 = Cubes[0].vertices;
             var mesh_uv1_1 = Cubes[0].uv;
-
-            float execute_count = cube_matrix.Count;
-            var thread_count = Environment.ProcessorCount;
-            var for_count = Mathf.CeilToInt( execute_count / thread_count );
-
+            var mesh_normal_1 = Cubes[0].normals;
+            var mesh_tangent_1 = Cubes[0].tangents;
 
         #region Record which position has what cube at what index in lists
 
@@ -106,6 +108,8 @@ namespace VolumeTerra.Factories
 
             var vertices_array = new Vector3[cur_mesh_num * segment_length];
             var uv1_array = new Vector2[cur_mesh_num * segment_length];
+            var normal_array = new Vector3[cur_mesh_num * segment_length];
+            var tangent_array = new Vector4[cur_mesh_num * segment_length];
             Parallel.For( 0, cube_matrix.Count,
                 new ParallelOptions()
                 {
@@ -118,6 +122,8 @@ namespace VolumeTerra.Factories
                     int start_array_index = list_index * segment_length;
                     mesh_vertices_1.CopyTo( vertices_array, start_array_index );
                     mesh_uv1_1.CopyTo( uv1_array, start_array_index );
+                    mesh_normal_1.CopyTo( normal_array, start_array_index );
+                    mesh_tangent_1.CopyTo( tangent_array, start_array_index );
 
                     //Add local position to mesh vertices
                     (int x, int y, int z) = cube_matrix.Position( i );
@@ -128,7 +134,12 @@ namespace VolumeTerra.Factories
 
                 } );
             general_vertices_list = new FixedSegmentList<Vector3>( segment_length, vertices_array );
+            //Here is the important assumption condition:
+            //The index buffer i.e. the rendering order is a sequence :1,2,3,4,5,......
+            general_triangle_list = Enumerable.Range( 0, general_vertices_list.Count ).ToArray();
             general_uv1_list = new FixedSegmentList<Vector2>( segment_length, uv1_array );
+            general_normal_list = new FixedSegmentList<Vector3>( segment_length, normal_array );
+            general_tangent_list = new FixedSegmentList<Vector4>( segment_length, tangent_array );
 
         #endregion
         }
@@ -145,18 +156,25 @@ namespace VolumeTerra.Factories
         public void GenerateResultMesh()
         {
 
-            //Concat all the parts of this chunk mesh
+            var stop = new Stopwatch();
+
+            stop.Restart();
             result_mesh = new Mesh
             {
-                indexFormat = IndexFormat.UInt32,
-                vertices = general_vertices_list.ToArray(),
-                uv = general_uv1_list.ToArray(),
-                triangles = Enumerable.Range( 0, general_vertices_list.Count ).ToArray()
-
+                indexFormat = IndexFormat.UInt32
             };
+            result_mesh.SetVertices( general_vertices_list );
+            result_mesh.SetTriangles( general_triangle_list, 0 );
+            result_mesh.SetUVs( 0, general_uv1_list );
+            result_mesh.SetNormals( general_normal_list );
+            result_mesh.SetTangents( general_tangent_list );
+            stop.Stop();
+            Debug.Log( $"Build mesh: {stop.Get_ms()}" );
+
+            //Concat all the parts of this chunk mesh
             result_mesh.RecalculateBounds();
-            result_mesh.RecalculateNormals();
-            result_mesh.RecalculateTangents();
+            // result_mesh.RecalculateNormals();
+            // result_mesh.RecalculateTangents();
         }
 
     }

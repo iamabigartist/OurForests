@@ -1,6 +1,6 @@
 ﻿using UnityEditor;
 using UnityEngine;
-namespace VoxelTest
+namespace GPUVoxelTest
 {
     public class TestTransferWindow : EditorWindow
     {

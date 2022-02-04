@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using VolumeTerra.Factories;
 using VolumeTerra.Generate;
-namespace VoxelTest.Tests
+namespace GPUVoxelTest.Tests
 {
     public class ShaderData<T>
     {
