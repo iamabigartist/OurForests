@@ -24,6 +24,8 @@ namespace GPUVoxelTest
         SerializedProperty m_triangle_vertices_;
         SerializedProperty m_triangles_;
         SerializedProperty m_uv1_;
+        SerializedProperty m_normals_;
+        SerializedProperty m_tangents_;
 
     #endregion
 
@@ -37,6 +39,10 @@ namespace GPUVoxelTest
         List<int> m_triangles;
         [SerializeField]
         List<Vector2> m_uv1;
+        [SerializeField]
+        List<Vector3> m_normals;
+        [SerializeField]
+        List<Vector4> m_tangents;
 
         void OnEnable()
         {
@@ -49,6 +55,8 @@ namespace GPUVoxelTest
             m_triangle_vertices_ = this_.FindProperty( nameof(m_triangle_vertices) );
             m_triangles_ = this_.FindProperty( nameof(m_triangles) );
             m_uv1_ = this_.FindProperty( nameof(m_uv1) );
+            m_normals_ = this_.FindProperty( nameof(m_normals) );
+            m_tangents_ = this_.FindProperty( nameof(m_tangents) );
         }
 
         void Reload()
@@ -56,6 +64,8 @@ namespace GPUVoxelTest
             m_triangle_vertices = m_mesh.vertices.VerticesArrayToTrianglesList();
             m_triangles = m_mesh.triangles.ToList();
             m_uv1 = m_mesh.uv.ToList();
+            m_normals = m_mesh.normals.ToList();
+            m_tangents = m_mesh.tangents.ToList();
             mesh_editor = Editor.CreateEditor( m_mesh );
             this_.Update();
         }
@@ -102,6 +112,8 @@ namespace GPUVoxelTest
                 EditorGUILayout.PropertyField( m_triangles_ );
                 EditorGUILayout.PropertyField( m_triangle_vertices_ );
                 EditorGUILayout.PropertyField( m_uv1_ );
+                EditorGUILayout.PropertyField( m_normals_ );
+                EditorGUILayout.PropertyField( m_tangents_ );
 
 
 

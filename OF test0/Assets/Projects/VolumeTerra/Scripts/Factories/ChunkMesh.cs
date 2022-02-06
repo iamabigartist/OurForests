@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
@@ -33,7 +34,7 @@ namespace VolumeTerra.Factories
 
         public VolumeMatrix<Vector3Int> voxel_list_index_matrix;
         FixedSegmentList<Vector3> voxel_vertices_list;
-        FixedSegmentList<Vector2> voxel_uv1_list;
+        FixedSegmentList<Vector4> voxel_uv1_list;
 
         public void Voxel_VolumeMatrixToSegmentLists()
         {
@@ -54,7 +55,7 @@ namespace VolumeTerra.Factories
 
         FixedSegmentList<Vector3> general_vertices_list;
         int[] general_triangle_list;
-        FixedSegmentList<Vector2> general_uv1_list;
+        FixedSegmentList<Vector4> general_uv1_list;
         FixedSegmentList<Vector3> general_normal_list;
         FixedSegmentList<Vector4> general_tangent_list;
 
@@ -63,7 +64,8 @@ namespace VolumeTerra.Factories
 
             var segment_length = Cubes[0].vertices.Length;
             var mesh_vertices_1 = Cubes[0].vertices;
-            var mesh_uv1_1 = Cubes[0].uv;
+            var mesh_uv1_1 = new List<Vector4>();
+            Cubes[0].GetUVs( 0, mesh_uv1_1 );
             var mesh_normal_1 = Cubes[0].normals;
             var mesh_tangent_1 = Cubes[0].tangents;
 
@@ -107,7 +109,7 @@ namespace VolumeTerra.Factories
         #region Build the mesh info lists according to the records
 
             var vertices_array = new Vector3[cur_mesh_num * segment_length];
-            var uv1_array = new Vector2[cur_mesh_num * segment_length];
+            var uv1_array = new Vector4[cur_mesh_num * segment_length];
             var normal_array = new Vector3[cur_mesh_num * segment_length];
             var tangent_array = new Vector4[cur_mesh_num * segment_length];
             Parallel.For( 0, cube_matrix.Count,
@@ -137,7 +139,7 @@ namespace VolumeTerra.Factories
             //Here is the important assumption condition:
             //The index buffer i.e. the rendering order is a sequence :1,2,3,4,5,......
             general_triangle_list = Enumerable.Range( 0, general_vertices_list.Count ).ToArray();
-            general_uv1_list = new FixedSegmentList<Vector2>( segment_length, uv1_array );
+            general_uv1_list = new FixedSegmentList<Vector4>( segment_length, uv1_array );
             general_normal_list = new FixedSegmentList<Vector3>( segment_length, normal_array );
             general_tangent_list = new FixedSegmentList<Vector4>( segment_length, tangent_array );
 
