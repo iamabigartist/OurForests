@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
 using MUtility;
 using UnityEngine;
-using VolumeTerra.Factories;
 using VolumeTerra.Generate;
+using VolumeTerra.Object;
 using Debug = UnityEngine.Debug;
 namespace GPUVoxelTest.Tests
 {

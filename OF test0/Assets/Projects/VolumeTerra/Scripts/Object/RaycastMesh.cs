@@ -2,7 +2,7 @@
 using MUtility;
 using UnityEngine;
 using UnityEngine.Rendering;
-namespace VolumeTerra.Factories
+namespace VolumeTerra.Object
 {
     public class RaycastMesh
     {
