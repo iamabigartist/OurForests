@@ -55,6 +55,10 @@ namespace MUtility
         {
             return new Vector2( i.x, i.y );
         }
+        public static Quaternion ToQuaternion(this Vector3 v)
+        {
+            return Quaternion.Euler( v );
+        }
     }
     public static class EnumerableUtility
     {

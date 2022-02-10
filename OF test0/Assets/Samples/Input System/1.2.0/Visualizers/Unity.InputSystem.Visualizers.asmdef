@@ -1,17 +1,15 @@
 {
-    "name": "VolumeTerra",
-    "rootNamespace": "",
+    "name": "InputSystem.Samples.Visualizers",
     "references": [
-        "GUID:29e4551b046572f41b69a0ae6521d3c0",
         "GUID:75469ad4d38634e559750d17036d5f7c"
     ],
+    "optionalUnityReferences": [],
     "includePlatforms": [],
     "excludePlatforms": [],
-    "allowUnsafeCode": false,
+    "allowUnsafeCode": true,
     "overrideReferences": false,
     "precompiledReferences": [],
-    "autoReferenced": false,
+    "autoReferenced": true,
     "defineConstraints": [],
-    "versionDefines": [],
-    "noEngineReferences": false
+    "versionDefines": []
 }

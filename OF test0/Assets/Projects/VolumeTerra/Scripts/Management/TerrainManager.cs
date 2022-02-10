@@ -18,7 +18,7 @@ namespace VolumeTerra.Management
 
         public TerrainManager() { }
 
-        public static CubeConfig[] cube_configs_list;
+        public static BlockConfig[] cube_configs_list;
         public static MeshType[] cube_mesh_type_table;
         public static int[] cube_transparent_group_table;
         public static Mesh[] cube_general_mesh_table;

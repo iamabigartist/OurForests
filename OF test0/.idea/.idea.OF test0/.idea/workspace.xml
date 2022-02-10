@@ -5,36 +5,56 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8aa6f73-f44f-4013-b18c-6364ab72914d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Projects/CPUVoxelTest/NewSurfaceShader.shader" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Projects/CPUVoxelTest/NewSurfaceShader.shader.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Projects/CPUVoxelTest/NewUnlitShader.shader.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Projects/MUtility/BitUtils.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Projects/MUtility/BitUtils.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Object/BlockUnit.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Object/BlockUnit.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.2.0.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.2.0/Visualizers.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.2.0/Visualizers/.sample.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.2.0/Visualizers/GamepadVis.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.2.0/Visualizers/GamepadVis.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.2.0/Visualizers/GamepadVisualizer.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.2.0/Visualizers/GamepadVisualizer.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.2.0/Visualizers/InputActionVisualizer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.2.0/Visualizers/InputActionVisualizer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.2.0/Visualizers/InputControlVisualizer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.2.0/Visualizers/InputControlVisualizer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.2.0/Visualizers/InputVisualizer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.2.0/Visualizers/InputVisualizer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.2.0/Visualizers/MouseVis.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.2.0/Visualizers/MouseVis.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.2.0/Visualizers/MouseVisualizer.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.2.0/Visualizers/MouseVisualizer.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.2.0/Visualizers/PenVis.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.2.0/Visualizers/PenVis.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.2.0/Visualizers/PenVisualizer.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.2.0/Visualizers/PenVisualizer.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.2.0/Visualizers/SimpleControls.inputactions" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.2.0/Visualizers/SimpleControls.inputactions.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.2.0/Visualizers/SimpleControlsVis.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.2.0/Visualizers/SimpleControlsVis.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.2.0/Visualizers/SimpleControlsVisualizer.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.2.0/Visualizers/SimpleControlsVisualizer.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.2.0/Visualizers/Unity.InputSystem.Visualizers.asmdef" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.2.0/Visualizers/Unity.InputSystem.Visualizers.asmdef.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.2.0/Visualizers/VisualizationHelpers.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Input System/1.2.0/Visualizers/VisualizationHelpers.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3D Blocks 2.0/Materials/planks_oak_block_texture.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D Blocks 2.0/Materials/planks_oak_block_texture.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/AssetTest/Editor/CalculateTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/AssetTest/Editor/CalculateTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/CPUVoxelTest/Scripts/Tests/VolumeGenerateTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/CPUVoxelTest/Scripts/Tests/VolumeGenerateTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Tests/RotationCubeShow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Tests/RotationCubeShow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Tests/VoxelGeneratorCPU_V1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Tests/VoxelGeneratorCPU_V1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Tests/VoxelGeneratorV1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Tests/VoxelGeneratorV1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Tests/VoxelGeneratorV2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Tests/VoxelGeneratorV2.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/MyForestSystem/MainManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/MyForestSystem/MainManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Factories.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Object.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Factories/ChunkMesh.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Object/ChunkMesh.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Factories/ChunkMesh.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Object/ChunkMesh.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Factories/MarchingCubeMesh.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Object/MarchingCubeMesh.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Factories/MarchingCubeMesh.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Object/MarchingCubeMesh.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Factories/RaycastMesh.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Object/RaycastMesh.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Factories/RaycastMesh.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Object/RaycastMesh.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Factories/VolumeMatrix.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Object/VolumeMatrix.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Factories/VolumeMatrix.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Object/VolumeMatrix.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Factories/VoxelSurfaceGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Object/VoxelSurfaceGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Factories/VoxelSurfaceGenerator.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Object/VoxelSurfaceGenerator.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Generate/VolumeMatrixGeneration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Generate/VolumeMatrixGeneration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Wiki/main.dbindex" beforeDir="false" afterPath="$PROJECT_DIR$/../Wiki/main.dbindex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Wiki/main.nyf" beforeDir="false" afterPath="$PROJECT_DIR$/../Wiki/main.nyf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3D Blocks 2.0/Materials/rock3_block_texture.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3D Blocks 2.0/Materials/rock3_block_texture.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/CPUVoxelTest/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/CPUVoxelTest/Main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/CPUVoxelTest/NewSurfaceShader.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/CPUVoxelTest/NewSurfaceShader.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/CPUVoxelTest/NewUnlitShader.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/CPUVoxelTest/NewUnlitShader.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/MUtility/VectorUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/MUtility/VectorUtility.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Management/CubeConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Management/BlockConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Management/CubeConfig.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Management/BlockConfig.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Management/CubeConfigInspector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Management/BlockConfigInspector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Management/CubeConfigInspector.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Management/BlockConfigInspector.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Management/TerrainManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Management/TerrainManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/VolumeTerra.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/VolumeTerra.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +81,9 @@
     <setting file="file://$PROJECT_DIR$/Assets/Projects/AssetTest/MyAssetImporter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Object/MarchingCubeMesh.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Object/RaycastMesh.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Management/BlockConfig.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bc1d04d811fc4873ab7d8d9d4daddcc9568788/59/afb260d2/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Management/BlockConfigInspector.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -205,7 +227,10 @@
       <workItem from="1644052279080" duration="980000" />
       <workItem from="1644146718000" duration="872000" />
       <workItem from="1644229910625" duration="1073000" />
-      <workItem from="1644284601845" duration="3697000" />
+      <workItem from="1644284601845" duration="7480000" />
+      <workItem from="1644301573866" duration="3039000" />
+      <workItem from="1644304718643" duration="7601000" />
+      <workItem from="1644389380941" duration="1191000" />
     </task>
     <task id="LOCAL-00001" summary="Add some test method">
       <created>1639398343342</created>
