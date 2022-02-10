@@ -26,7 +26,7 @@ namespace VolumeTerra.Object
     }
 
 
-    public class VoxelSurfaceGenerator
+    public class VoxelSurfaceUVGenerator
     {
 
         /// <summary>
@@ -272,7 +272,7 @@ namespace VolumeTerra.Object
         }
 
 
-        public VoxelSurfaceGenerator(string source_cube_path)
+        public VoxelSurfaceUVGenerator(string source_cube_path)
         {
             source_cube = Resources.Load<Mesh>( source_cube_path );
             Generate24CubesTable();
