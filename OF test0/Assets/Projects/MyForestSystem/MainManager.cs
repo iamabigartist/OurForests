@@ -22,7 +22,7 @@ namespace MyForestSystem
     #region GlobalTools
 
         public static TerrainManager TerrainManager { get; private set; }
-        public static VoxelSurfaceUVGenerator VoxelSurfaceUVGenerator { get; private set; }
+        public static VoxelSurfaceUV VoxelSurfaceUV { get; private set; }
 
     #endregion
 
@@ -32,7 +32,7 @@ namespace MyForestSystem
         static void GameMainInit()
         {
             TerrainManager = new TerrainManager();
-            VoxelSurfaceUVGenerator = new VoxelSurfaceUVGenerator( SOURCE_CUBE_PATH );
+            VoxelSurfaceUV = new VoxelSurfaceUV( SOURCE_CUBE_PATH );
         }
 
     #endregion

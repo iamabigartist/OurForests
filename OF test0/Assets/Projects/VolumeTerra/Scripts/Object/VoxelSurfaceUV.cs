@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static MUtility.VoxelGenerationUtility;
 namespace VolumeTerra.Object
 {
 
@@ -26,7 +27,7 @@ namespace VolumeTerra.Object
     }
 
 
-    public class VoxelSurfaceUVGenerator
+    public class VoxelSurfaceUV
     {
 
         /// <summary>
@@ -82,42 +83,7 @@ namespace VolumeTerra.Object
             }
         };
 
-        /// <summary>
-        ///     The normal of a source_cube in the index order.
-        /// </summary>
-        static int[][] index2normal =
-        {
-            new[] { 0, 0 },
-            new[] { 0, 1 },
-            new[] { 1, 0 },
-            new[] { 1, 1 },
-            new[] { 2, 0 },
-            new[] { 2, 1 }
-        };
 
-
-        /// <summary>
-        ///     The index that a normal direction maps to.
-        /// </summary>
-        static int[][] normal2index =
-        {
-            new[] { 0, 1 },
-            new[] { 2, 3 },
-            new[] { 4, 5 }
-        };
-
-        /// <summary>
-        ///     Indicate the surface order of our cube
-        /// </summary>
-        static Vector3[] index2vector3d =
-        {
-            Vector3.right,
-            Vector3.left,
-            Vector3.up,
-            Vector3.down,
-            Vector3.forward,
-            Vector3.back
-        };
 
         public static SurfaceNormalDirection IndexToNormal(int index)
         {
@@ -272,7 +238,7 @@ namespace VolumeTerra.Object
         }
 
 
-        public VoxelSurfaceUVGenerator(string source_cube_path)
+        public VoxelSurfaceUV(string source_cube_path)
         {
             source_cube = Resources.Load<Mesh>( source_cube_path );
             Generate24CubesTable();

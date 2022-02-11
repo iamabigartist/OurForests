@@ -1,8 +1,47 @@
 ﻿using Unity.Mathematics;
-namespace GPUVoxelTest.Tests.ComputeShader.Resources.Include
+using UnityEngine;
+namespace MUtility
 {
     public static class VoxelGenerationUtility
     {
+
+        /// <summary>
+        ///     The normal of a source_cube in the index order.
+        /// </summary>
+        public static int[][] index2normal =
+        {
+            new[] { 0, 0 },
+            new[] { 0, 1 },
+            new[] { 1, 0 },
+            new[] { 1, 1 },
+            new[] { 2, 0 },
+            new[] { 2, 1 }
+        };
+
+
+        /// <summary>
+        ///     The index that a normal direction maps to.
+        /// </summary>
+        public static int[][] normal2index =
+        {
+            new[] { 0, 1 },
+            new[] { 2, 3 },
+            new[] { 4, 5 }
+        };
+
+        /// <summary>
+        ///     Indicate the surface order of our cube
+        /// </summary>
+        public static Vector3[] index2vector3d =
+        {
+            Vector3.right,
+            Vector3.left,
+            Vector3.up,
+            Vector3.down,
+            Vector3.forward,
+            Vector3.back
+        };
+
         //The point is (x,y,z)
         //(0,0,0) is the original point of the cube
         //Every branch in a for will build a quad of the cube

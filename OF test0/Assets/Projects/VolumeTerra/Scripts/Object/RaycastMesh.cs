@@ -7,7 +7,7 @@ namespace VolumeTerra.Object
     public class RaycastMesh
     {
         Camera m_camera;
-        VoxelSurfaceUVGenerator m_surfaceUVGenerator;
+        VoxelSurfaceUV m_surfaceUV;
         /// <summary>
         ///     Store the type of every cube in this chunk.
         /// </summary>

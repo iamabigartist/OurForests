@@ -1,5 +1,4 @@
 using System.Linq;
-using GPUVoxelTest.Tests.ComputeShader.Resources.Include;
 using MUtility;
 using Unity.Mathematics;
 using UnityEditor;
@@ -54,7 +53,6 @@ namespace GPUVoxelTest.Tests
             // AssetDatabase.CreateAsset( ta, $"Assets/GeneratedResults/{nameof(UVCubeShow)}-{nameof(ta)}.asset" );
 
         }
-
 
 
         (int3 c1, int axis, int dir)[] quad_iteration =

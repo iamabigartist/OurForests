@@ -12,13 +12,13 @@ namespace GPUVoxelTest.Tests
 
         MeshFilter Filter;
 
-        VoxelSurfaceUVGenerator m_voxelSurfaceUVGenerator;
+        VoxelSurfaceUV m_voxelSurfaceUV;
 
         void Start()
         {
             up_index = 2;
             Filter = GetComponent<MeshFilter>();
-            m_voxelSurfaceUVGenerator = MainManager.VoxelSurfaceUVGenerator;
+            m_voxelSurfaceUV = MainManager.VoxelSurfaceUV;
             up_index_string = up_index.ToString();
             forward_index_string = forward_index.ToString();
             surface_index_string = surface_index.ToString();
@@ -48,7 +48,7 @@ namespace GPUVoxelTest.Tests
         void GenerateSurfaceOnce()
         {
             var cur_mesh = new Mesh();
-            m_voxelSurfaceUVGenerator.GetSurface(
+            m_voxelSurfaceUV.GetSurface(
                 surface_index,
                 up_index,
                 forward_index,
@@ -65,7 +65,7 @@ namespace GPUVoxelTest.Tests
 
         void RotateSourceCubeOnce()
         {
-            transform.GetChild( 0 ).rotation = VoxelSurfaceUVGenerator.LookRotation( up_index, forward_index );
+            transform.GetChild( 0 ).rotation = VoxelSurfaceUV.LookRotation( up_index, forward_index );
         }
 
     }
