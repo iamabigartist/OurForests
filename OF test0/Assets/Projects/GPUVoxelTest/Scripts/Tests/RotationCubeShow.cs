@@ -22,6 +22,7 @@ namespace GPUVoxelTest.Tests
             up_index_string = up_index.ToString();
             forward_index_string = forward_index.ToString();
             surface_index_string = surface_index.ToString();
+            var material = GetComponent<MeshRenderer>().material;
         }
 
 

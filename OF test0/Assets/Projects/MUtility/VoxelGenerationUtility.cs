@@ -251,6 +251,14 @@ namespace MUtility
                 D = d;
             }
 
+            public QuadMaker(float3[] positions)
+            {
+                A = positions[0];
+                B = positions[1];
+                C = positions[2];
+                D = positions[3];
+            }
+
             Triangle Triangle00()
             {
                 return new Triangle( A, B, C );

@@ -4,10 +4,15 @@ using Unity.Mathematics;
 using UnityEngine;
 namespace VolumeTerra.Object
 {
+
+    public class AA<TA>
+    {
+
+    }
     public class VoxelSourceMesh
     {
         /// <summary>
-        /// The quad generation order, in the order of surface index <see cref=""/>
+        ///     The quad generation order, in the order of surface index <see cref="VoxelGenerationUtility.index2vector3d" />
         /// </summary>
         (int3 c1, int axis, int dir)[] quad_iteration =
         {
@@ -23,7 +28,7 @@ namespace VolumeTerra.Object
         float3 offset = new float3( -0.5f, -0.5f, -0.5f );
 
         Mesh source;
-        
+
         void GenerateSourceMesh()
         {
             const int quad_count = 6;
@@ -38,25 +43,26 @@ namespace VolumeTerra.Object
                 //Generate vertices
                 int3[] quad_corner_offsets =
                     VoxelGenerationUtility.corner_index_offset_in_quad[axis][dir];
-                var quad_maker = new VoxelGenerationUtility.QuadMaker(
+                var quad_corner_position = new[]
+                {
                     quad_corner_offsets[0] + c1 + offset,
                     quad_corner_offsets[1] + c1 + offset,
                     quad_corner_offsets[2] + c1 + offset,
                     quad_corner_offsets[3] + c1 + offset
-                );
+                };
+                var quad_maker = new VoxelGenerationUtility.QuadMaker( quad_corner_position );
                 quad_maker.ToVertices().CopyTo( vertices, 6 * i );
 
-                //Generate uv0: position and texture index
+                //Generate uv0: texture uv and surface index
                 var quad_corner_uv_indices =
                     VoxelGenerationUtility.corner_uv_index_in_quad[axis][dir];
                 var quad_corner_uv =
                     VoxelGenerationUtility.triangle_order_in_quad.Select(
                         (index) => new float3(
-                            VoxelGenerationUtility.uv_4p
-                                [quad_corner_uv_indices[index]], i )
+                            VoxelGenerationUtility.uv_4p[quad_corner_uv_indices[index]],
+                            i ) //The surface index is just sequence.
                     ).ToArray();
                 quad_corner_uv.CopyTo( uv, 6 * i );
-
             }
 
             source.SetVertices( vertices.ToVectorArray() );
