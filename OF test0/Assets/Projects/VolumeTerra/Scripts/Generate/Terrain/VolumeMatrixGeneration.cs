@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using VolumeTerra.DataDefinition;
-namespace VolumeTerra.Generate
+using VolumeTerra.Generate.Terrain.Noise;
+namespace VolumeTerra.Generate.Terrain
 {
     public static class VolumeMatrixGeneration
     {

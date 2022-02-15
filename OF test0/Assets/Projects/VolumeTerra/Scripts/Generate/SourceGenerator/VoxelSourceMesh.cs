@@ -127,11 +127,18 @@ namespace VolumeTerra.Generate.SourceGenerator
             Generate();
         }
 
+
         /// <summary>
-        ///     Get the vertices positions and vertex_uv_indices of vertices on this face using the face index.
+        ///     Get the vertices positions and vertex_uv_indices of vertices on this face using the face index and rotation index.
         ///     Won't check for out of range.
         /// </summary>
-        public void GetFace(int face_index, ref Vector3[] face_vertices, ref int[] face_vertex_uv_indices)
+        /// <param name="face_index"></param>
+        /// <param name="face_vertices">out float*3</param>
+        /// <param name="face_vertex_uv_indices">out int</param>
+        public void GetFace(
+            int face_index,
+            Vector3[] face_vertices,
+            int[] face_vertex_uv_indices)
         {
             var source_start_index = face_index * 6;
             Array.Copy(
@@ -144,18 +151,22 @@ namespace VolumeTerra.Generate.SourceGenerator
                 vertices_count_per_quad );
         }
 
-        // public RenderTexture GetVectorTexture()
-        // {
-        //     var texture = new Texture2D( 6, 3, TextureFormat.RGBAFloat, false, true )
-        //     {
-        //         filterMode = FilterMode.Point
-        //     };
-        //     for (int i = 0; i < 6; i++)
-        //     {
-        //         // texture.SetPixel(i,0, );
-        //     }
-        //     for (int i = 0; i < 4; i++) { }
-        // }
+        /// <summary>
+        ///     Set data for the 3 compute buffer containing voxel mesh info
+        /// </summary>
+        /// <param name="uv_buffer">out float*2</param>
+        /// <param name="normal_buffer">out float*3</param>
+        /// <param name="tangent_buffer">out float*4</param>
+        /// <returns></returns>
+        public void GetVectorTexture(
+            ComputeBuffer uv_buffer,
+            ComputeBuffer normal_buffer,
+            ComputeBuffer tangent_buffer)
+        {
+            uv_buffer.SetData( VoxelGenerationUtility.uv_4p );
+            normal_buffer.SetData( face_normals );
+            tangent_buffer.SetData( face_tangents );
+        }
 
     #endregion
 

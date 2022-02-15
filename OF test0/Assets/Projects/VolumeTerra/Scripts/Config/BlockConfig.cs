@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-namespace VolumeTerra.Management
+namespace VolumeTerra.Config
 {
     [CreateAssetMenu( fileName = "Block1", menuName = "", order = 0 )]
     public class BlockConfig : ScriptableObject

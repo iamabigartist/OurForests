@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
-namespace VolumeTerra.Management
+namespace VolumeTerra.Config
 {
     [CustomEditor( typeof(BlockConfig) )]
     public class BlockConfigInspector : Editor

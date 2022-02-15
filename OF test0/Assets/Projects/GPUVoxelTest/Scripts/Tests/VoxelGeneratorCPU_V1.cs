@@ -3,6 +3,7 @@ using MUtility;
 using UnityEngine;
 using VolumeTerra.DataDefinition;
 using VolumeTerra.Generate;
+using VolumeTerra.Generate.Terrain;
 using Debug = UnityEngine.Debug;
 namespace GPUVoxelTest.Tests
 {
