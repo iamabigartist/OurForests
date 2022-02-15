@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using VolumeTerra.DataDefinition;
 using VolumeTerra.Generate;
-using VolumeTerra.Object;
 namespace GPUVoxelTest.Tests
 {
     public class VoxelGeneratorV2 : MonoBehaviour

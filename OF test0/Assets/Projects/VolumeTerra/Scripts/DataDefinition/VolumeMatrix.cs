@@ -1,7 +1,7 @@
 using System;
 using MUtility;
 using UnityEngine;
-namespace VolumeTerra.Object
+namespace VolumeTerra.DataDefinition
 {
     /// <summary>
     ///     A 3D matrix which represents particles align to uniform grid in a rectangular.

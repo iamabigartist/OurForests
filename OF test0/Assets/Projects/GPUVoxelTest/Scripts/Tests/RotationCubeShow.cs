@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using MyForestSystem;
 using UnityEngine;
-using VolumeTerra.Object;
+using VolumeTerra.Generate.SourceGenerator;
 namespace GPUVoxelTest.Tests
 {
     public class RotationCubeShow : MonoBehaviour

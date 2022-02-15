@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using MUtility;
 using UnityEditor;
 using UnityEngine;
-using VolumeTerra.Object;
+using VolumeTerra.DataDefinition;
 using Random = Unity.Mathematics.Random;
 namespace AssetTest
 {

@@ -3,7 +3,7 @@ using System.Linq;
 using MUtility;
 using Unity.Mathematics;
 using UnityEngine;
-namespace VolumeTerra.Object
+namespace VolumeTerra.Generate.SourceGenerator
 {
 
     public class VoxelSourceMesh

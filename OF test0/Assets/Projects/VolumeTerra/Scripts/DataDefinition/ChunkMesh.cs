@@ -9,7 +9,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using VolumeTerra.Management;
 using Debug = UnityEngine.Debug;
-namespace VolumeTerra.Object
+namespace VolumeTerra.DataDefinition
 {
     /// <summary>
     ///     Using

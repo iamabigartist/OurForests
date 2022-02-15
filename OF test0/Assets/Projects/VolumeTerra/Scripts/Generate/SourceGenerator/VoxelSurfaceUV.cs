@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Security;
 using UnityEngine;
 using static MUtility.VoxelGenerationUtility;
-namespace VolumeTerra.Object
+namespace VolumeTerra.Generate.SourceGenerator
 {
 
     public struct SurfaceNormalDirection

@@ -2,7 +2,8 @@
 using MUtility;
 using UnityEngine;
 using UnityEngine.Rendering;
-namespace VolumeTerra.Object
+using VolumeTerra.Generate.SourceGenerator;
+namespace VolumeTerra.DataDefinition
 {
     public class RaycastMesh
     {
