@@ -6,13 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a8aa6f73-f44f-4013-b18c-6364ab72914d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Tests/RotationCubeShow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Tests/RotationCubeShow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/MUtility/VoxelGenerationUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/MUtility/VoxelGenerationUtility.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Object/VoxelSourceMesh.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Object/VoxelSourceMesh.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Object/VoxelSurfaceUV.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Object/VoxelSurfaceUV.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Wiki/main.dbindex" beforeDir="false" afterPath="$PROJECT_DIR$/../Wiki/main.dbindex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Wiki/main.nyf" beforeDir="false" afterPath="$PROJECT_DIR$/../Wiki/main.nyf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,6 +193,8 @@
       <workItem from="1644597796489" duration="552000" />
       <workItem from="1644661860898" duration="2942000" />
       <workItem from="1644727422643" duration="1337000" />
+      <workItem from="1644803399072" duration="282000" />
+      <workItem from="1644889403015" duration="481000" />
     </task>
     <task id="LOCAL-00001" summary="Add some test method">
       <created>1639398343342</created>
