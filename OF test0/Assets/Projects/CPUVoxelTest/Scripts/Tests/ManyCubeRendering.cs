@@ -1,7 +1,11 @@
 using UnityEngine;
 namespace CPUVoxelTest.Scripts.Tests
 {
-    public class CubeManager : MonoBehaviour
+    
+    /// <summary>
+    /// Test the renderer performance when rendering many cubes
+    /// </summary>
+    public class ManyCubeRendering : MonoBehaviour
     {
         [SerializeField]
         int cube_count;

@@ -27,7 +27,6 @@ namespace VolumeTerra.Object
         }
     }
 
-
     public class VoxelSurfaceUV
     {
 

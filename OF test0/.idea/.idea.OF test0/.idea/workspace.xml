@@ -6,7 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="a8aa6f73-f44f-4013-b18c-6364ab72914d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/CPUVoxelTest/Scripts/Tests/CubeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/CPUVoxelTest/Scripts/Tests/ManyCubeRendering.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/CPUVoxelTest/Scripts/Tests/CubeManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/CPUVoxelTest/Scripts/Tests/ManyCubeRendering.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Editor/CubeTextureInfoGenerator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Editor/CubeTextureInfoGenerator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Object/VoxelSurfaceUV.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Object/VoxelSurfaceUV.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Wiki/main.dbindex" beforeDir="false" afterPath="$PROJECT_DIR$/../Wiki/main.dbindex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Wiki/main.nyf" beforeDir="false" afterPath="$PROJECT_DIR$/../Wiki/main.nyf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,18 +31,18 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@1.2.1/Unity.Mathematics/float3.gen.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bc1d04d811fc4873ab7d8d9d4daddcc9568788/f7/3a50758c/Array.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Object/VoxelSurfaceUV.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Object/ChunkMesh.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Object/VolumeMatrix.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/AssetTest/MyAssetImporter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Object/MarchingCubeMesh.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/MUtility/VoxelGenerationUtility.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Object/RaycastMesh.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Projects/CPUVoxelTest/Scripts/Tests/ManyCubeRendering.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Management/BlockConfig.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bc1d04d811fc4873ab7d8d9d4daddcc9568788/59/afb260d2/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Management/BlockConfigInspector.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Object/VoxelSurfaceUV.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Object/ChunkMesh.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -195,6 +201,7 @@
       <workItem from="1644727422643" duration="1337000" />
       <workItem from="1644803399072" duration="282000" />
       <workItem from="1644889403015" duration="481000" />
+      <workItem from="1644893109211" duration="1559000" />
     </task>
     <task id="LOCAL-00001" summary="Add some test method">
       <created>1639398343342</created>
