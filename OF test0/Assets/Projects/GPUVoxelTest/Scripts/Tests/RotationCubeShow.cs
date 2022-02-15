@@ -13,6 +13,7 @@ namespace GPUVoxelTest.Tests
         MeshFilter Filter;
 
         VoxelSurfaceUV m_voxelSurfaceUV;
+        VoxelSourceMesh m_voxelSourceMesh;
 
         void Start()
         {

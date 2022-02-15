@@ -55,9 +55,18 @@ namespace MUtility
         {
             return new Vector2( i.x, i.y );
         }
+        public static Vector2 ToVector(this float2 i)
+        {
+            return new Vector2( i.x, i.y );
+        }
         public static Quaternion ToQuaternion(this Vector3 v)
         {
             return Quaternion.Euler( v );
+        }
+
+        public static Color ToColor(this Vector3 v)
+        {
+            return new Color( v.x, v.y, v.z, 0 );
         }
     }
     public static class EnumerableUtility
@@ -70,6 +79,15 @@ namespace MUtility
         public static Vector3[] ToVectorArray(this float3[] array)
         {
             var v_array = new Vector3[array.Length];
+            for (int i = 0; i < array.Length; i++)
+            {
+                v_array[i] = array[i].ToVector();
+            }
+            return v_array;
+        }
+        public static Vector2[] ToVectorArray(this float2[] array)
+        {
+            var v_array = new Vector2[array.Length];
             for (int i = 0; i < array.Length; i++)
             {
                 v_array[i] = array[i].ToVector();

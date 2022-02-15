@@ -144,7 +144,7 @@ namespace MUtility
          *  |     |
          *  0-----2
          */
-        public static readonly int2[] uv_4p =
+        public static readonly float2[] uv_4p =
         {
             new int2( 0, 0 ), //00
             new int2( 0, 1 ), //01
