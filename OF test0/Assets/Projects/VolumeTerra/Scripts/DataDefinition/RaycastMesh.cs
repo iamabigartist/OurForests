@@ -8,7 +8,7 @@ namespace VolumeTerra.DataDefinition
     public class RaycastMesh
     {
         Camera m_camera;
-        VoxelSurfaceUV m_surfaceUV;
+        VoxelSurfaceUVOld m_surfaceUV;
         /// <summary>
         ///     Store the type of every cube in this chunk.
         /// </summary>

@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using MUtility;
 using MyForestSystem;
 using UnityEngine;
 using VolumeTerra.Generate.SourceGenerator;
@@ -12,7 +13,7 @@ namespace GPUVoxelTest.Tests
 
         MeshFilter Filter;
 
-        VoxelSurfaceUV m_voxelSurfaceUV;
+        VoxelSurfaceUVOld m_voxelSurfaceUV;
         VoxelSourceMesh m_voxelSourceMesh;
 
         void Start()
@@ -67,7 +68,7 @@ namespace GPUVoxelTest.Tests
 
         void RotateSourceCubeOnce()
         {
-            transform.GetChild( 0 ).rotation = VoxelSurfaceUV.LookRotation( up_index, forward_index );
+            transform.GetChild( 0 ).rotation = VoxelGenerationUtility.LookRotation( up_index, forward_index );
         }
 
     }

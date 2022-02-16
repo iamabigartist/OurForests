@@ -68,6 +68,14 @@ namespace MUtility
         {
             return new Color( v.x, v.y, v.z, 0 );
         }
+
+        public static Vector3 Round(this Vector3 v)
+        {
+            return new Vector3(
+                Mathf.Round( v.x ),
+                Mathf.Round( v.y ),
+                Mathf.Round( v.z ) );
+        }
     }
     public static class EnumerableUtility
     {

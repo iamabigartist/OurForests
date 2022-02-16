@@ -5,6 +5,8 @@ namespace MUtility
     public static class VoxelGenerationUtility
     {
 
+    #region Rotation
+
         /// <summary>
         ///     The normal of a source_cube in the index order.
         /// </summary>
@@ -19,6 +21,7 @@ namespace MUtility
         };
 
 
+
         /// <summary>
         ///     The index that a normal direction maps to.
         /// </summary>
@@ -29,8 +32,13 @@ namespace MUtility
             new[] { 4, 5 }
         };
 
+
         /// <summary>
         ///     Indicate the surface order of our cube
+        ///     <remarks>
+        ///         <para>1. The face indices can represent the real direction of a face.</para>
+        ///         <para>2. It can also represents a unique id of a face itself. </para>
+        ///     </remarks>
         /// </summary>
         public static Vector3[] index2vector3d =
         {
@@ -41,6 +49,40 @@ namespace MUtility
             Vector3.forward,
             Vector3.back
         };
+
+
+        public static Quaternion LookRotation(int up_index, int forward_index)
+        {
+            return Quaternion.LookRotation(
+                index2vector3d[forward_index],
+                index2vector3d[up_index] );
+        }
+
+    #endregion
+
+    #region MeshGeneration
+
+    #region UV
+
+        //The four corner uv of any quad,
+        //The order is as below:
+        /*
+         *  1-----3
+         *  |     |
+         *  |     |
+         *  0-----2
+         */
+        public static readonly float2[] uv_4p =
+        {
+            new int2( 0, 0 ), //00
+            new int2( 0, 1 ), //01
+            new int2( 1, 0 ), //10
+            new int2( 1, 1 ) //11
+        };
+
+    #endregion
+
+    #region Quad
 
         //The point is (x,y,z)
         //(0,0,0) is the original point of the cube
@@ -134,23 +176,6 @@ namespace MUtility
             }
         };
 
-
-
-        //The four corner uv of any quad,
-        //The order is as below:
-        /*
-         *  1-----3
-         *  |     |
-         *  |     |
-         *  0-----2
-         */
-        public static readonly float2[] uv_4p =
-        {
-            new int2( 0, 0 ), //00
-            new int2( 0, 1 ), //01
-            new int2( 1, 0 ), //10
-            new int2( 1, 1 ) //11
-        };
 
         //The uv index of every point in a quad, the order is identical to corner_index_offset_in_quad.
         /// <summary>
@@ -291,5 +316,10 @@ namespace MUtility
         //The vertex order used in quad maker to build 2 triangles.
         //This order must be used in all arrays that store info of vertices.
         public static readonly int[] triangle_order_in_quad = { 0, 1, 2, 2, 3, 0 };
+
+    #endregion
+
+    #endregion
+
     }
 }

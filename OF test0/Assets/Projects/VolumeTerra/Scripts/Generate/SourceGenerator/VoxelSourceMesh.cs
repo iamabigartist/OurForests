@@ -151,6 +151,7 @@ namespace VolumeTerra.Generate.SourceGenerator
                 vertices_count_per_quad );
         }
 
+
         /// <summary>
         ///     Set data for the 3 compute buffer containing voxel mesh info
         /// </summary>

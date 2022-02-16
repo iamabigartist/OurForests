@@ -1,39 +1,68 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using MUtility;
 using UnityEngine;
 using static MUtility.VoxelGenerationUtility;
 namespace VolumeTerra.Generate.SourceGenerator
 {
 
-    public struct SurfaceNormalDirection
+
+
+    [Obsolete("Old System too complicate and half way for prototype, hard to go further")]
+    public class VoxelSurfaceUVOld
     {
 
-        /// <summary>
-        ///     x->0,y->1,z->2
-        /// </summary>
-        public int axis;
-
-        /// <summary>
-        ///     + -> 0, - -> 1.
-        /// </summary>
-        public int positive;
-
-
-        public SurfaceNormalDirection(int axis, int positive)
+        public struct SurfaceNormalDirection
         {
-            this.axis = axis;
-            this.positive = positive;
-        }
-    }
 
-    public class VoxelSurfaceUV
-    {
+            /// <summary>
+            ///     x->0,y->1,z->2
+            /// </summary>
+            public int axis;
+
+            /// <summary>
+            ///     + -> 0, - -> 1.
+            /// </summary>
+            public int positive;
+
+
+            public SurfaceNormalDirection(int axis, int positive)
+            {
+                this.axis = axis;
+                this.positive = positive;
+            }
+        }
+
+        public static SurfaceNormalDirection IndexToNormal(int index)
+        {
+            var value = index2normal[index];
+            return new SurfaceNormalDirection( value[0], value[1] );
+        }
+
+        public static int NormalToIndex(SurfaceNormalDirection direction)
+        {
+            return normal2index[direction.axis][direction.positive];
+        }
+
+        public static Vector3 NormalDirectionToVector3(SurfaceNormalDirection direction)
+        {
+            return index2vector3d[NormalToIndex( direction )];
+        }
+
 
         /// <summary>
-        ///     Rotate the original direction once
+        ///     <para>
+        ///         1. We can use the face index to represent the direction of a cube face. See
+        ///         <see cref="VoxelGenerationUtility.index2vector3d" />.
+        ///     </para>
+        ///     <para>
+        ///         2. If we rotate the original direction face once, the face will turn to a new direction, the new direction can
+        ///         also be represented by a face index.
+        ///     </para>
         /// </summary>
         /// <remarks>
-        ///     return the new index. [original_index][rotate_axis][clockwise/counterclockwise]
+        ///     [original_face_index][rotate_axis][clockwise/counterclockwise] = new_face_index
         /// </remarks>
         static int[][][] rotate_once =
         {
@@ -82,25 +111,8 @@ namespace VolumeTerra.Generate.SourceGenerator
             }
         };
 
-
-
-        public static SurfaceNormalDirection IndexToNormal(int index)
-        {
-            var value = index2normal[index];
-            return new SurfaceNormalDirection( value[0], value[1] );
-        }
-
-        public static int NormalToIndex(SurfaceNormalDirection direction)
-        {
-            return normal2index[direction.axis][direction.positive];
-        }
-
-        public static Vector3 NormalDirectionToVector3(SurfaceNormalDirection direction)
-        {
-            return index2vector3d[NormalToIndex( direction )];
-        }
-
         /// <summary>
+        ///     This function uses <see cref="rotate_once" />.
         /// </summary>
         /// <param name="ori_index">The index of the original direction </param>
         /// <param name="rotate_axis">x,y,z</param>
@@ -122,22 +134,34 @@ namespace VolumeTerra.Generate.SourceGenerator
             return cur_index;
         }
 
+
+        /// <summary>
+        ///     Rotate the totally 6 indices of the whole cube.
+        /// </summary>
+        /// <returns>the new face indices of the cube.</returns>
         public static int[] RotateCube(int[] ori_cube, int rotate_axis, int rotate_times)
         {
             var new_cube = new int[6];
             for (int old_index = 0; old_index < 6; old_index++)
             {
                 var new_index = RotateSurface( old_index, rotate_axis, rotate_times );
+                //Array transform
                 new_cube[new_index] = ori_cube[old_index];
             }
             return new_cube;
         }
 
+        /// <summary>
+        ///     Get the index of the face with id = 2, represents the original up face.
+        /// </summary>
         public static int UpIndex(int[] cube)
         {
             return cube.ToList().IndexOf( 2 );
         }
 
+        /// <summary>
+        ///     Get the index of the face with id = 4, represents the original forward face.
+        /// </summary>
         public static int ForwardIndex(int[] cube)
         {
             return cube.ToList().IndexOf( 4 );
@@ -148,7 +172,7 @@ namespace VolumeTerra.Generate.SourceGenerator
             var up_index = UpIndex( cube );
             return IndexToNormal( up_index );
         }
-        public static SurfaceNormalDirection forward(int[] cube)
+        public static SurfaceNormalDirection Forward(int[] cube)
         {
             var forward_index = ForwardIndex( cube );
             return IndexToNormal( forward_index );
@@ -161,6 +185,9 @@ namespace VolumeTerra.Generate.SourceGenerator
             return Quaternion.LookRotation( ForwardVector, UpVector );
         }
 
+        /// <summary>
+        ///     Generate the 4 cube rotated 0~3 times around its up axis.
+        /// </summary>
         public static int[][] Generate4Cubes(int[] ori_cube)
         {
             var cube_list = new List<int[]>();
@@ -172,6 +199,9 @@ namespace VolumeTerra.Generate.SourceGenerator
             return cube_list.ToArray();
         }
 
+        /// <summary>
+        ///     Generate the 24 cube with different up indices in group of 4 by <see cref="Generate4Cubes" />
+        /// </summary>
         public static int[][] GenerateOriginal24CubesList()
         {
             var cube_list = new List<int[]>();
@@ -204,13 +234,6 @@ namespace VolumeTerra.Generate.SourceGenerator
         }
 
 
-        public static Quaternion LookRotation(int up_index, int forward_index)
-        {
-            return Quaternion.LookRotation(
-                index2vector3d[forward_index],
-                index2vector3d[up_index] );
-        }
-
         public static string Generate24CubeTableCode(int[][][] table)
         {
             var table_string = "";
@@ -237,7 +260,7 @@ namespace VolumeTerra.Generate.SourceGenerator
         }
 
 
-        public VoxelSurfaceUV(string source_cube_path)
+        public VoxelSurfaceUVOld(string source_cube_path)
         {
             source_cube = Resources.Load<Mesh>( source_cube_path );
             Generate24CubesTable();
@@ -245,19 +268,19 @@ namespace VolumeTerra.Generate.SourceGenerator
         }
 
         /// <summary>
-        ///     The cube used to generate all the surface of this generator.z
+        ///     The cube used to generate all the face of this generator.z
         /// </summary>
         Mesh source_cube;
 
         /// <summary>
         ///     Each element in each rotated new cube contains
-        ///     the original surface index it holds from the source cube.
+        ///     the original face index it holds from the source cube.
         ///     [up*6][forward*4][surface_index]
         /// </summary>
         int[][][] orientation_cube_table;
 
         /// <summary>
-        ///     The final result of this that can be used to get any surface of a cube with any rotation.
+        ///     The final result of this that can be used to get any face of a cube with any rotation.
         ///     [up][forward][surface_index]
         /// </summary>
         (Vector3[] vertices, Vector4[] uv)[][][] surface_table;
