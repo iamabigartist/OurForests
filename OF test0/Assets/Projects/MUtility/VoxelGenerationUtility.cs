@@ -58,6 +58,11 @@ namespace MUtility
                 index2vector3d[up_index] );
         }
 
+        public static bool ValidLookRotation(int up_index, int forward_index)
+        {
+            return Vector3.Dot( index2vector3d[up_index], index2vector3d[forward_index] ) == 0;
+        }
+
     #endregion
 
     #region MeshGeneration

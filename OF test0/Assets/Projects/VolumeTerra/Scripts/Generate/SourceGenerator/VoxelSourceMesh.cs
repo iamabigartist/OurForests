@@ -27,7 +27,7 @@ namespace VolumeTerra.Generate.SourceGenerator
         };
 
         //the 0,0,0 will be the center of the mesh if add offset to each vert
-        float3 offset = new(-0.5f, -0.5f, -0.5f);
+        public static readonly Vector3 offset = new(-0.5f, -0.5f, -0.5f);
 
         const int quad_count = 6;
         const int vertices_count_per_quad = 6;
@@ -120,22 +120,25 @@ namespace VolumeTerra.Generate.SourceGenerator
 
     #endregion
 
-    #region Interface
+    #region API
 
         public VoxelSourceMesh()
         {
             Generate();
         }
 
+        public void GetFaceVertices(
+            int face_index,
+            Vector3[] face_vertices)
+        {
+            var source_start_index = face_index * 6;
+            Array.Copy(
+                vertices, source_start_index,
+                face_vertices, 0,
+                vertices_count_per_quad );
+        }
 
-        /// <summary>
-        ///     Get the vertices positions and vertex_uv_indices of vertices on this face using the face index and rotation index.
-        ///     Won't check for out of range.
-        /// </summary>
-        /// <param name="face_index"></param>
-        /// <param name="face_vertices">out float*3</param>
-        /// <param name="face_vertex_uv_indices">out int</param>
-        public void GetFace(
+        public void GetSourceFace(
             int face_index,
             Vector3[] face_vertices,
             int[] face_vertex_uv_indices)
@@ -151,15 +154,18 @@ namespace VolumeTerra.Generate.SourceGenerator
                 vertices_count_per_quad );
         }
 
+        public Vector3[] Vertices => vertices;
+        public int[] VertexUVIndices => vertex_uv_indices;
+
 
         /// <summary>
         ///     Set data for the 3 compute buffer containing voxel mesh info
         /// </summary>
-        /// <param name="uv_buffer">out float*2</param>
-        /// <param name="normal_buffer">out float*3</param>
-        /// <param name="tangent_buffer">out float*4</param>
+        /// <param name="uv_buffer">out 4 float*2</param>
+        /// <param name="normal_buffer">out 6 float*3</param>
+        /// <param name="tangent_buffer">out 6 float*4</param>
         /// <returns></returns>
-        public void GetVectorTexture(
+        public void SetMeshInfoBuffers(
             ComputeBuffer uv_buffer,
             ComputeBuffer normal_buffer,
             ComputeBuffer tangent_buffer)

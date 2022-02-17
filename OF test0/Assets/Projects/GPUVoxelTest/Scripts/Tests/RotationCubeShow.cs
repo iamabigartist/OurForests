@@ -13,18 +13,29 @@ namespace GPUVoxelTest.Tests
 
         MeshFilter Filter;
 
-        VoxelSurfaceUVOld m_voxelSurfaceUV;
+        VoxelRotationInfoTable m_voxelRotationInfoTable;
         VoxelSourceMesh m_voxelSourceMesh;
+        ComputeBuffer uv_buffer;
+        ComputeBuffer normal_buffer;
+        ComputeBuffer tangent_buffer;
 
         void Start()
         {
             up_index = 2;
             Filter = GetComponent<MeshFilter>();
-            m_voxelSurfaceUV = MainManager.VoxelSurfaceUV;
+            m_voxelSourceMesh = MainManager.VoxelSourceMesh;
+            m_voxelRotationInfoTable = MainManager.VoxelRotationInfoTable;
             up_index_string = up_index.ToString();
             forward_index_string = forward_index.ToString();
             surface_index_string = surface_index.ToString();
+            uv_buffer = new ComputeBuffer( 4, sizeof(float) * 2 );
+            normal_buffer = new ComputeBuffer( 6, sizeof(float) * 3 );
+            tangent_buffer = new ComputeBuffer( 6, sizeof(float) * 4 );
+            m_voxelSourceMesh.SetMeshInfoBuffers( uv_buffer, normal_buffer, tangent_buffer );
             var material = GetComponent<MeshRenderer>().material;
+            material.SetBuffer( "vertex_uvs", uv_buffer );
+            material.SetBuffer( "face_normals", uv_buffer );
+            material.SetBuffer( "face_tangents", uv_buffer );
         }
 
 
@@ -51,14 +62,17 @@ namespace GPUVoxelTest.Tests
         void GenerateSurfaceOnce()
         {
             var cur_mesh = new Mesh();
-            m_voxelSurfaceUV.GetSurface(
-                surface_index,
-                up_index,
-                forward_index,
-                out var surface_vertices,
-                out var surface_uv );
+            var surface_vertex_uv_indices = new int[6];
+            m_voxelRotationInfoTable.GetFaceVertexUVIndices( surface_index, up_index, forward_index, surface_vertex_uv_indices );
+            var surface_uv_input = new Vector3[6];
+            for (int i = 0; i < 6; i++)
+            {
+                surface_uv_input[i] = new Vector3( surface_vertex_uv_indices[i], surface_index, surface_index );
+            }
+            var surface_vertices = new Vector3[6];
+            m_voxelSourceMesh.GetFaceVertices( surface_index, surface_vertices );
             cur_mesh.SetVertices( surface_vertices );
-            cur_mesh.SetUVs( 0, surface_uv );
+            cur_mesh.SetUVs( 0, surface_uv_input );
             cur_mesh.SetTriangles( Enumerable.Range( 0, 6 ).ToArray(), 0 );
             cur_mesh.RecalculateBounds();
             cur_mesh.RecalculateNormals();
@@ -69,6 +83,13 @@ namespace GPUVoxelTest.Tests
         void RotateSourceCubeOnce()
         {
             transform.GetChild( 0 ).rotation = VoxelGenerationUtility.LookRotation( up_index, forward_index );
+        }
+
+        void OnDestroy()
+        {
+            uv_buffer.Release();
+            normal_buffer.Release();
+            tangent_buffer.Release();
         }
 
     }

@@ -340,7 +340,7 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "m_SerializedTexture": "{\"textureArray\":{\"instanceID\":0}}",
+        "m_SerializedTexture": "{\"textureArray\":{\"fileID\":18700000,\"guid\":\"4dd79775e832eee49bde1d7511f4c3d0\",\"type\":2}}",
         "m_Guid": ""
     },
     "m_Modifiable": true
