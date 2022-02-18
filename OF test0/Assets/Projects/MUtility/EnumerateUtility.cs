@@ -15,6 +15,29 @@ namespace MUtility
             return new_array;
         }
 
+        public static string ToMString<T>(this IEnumerable<T> array)
+        {
+            return string.Join( ",", array );
+        }
+
+    #region SQL
+
+        public static int[] AllIndexOf<T>(this T[] source, T value)
+        {
+            return (..source.Length).ToArray().Where( i => source[i].Equals( value ) ).ToArray();
+        }
+
+    #endregion
+
+    #region Range
+
+        public static int[] ToArray(this Range r)
+        {
+            return Enumerable.Range( r.Start.Value, r.End.Value - r.Start.Value ).ToArray();
+        }
+
+    #endregion
+
     #region LinkedList
 
         public static LinkedListNode<T> AppendLast<T>(this LinkedList<T> list, T[] array)
@@ -136,6 +159,7 @@ namespace MUtility
         }
 
     #endregion
+
 
     }
 }

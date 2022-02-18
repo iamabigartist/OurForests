@@ -3,6 +3,7 @@ using System.Linq;
 using MUtility;
 using Unity.Mathematics;
 using UnityEngine;
+using static MUtility.VoxelGenerationUtility;
 namespace VolumeTerra.Generate.SourceGenerator
 {
 
@@ -12,7 +13,7 @@ namespace VolumeTerra.Generate.SourceGenerator
     #region Util
 
         /// <summary>
-        ///     The quad generation order, in the order of surface index <see cref="VoxelGenerationUtility.index2vector3d" />
+        ///     The quad generation order, in the order of surface index <see cref="VoxelGenerationUtility.index2normal_vector3d" />
         /// </summary>
         (int3 c1, int axis, int dir)[] quad_iteration =
         {
@@ -39,6 +40,7 @@ namespace VolumeTerra.Generate.SourceGenerator
 
         Mesh source;
         Vector3[] vertices;
+        Vector2[] uvs;
         int[] vertex_uv_indices;
         Vector3[] face_normals;
         Vector4[] face_tangents;
@@ -53,20 +55,20 @@ namespace VolumeTerra.Generate.SourceGenerator
         #region Gen SourceMesh and verrtex uv indices
 
             source = new Mesh();
+            vertices = new Vector3[vertices_count];
+            uvs = new Vector2[vertices_count];
             vertex_uv_indices = new int[vertices_count];
-
-            var triangles = Enumerable.Range( 0, vertices_count ).ToArray();
-            var vertices_ = new float3[vertices_count];
+            var triangles = (..vertices_count).ToArray();
 
 
 
             for (int i = 0; i < quad_count; i++)
             {
                 (int3 c1, int axis, int dir) = quad_iteration[i];
-
+                int vertex_start_index = 6 * i;
                 //Generate vertices
                 int3[] quad_corner_offsets =
-                    VoxelGenerationUtility.corner_index_offset_in_quad[axis][dir];
+                    vertex_corner_offset_in_quad[axis][dir];
 
                 //the 0,0,0 will be the center of the mesh if add offset to each vert
                 var quad_corner_position = new float3[]
@@ -76,23 +78,24 @@ namespace VolumeTerra.Generate.SourceGenerator
                     quad_corner_offsets[2] + c1,
                     quad_corner_offsets[3] + c1
                 };
-                var quad_maker = new VoxelGenerationUtility.QuadMaker( quad_corner_position );
-                quad_maker.ToVertices().CopyTo( vertices_, 6 * i );
+                var quad_maker = new QuadMaker( quad_corner_position );
+                quad_maker.ToVertices().ToVectorArray().CopyTo( vertices, vertex_start_index );
 
-                //Generate vertex uv index
-                var quad_corner_uv_indices =
-                    VoxelGenerationUtility.corner_uv_index_in_quad[axis][dir];
-                var quad_corner_uv =
-                    VoxelGenerationUtility.triangle_order_in_quad.Select(
-                        (index) => quad_corner_uv_indices[index] //The surface index is just sequence.
+                //Generate vertex uv index and uv
+                var quad_uv_indices_4 =
+                    vertex_uv_index_in_quad[axis][dir];
+                var quad_uv_indices_6 =
+                    triangle_order_in_quad.Select(
+                        (index) => quad_uv_indices_4[index]
                     ).ToArray();
-                quad_corner_uv.CopyTo( vertex_uv_indices, 6 * i );
+                var quad_uvs = quad_uv_indices_6.Select( i => uv_4p[i] ).ToArray().ToVectorArray();
+                quad_uv_indices_6.CopyTo( vertex_uv_indices, vertex_start_index );
+                quad_uvs.CopyTo( uvs, vertex_start_index );
             }
 
-            //for get vertices only usage
-            vertices = vertices_.ToVectorArray();
+            source.SetVertices( vertices );
 
-            source.SetVertices( vertices_.ToVectorArray() );
+            source.SetUVs( 0, uvs );
 
             source.SetTriangles( triangles, 0 );
 
@@ -170,7 +173,7 @@ namespace VolumeTerra.Generate.SourceGenerator
             ComputeBuffer normal_buffer,
             ComputeBuffer tangent_buffer)
         {
-            uv_buffer.SetData( VoxelGenerationUtility.uv_4p );
+            uv_buffer.SetData( uv_4p );
             normal_buffer.SetData( face_normals );
             tangent_buffer.SetData( face_tangents );
         }

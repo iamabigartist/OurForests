@@ -1,4 +1,4 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
 using MUtility;
 using MyForestSystem;
 using UnityEngine;
@@ -36,6 +36,7 @@ namespace GPUVoxelTest.Tests
             material.SetBuffer( "vertex_uvs", uv_buffer );
             material.SetBuffer( "face_normals", uv_buffer );
             material.SetBuffer( "face_tangents", uv_buffer );
+            transform.GetChild( 0 ).GetComponent<MeshRenderer>().material = material;
         }
 
 
@@ -54,7 +55,7 @@ namespace GPUVoxelTest.Tests
                 if (!int.TryParse( up_index_string, out up_index )) { up_index_string = up_index.ToString(); }
                 if (!int.TryParse( forward_index_string, out forward_index )) { forward_index_string = forward_index.ToString(); }
                 if (!int.TryParse( surface_index_string, out surface_index )) { surface_index_string = surface_index.ToString(); }
-                GenerateSurfaceOnce();
+                GenerateCubeOnce();
                 RotateSourceCubeOnce();
             }
         }
@@ -73,11 +74,37 @@ namespace GPUVoxelTest.Tests
             m_voxelSourceMesh.GetFaceVertices( surface_index, surface_vertices );
             cur_mesh.SetVertices( surface_vertices );
             cur_mesh.SetUVs( 0, surface_uv_input );
-            cur_mesh.SetTriangles( Enumerable.Range( 0, 6 ).ToArray(), 0 );
+            cur_mesh.SetTriangles( (..6).ToArray(), 0 );
             cur_mesh.RecalculateBounds();
             cur_mesh.RecalculateNormals();
             cur_mesh.RecalculateTangents();
             Filter.sharedMesh = cur_mesh;
+        }
+
+        void GenerateCubeOnce()
+        {
+            var cur_mesh = new Mesh();
+            var surface_vertex_uv_indices = new int[36];
+            m_voxelRotationInfoTable.GetCubeVertexUVIndices( up_index, forward_index, surface_vertex_uv_indices );
+            var surface_uv_input = new Vector3[36];
+            for (int face_i = 0; face_i < 6; face_i++)
+            {
+                for (int local_vertex_i = 0; local_vertex_i < 6; local_vertex_i++)
+                {
+                    var vertex_i = face_i * 6 + local_vertex_i;
+                    surface_uv_input[vertex_i] = new Vector3( surface_vertex_uv_indices[vertex_i], face_i, face_i );
+                }
+            }
+            var cube_vertices = m_voxelSourceMesh.Vertices;
+            cur_mesh.SetVertices( cube_vertices );
+            cur_mesh.SetUVs( 0, surface_uv_input );
+            cur_mesh.SetTriangles( (..36).ToArray(), 0 );
+            cur_mesh.RecalculateBounds();
+            cur_mesh.RecalculateNormals();
+            cur_mesh.RecalculateTangents();
+            Filter.sharedMesh = cur_mesh;
+            var list = new List<Vector4>();
+            cur_mesh.GetUVs( 0, list );
         }
 
         void RotateSourceCubeOnce()

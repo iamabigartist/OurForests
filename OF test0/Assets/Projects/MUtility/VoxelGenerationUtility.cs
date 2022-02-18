@@ -40,7 +40,7 @@ namespace MUtility
         ///         <para>2. It can also represents a unique id of a face itself. </para>
         ///     </remarks>
         /// </summary>
-        public static Vector3[] index2vector3d =
+        public static Vector3[] index2normal_vector3d =
         {
             Vector3.right,
             Vector3.left,
@@ -54,13 +54,13 @@ namespace MUtility
         public static Quaternion LookRotation(int up_index, int forward_index)
         {
             return Quaternion.LookRotation(
-                index2vector3d[forward_index],
-                index2vector3d[up_index] );
+                index2normal_vector3d[forward_index],
+                index2normal_vector3d[up_index] );
         }
 
         public static bool ValidLookRotation(int up_index, int forward_index)
         {
-            return Vector3.Dot( index2vector3d[up_index], index2vector3d[forward_index] ) == 0;
+            return Vector3.Dot( index2normal_vector3d[up_index], index2normal_vector3d[forward_index] ) == 0;
         }
 
     #endregion
@@ -156,7 +156,7 @@ namespace MUtility
         ///     <para>The indices: [normal direction x/y/z][normal direction +/-][which point of the quad(in order for rendering)]</para>
         ///     <para>total: [3][2][4]</para>
         /// </summary>
-        public static readonly int3[][][] corner_index_offset_in_quad =
+        public static readonly int3[][][] vertex_corner_offset_in_quad =
         {
 
             //quad of x normal
@@ -182,12 +182,12 @@ namespace MUtility
         };
 
 
-        //The uv index of every point in a quad, the order is identical to corner_index_offset_in_quad.
+        //The uv index of every point in a quad, the order is identical to vertex_corner_offset_in_quad.
         /// <summary>
         ///     <para>The indices: [normal direction x/y/z][normal direction +/-][which point of the quad(in order for rendering)]</para>
         ///     <para>total: [3][2][4]</para>
         /// </summary>
-        public static readonly int[][][] corner_uv_index_in_quad =
+        public static readonly int[][][] vertex_uv_index_in_quad =
         {
 
             //quad of x normal

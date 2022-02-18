@@ -82,7 +82,7 @@ namespace GPUVoxelTest.Tests
 
                 //Generate vertices
                 int3[] quad_corner_offsets =
-                    VoxelGenerationUtility.corner_index_offset_in_quad[axis][dir];
+                    VoxelGenerationUtility.vertex_corner_offset_in_quad[axis][dir];
                 var quad_maker = new VoxelGenerationUtility.QuadMaker(
                     quad_corner_offsets[0] + c1 + offset,
                     quad_corner_offsets[1] + c1 + offset,
@@ -93,7 +93,7 @@ namespace GPUVoxelTest.Tests
 
                 //Generate uv0: position and texture index
                 var quad_corner_uv_indices =
-                    VoxelGenerationUtility.corner_uv_index_in_quad[axis][dir];
+                    VoxelGenerationUtility.vertex_uv_index_in_quad[axis][dir];
                 var quad_corner_uv =
                     VoxelGenerationUtility.triangle_order_in_quad.Select(
                         (index) => new float3(

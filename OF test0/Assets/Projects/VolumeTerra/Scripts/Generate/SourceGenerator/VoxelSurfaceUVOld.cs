@@ -47,14 +47,14 @@ namespace VolumeTerra.Generate.SourceGenerator
 
         public static Vector3 NormalDirectionToVector3(SurfaceNormalDirection direction)
         {
-            return index2vector3d[NormalToIndex( direction )];
+            return index2normal_vector3d[NormalToIndex( direction )];
         }
 
 
         /// <summary>
         ///     <para>
         ///         1. We can use the face index to represent the direction of a cube face. See
-        ///         <see cref="VoxelGenerationUtility.index2vector3d" />.
+        ///         <see cref="VoxelGenerationUtility.index2normal_vector3d" />.
         ///     </para>
         ///     <para>
         ///         2. If we rotate the original direction face once, the face will turn to a new direction, the new direction can
@@ -180,8 +180,8 @@ namespace VolumeTerra.Generate.SourceGenerator
 
         public static Quaternion GetCubeRotation(int[] cube)
         {
-            var UpVector = index2vector3d[UpIndex( cube )];
-            var ForwardVector = index2vector3d[ForwardIndex( cube )];
+            var UpVector = index2normal_vector3d[UpIndex( cube )];
+            var ForwardVector = index2normal_vector3d[ForwardIndex( cube )];
             return Quaternion.LookRotation( ForwardVector, UpVector );
         }
 

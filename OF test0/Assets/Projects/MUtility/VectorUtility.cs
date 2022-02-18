@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 namespace MUtility
@@ -75,13 +74,6 @@ namespace MUtility
                 Mathf.Round( v.x ),
                 Mathf.Round( v.y ),
                 Mathf.Round( v.z ) );
-        }
-    }
-    public static class EnumerableUtility
-    {
-        public static string ToMString<T>(this IEnumerable<T> array)
-        {
-            return string.Join( ",", array );
         }
 
         public static Vector3[] ToVectorArray(this float3[] array)
