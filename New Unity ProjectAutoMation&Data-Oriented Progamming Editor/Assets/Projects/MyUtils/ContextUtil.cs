@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 namespace MyUtils
 {
-    public static class ContextUtil
+    public static partial class ContextUtil
     {
         public static StackFrame GetCurrentFrame()
         {
@@ -14,4 +14,5 @@ namespace MyUtils
         }
 
     }
+
 }

@@ -47,8 +47,8 @@ namespace UI.ShowAndExecuteFunctionLab
 
     #endregion
 
-        // [SerializeReference]
-        public Object object1;
+        [SerializeReference]
+        public object object1;
         Object[] m_objects;
         string[] m_options;
         int option;
@@ -138,9 +138,9 @@ namespace UI.ShowAndExecuteFunctionLab
 
 
                 EditorGUILayout.PropertyField( object1_, true );
-                EditorGUILayout.LabelField( $"managed: {object1_.managedReferenceValue}" );
-                EditorGUILayout.LabelField( $"Object: {object1_.objectReferenceValue}" );
-                EditorGUILayout.LabelField( $"exposed: {object1_.exposedReferenceValue}" );
+                // EditorGUILayout.LabelField( $"managed: {object1_.managedReferenceValue}" );
+                // EditorGUILayout.LabelField( $"Object: {object1_.objectReferenceValue}" );
+                // EditorGUILayout.LabelField( $"exposed: {object1_.exposedReferenceValue}" );
             }
 
             this_.ApplyModifiedProperties();
