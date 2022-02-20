@@ -1,17 +1,17 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp.Scripting;
-using Microsoft.CodeAnalysis.Host.Mef;
-using Microsoft.CodeAnalysis.Scripting;
-using UnityEditor.Build;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using UnityEngine;
-namespace Projects.Automation
+using static Microsoft.CodeAnalysis.CSharp.SyntaxFactory;
+namespace Automation.RunCodeLab
 {
+
     public class TryRoslynServices : MonoBehaviour
     {
+        NameSyntax a;
+        void Start()
+        {
+            a = IdentifierName( "System" );
+            Debug.Log(a.Language);
+        }
 
     }
 }

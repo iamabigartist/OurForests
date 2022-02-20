@@ -42,6 +42,7 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Projects\MyUtils\ReactiveUtil.cs" />
+     <Compile Include="Assets\Projects\Automation\NewBehaviourScript.cs" />
      <Compile Include="Assets\Projects\UI\VisualElementLab\NewVisualElement.cs" />
      <Compile Include="Assets\Projects\MyUtils\UIUtils.cs" />
      <Compile Include="Assets\Projects\UI\ShowAndExecuteFunctionLab\EasyPropertyDrawer.cs" />
@@ -52,7 +53,9 @@
      <Compile Include="Assets\Projects\UI\ShowAndExecuteFunctionLab\Editor\ExampleShowedClass.cs" />
      <Compile Include="Assets\Projects\UI\ShowAndExecuteFunctionLab\SerializedMethodArguments.cs" />
      <Compile Include="Assets\Projects\MyUtils\ReflectionUtil.cs" />
-     <Compile Include="Assets\Projects\Automation\NewBehaviourScript.cs" />
+     <Compile Include="Assets\Projects\UI\WorldSpaceUILab\Position2ScreenGUI.cs" />
+     <Compile Include="Assets\Projects\MyUtils\UnityEditorCameraController.cs" />
+     <Compile Include="Assets\Projects\UI\ShowAndExecuteFunctionLab\Editor\SceneGUI.cs" />
      <None Include="Assets\Projects\Projects.asmdef" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\2022.1.0b4\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

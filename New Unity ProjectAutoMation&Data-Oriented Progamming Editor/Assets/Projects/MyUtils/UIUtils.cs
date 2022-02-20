@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEditor;
 using UnityEngine;
 namespace MyUtils
 {
@@ -56,6 +57,30 @@ namespace MyUtils
                 }
             }
 
+        }
+
+
+
+        public static Vector3 WorldToOnGameGUIScreenPosition(this Camera camera, Vector3 world_position)
+        {
+            var screen_position = camera.WorldToScreenPoint( world_position );
+            return new Vector3( screen_position.x, Screen.height - screen_position.y, screen_position.z );
+        }
+        public static Vector3 WorldToOnSceneViewGUIScreenPosition(this Camera camera, SceneView view, Vector3 world_position)
+        {
+            var screen_position = camera.WorldToScreenPoint( world_position );
+
+            return new Vector3( screen_position.x, view.position.height - screen_position.y, screen_position.z );
+        }
+
+        public static Rect PositionSizeRect(Vector2 position, Vector2 size)
+        {
+            return new Rect( position - size / 2f, size );
+        }
+
+        public static Vector2 ParentPositionToLocal(this Rect r, Vector2 pos)
+        {
+            return pos - r.min;
         }
     }
 }

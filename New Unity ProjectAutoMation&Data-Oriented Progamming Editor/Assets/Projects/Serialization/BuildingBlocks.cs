@@ -14,8 +14,6 @@ public class Thing
 {
     public int weight;
 }
-
-[ExecuteInEditMode]
 public class BuildingBlocks : MonoBehaviour
 {
     [SerializeReference]
