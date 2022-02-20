@@ -60,26 +60,26 @@ namespace GPUVoxelTest.Tests
             }
         }
 
-        void GenerateSurfaceOnce()
-        {
-            var cur_mesh = new Mesh();
-            var surface_vertex_uv_indices = new int[6];
-            m_voxelRotationInfoTable.GetFaceVertexUVIndices( surface_index, up_index, forward_index, surface_vertex_uv_indices );
-            var surface_uv_input = new Vector3[6];
-            for (int i = 0; i < 6; i++)
-            {
-                surface_uv_input[i] = new Vector3( surface_vertex_uv_indices[i], surface_index, surface_index );
-            }
-            var surface_vertices = new Vector3[6];
-            m_voxelSourceMesh.GetFaceVertices( surface_index, surface_vertices );
-            cur_mesh.SetVertices( surface_vertices );
-            cur_mesh.SetUVs( 0, surface_uv_input );
-            cur_mesh.SetTriangles( (..6).ToArray(), 0 );
-            cur_mesh.RecalculateBounds();
-            cur_mesh.RecalculateNormals();
-            cur_mesh.RecalculateTangents();
-            Filter.sharedMesh = cur_mesh;
-        }
+        // void GenerateSurfaceOnce()
+        // {
+        //     var cur_mesh = new Mesh();
+        //     var surface_vertex_uv_indices = new int[6];
+        //     m_voxelRotationInfoTable.GetFaceVertexUVIndices( surface_index, up_index, forward_index, surface_vertex_uv_indices );
+        //     var surface_uv_input = new Vector3[6];
+        //     for (int i = 0; i < 6; i++)
+        //     {
+        //         surface_uv_input[i] = new Vector3( surface_vertex_uv_indices[i], surface_index, surface_index );
+        //     }
+        //     var surface_vertices = new Vector3[6];
+        //     m_voxelSourceMesh.GetFaceVertices( surface_index, surface_vertices );
+        //     cur_mesh.SetVertices( surface_vertices );
+        //     cur_mesh.SetUVs( 0, surface_uv_input );
+        //     cur_mesh.SetTriangles( (..6).ToArray(), 0 );
+        //     cur_mesh.RecalculateBounds();
+        //     cur_mesh.RecalculateNormals();
+        //     cur_mesh.RecalculateTangents();
+        //     Filter.sharedMesh = cur_mesh;
+        // }
 
         void GenerateCubeOnce()
         {
