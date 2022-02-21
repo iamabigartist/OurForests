@@ -1,16 +1,45 @@
-using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System;
+using System.Linq;
+using System.Reflection;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp.Scripting;
+using Microsoft.CodeAnalysis.Scripting;
 using UnityEngine;
-using static Microsoft.CodeAnalysis.CSharp.SyntaxFactory;
+using Object = UnityEngine.Object;
 namespace Automation.RunCodeLab
 {
 
     public class TryRoslynServices : MonoBehaviour
     {
-        NameSyntax a;
         void Start()
         {
-            a = IdentifierName( "System" );
-            Debug.Log(a.Language);
+
+
+            var netstandard = AppDomain.CurrentDomain.GetAssemblies().First( a => a.FullName.Contains( "netstandard" ) );
+            var other = typeof(object).Assembly;
+            // Debug.Log( string.Join( "\n", netstandard ) );
+
+
+            var list_b = typeof(Debug).Assembly.GetReferencedAssemblies().Select( a => a.Name );
+            Debug.Log( $"ref_ass:\n {string.Join( "\n", list_b )}" );
+
+            var UnityEngineAssembly = typeof(Object).Assembly;
+
+            var ref_list = new[]
+            {
+                UnityEngineAssembly.Location,
+                Assembly.Load( UnityEngineAssembly.GetReferencedAssemblies().First() ).Location
+            };
+
+            var option = ScriptOptions.Default.
+                AddImports( "UnityEngine" ).
+                AddReferences( ref_list.Select(
+                    a => MetadataReference.CreateFromFile( a ) ) );
+
+            Debug.Log( string.Join( "\n", ref_list ) );
+            var m_script = CSharpScript.Create( "Debug.Log(\"Async Run.\");", option );
+            m_script.RunAsync();
+
         }
 
     }
