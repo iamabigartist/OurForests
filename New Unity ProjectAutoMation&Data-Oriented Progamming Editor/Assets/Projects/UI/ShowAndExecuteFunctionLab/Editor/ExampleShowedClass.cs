@@ -35,7 +35,7 @@ namespace UI.ShowAndExecuteFunctionLab
 
     public class ExampleShowedClass : EditorWindow
     {
-        [MenuItem( "UI.ShowAndExecuteFunctionLab/ExampleShowedClass" )]
+        [MenuItem( "Labs/UI.ShowAndExecuteFunctionLab/ExampleShowedClass" )]
         static void ShowWindow()
         {
             var window = GetWindow<ExampleShowedClass>();

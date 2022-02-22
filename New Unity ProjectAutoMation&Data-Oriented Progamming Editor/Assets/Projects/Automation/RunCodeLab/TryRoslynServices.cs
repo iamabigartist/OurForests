@@ -1,7 +1,6 @@
 using System;
 using System.Linq;
 using System.Reflection;
-using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Scripting;
 using Microsoft.CodeAnalysis.Scripting;
 using UnityEngine;
@@ -27,16 +26,15 @@ namespace Automation.RunCodeLab
 
             var ref_list = new[]
             {
-                UnityEngineAssembly.Location,
-                Assembly.Load( UnityEngineAssembly.GetReferencedAssemblies().First() ).Location
+                UnityEngineAssembly,
+                Assembly.Load( UnityEngineAssembly.GetReferencedAssemblies().First() )
             };
 
             var option = ScriptOptions.Default.
                 AddImports( "UnityEngine" ).
-                AddReferences( ref_list.Select(
-                    a => MetadataReference.CreateFromFile( a ) ) );
+                AddReferences( ref_list );
 
-            Debug.Log( string.Join( "\n", ref_list ) );
+            // Debug.Log( string.Join( "\n", ref_list ) );
             var m_script = CSharpScript.Create( "Debug.Log(\"Async Run.\");", option );
             m_script.RunAsync();
 

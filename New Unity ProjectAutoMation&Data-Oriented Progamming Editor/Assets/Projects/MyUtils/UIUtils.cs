@@ -1,10 +1,13 @@
 ﻿using System;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 namespace MyUtils
 {
     public static class UIUtils
     {
+    #region Layout
+
         public static Rect GetPart(
             this Rect rect,
             int x_grid_count,
@@ -59,7 +62,10 @@ namespace MyUtils
 
         }
 
+    #endregion
 
+
+    #region Coordinate
 
         public static Vector3 WorldToOnGameGUIScreenPosition(this Camera camera, Vector3 world_position)
         {
@@ -72,15 +78,40 @@ namespace MyUtils
 
             return new Vector3( screen_position.x, view.position.height - screen_position.y, screen_position.z );
         }
-
         public static Rect PositionSizeRect(Vector2 position, Vector2 size)
         {
             return new Rect( position - size / 2f, size );
         }
-
         public static Vector2 ParentPositionToLocal(this Rect r, Vector2 pos)
         {
             return pos - r.min;
         }
+
+    #endregion
+
+    #region EaseCall
+
+        public static T New<T>(this VisualElement root, T visualElement)
+            where T : VisualElement
+        {
+            root.Add( visualElement );
+            return visualElement;
+        }
+
+    #endregion
+
+    #region StyleSheet
+
+        public static void Set4Padding(this VisualElement v, float padding)
+        {
+            var s = v.style;
+            s.paddingBottom = padding;
+            s.paddingTop = padding;
+            s.paddingLeft = padding;
+            s.paddingRight = padding;
+        }
+
+    #endregion
+
     }
 }

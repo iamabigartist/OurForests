@@ -5,7 +5,7 @@ namespace UI.ShowAndExecuteFunctionLab
 {
     public class SceneGUI : EditorWindow
     {
-        [MenuItem( "UI.ShowAndExecuteFunctionLab/SceneGUI" )]
+        [MenuItem( "Labs/UI.ShowAndExecuteFunctionLab/SceneGUI" )]
         static void ShowWindow()
         {
             var window = GetWindow<SceneGUI>();

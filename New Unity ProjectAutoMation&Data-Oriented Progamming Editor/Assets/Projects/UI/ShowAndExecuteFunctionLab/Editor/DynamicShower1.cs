@@ -32,7 +32,7 @@ namespace UI.ShowAndExecuteFunctionLab
     [Serializable]
     public class DynamicShower1 : EditorWindow
     {
-        [MenuItem( "UI.ShowAndExecuteFunctionLab/DynamicShower1" )]
+        [MenuItem( "Labs/UI.ShowAndExecuteFunctionLab/DynamicShower1" )]
         static void Init()
         {
             var window = GetWindow<DynamicShower1>();
