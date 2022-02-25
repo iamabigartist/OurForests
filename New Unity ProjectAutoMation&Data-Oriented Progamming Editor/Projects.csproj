@@ -53,15 +53,15 @@
      <Compile Include="Assets\Projects\UI\ShowAndExecuteFunctionLab\Editor\ExampleShowedClass.cs" />
      <Compile Include="Assets\Projects\UI\ShowAndExecuteFunctionLab\SerializedMethodArguments.cs" />
      <Compile Include="Assets\Projects\MyUtils\UIUtils.cs" />
+     <Compile Include="Assets\Projects\Automation\AsyncLab\TestCoroutineTask.cs" />
      <Compile Include="Assets\Projects\UI\ShowAndExecuteFunctionLab\Editor\SceneGUI.cs" />
+     <Compile Include="Assets\Projects\Automation\AsyncLab\Editor\TestWaitInWait.cs" />
      <Compile Include="Assets\Projects\UI\ShowAndExecuteFunctionLab\EasyPropertyDrawer.cs" />
+     <Compile Include="Assets\Projects\MyUtils\AsyncUtil.cs" />
      <Compile Include="Assets\Projects\MyUtils\ContextUtil.cs" />
+     <Compile Include="Assets\Projects\Automation\AsyncLab\Editor\TestWaitNull.cs" />
      <Compile Include="Assets\Projects\MyUtils\UnityEditorCameraController.cs" />
      <Compile Include="Assets\Projects\MyUtils\ReflectionUtil.cs" />
-     <Compile Include="Assets\Projects\Automation\AsyncLab\Editor\TestWaitNull.cs" />
-     <Compile Include="Assets\Projects\MyUtils\AsyncUtil.cs" />
-     <Compile Include="Assets\Projects\Automation\AsyncLab\Editor\TestWaitInWait.cs" />
-     <Compile Include="Assets\Projects\Automation\AsyncLab\TestCoroutineTask.cs" />
      <None Include="Assets\Projects\Projects.asmdef" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\2022.1.0b4\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

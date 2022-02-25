@@ -26,6 +26,7 @@ namespace MyUtils
                 yMin = rect.y + y_i * y_step,
                 yMax = rect.y + (y_i + y_part_count) * y_step
             };
+
             return new_rect;
         }
 
@@ -37,6 +38,7 @@ namespace MyUtils
             bool y_first = false)
         {
             int i = 0;
+
             if (!y_first)
             {
                 for (int y = 0; y < y_grid_count; y++)
@@ -64,14 +66,16 @@ namespace MyUtils
 
     #endregion
 
-
     #region Coordinate
 
         public static Vector3 WorldToOnGameGUIScreenPosition(this Camera camera, Vector3 world_position)
         {
             var screen_position = camera.WorldToScreenPoint( world_position );
+
             return new Vector3( screen_position.x, Screen.height - screen_position.y, screen_position.z );
         }
+
+        [Obsolete( "Scene视图的坐标系和camera屏幕坐标不兼容" )]
         public static Vector3 WorldToOnSceneViewGUIScreenPosition(this Camera camera, SceneView view, Vector3 world_position)
         {
             var screen_position = camera.WorldToScreenPoint( world_position );
@@ -95,6 +99,7 @@ namespace MyUtils
             where T : VisualElement
         {
             root.Add( visualElement );
+
             return visualElement;
         }
 
@@ -112,6 +117,26 @@ namespace MyUtils
         }
 
     #endregion
+
+        public static class ScreenCoordinate3DUI
+        {
+            public static void DrawPositionLabel(Camera camera, Vector3 position, string content, Vector2 size)
+            {
+                var rect_pos = camera.WorldToOnGameGUIScreenPosition( position );
+                var rect = PositionSizeRect( rect_pos, size );
+                GUI.Label( rect, content );
+            }
+
+            public static void DrawPositionLabelArray(Camera camera, Vector3[] position, string[] content, Vector2 size)
+            {
+                for (int i = 0; i < position.Length; i++)
+                {
+                    var rect_pos = camera.WorldToOnGameGUIScreenPosition( position[i] );
+                    var rect = PositionSizeRect( rect_pos, size );
+                    GUI.Label( rect, content[i] );
+                }
+            }
+        }
 
     }
 }
