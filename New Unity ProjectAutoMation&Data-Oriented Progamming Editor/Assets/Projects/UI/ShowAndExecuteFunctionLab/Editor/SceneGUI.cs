@@ -1,6 +1,6 @@
 ﻿using UnityEditor;
 using UnityEngine;
-using static MyUtils.UIUtils;
+using static PrototypeUtils.UIUtils;
 namespace UI.ShowAndExecuteFunctionLab
 {
     public class SceneGUI : EditorWindow

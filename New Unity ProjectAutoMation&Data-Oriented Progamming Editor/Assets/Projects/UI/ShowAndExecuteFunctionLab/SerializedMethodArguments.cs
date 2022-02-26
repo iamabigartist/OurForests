@@ -6,7 +6,7 @@ using System.Reflection;
 using MyUtils;
 using UnityEditor;
 using UnityEngine;
-using static MyUtils.UIUtils;
+using static PrototypeUtils.UIUtils;
 namespace UI.ShowAndExecuteFunctionLab
 {
 

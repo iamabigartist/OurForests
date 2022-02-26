@@ -1,5 +1,5 @@
 using UnityEngine;
-using static MyUtils.UIUtils;
+using static PrototypeUtils.UIUtils;
 namespace UI.WorldSpaceUILab
 {
     public class Position2ScreenGUI : MonoBehaviour

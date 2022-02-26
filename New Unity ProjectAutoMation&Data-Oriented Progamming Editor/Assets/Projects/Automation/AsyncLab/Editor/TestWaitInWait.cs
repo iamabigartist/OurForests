@@ -4,6 +4,7 @@ using MyUtils;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using PrototypeUtils;
 namespace Automation.AsyncLab.Editor
 {
     public class TestWaitInWait : EditorWindow
