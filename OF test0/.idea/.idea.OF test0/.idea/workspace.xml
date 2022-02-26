@@ -5,22 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8aa6f73-f44f-4013-b18c-6364ab72914d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Projects/MUtility/MyUtils" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Projects/MUtility/MyUtils.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/Assets/Projects/MyUtils/UIUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/Assets/Projects/MyUtils/UIUtils.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/Assets/Projects/UI/WorldSpaceUILab/Position2ScreenGUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/Assets/Projects/UI/WorldSpaceUILab/Position2ScreenGUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/../New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/Projects.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/Projects.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/../New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/MUtility/UnityEditorCameraController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/MUtility/UnityEditorCameraController.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Wiki/main.dbindex" beforeDir="false" afterPath="$PROJECT_DIR$/../Wiki/main.dbindex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Wiki/main.nyf" beforeDir="false" afterPath="$PROJECT_DIR$/../Wiki/main.nyf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,8 +26,6 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Generate/SourceGenerator/VoxelSurfaceUVOld.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/ChunkMesh.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/VolumeMatrix.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/MarchingCubeMesh.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/AssetTest/MyAssetImporter.cs" root0="FORCE_HIGHLIGHTING" />
@@ -51,6 +36,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Config/BlockConfig.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@13.1.4/Editor/Data/Util/PooledList.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Config/BlockConfigInspector.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Generate/SourceGenerator/VoxelSurfaceUVOld.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/ChunkMesh.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -218,6 +205,7 @@
       <workItem from="1645111817676" duration="1674000" />
       <workItem from="1645160289055" duration="679000" />
       <workItem from="1645719743564" duration="1221000" />
+      <workItem from="1645798555357" duration="1634000" />
     </task>
     <task id="LOCAL-00001" summary="Add some test method">
       <created>1639398343342</created>

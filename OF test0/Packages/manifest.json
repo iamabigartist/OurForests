@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.chua.prototype-utils": "https://github.com/iamabigartist/UnityPrototypeUtils.git?path=/Assets/PrototypeUtils#dev",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.2d.spriteshape": "8.0.0-pre.4",
     "com.unity.collab-proxy": "1.15.7",

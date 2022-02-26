@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.chua.prototype-utils": "https://github.com/iamabigartist/UnityPrototypeUtils.git?path=/Assets/UnityPrototypeUtils",
     "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
     "com.unity.code-analysis": "0.1.2-preview",
     "com.unity.collab-proxy": "1.15.7",

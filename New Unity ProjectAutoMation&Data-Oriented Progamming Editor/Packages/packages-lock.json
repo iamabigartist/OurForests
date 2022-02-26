@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.chua.prototype-utils": {
+      "version": "https://github.com/iamabigartist/UnityPrototypeUtils.git?path=/Assets/UnityPrototypeUtils",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "bdec191aca735ae43b1f4f0a0f37efa97174ea24"
+    },
     "com.cysharp.unitask": {
       "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
       "depth": 0,
