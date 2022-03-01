@@ -13,7 +13,8 @@ namespace VolumeTerra.Generate.SourceGenerator
     #region Util
 
         /// <summary>
-        ///     The quad generation order, in the order of surface index <see cref="VoxelGenerationUtility.index2normal_vector3d" />
+        ///     The quad generation order, in the order of surface index
+        ///     <see cref="VoxelGenerationUtility.index2normal_vector3d" />
         /// </summary>
         (int3 c1, int axis, int dir)[] quad_iteration =
         {
@@ -28,11 +29,11 @@ namespace VolumeTerra.Generate.SourceGenerator
         };
 
         //the 0,0,0 will be the center of the mesh if add offset to each vert
-        public static readonly Vector3 offset = new(-0.5f, -0.5f, -0.5f);
+        public static readonly float3 offset = new(-0.5f, -0.5f, -0.5f);
 
-        const int quad_count = 6;
-        const int vertices_count_per_quad = 6;
-        const int vertices_count = vertices_count_per_quad * quad_count;
+        const int QUAD_COUNT = 6;
+        const int VERTICES_COUNT_PER_QUAD = 6;
+        const int VERTICES_COUNT = VERTICES_COUNT_PER_QUAD * QUAD_COUNT;
 
     #endregion
 
@@ -55,14 +56,14 @@ namespace VolumeTerra.Generate.SourceGenerator
         #region Gen SourceMesh and verrtex uv indices
 
             source = new Mesh();
-            vertices = new Vector3[vertices_count];
-            uvs = new Vector2[vertices_count];
-            vertex_uv_indices = new int[vertices_count];
-            var triangles = (..vertices_count).ToArray();
+            vertices = new Vector3[VERTICES_COUNT];
+            uvs = new Vector2[VERTICES_COUNT];
+            vertex_uv_indices = new int[VERTICES_COUNT];
+            var triangles = (..VERTICES_COUNT).ToArray();
 
 
 
-            for (int i = 0; i < quad_count; i++)
+            for (int i = 0; i < QUAD_COUNT; i++)
             {
                 (int3 c1, int axis, int dir) = quad_iteration[i];
                 int vertex_start_index = 6 * i;
@@ -73,10 +74,10 @@ namespace VolumeTerra.Generate.SourceGenerator
                 //the 0,0,0 will be the center of the mesh if add offset to each vert
                 var quad_corner_position = new float3[]
                 {
-                    quad_corner_offsets[0] + c1,
-                    quad_corner_offsets[1] + c1,
-                    quad_corner_offsets[2] + c1,
-                    quad_corner_offsets[3] + c1
+                    quad_corner_offsets[0] + c1 + offset,
+                    quad_corner_offsets[1] + c1 + offset,
+                    quad_corner_offsets[2] + c1 + offset,
+                    quad_corner_offsets[3] + c1 + offset
                 };
                 var quad_maker = new QuadMaker( quad_corner_position );
                 quad_maker.ToVertices().ToVectorArray().CopyTo( vertices, vertex_start_index );
@@ -107,14 +108,15 @@ namespace VolumeTerra.Generate.SourceGenerator
 
         #region Get Normals and Tangents
 
-            face_normals = new Vector3[quad_count];
-            face_tangents = new Vector4[quad_count];
+            face_normals = new Vector3[QUAD_COUNT];
+            face_tangents = new Vector4[QUAD_COUNT];
             var vertex_normals = source.normals;
             var vertex_tangents = source.tangents;
-            for (int i = 0; i < quad_count; i++)
+
+            for (int i = 0; i < QUAD_COUNT; i++)
             {
-                face_normals[i] = vertex_normals[vertices_count_per_quad * i];
-                face_tangents[i] = vertex_tangents[vertices_count_per_quad * i];
+                face_normals[i] = vertex_normals[VERTICES_COUNT_PER_QUAD * i];
+                face_tangents[i] = vertex_tangents[VERTICES_COUNT_PER_QUAD * i];
             }
 
         #endregion
@@ -138,7 +140,7 @@ namespace VolumeTerra.Generate.SourceGenerator
             Array.Copy(
                 vertices, source_start_index,
                 face_vertices, 0,
-                vertices_count_per_quad );
+                VERTICES_COUNT_PER_QUAD );
         }
 
         public void GetSourceFace(
@@ -150,11 +152,11 @@ namespace VolumeTerra.Generate.SourceGenerator
             Array.Copy(
                 vertices, source_start_index,
                 face_vertices, 0,
-                vertices_count_per_quad );
+                VERTICES_COUNT_PER_QUAD );
             Array.Copy(
                 vertex_uv_indices, source_start_index,
                 face_vertex_uv_indices, 0,
-                vertices_count_per_quad );
+                VERTICES_COUNT_PER_QUAD );
         }
 
         public Vector3[] Vertices => vertices;

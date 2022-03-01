@@ -39,23 +39,27 @@ namespace VolumeTerra.Generate.SourceGenerator
                     (rotation * n).Round() ).ToArray();
             var rotated_vertices =
                 source_vertices.Select( v =>
-                        (rotation * (v + offset) - offset).Round() ).
+                        (rotation * v).Round() ).
                     ToArray(); //36 vertex
-            var new_source_vertex_uv_indices = Enumerable.Repeat( -1, 36 ).ToArray();
+            var new_vertex_uv_indices = Enumerable.Repeat( -1, 36 ).ToArray();
+
             for (int face_i = 0; face_i < 6; face_i++)
             {
                 bool up_tri = true;
                 var new_face_i = Array.IndexOf( source_face_normals, rotated_face_normals[face_i] );
+
                 for (int local_vertex_i = 0; local_vertex_i < 6; local_vertex_i++)
                 {
                     var vertex_i = face_i * 6 + local_vertex_i;
                     var new_local_vertex_i_2 = source_vertices[(new_face_i * 6)..(new_face_i * 6 + 6)].AllIndexOf( rotated_vertices[vertex_i] );
+
                     for (int j = 0; j < new_local_vertex_i_2.Length; j++)
                     {
                         var cur_new_local_vertex_i = new_local_vertex_i_2[j];
 
                         var new_vertex_i = new_face_i * 6 + cur_new_local_vertex_i;
-                        if (new_source_vertex_uv_indices[new_vertex_i] != -1)
+
+                        if (new_vertex_uv_indices[new_vertex_i] != -1)
                         {
                             Debug.Log( $"rotation:{{up: {up_face_index}, forward: {forward_face_index}}},\n" +
                                        $"face_i: {face_i}, " +
@@ -63,16 +67,19 @@ namespace VolumeTerra.Generate.SourceGenerator
                                        $"new_face_i: {new_face_i}, " +
                                        $"new_local_vertex_i: {cur_new_local_vertex_i}" );
                         }
-                        new_source_vertex_uv_indices[new_vertex_i] = source_vertex_uv_indices[vertex_i];
+
+                        new_vertex_uv_indices[new_vertex_i] = source_vertex_uv_indices[vertex_i];
                     }
                 }
             }
-            return new_source_vertex_uv_indices;
+
+            return new_vertex_uv_indices;
         }
 
         void GenerateVertexUVIndicesTable()
         {
             vertex_uv_indices_table = new int[6, 6][];
+
             for (int up_i = 0; up_i < 6; up_i++)
             {
                 for (int forward_i = 0; forward_i < 6; forward_i++)
