@@ -4,8 +4,10 @@
       "version": "https://github.com/iamabigartist/UnityPrototypeUtils.git?path=/Assets/PrototypeUtils#dev",
       "depth": 0,
       "source": "git",
-      "dependencies": {},
-      "hash": "546b2895d403d16f4001be8a26f73dcb0e48e874"
+      "dependencies": {
+        "com.unity.mathematics": "1.2.5"
+      },
+      "hash": "20b1afc8f5203b02b3c5e010931900d816d10655"
     },
     "com.unity.2d.common": {
       "version": "7.0.0-pre.3",

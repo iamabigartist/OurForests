@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using MUtility;
+using PrototypeUtils;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -44,7 +45,7 @@ namespace CPUVoxelTest.Scripts.Editor
 
         void PrecisiateVector()
         {
-            cur_vector = cur_vector.Round();
+            cur_vector = cur_vector.IntRound2Int();
         }
 
         void CreateGUI()

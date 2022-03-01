@@ -1,5 +1,6 @@
 using System;
 using MUtility;
+using PrototypeUtils;
 using UnityEngine;
 namespace VolumeTerra.DataDefinition
 {

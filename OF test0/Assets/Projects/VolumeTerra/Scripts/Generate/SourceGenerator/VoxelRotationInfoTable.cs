@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using MUtility;
+using PrototypeUtils;
 using UnityEngine;
 using static MUtility.VoxelGenerationUtility;
 namespace VolumeTerra.Generate.SourceGenerator
@@ -36,10 +37,10 @@ namespace VolumeTerra.Generate.SourceGenerator
             var source_vertex_uv_indices = voxel_source_mesh.VertexUVIndices;
             var rotated_face_normals =
                 source_face_normals.Select( n =>
-                    (rotation * n).Round() ).ToArray();
+                    (rotation * n).IntRound2Int() ).ToArray();
             var rotated_vertices =
                 source_vertices.Select( v =>
-                        (rotation * v).Round() ).
+                        (rotation * v).IntRound2Int() ).
                     ToArray(); //36 vertex
             var new_vertex_uv_indices = Enumerable.Repeat( -1, 36 ).ToArray();
 
