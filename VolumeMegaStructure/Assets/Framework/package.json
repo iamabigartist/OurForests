@@ -1,0 +1,23 @@
+{
+    "name": "com.chua.volume_megastructure_framework",
+    "version": "0.0.1",
+    "displayName": "Volume Megastructure Framework",
+    "description": "A Framework for design, generating, loading and rendering volume magestructures using method like voxel and marching cube.",
+    "unity": "2019.4",
+    "keywords": [
+        "voxel",
+        "marching cube",
+        "volume",
+        "megastructure"
+    ],
+    "author": {
+        "name": "Chua",
+        "email": "pch4178@gmail.com",
+        "url": "https://github.com/iamabigartist"
+    },
+    "dependencies": {
+        "com.unity.mathematics": "1.2.5",
+        "com.unity.inputsystem": "1.2.0",
+        "com.unity.burst": "1.6.4"
+    }
+}
