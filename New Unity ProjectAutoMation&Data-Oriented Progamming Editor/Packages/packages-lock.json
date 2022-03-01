@@ -7,6 +7,17 @@
       "dependencies": {},
       "hash": "2b6b9d50b266ff6b2c7400646e09642c479a022d"
     },
+    "com.chua.volume_megastructure_framework": {
+      "version": "https://github.com/iamabigartist/OurForests.git?path=/VolumeMegaStructure/Assets/Framework#main",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.mathematics": "1.2.5",
+        "com.unity.inputsystem": "1.2.0",
+        "com.unity.burst": "1.6.4"
+      },
+      "hash": "31435ffa225e4f6cf20985171aa9601c2ee9c1f8"
+    },
     "com.cysharp.unitask": {
       "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
       "depth": 0,
@@ -15,7 +26,7 @@
       "hash": "27604496ca1b27b93d78dd2257a50158fab2bc33"
     },
     "com.unity.burst": {
-      "version": "1.6.0",
+      "version": "1.6.4",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -70,6 +81,15 @@
       "depth": 0,
       "source": "registry",
       "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.inputsystem": {
+      "version": "1.2.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.uielements": "1.0.0"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.mathematics": {

@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "com.chua.prototype-utils": "https://github.com/iamabigartist/UnityPrototypeUtils.git?path=/Assets/PrototypeUtils#dev",
+    "com.chua.volume_megastructure_framework": "https://github.com/iamabigartist/OurForests.git?path=/VolumeMegaStructure/Assets/Framework#main",
     "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
     "com.unity.code-analysis": "0.1.2-preview",
     "com.unity.collab-proxy": "1.15.7",
