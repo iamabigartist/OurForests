@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using MUtility;
+using PrototypeUtils;
 using UnityEngine;
 using UnityEngine.Rendering;
 using VolumeTerra.DataDefinition;

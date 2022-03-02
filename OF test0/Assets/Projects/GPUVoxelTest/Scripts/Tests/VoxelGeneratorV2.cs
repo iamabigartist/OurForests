@@ -1,9 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
+using MUtility;
+using PrototypeUtils;
 using UnityEngine;
 using UnityEngine.Rendering;
 using VolumeTerra.DataDefinition;
-using VolumeTerra.Generate;
 using VolumeTerra.Generate.Terrain;
+using Debug = UnityEngine.Debug;
 namespace GPUVoxelTest.Tests
 {
     public class VoxelGeneratorV2 : MonoBehaviour
@@ -22,7 +25,7 @@ namespace GPUVoxelTest.Tests
 
         VolumeMatrix<float> volume_matrix;
 
-        UnityEngine.ComputeShader cs;
+        ComputeShader cs;
 
         (
             ShaderData<Vector3Int> volume_number_size,
@@ -50,6 +53,8 @@ namespace GPUVoxelTest.Tests
             {
                 indexFormat = IndexFormat.UInt32
             };
+
+
 
 
 
@@ -86,7 +91,7 @@ namespace GPUVoxelTest.Tests
 
         void InitShader()
         {
-            cs = Resources.Load<UnityEngine.ComputeShader>( "VoxelGeneratorCSV2" );
+            cs = Resources.Load<ComputeShader>( "VoxelGeneratorCSV2" );
             cs_data =
                 (
                 new ShaderData<Vector3Int>(
@@ -164,16 +169,28 @@ namespace GPUVoxelTest.Tests
             var quad_num = test_a[0];
 
             m_triangles = new int[quad_num * 6];
+
             for (int i = 0; i < m_triangles.Length; i++)
             {
                 m_triangles[i] = i;
             }
 
+            var stopwatch = new Stopwatch();
+
+            stopwatch.Restart();
             cs_data.quads.data.GetData( QuadVertices );
+            stopwatch.Stop();
+            Debug.Log( $"{nameof( QuadVertices )} GetData: {stopwatch.Get_ms()} ms" );
+
+            stopwatch.Restart();
             m_mesh.vertices = QuadVertices;
             m_mesh.triangles = m_triangles;
             m_mesh.RecalculateBounds();
             m_mesh.RecalculateNormals();
+            stopwatch.Stop();
+            Debug.Log( $"SetMeshData: {stopwatch.Get_ms()} ms" );
+
+
             m_meshFilter.sharedMesh = m_mesh;
             m_meshCollider.sharedMesh = m_mesh;
 
