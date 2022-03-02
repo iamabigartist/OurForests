@@ -2,14 +2,16 @@
 id: 9b14lqe4s048r2dxftv8n1u
 title: rendering solution
 desc: ''
-updated: 1646213910544
+updated: 1646217593419
 created: 1646212352378
 ---
 ## 1. 生成Mesh，然后按照常规方式来渲染
 
 选择保留传统的结构的模型信息，然后使用常规的渲染管线来渲染，在这个过程中
 
-1. 使用CPU 根据矩阵生成整个Mesh
+1. 两种可能性
+   1. 使用CPU 根据矩阵生成整个Mesh
+   2. 将矩阵使用GraphicBuffer或者ComputeBuffer传入ComputeShader，然后在GPU端生成整个Mesh，将数据直接写入Mesh所在的VertexBuffer。这样的好处在于不需要从CPU传入GPU数据了，只需要GPU返回用来定位面片的反字典即可。
 2. 由于最终Mesh需要传送到GPU上，因此在CPU上修改Mesh然后再赋值没有效率，因此采用在CPU上决定好哪些Mesh中的片段需要被修改，然后将CommandBuffer传入GPU，在ComputeShader的环境下直接对于GPU中的GraphicBuffer进行数据修改，修改之后不需要再传回CPU，再传回GPU重新赋值。
 
 ## 2. 不生成Mesh，只生成旋转等面片信息，然后使用DrawInstance进行渲染
