@@ -8,13 +8,13 @@ namespace VolumeMegaStructure.Definition
     /// <typeparam name="TData">It should be A Serializable Type.</typeparam>
     /// <remarks>The core data type of <see cref="VolumeMegaStructure" /></remarks>
     [Serializable]
-    public class VolumeMatrix<TData>
+    public class DataMatrix<TData>
     {
         public int3 size;
 
         public TData[] data;
 
-        public VolumeMatrix(int3 size)
+        public DataMatrix(int3 size)
         {
             this.size = size;
             data = new TData[size.x * size.y * size.z];

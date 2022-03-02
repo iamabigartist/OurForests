@@ -7,7 +7,7 @@ namespace VolumeMegaStructure.Generate.Volume
     {
         //TODO classify methods into different class
         /// <param name="range">The range of the volume value</param>
-        public static void GenerateRandom(this VolumeMatrix<int> matrix, float total, float threshold)
+        public static void GenerateRandom(this DataMatrix<int> matrix, float total, float threshold)
         {
             for (int i = 0; i < matrix.Count; i++)
             {
@@ -15,7 +15,7 @@ namespace VolumeMegaStructure.Generate.Volume
             }
         }
 
-        public static void GenerateCoherentNoiseThreshold<T>(this VolumeMatrix<T> matrix, Vector2 range, string seed)
+        public static void GenerateCoherentNoiseThreshold<T>(this DataMatrix<T> matrix, Vector2 range, string seed)
         {
             var noisier = new SimplexNoiseGenerator( seed );
             for (int z = 0; z < matrix.size.z; z++)
@@ -33,7 +33,7 @@ namespace VolumeMegaStructure.Generate.Volume
             }
         }
 
-        public static void GenerateSphereThreshold<T>(this VolumeMatrix<T> matrix, T inside_value, T outside_value, float radius, Vector3Int mid_point)
+        public static void GenerateSphereThreshold<T>(this DataMatrix<T> matrix, T inside_value, T outside_value, float radius, Vector3Int mid_point)
         {
             for (int z = 0; z < matrix.size.z; z++)
             {
@@ -59,7 +59,7 @@ namespace VolumeMegaStructure.Generate.Volume
         ///     <para>2 for stone.</para>
         /// </summary>
         public static void GenerateSimpleTerrain(
-            this VolumeMatrix<int> matrix,
+            this DataMatrix<int> matrix,
             float stone_height_scale,
             float soil_height_scale,
             Vector2 noise_offset,

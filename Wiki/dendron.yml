@@ -65,12 +65,12 @@ workspace:
     maxPreviewsCached: 10
     maxNoteLength: 204800
 preview:
-    enableFMTitle: false
+    enableFMTitle: true
     enableNoteTitleForLink: true
     enableMermaid: true
     enablePrettyRefs: true
     enableKatex: true
-    automaticallyShowPreview: false
+    automaticallyShowPreview: true
 publishing:
     enableFMTitle: true
     enableNoteTitleForLink: true
