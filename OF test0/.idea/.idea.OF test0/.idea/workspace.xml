@@ -5,39 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8aa6f73-f44f-4013-b18c-6364ab72914d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Util/UIBuilder.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Util/UIBuilder.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab3 TestGPUBuffer.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab3 TestGPUBuffer/Editor.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab3 TestGPUBuffer/Editor/TestSendBufferCPU2GPU.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab3 TestGPUBuffer/Editor/TestSendBufferCPU2GPU.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab3 TestGPUBuffer/Editor/sadasd.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab3 TestGPUBuffer/Editor/sadasd.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/Assets/Projects/UI/VisualElementLab/New Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/Assets/Projects/UI/VisualElementLab/New Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/Projects.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/Projects.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/../New Unity ProjectAutoMation&amp;Data-Oriented Progamming Editor/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/CPUVoxelTest/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/CPUVoxelTest/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scenes/Tests/GPUVoxelTestMain.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scenes/Tests/GPUVoxelTestMain.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Tests/VoxelGeneratorCPU_V1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Tests/VoxelGeneratorCPU_V1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Tests/VoxelGeneratorV2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Scripts/Tests/VoxelGeneratorV2.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Shadergraphs/BufferWithCube.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/GPUVoxelTest/Shadergraphs/BufferWithCube.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/MUtility/BitUtils.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/MUtility/BitUtils.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/MUtility/MemoryUtility.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/MUtility/MemoryUtility.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/MUtility/ProfileUtils.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/MUtility/ProfileUtils.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/MUtility/Shader/DebugNode.hlsl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/MUtility/Shader/DebugNode.hlsl.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/MUtility/Shader/NumberDebugNode.shadersubgraph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/MUtility/Shader/NumberDebugNode.shadersubgraph.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/MUtility/TextureUtility.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/MUtility/TextureUtility.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/Mesh/VoxelSourceMesh.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/Mesh/VoxelSourceMesh.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab3 TestGPUBuffer/Editor/TestSendBufferCPU2GPU.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab3 TestGPUBuffer/Editor/TestSendBufferCPU2GPU.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +39,6 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@13.1.4/Editor/Importers/ShaderGraphImporter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Generate/SourceGenerator/VoxelSurfaceUVOld.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/ChunkMesh.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.chua.prototype-utils@db9bef80c3/Runtime/UIUtil.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -246,7 +214,7 @@
       <workItem from="1646125554103" duration="5117000" />
       <workItem from="1646191678951" duration="974000" />
       <workItem from="1646194669800" duration="3101000" />
-      <workItem from="1646210530457" duration="284000" />
+      <workItem from="1646210530457" duration="584000" />
     </task>
     <task id="LOCAL-00001" summary="Add some test method">
       <created>1639398343342</created>

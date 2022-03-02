@@ -2,7 +2,7 @@
 id: o57abskwozvg3z9ryu7njpd
 title: name definitions
 desc: ''
-updated: 1646193762797
+updated: 1646213907452
 created: 1646192234105
 status: ''
 due: ''
@@ -29,6 +29,5 @@ graph TB
             end
         end
     end
-    
-    
 ```
+

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
+using PrototypeUtils;
 using UnityEditor;
 using UnityEngine;
 namespace Labs.Lab3_TestGPUBuffer.Editor
@@ -26,7 +27,7 @@ namespace Labs.Lab3_TestGPUBuffer.Editor
             public Vector2 uv;
         }
 
-        void Main()
+        void Run()
         {
             buffer = new(GraphicsBuffer.Target.Vertex, count, sizeof(float) * 5);
             var array = new Float5[count];
@@ -41,10 +42,17 @@ namespace Labs.Lab3_TestGPUBuffer.Editor
             }
 
 
-            stopwatch.Reset();
+            stopwatch.Restart();
             buffer.SetData( array );
             stopwatch.Stop();
-            times[$"{nameof(buffer.SetData)}"]=stopwatch.Get
+            times[$"{nameof(buffer.SetData)}"] = $"{stopwatch.Get_ms()} ms";
+
+            stopwatch.Restart();
+            buffer.GetData( array );
+            stopwatch.Stop();
+            times[$"{nameof(buffer.GetData)}"] = $"{stopwatch.Get_ms()} ms";
+
+            buffer.Release();
         }
 
         void OnEnable()
@@ -55,7 +63,15 @@ namespace Labs.Lab3_TestGPUBuffer.Editor
 
         void OnGUI()
         {
+            count = EditorGUILayout.IntField( $"{nameof(count)}", count );
+
+            if (GUILayout.Button( "Run" ))
+            {
+                Run();
+            }
+
             EditorGUILayout.LabelField( $"Times: {string.Join( ",", times )}" );
+
         }
     }
 }
