@@ -71,6 +71,9 @@
         },
         {
             "m_Id": "f48417344e6048c5899ad6b65b61856d"
+        },
+        {
+            "m_Id": "b984925c3bc1405eb5bfb3f199042d5f"
         }
     ],
     "m_GroupDatas": [
@@ -561,6 +564,21 @@
     "m_ShaderOutputName": "Out",
     "m_StageCapability": 3,
     "m_BareResource": false
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "2f1e589d77f64e57a23aab2d0adbe685",
+    "m_Id": 0,
+    "m_DisplayName": "Out",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 1,
+    "m_Value": 0.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": []
 }
 
 {
@@ -1317,6 +1335,39 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.VertexIDNode",
+    "m_ObjectId": "b984925c3bc1405eb5bfb3f199042d5f",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "Vertex ID",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": -1140.8001708984375,
+            "y": -55.19999694824219,
+            "width": 100.0001220703125,
+            "height": 76.80000305175781
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "2f1e589d77f64e57a23aab2d0adbe685"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    }
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.SamplerStateMaterialSlot",
     "m_ObjectId": "ba618848d1b04e96bf50b94d0eba9cd6",
     "m_Id": 0,
@@ -1559,10 +1610,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -764.888916015625,
-            "y": 344.888916015625,
-            "width": 168.888916015625,
-            "height": 117.77774047851563
+            "x": -764.800048828125,
+            "y": 343.20001220703127,
+            "width": 168.79998779296876,
+            "height": 117.5999755859375
         }
     },
     "m_Slots": [
