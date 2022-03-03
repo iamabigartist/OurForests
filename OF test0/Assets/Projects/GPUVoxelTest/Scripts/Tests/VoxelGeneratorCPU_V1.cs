@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using MUtility;
 using PrototypeUtils;
 using UnityEngine;
 using VolumeTerra.DataDefinition;
@@ -50,7 +49,7 @@ namespace GPUVoxelTest.Tests
             var matrix = new VolumeMatrix<int>( TerrainSize );
             matrix.GenerateSimpleTerrain( stone_height, soil_height, NoiseOffset, NoiseScale );
             // Debug.Log( $"{matrix.Position( 7128 )}" );
-            m_chunkMesh = new ChunkMesh( matrix );
+            m_chunkMesh = new(matrix);
             stop.Stop();
             Debug.Log( $"GenerateSimpleTerrain: {stop.Get_ms()} ms" );
 
@@ -63,6 +62,12 @@ namespace GPUVoxelTest.Tests
             m_chunkMesh.GenerateResultMesh();
             stop.Stop();
             Debug.Log( $"GenerateResultMesh: {stop.Get_ms()} ms" );
+
+            //Mesh Optimise 系列通过重新排列VB或者IB数据来增加cache命中率，对于生成的美术模型来说会有用；但是如果你的生成模型使用固定的IB读取方式，那么这种方式不会增加cache命中率，并且还会打乱顺序。
+            // stop.Restart();
+            // m_chunkMesh.result_mesh.OptimizeReorderVertexBuffer();
+            // stop.Stop();
+            // Debug.Log( $"OptimizeReorderVertexBuffer: {stop.Get_ms()} ms" );
 
             stop.Restart();
             m_meshFilter.sharedMesh = m_chunkMesh.result_mesh;
