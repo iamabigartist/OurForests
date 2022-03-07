@@ -63,6 +63,18 @@ namespace VolumeMegaStructure.Util
             return math.dot( index2normal_vector3d[up_index], index2normal_vector3d[forward_index] ) == 0;
         }
 
+        public static float3[] rotate(this float3[] array, quaternion q)
+        {
+            var new_array = new float3[array.Length];
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                new_array[i] = math.rotate( q, array[i] );
+            }
+
+            return new_array;
+        }
+
     #endregion
 
     #region MeshGeneration

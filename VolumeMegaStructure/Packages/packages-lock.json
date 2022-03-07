@@ -7,7 +7,7 @@
       "dependencies": {
         "com.unity.mathematics": "1.2.5"
       },
-      "hash": "7d0fca7634f2d8c2b16953d548daaea029461b01"
+      "hash": "7da2e5dde0d0bdc3fd3fc990f3c6becd6d05b33c"
     },
     "com.unity.burst": {
       "version": "1.6.4",
