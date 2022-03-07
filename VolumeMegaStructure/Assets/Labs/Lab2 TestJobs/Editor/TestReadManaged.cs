@@ -1,7 +1,6 @@
 using Unity.Collections;
 using Unity.Jobs;
 using UnityEditor;
-using UnityEngine;
 using VolumeMegaStructure.Util;
 namespace Labs.Lab2_TestJobs.Editor
 {
@@ -24,7 +23,7 @@ namespace Labs.Lab2_TestJobs.Editor
         static void ShowWindow()
         {
             var window = GetWindow<TestReadManaged>();
-            window.titleContent = new GUIContent( "TestReadManaged" );
+            window.titleContent = new("TestReadManaged");
             window.Show();
         }
 
@@ -39,8 +38,8 @@ namespace Labs.Lab2_TestJobs.Editor
             managed_write_array = new int[length];
             var job = new ReadWriteJob
             {
-                managed_array = new NativeArray<int>( managed_read_array, Allocator.TempJob ),
-                unmanaged_array = new NativeArray<int>( length, Allocator.TempJob )
+                managed_array = new(managed_read_array, Allocator.TempJob),
+                unmanaged_array = new(length, Allocator.TempJob)
             };
             var handle = job.Schedule( length, 64 );
             handle.Complete();
