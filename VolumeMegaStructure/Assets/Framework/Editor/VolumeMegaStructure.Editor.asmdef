@@ -3,7 +3,8 @@
     "rootNamespace": "VolumeMegaStructure.Editor",
     "references": [
         "GUID:a7b7ab8f742d00e468406080d3ddb4dd",
-        "GUID:75469ad4d38634e559750d17036d5f7c"
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:3b4692cdbf7b5b64fa6bfae8501b1ed8"
     ],
     "includePlatforms": [
         "Editor"

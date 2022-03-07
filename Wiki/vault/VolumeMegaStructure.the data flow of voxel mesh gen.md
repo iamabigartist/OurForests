@@ -2,7 +2,7 @@
 id: y7ayeyrtwbc4abk0bagv9m8
 title: the data flow of voxel mesh gen
 desc: ''
-updated: 1646195306912
+updated: 1646649715781
 created: 1646154326478
 ---
 
@@ -18,7 +18,7 @@ graph TB
       subgraph RotationTables
       face-i-2-vector{{Face_Index2Vector}}
       face-vector-2-i{{Face_Vector2Index}}
-      face-i-2-vector & face-vector-2-i-->|Rotate the original vector<br> and find the new index<br> using IndexOf in the Face_Index2Vector|face-i-lookrotaion
+      face-i-2-vector & face-vector-2-i-->|Rotate the original vector<br> and find the new index<br> using IndexOf in the Face_Index2Vector|face-i-lookrotation
       face-i-lookrotation{{Face_Index_LookRotation}}
       quad-v-lookrotaion-face-i{{QuadVeticesTable<br>LookRotation,FaceIndex}}
       end
