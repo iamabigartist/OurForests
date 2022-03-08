@@ -79,6 +79,31 @@ namespace VolumeMegaStructure.Util
 
     #region MeshGeneration
 
+    #region Index
+
+        static readonly int[] quad_local_indices = { 0, 1, 2, 2, 3, 0 };
+        public static int[] GenQuadIndices(int quad_count)
+        {
+            var quad_indices = new int[quad_count * 6];
+
+            for (int quad_i = 0; quad_i < quad_count; quad_i++)
+            {
+                var vertex_i0 = quad_i * 6;
+                var render_i0 = quad_i * 4;
+
+                for (int local_vertex_i = 0; local_vertex_i < 6; local_vertex_i++)
+                {
+                    var vertex_i = vertex_i0 + local_vertex_i;
+                    var render_i = quad_local_indices[local_vertex_i] + render_i0;
+                    quad_indices[vertex_i] = render_i;
+                }
+            }
+
+            return quad_indices;
+        }
+
+    #endregion
+
     #region UV
 
         //The four corner uv of any quad,

@@ -1,5 +1,7 @@
 using System;
+using PrototypeUtils;
 using Unity.Mathematics;
+using UnityEngine;
 namespace VolumeMegaStructure.Util
 {
     public static class VectorUtil
@@ -23,6 +25,11 @@ namespace VolumeMegaStructure.Util
         public static float3[] round(this float3[] array)
         {
             return array.@select( v => math.round( v ) );
+        }
+
+        public static Vector3[] f3_2_v3(this float3[] array)
+        {
+            return array.@select( v => v.ToVector() );
         }
 
     }
