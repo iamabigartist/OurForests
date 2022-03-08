@@ -2,6 +2,8 @@ using PrototypeUtils;
 using Unity.Mathematics;
 using UnityEngine;
 using VolumeMegaStructure.Util;
+using static Unity.Mathematics.math;
+using quaternion = Unity.Mathematics.quaternion;
 namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 {
     public class GenVoxelSourceTables
@@ -11,7 +13,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 
     #region Static
 
-        static readonly float3[] VOXEL_RIGHT_QUAD =
+        static readonly float3[] voxel_right_quad =
         {
             (1, -1, -1).f3(),
             (1, 1, -1).f3(),
@@ -25,17 +27,15 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 
         static float3[][] voxel_6_quad;
 
-
-
-        static void VOXEL_RIGHT_QUAD_2_voxel_6_quad()
+        static void voxel_right_quad_2_6_quad()
         {
-            voxel_6_quad = new float3[][6];
-            voxel_6_quad[0] = VOXEL_RIGHT_QUAD;
-            voxel_6_quad[1] = VOXEL_RIGHT_QUAD.rotate( quaternion.RotateY( 180 ) );
-            voxel_6_quad[2] = VOXEL_RIGHT_QUAD.rotate( quaternion.RotateZ( 90 ) );
-            voxel_6_quad[3] = voxel_6_quad[2].rotate( quaternion.RotateZ( 180 ) );
-            voxel_6_quad[4] = VOXEL_RIGHT_QUAD;
-            voxel_6_quad[5] = VOXEL_RIGHT_QUAD;
+            voxel_6_quad = new float3[6][];
+            voxel_6_quad[0] = voxel_right_quad;
+            voxel_6_quad[1] = voxel_right_quad.rotate( quaternion.RotateY( radians( 180 ) ) ).round();
+            voxel_6_quad[4] = voxel_right_quad.rotate( quaternion.RotateY( radians( -90 ) ) ).round();
+            voxel_6_quad[5] = voxel_right_quad.rotate( quaternion.RotateY( radians( 90 ) ) ).round();
+            voxel_6_quad[2] = voxel_6_quad[4].rotate( quaternion.RotateX( radians( -90 ) ) ).round();
+            voxel_6_quad[3] = voxel_6_quad[4].rotate( quaternion.RotateX( radians( 90 ) ) ).round();
         }
 
         Mesh source_voxel;
@@ -48,7 +48,12 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 
     #endregion
 
-    #region
+    #region Entry
+
+        static GenVoxelSourceTables()
+        {
+            voxel_right_quad_2_6_quad();
+        }
 
     #endregion
 
