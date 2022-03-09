@@ -55,8 +55,8 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 
     #region Results
 
-       public static float3[] quad_normals;
-       public static float4[] quad_tangents;
+        public static float3[] quad_normals;
+        public static float4[] quad_tangents;
 
         static void source_voxel_2_normal_tangent()
         {
@@ -67,7 +67,26 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
         public static float3[] i_rotation_i_face_i_vertex_quads;
         static void voxel_6_quad_2_i_rotation_i_face_i_vertex_quads()
         {
+            for (int i_up = 0; i_up < 6; i_up++)
+            {
+                for (int i_forward = 0; i_forward < 6; i_forward++)
+                {
+                    int i_rotation = i_up * 6 + i_forward;
 
+                    for (int i_face = 0; i_face < 6; i_face++)
+                    {
+                        var source_quad = voxel_6_quad[i_face];
+                        var rotated_quad = source_quad.@select( v => rotate( LookRotation( i_up, i_forward ), v ) );
+                        int i_rotation_i_face = i_rotation * 6 + i_face;
+
+                        for (int i_vertex = 0; i_vertex < 4; i_vertex++)
+                        {
+                            int i_rotation_i_face_i_vertex = i_rotation_i_face * 4 + i_vertex;
+                            i_rotation_i_face_i_vertex_quads[i_rotation_i_face_i_vertex] = rotated_quad[i_vertex];
+                        }
+                    }
+                }
+            }
         }
 
     #endregion
