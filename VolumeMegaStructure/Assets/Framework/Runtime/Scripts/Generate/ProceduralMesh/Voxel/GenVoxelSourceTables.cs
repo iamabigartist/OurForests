@@ -100,6 +100,25 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
             voxel_right_quad_2_6_quad();
         }
 
+        public static void SetBuffer(
+            out ComputeBuffer quad_buffer,
+            out ComputeBuffer uv_buffer,
+            out ComputeBuffer normal_buffer,
+            out ComputeBuffer tangent_buffer)
+        {
+            quad_buffer = new(i_rotation_i_face_i_vertex_quads.Length, sizeof(float) * 3, ComputeBufferType.Structured, ComputeBufferMode.Immutable);
+            quad_buffer.SetData( i_rotation_i_face_i_vertex_quads );
+
+            uv_buffer = new(4, sizeof(float) * 2, ComputeBufferType.Structured, ComputeBufferMode.Immutable);
+            uv_buffer.SetData( uv_4p_gen );
+
+            normal_buffer = new(6, sizeof(float) * 3, ComputeBufferType.Structured, ComputeBufferMode.Immutable);
+            normal_buffer.SetData( quad_normals );
+
+            tangent_buffer = new(6, sizeof(float) * 4, ComputeBufferType.Structured, ComputeBufferMode.Immutable);
+            tangent_buffer.SetData( quad_tangents );
+        }
+
     #endregion
 
     }

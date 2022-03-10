@@ -1,6 +1,6 @@
 using System;
 using Unity.Mathematics;
-namespace VolumeMegaStructure.Definition
+namespace VolumeMegaStructure.Definition.Data
 {
     /// <summary>
     ///     A 3D matrix which represents particles align to uniform grid in a rectangular.

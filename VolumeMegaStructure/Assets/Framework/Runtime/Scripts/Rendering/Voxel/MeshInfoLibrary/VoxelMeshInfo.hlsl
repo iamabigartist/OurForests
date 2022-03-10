@@ -15,4 +15,10 @@ void GetFaceTangent_float(int face_index, out float4 tangent)
 {
     tangent = face_tangents[face_index];
 }
+
+void Decompose(uint source, double remain_size_product_d, uint remain_size_product, out uint result, out uint remain_source)
+{
+    result = source * remain_size_product_d;
+    remain_source = source - result * remain_size_product;
+}
 #endif

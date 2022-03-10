@@ -2,7 +2,7 @@
 id: o57abskwozvg3z9ryu7njpd
 title: name definitions
 desc: ''
-updated: 1646213907452
+updated: 1646881230753
 created: 1646192234105
 status: ''
 due: ''
@@ -26,6 +26,8 @@ graph TB
                 direction TB
                 voxel[强调在渲染中某个volume以体素块的方式渲染<br> 体素 voxel]
                 marching-cube[强调在渲染中某个volume以marching cube的方式渲染<br>  marching cube]
+                voxel & marching-cube-->|存储在|Chunk
+                Chunk-->不同的组的volume采取不同生成方式
             end
         end
     end

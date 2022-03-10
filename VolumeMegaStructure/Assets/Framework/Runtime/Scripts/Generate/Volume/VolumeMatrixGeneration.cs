@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using VolumeMegaStructure.Definition;
+using VolumeMegaStructure.Definition.Data;
 using VolumeMegaStructure.Generate.Volume.Noise;
 namespace VolumeMegaStructure.Generate.Volume
 {

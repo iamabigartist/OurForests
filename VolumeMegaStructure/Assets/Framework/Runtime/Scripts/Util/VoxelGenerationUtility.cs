@@ -1,9 +1,60 @@
-﻿using Unity.Mathematics;
+﻿using System.Runtime.CompilerServices;
+using Unity.Mathematics;
 using UnityEngine;
 namespace VolumeMegaStructure.Util
 {
     public static class VoxelGenerationUtility
     {
+
+    #region Index
+
+        [MethodImpl( MethodImplOptions.AggressiveInlining )]
+        public static void IndexDecompose_3_CPU(int source, int size, double inverse_size, out int result, out int remain_source)
+        {
+            remain_source = source % size;
+            result = (int)((source - remain_source) * inverse_size);
+        }
+        /// <summary>
+        ///     Arbitrary rank decompose all, inefficient because of array.
+        /// </summary>
+        /// <remarks>Note that size array should be the product of size.</remarks>
+        public static void IndexDecompose_3_CPU_All(int source, int[] size, double[] inverse_size, out int[] result)
+        {
+            result = new int[size.Length];
+            int cur_source = source;
+
+            for (int i = 0; i < size.Length; i++)
+            {
+                IndexDecompose_3_CPU( cur_source, size[i], inverse_size[i], out result[i], out cur_source );
+            }
+        }
+
+        const int FACE_SIZE = 6;
+        const float FACE_SIZE_INVERSE = 1 / 6f;
+        const int VERTEX_SIZE = 4;
+        const float VERTEX_SIZE_INVERSE = 1 / 4f;
+
+        [MethodImpl( MethodImplOptions.AggressiveInlining )]
+        public static void i_rotation_i_face_i_vertex_Compose(in int i_rotation, in int i_face, in int i_vertex, out int i)
+        {
+            i = (i_rotation * FACE_SIZE + i_face) * VERTEX_SIZE + i_vertex;
+        }
+
+        [MethodImpl( MethodImplOptions.AggressiveInlining )]
+        public static void i_rotation_i_face_i_vertex_Decompose(out int i_rotation, out int i_face, out int i_vertex, in int i)
+        {
+            int remain_i = i;
+
+            remain_i = remain_i % (FACE_SIZE * VERTEX_SIZE);
+            i_rotation = (int)((i - remain_i) * (FACE_SIZE_INVERSE * VERTEX_SIZE_INVERSE));
+
+            remain_i = remain_i % VERTEX_SIZE;
+            i_face = (int)((i - remain_i) * VERTEX_SIZE_INVERSE);
+
+            i_vertex = remain_i;
+        }
+
+    #endregion
 
     #region Rotation
 
@@ -120,6 +171,22 @@ namespace VolumeMegaStructure.Util
             new int2( 0, 1 ), //01
             new int2( 1, 0 ), //10
             new int2( 1, 1 ) //11
+        };
+
+        //The four corner uv of any quad, used to gen the uv array.
+        //The order is as below:
+        /*
+         *  1-----2
+         *  |     |
+         *  |     |
+         *  0-----3
+         */
+        public static readonly float2[] uv_4p_gen =
+        {
+            new int2( 0, 0 ),
+            new int2( 0, 1 ),
+            new int2( 1, 1 ),
+            new int2( 1, 0 )
         };
 
     #endregion
