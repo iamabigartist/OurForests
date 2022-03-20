@@ -1,6 +1,6 @@
 using System;
 using Unity.Mathematics;
-namespace VolumeMegaStructure.Definition.Data
+namespace VolumeMegaStructure.DataDefinition.Container
 {
     /// <summary>
     ///     A 3D matrix which represents particles align to uniform grid in a rectangular.
@@ -55,7 +55,7 @@ namespace VolumeMegaStructure.Definition.Data
             i -= y * size.x;
             int x = i;
 
-            return new int3( x, y, z );
+            return new(x, y, z);
         }
 
         public bool IsEdge(int x, int y, int z)

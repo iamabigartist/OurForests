@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 using Unity.Mathematics;
 namespace VolumeMegaStructure.Util
 {
-    [Obsolete( "No aim used" )]
+    // [Obsolete( "No aim used" )]
     public struct Indexer3D
     {
         public int3 size;

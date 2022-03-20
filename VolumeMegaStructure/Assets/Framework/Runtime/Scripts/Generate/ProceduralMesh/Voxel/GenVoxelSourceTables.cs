@@ -4,11 +4,11 @@ using Unity.Mathematics;
 using UnityEngine;
 using VolumeMegaStructure.Util;
 using static Unity.Mathematics.math;
-using static VolumeMegaStructure.Util.VoxelGenerationUtility;
+using static VolumeMegaStructure.Util.VoxelProcessUtility;
 using quaternion = Unity.Mathematics.quaternion;
 namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 {
-    public class GenVoxelSourceTables
+    public static class GenVoxelSourceTables
     {
 
     #region Data&Process

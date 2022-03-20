@@ -3,13 +3,16 @@ using Unity.Mathematics;
 using UnityEngine;
 namespace VolumeMegaStructure.Util
 {
-    public static class VoxelGenerationUtility
+    public static class VoxelProcessUtility
     {
 
     #region Index
 
+        /// <summary>
+        ///     Example decompose function
+        /// </summary>
         [MethodImpl( MethodImplOptions.AggressiveInlining )]
-        public static void IndexDecompose_3_CPU(int source, int size, double inverse_size, out int result, out int remain_source)
+        static void IndexDecompose_3_CPU(int source, int size, double inverse_size, out int result, out int remain_source)
         {
             remain_source = source % size;
             result = (int)((source - remain_source) * inverse_size);
@@ -18,7 +21,7 @@ namespace VolumeMegaStructure.Util
         ///     Arbitrary rank decompose all, inefficient because of array.
         /// </summary>
         /// <remarks>Note that size array should be the product of size.</remarks>
-        public static void IndexDecompose_3_CPU_All(int source, int[] size, double[] inverse_size, out int[] result)
+        static void IndexDecompose_3_CPU_All(int source, int[] size, double[] inverse_size, out int[] result)
         {
             result = new int[size.Length];
             int cur_source = source;
@@ -29,30 +32,35 @@ namespace VolumeMegaStructure.Util
             }
         }
 
+        const int FORWARD_SIZE = 6;
+        const float FORWARD_SIZE_INVERSE = 6;
         const int FACE_SIZE = 6;
         const float FACE_SIZE_INVERSE = 1 / 6f;
         const int VERTEX_SIZE = 4;
         const float VERTEX_SIZE_INVERSE = 1 / 4f;
 
         [MethodImpl( MethodImplOptions.AggressiveInlining )]
-        public static void i_rotation_i_face_i_vertex_Compose(in int i_rotation, in int i_face, in int i_vertex, out int i)
+        public static void i_rotation_i_face_i_vertex_Compose(in int i_up, in int i_forward, in int i_face, in int i_vertex, out int i)
         {
-            i = (i_rotation * FACE_SIZE + i_face) * VERTEX_SIZE + i_vertex;
-        }
+            i = ((i_up * FORWARD_SIZE + i_forward) * FACE_SIZE + i_face) * VERTEX_SIZE + i_vertex;
+        }//CONSIDER haven't optimised by SIMD//
 
         [MethodImpl( MethodImplOptions.AggressiveInlining )]
-        public static void i_rotation_i_face_i_vertex_Decompose(out int i_rotation, out int i_face, out int i_vertex, in int i)
+        public static void i_rotation_i_face_i_vertex_Decompose(out int i_up, out int i_forward, out int i_face, out int i_vertex, in int i)
         {
             int remain_i = i;
 
-            remain_i = remain_i % (FACE_SIZE * VERTEX_SIZE);
-            i_rotation = (int)((i - remain_i) * (FACE_SIZE_INVERSE * VERTEX_SIZE_INVERSE));
+            remain_i %= FORWARD_SIZE * FACE_SIZE * VERTEX_SIZE;
+            i_up = (int)((i - remain_i) * (FORWARD_SIZE_INVERSE * FACE_SIZE_INVERSE * VERTEX_SIZE_INVERSE));
 
-            remain_i = remain_i % VERTEX_SIZE;
+            remain_i %= FACE_SIZE * VERTEX_SIZE;
+            i_forward = (int)((i - remain_i) * (FACE_SIZE_INVERSE * VERTEX_SIZE_INVERSE));
+
+            remain_i %= VERTEX_SIZE;
             i_face = (int)((i - remain_i) * VERTEX_SIZE_INVERSE);
 
             i_vertex = remain_i;
-        }
+        }//CONSIDER haven't optimised by SIMD//
 
     #endregion
 
@@ -71,8 +79,6 @@ namespace VolumeMegaStructure.Util
             new[] { 2, 1 }
         };
 
-
-
         /// <summary>
         ///     The index that a normal direction maps to.
         /// </summary>
@@ -82,7 +88,6 @@ namespace VolumeMegaStructure.Util
             new[] { 2, 3 },
             new[] { 4, 5 }
         };
-
 
         /// <summary>
         ///     Indicate the surface order of our cube
@@ -100,7 +105,6 @@ namespace VolumeMegaStructure.Util
             Vector3.forward,
             Vector3.back
         };
-
 
         public static quaternion LookRotation(int up_index, int forward_index)
         {

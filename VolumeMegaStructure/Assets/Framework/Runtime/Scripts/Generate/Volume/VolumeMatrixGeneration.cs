@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
-using VolumeMegaStructure.Definition;
-using VolumeMegaStructure.Definition.Data;
+using VolumeMegaStructure.DataDefinition.Container;
 using VolumeMegaStructure.Generate.Volume.Noise;
 namespace VolumeMegaStructure.Generate.Volume
 {
     public static class VolumeMatrixGeneration
     {
-        //TODO classify methods into different class
+
+    #region QuickTests
+
         /// <param name="range">The range of the volume value</param>
         public static void GenerateRandom(this DataMatrix<int> matrix, float total, float threshold)
         {
@@ -19,6 +20,7 @@ namespace VolumeMegaStructure.Generate.Volume
         public static void GenerateCoherentNoiseThreshold<T>(this DataMatrix<T> matrix, Vector2 range, string seed)
         {
             var noisier = new SimplexNoiseGenerator( seed );
+
             for (int z = 0; z < matrix.size.z; z++)
             {
                 for (int y = 0; y < matrix.size.y; y++)
@@ -43,7 +45,7 @@ namespace VolumeMegaStructure.Generate.Volume
                     for (int x = 0; x < matrix.size.x; x++)
                     {
                         float distance = Vector3.Distance(
-                            new Vector3( x, y, z ),
+                            new(x, y, z),
                             mid_point );
                         matrix[x, y, z] =
                             distance < radius ? inside_value : outside_value;
@@ -64,7 +66,9 @@ namespace VolumeMegaStructure.Generate.Volume
             float stone_height_scale,
             float soil_height_scale,
             Vector2 noise_offset,
-            float noise_scale = 1)
+            float noise_scale = 1,
+            int stone_id = 1,
+            int soil_id = 1)
         {
 
             Vector2 transform(Vector2 position)
@@ -77,19 +81,20 @@ namespace VolumeMegaStructure.Generate.Volume
             {
                 for (int x = 0; x < matrix.size.x; x++)
                 {
-                    var stone_noise_position = transform( new Vector2( x, z ) );
+                    var stone_noise_position = transform( new(x, z) );
                     float stone_height = Mathf.PerlinNoise( stone_noise_position.x, stone_noise_position.y ) * stone_height_scale;
-                    var soil_noise_position = transform( new Vector2( x + 5000, z + 5000 ) );
+                    var soil_noise_position = transform( new(x + 5000, z + 5000) );
                     float soil_height = Mathf.PerlinNoise( soil_noise_position.x, soil_noise_position.y ) * soil_height_scale;
+
                     for (int y = 0; y < matrix.size.y; y++)
                     {
                         if (y <= stone_height)
                         {
-                            matrix[x, y, z] = 1;
+                            matrix[x, y, z] = stone_id;
                         }
                         else if (y <= stone_height + soil_height)
                         {
-                            matrix[x, y, z] = 1;
+                            matrix[x, y, z] = soil_id;
                         }
                         else
                         {
@@ -101,5 +106,9 @@ namespace VolumeMegaStructure.Generate.Volume
             }
 
         }
+
+    #endregion
+        //TODO classify methods into different class//
+
     }
 }

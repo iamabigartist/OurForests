@@ -5,8 +5,8 @@ namespace VolumeMegaStructure.Util
 {
     public class FixedSegmentList<T> : List<T>
     {
-        //TODO clean code and practice usage
-        //TODO finish all the management
+        //TODO clean code and practice usage//
+        //TODO finish all the management//
         public readonly int SegmentLength;
         public int SegmentCount => Count * SegmentLength;
 

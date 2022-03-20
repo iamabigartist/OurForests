@@ -1,6 +1,6 @@
 using UnityEditor;
 using UnityEngine;
-namespace Labs.Lab4_TestStorageManagement.Editor
+namespace Labs.Lab4_TestAbstractStorageManagement.Editor
 {
     public class TestStorage : EditorWindow
     {
