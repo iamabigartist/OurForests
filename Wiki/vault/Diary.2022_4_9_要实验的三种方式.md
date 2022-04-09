@@ -2,7 +2,7 @@
 id: hb7707td21smrl7oiof5ptu
 title: 2022_4_9_要实验的三种方式
 desc: ''
-updated: 1649517872476
+updated: 1649525958065
 created: 1649481682996
 ---
 
@@ -58,3 +58,62 @@ graphic buffer 使用和compute buffer类似。 自己手动创建的graphic buf
   - 而且另一方面，就是位置信息本身，如果不能够表示大数据量的位置，那么对于渲染的限制也太大了。只有在位置特别大的情况下，unity才会显示报错，或者渲染错误。
   - 经过测试，1^6以内的数据float能够完全精准的解压缩，因此用来做100*100*100的chunk是没有问题的。
   - 总之虽然通常不需要考虑精准问题，但是这类数据压缩后的值还是不能够超过官方文档所给的精准范围。
+
+## 现在由已经实现的技术预测的到渲染的数据结构 2022.4.10 1:18
+
+### uv数据
+
+通过旋转，面朝向和面片点信息来获取uv_index
+使用int[4]来表示uv，用静态数组存储实际uv。
+
+### 顶点数据
+
+```yaml
+vertex: #作为vertex shader的输入
+ position: float
+ face_uv_indices: float
+ texture_identity: float
+```
+
+### 访问索引
+
+如果不进行cull，基础的访问索引就是012231加上offset的重复。
+
+### 静态数据
+
+```yaml
+voxel_buffers: #用来获取vertex shader的输出
+ uv: float2[4]
+ normal: float3[6]
+ tangent: float4[6]
+```
+
+## 目前确认的过程
+
+### 生成voxel的生成辅助数据
+
+之前已经实现，详见 [GenVoxelSourceTable.cs](../../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/ProceduralMesh/Voxel/GenVoxelSourceTables.cs)
+
+### 生成mesh
+
+CPU 对于volume matrix进行检测，列出需要生成的面列表，面本身数据是静态的。留下面片位置与在面列表种索引的映射字典，将面片数据传给compute shader.
+
+#### 面片数据
+
+```yaml
+quad:
+ quad_position: float #这里为了省bus依旧是压缩的
+ face_uv_indices: float
+ texture_identity: float
+```
+
+ComputeShader 根据面片数据生成面片对应的四个点对应的顶点数据。
+
+### 渲染mesh
+
+使用 [上述数据结构](#现在由已经实现的技术预测的到渲染的数据结构-2022410-118) 编写独立的vertex shader, 这个vertex shader通过固定的输出数据结构可以对接到不同的fragment shader上实现渲染模式的改变。
+
+### 修改mesh
+
+在CPU确定需要修改的面片列表，然后确认相应的数据库操作。包括删除，覆盖 vertex buffer，裁剪index buffer长度等操作。
+将这些操作传给compute buffer 进行实际执行，以实现不需要重新传输整个数组就能够修改mesh的操作。
