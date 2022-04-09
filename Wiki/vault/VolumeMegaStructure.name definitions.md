@@ -1,5 +1,5 @@
 ---
-id: o57abskwozvg3z9ryu7njpd
+id: 87brdksvixw6136gxve1owa
 title: name definitions
 desc: ''
 updated: 1646881230753
@@ -9,6 +9,7 @@ due: ''
 priority: ''
 owner: ''
 ---
+
 ```mermaid
 graph TB
     subgraph Structure

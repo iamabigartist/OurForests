@@ -1,10 +1,11 @@
 ---
-id: y7ayeyrtwbc4abk0bagv9m8
+id: ppe4y0sd1gmz2841mvxhqij
 title: the data flow of voxel mesh gen
 desc: ''
 updated: 1646649715781
 created: 1646154326478
 ---
+
 
 
 ```mermaid

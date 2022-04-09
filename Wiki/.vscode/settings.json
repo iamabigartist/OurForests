@@ -7,5 +7,10 @@
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.suggest.showSnippets": true,
     "markdown-preview-enhanced.enableWikiLinkSyntax": true,
-    "markdown-preview-enhanced.wikiLinkFileExtension": ".md"
+    "markdown-preview-enhanced.wikiLinkFileExtension": ".md",
+    "cSpell.words": [
+        "gameobject",
+        "raycast",
+        "submesh"
+    ]
 }

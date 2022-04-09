@@ -1,10 +1,11 @@
 ---
-id: 9j4ui8wxj8a7qvroeez8zoa
+id: g33ly6zmgrorjvg0193njk7
 title: identity
 desc: ''
 updated: 1646881974944
 created: 1646880750992
 ---
+
 ## 需求
 
 1. block实体配置，按照block类型划分

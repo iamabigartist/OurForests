@@ -54,9 +54,6 @@ namespace VolumeMegaStructure.Generate.Volume
                     }
                 }
             }
-
-            var a = new Mesh();
-            a.SetVertexBufferParams(100,new VertexAttributeDescriptor(VertexAttribute.Position,VertexAttributeFormat.UInt32));
         }
 
 
