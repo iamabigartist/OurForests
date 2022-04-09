@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Rendering;
 using VolumeMegaStructure.DataDefinition.Container;
 using VolumeMegaStructure.Generate.Volume.Noise;
 namespace VolumeMegaStructure.Generate.Volume
@@ -53,6 +54,9 @@ namespace VolumeMegaStructure.Generate.Volume
                     }
                 }
             }
+
+            var a = new Mesh();
+            a.SetVertexBufferParams(100,new VertexAttributeDescriptor(VertexAttribute.Position,VertexAttributeFormat.UInt32));
         }
 
 
