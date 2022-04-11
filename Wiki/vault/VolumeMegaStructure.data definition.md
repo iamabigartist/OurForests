@@ -2,17 +2,80 @@
 id: unp9bgxrgpoq5x3s0ke9wnc
 title: data definition
 desc: ''
-updated: 1649685934044
+updated: 1649692469470
 created: 1649682065893
 ---
 
-### 静态数据
+## Config
+
+### Voxel Texture
+
+一张抽象的texture在一个固定的管线和shader中，由多个子效果贴图组成，必要的是颜色贴图。
 
 ```yaml
-voxel_buffers: #用来获取Vertex Shader的输出
- uv: float2[4]
- normal: float3[6]
- tangent: float4[6]
+VoxelTexture:
+ file_name: unique_string
+ id: auto_gen int
+ Albedo: Texture2D
+ Normal: Texture2D
+ ...
+```
+
+### Block Render Config
+
+```yaml
+BlockRenderConfig:
+ RenderingMethod: Voxel|MarchingCube|Mesh
+ material_variants:
+  color_variants: object
+  ...
+```
+
+```yaml
+VoxelRenderConfig:
+ FaceTextures: VoxelTexture[6]
+```
+
+## Table
+
+### BlockTable
+
+```yaml
+Block_table: Block
+```
+
+#### Block
+
+一个block仅代表着一种独立的方块。因此采取一个表格来表示。
+
+```yaml
+Block:
+ name: unique string
+ id: auto_gen int
+```
+
+### Voxel Render Buffer Groups
+
+```yaml
+VoxelRenderBuffersGroups:
+ VerticesBuffers: Buffers
+ Textures: Buffers
+```
+
+#### PerVertex Buffers
+
+```yaml
+PerVertexBuffers: #用来获取Vertex Shader的输出
+ UV: float2[4]
+ Normal: float3[6]
+ Tangent: float4[6]
+```
+
+#### Textures
+
+```yaml
+Textures:
+ Albedo: Texture2D[texture_numbers]
 ```
 
 ## Interface
@@ -36,6 +99,10 @@ Quad:
 - 通过反向旋转目前的面方向，得到贴图所在的面方向。
 - 通过访问要生成面片的block config，获取texture_id。
 
+##### 2022/4/11 关于texture_id获取要注意
+
+需要通过当前quad所属于cube的旋转信息以及quad本身的朝向信息，获取其原方向信息，才能再带入到block_texture_config中，拿到正确朝向的texture_id.
+
 #### Position
 
 quad自己的位置index。
@@ -47,7 +114,7 @@ quad自己的位置index。
 ### MeshGen Output - Vertex Shader Input
 
 ```yaml
-Buffer:
+MeshBuffers:
  VertexBuffer: Vertex[QuadCount*4]
  IndexBuffer: int[QuadCount*6]
 ```
