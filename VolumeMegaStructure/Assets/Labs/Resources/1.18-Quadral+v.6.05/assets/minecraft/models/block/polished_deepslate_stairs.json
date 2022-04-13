@@ -1,0 +1,11 @@
+{
+    "parent": "block/stairs_faces",
+    "textures": {
+        "bottom": "block/polished_deepslate",
+        "top": "block/polished_deepslate_stairs_top",
+		"north": "block/polished_deepslate_stairs_side1",
+		"south": "block/polished_deepslate_stairs_side2",
+		"west": "block/polished_deepslate_slap",
+        "east": "block/polished_deepslate"
+    }
+}

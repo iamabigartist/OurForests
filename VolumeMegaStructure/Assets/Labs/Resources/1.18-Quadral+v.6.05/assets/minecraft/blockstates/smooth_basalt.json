@@ -1,0 +1,9 @@
+{
+    "variants": {
+        "": [
+		    { "model": "block/smooth_basalt" },
+			{ "model": "block/smooth_basalt_1" },		
+			{ "model": "block/smooth_basalt_2" }
+		]
+    }
+}

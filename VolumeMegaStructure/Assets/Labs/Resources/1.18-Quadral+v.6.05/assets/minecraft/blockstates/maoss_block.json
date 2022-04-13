@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "": [
+            { "model": "block/moss_block" },
+            { "model": "block/moss_block", "y": 90, "x": 90},
+			{ "model": "block/moss_block", "x": 90, "y": 90},
+			{ "model": "block/moss_block", "y": 180, "x": 90}
+        ]
+    }
+}

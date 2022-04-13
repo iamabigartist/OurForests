@@ -1,0 +1,26 @@
+{
+    "variants": {
+        "": [
+            { "model": "block/bedrock" },
+            { "model": "block/bedrock", "y": 90 },
+			{ "model": "block/bedrock", "y": 180},
+			{ "model": "block/bedrock", "y": 270},
+			{ "model": "block/bedrock", "x": 90 },
+			{ "model": "block/bedrock", "x": 180},
+			{ "model": "block/bedrock", "x": 270},
+			{ "model": "block/bedrock", "z": 90 },
+			{ "model": "block/bedrock", "z": 180},
+			{ "model": "block/bedrock", "z": 270},
+			{ "model": "block/bedrock_mirrored" },
+            { "model": "block/bedrock_mirrored", "y": 90 },
+			{ "model": "block/bedrock_mirrored", "y": 180},
+			{ "model": "block/bedrock_mirrored", "y": 270},
+			{ "model": "block/bedrock_mirrored", "x": 90 },
+			{ "model": "block/bedrock_mirrored", "x": 180},
+			{ "model": "block/bedrock_mirrored", "x": 270},
+			{ "model": "block/bedrock_mirrored", "z": 90 },
+			{ "model": "block/bedrock_mirrored", "z": 180},
+			{ "model": "block/bedrock_mirrored", "z": 270}
+        ]
+    }
+}

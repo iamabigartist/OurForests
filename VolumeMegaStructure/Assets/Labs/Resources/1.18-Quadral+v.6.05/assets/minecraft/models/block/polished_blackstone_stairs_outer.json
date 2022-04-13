@@ -1,0 +1,11 @@
+{
+    "parent": "block/outer_stairs_faces",
+    "textures": {
+        "bottom": "block/polished_blackstone",
+        "top": "block/polished_blackstone_outer_stairs_top",
+		"north": "block/polished_blackstone_stairs_outer_front",
+		"south": "block/polished_blackstone_stairs_side2",
+		"west": "block/polished_blackstone_stairs_outer_front",
+        "east": "block/polished_blackstone_stairs_side1"
+    }
+}

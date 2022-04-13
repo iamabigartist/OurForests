@@ -1,0 +1,8 @@
+{
+    "parent": "block/outer_stairs_faces",
+    "textures": {
+        "bottom": "block/stone_bricks_top",
+        "top": "block/stone_bricks_outer_stairs_top",
+        "side": "block/stone_bricks_inverse"
+    }
+}

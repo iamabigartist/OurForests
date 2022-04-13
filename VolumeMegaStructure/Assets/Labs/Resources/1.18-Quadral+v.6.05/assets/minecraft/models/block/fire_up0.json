@@ -1,0 +1,8 @@
+{
+    "parent": "block/fire_up",
+    "textures": {
+        "particle": "block/fire_0",
+        "fire": "block/fire_0",
+		"fire2": "block/fire_1"
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "variants": {
+        "": [
+		    { "model": "block/granite" },
+			{ "model": "block/granite_1" },		
+			{ "model": "block/granite_2" }
+		]
+    }
+}

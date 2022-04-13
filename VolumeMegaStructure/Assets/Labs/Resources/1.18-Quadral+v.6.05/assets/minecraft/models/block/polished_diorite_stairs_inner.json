@@ -1,0 +1,11 @@
+{
+    "parent": "block/inner_stairs_faces",
+    "textures": {
+        "bottom": "block/polished_diorite",
+        "top": "block/polished_diorite_inner_stairs_top",
+		"north": "block/polished_diorite_stairs_side1",
+		"south": "block/polished_diorite",
+		"west": "block/polished_diorite_stairs_side2",
+        "east": "block/polished_diorite"
+    }
+}

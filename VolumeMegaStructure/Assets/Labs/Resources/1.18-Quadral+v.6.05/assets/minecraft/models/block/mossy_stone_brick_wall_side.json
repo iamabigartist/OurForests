@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/template_1_wall_side",
+  "textures": {
+  	"top":       "minecraft:block/mossy_stone_bricks_wall_top",
+    "side":      "minecraft:block/mossy_stone_bricks_wall_side",
+    "side_tall": "minecraft:block/mossy_stone_bricks_wall_side_tall",
+    "post":      "minecraft:block/mossy_stone_bricks_wall_post"
+  }
+}

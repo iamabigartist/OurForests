@@ -137,6 +137,7 @@ namespace VolumeTerra.Generate.SourceGenerator
 
         /// <summary>
         ///     Rotate the totally 6 indices of the whole cube.
+        ///     The direction in a face of the old index will go to the face of the new index.
         /// </summary>
         /// <returns>the new face indices of the cube.</returns>
         public static int[] RotateCube(int[] ori_cube, int rotate_axis, int rotate_times)

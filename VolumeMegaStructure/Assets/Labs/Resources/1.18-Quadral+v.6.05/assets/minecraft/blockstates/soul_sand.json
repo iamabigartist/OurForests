@@ -1,0 +1,9 @@
+{
+    "variants": {
+        "": [
+            { "model": "block/soul_sand" },
+			{ "model": "block/soul_sand_1" },
+			{ "model": "block/soul_sand_2" }
+        ]
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "parent": "block/outer_stairs_faces",
+    "textures": {
+        "bottom": "block/quartz_block_top",
+        "top": "block/quartz_block_outer_stairs_top",
+		"north": "block/quartz_block_stairs_outer_front",
+		"south": "block/quartz_block_stairs_side2",
+		"west": "block/quartz_block_stairs_outer_front",
+        "east": "block/quartz_block_stairs_side1"
+    }
+}

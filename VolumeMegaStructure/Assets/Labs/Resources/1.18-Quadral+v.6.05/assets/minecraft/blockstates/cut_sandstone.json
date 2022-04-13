@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "": [
+		    { "model": "block/cut_sandstone" },
+			{ "model": "block/cut_sandstone_1" },
+			{ "model": "block/cut_sandstone_2" },
+			{ "model": "block/cut_sandstone_3" }
+		]
+    }
+}

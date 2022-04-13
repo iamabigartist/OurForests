@@ -1,5 +1,5 @@
 ---
-id: hb7707td21smrl7oiof5ptu
+id: 8r9qfjk478uforo9c0goair
 title: 2022_4_9_要实验的三种方式
 desc: ''
 updated: 1649525958065

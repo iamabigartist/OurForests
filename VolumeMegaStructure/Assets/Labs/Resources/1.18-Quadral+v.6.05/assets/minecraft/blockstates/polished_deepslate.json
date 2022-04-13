@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "": [
+            { "model": "block/polished_deepslate" },
+            { "model": "block/polished_deepslate", "y": 90, "x": 90},
+			{ "model": "block/polished_deepslate", "x": 90, "y": 90},
+			{ "model": "block/polished_deepslate", "y": 180, "x": 90}
+        ]
+    }
+}

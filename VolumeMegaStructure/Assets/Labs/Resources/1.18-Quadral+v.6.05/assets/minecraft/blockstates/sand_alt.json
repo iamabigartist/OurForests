@@ -1,0 +1,18 @@
+{
+    "variants": {
+        "": [
+            { "model": "block/sand" },
+            { "model": "block/sand", "y": 90 },
+            { "model": "block/sand", "y": 180 },
+            { "model": "block/sand", "y": 270 },
+			{ "model": "block/sand_1" },
+            { "model": "block/sand_1", "y": 90 },
+            { "model": "block/sand_1", "y": 180 },
+            { "model": "block/sand_1", "y": 270 },
+			{ "model": "block/sand_2" },
+            { "model": "block/sand_2", "y": 90 },
+            { "model": "block/sand_2", "y": 180 },
+            { "model": "block/sand_2", "y": 270 }
+        ]
+    }
+}

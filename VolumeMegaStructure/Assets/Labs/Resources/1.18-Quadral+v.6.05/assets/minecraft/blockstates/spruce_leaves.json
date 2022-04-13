@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "": [
+		    { "model": "block/spruce_leaves"   },
+			{ "model": "block/spruce_leaves_1" },
+			{ "model": "block/spruce_leaves_2" },
+			{ "model": "block/spruce_leaves_3" }			
+		]
+    }
+}

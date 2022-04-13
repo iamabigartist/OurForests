@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "": [
+            { "model": "block/magma" },
+            { "model": "block/magma", "y": 90 },
+            { "model": "block/magma", "y": 180 },
+            { "model": "block/magma", "y": 270 }
+        ]
+    }
+}

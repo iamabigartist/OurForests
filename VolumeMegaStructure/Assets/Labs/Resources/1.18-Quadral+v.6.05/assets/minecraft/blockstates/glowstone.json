@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "": [
+            { "model": "block/glowstone" },
+            { "model": "block/glowstone", "y": 90, "x": 90},
+			{ "model": "block/glowstone", "x": 90, "y": 90},
+			{ "model": "block/glowstone", "y": 180, "x": 90}
+        ]
+    }
+}

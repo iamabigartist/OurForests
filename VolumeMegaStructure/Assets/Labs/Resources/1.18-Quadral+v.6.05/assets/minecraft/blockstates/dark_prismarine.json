@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "": [
+	        { "model": "block/dark_prismarine"   },
+		    { "model": "block/dark_prismarine_1" },
+		    { "model": "block/dark_prismarine_2" },
+		    { "model": "block/dark_prismarine_3" }
+		]
+    }
+}

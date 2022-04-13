@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/template_1_wall_side_tall",
+  "textures": {
+  	"top":       "minecraft:block/polished_blackstone_wall_top",
+    "side":      "minecraft:block/polished_blackstone_wall_side",
+    "side_tall": "minecraft:block/polished_blackstone_wall_side_tall",
+    "post":      "minecraft:block/polished_blackstone_wall_post"
+  }
+}

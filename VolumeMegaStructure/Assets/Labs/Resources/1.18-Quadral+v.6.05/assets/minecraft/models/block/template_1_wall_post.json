@@ -1,0 +1,20 @@
+{   
+    "textures": {
+        "particle": "#side_tall"
+    },
+    "elements": [
+        {
+            "name": "Center post",
+            "from": [ 4, 0, 4 ], 
+            "to": [ 12, 16, 12 ], 
+            "faces": {
+                "north": { "texture": "#post", "uv": [ 8, 0, 16, 16 ] },
+                "east":  { "texture": "#post", "uv": [ 8, 0, 16, 16 ] },
+                "south": { "texture": "#post", "uv": [ 8, 0, 16, 16 ] },
+                "west":  { "texture": "#post", "uv": [ 8, 0, 16, 16 ] },
+                "up":    { "texture": "#post",  "uv": [ 0, 0, 8, 8 ], "cullface": "up" },
+                "down":  { "texture": "#post",  "uv": [ 0, 0, 8, 8 ], "cullface": "down" }
+            }
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "parent": "block/inner_stairs_faces",
+    "textures": {
+        "bottom": "block/polished_granite",
+        "top": "block/polished_granite_inner_stairs_top",
+		"north": "block/polished_granite_stairs_side1",
+		"south": "block/polished_granite",
+		"west": "block/polished_granite_stairs_side2",
+        "east": "block/polished_granite"
+    }
+}

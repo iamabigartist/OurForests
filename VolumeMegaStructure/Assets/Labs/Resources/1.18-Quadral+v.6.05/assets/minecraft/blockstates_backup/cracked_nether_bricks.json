@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "": [
+	  { "model": "block/cracked_nether_bricks" },
+      { "model": "block/cracked_nether_bricks", "y": 90 },
+      { "model": "block/cracked_nether_bricks", "y": 180 },
+      { "model": "block/cracked_nether_bricks", "y": 270 }
+	  ]    
+  }
+}

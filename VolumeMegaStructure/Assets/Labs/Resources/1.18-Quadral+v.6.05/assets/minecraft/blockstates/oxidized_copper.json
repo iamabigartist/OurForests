@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "": [
+		    { "model": "block/oxidized_copper" },
+			{ "model": "block/oxidized_copper_1" },
+			{ "model": "block/oxidized_copper_2" },
+			{ "model": "block/oxidized_copper_3" }
+		]
+    }
+}

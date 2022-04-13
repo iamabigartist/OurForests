@@ -1,0 +1,67 @@
+{
+    "parent": "block/block",
+    "textures": {
+        "particle": "minecraft:block/anvil",
+        "bottom":   "minecraft:block/anvil_bottom",
+        "front":    "minecraft:block/anvil_front",
+        "body":     "minecraft:block/anvil_side"
+    },
+    "display": {
+        "fixed": {
+            "rotation": [ 0, 90, 0 ],
+            "translation": [ 0, 0, 0 ],
+            "scale": [ 0.5, 0.5, 0.5 ]
+        }
+    },
+    "elements": [
+        {
+            "name": "Anvil base",
+            "from": [ 4, 0, 1 ], 
+            "to": [ 12, 4, 15 ], 
+            "faces": {
+                "north": { "texture": "#front",  "uv": [ 4, 12, 12, 16 ] },
+                "east":  { "texture": "#body",   "uv": [ 15, 12, 1, 16 ] },
+                "south": { "texture": "#front",  "uv": [ 4, 12, 12, 16 ] },
+                "west":  { "texture": "#body",   "uv": [ 15, 12, 1, 16 ] },
+                "up":    { "texture": "#bottom", "uv": [ 1, 4, 15, 12  ], "rotation": 90 },
+                "down":  { "texture": "#bottom", "uv": [ 1, 4, 15, 12  ], "rotation": 90, "cullface": "down" }
+            }
+        },
+        {
+            "name": "Lower narrow portion",
+            "from": [ 5, 4, 3 ], 
+            "to": [ 11, 5, 13 ], 
+            "faces": {
+                "north": { "texture": "#front",  "uv": [ 5, 11, 11, 12 ] },
+                "east":  { "texture": "#body",   "uv": [ 13, 11, 3, 12 ] },
+                "south": { "texture": "#front",  "uv": [ 5, 11, 11, 12 ] },
+                "west":  { "texture": "#body",   "uv": [ 13, 11, 3, 12 ] },
+                "up":    { "texture": "#bottom", "uv": [ 3, 5, 13, 11  ], "rotation": 90 }
+            }
+        },
+        {
+            "name": "Wider section beneath top portion",
+            "from": [ 6, 5, 4 ], 
+            "to": [ 10, 10, 12 ], 
+            "faces": {
+                "north": { "texture": "#front", "uv": [ 6, 6, 10, 11 ] },
+                "east":  { "texture": "#body",  "uv": [ 12, 6, 4, 11 ] },
+                "south": { "texture": "#front", "uv": [ 6, 6, 10, 11 ] },
+                "west":  { "texture": "#body",  "uv": [ 4, 6, 12, 11 ] }
+            }
+        },
+        {
+            "name": "Anvil top",
+            "from": [ 3, 10, 0 ], 
+            "to": [ 13, 16, 16 ], 
+            "faces": {
+                "north": { "texture": "#front",  "uv": [ 3, 0, 13, 6 ] },
+                "east":  { "texture": "#body",   "uv": [ 0, 0, 16, 6 ] },
+                "south": { "texture": "#front",  "uv": [ 3, 0, 13, 6 ] },
+                "west":  { "texture": "#body",   "uv": [ 0, 0, 16, 6 ] },
+				"up":    { "texture": "#top",    "uv": [  3, 0, 13, 16 ], "rotation": 180 },
+                "down":  { "texture": "#bottom", "uv": [ 0, 3, 16, 13  ], "rotation": 90 }
+            }
+        }
+    ]
+}

@@ -98,6 +98,9 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
         static GenVoxelSourceTables()
         {
             voxel_right_quad_2_6_quad();
+            init_source_voxel();
+            source_voxel_2_normal_tangent();
+            voxel_6_quad_2_i_rotation_i_face_i_vertex_quads();
         }
 
         public static void SetBuffer(
