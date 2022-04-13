@@ -5,9 +5,14 @@ using UnityEngine;
 using VolumeMegaStructure.Util;
 using static Unity.Mathematics.math;
 using static VolumeMegaStructure.Util.VoxelProcessUtility;
+using float3 = Unity.Mathematics.float3;
 using quaternion = Unity.Mathematics.quaternion;
 namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 {
+    /// <summary>
+    /// <para>The vertices used to gen quads in compute shader.</para>
+    /// <para>The normals, tangents and uvs used to render</para>
+    /// </summary>
     public static class GenVoxelSourceTables
     {
 
@@ -15,7 +20,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 
     #region Static
 
-        static readonly float3[] voxel_right_quad =
+        public static readonly float3[] voxel_right_quad =
         {
             (1, -1, -1).f3(),
             (1, 1, -1).f3(),
@@ -89,6 +94,15 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
             }
         }
 
+        static void transform_all_quads()
+        {
+            for (int i = 0; i < i_rotation_i_face_i_vertex_quads.Length; i++)
+            {
+                var quad = i_rotation_i_face_i_vertex_quads[i];
+                i_rotation_i_face_i_vertex_quads[i] = (quad + (1, 1, 1).f3()) / 2f;
+            }
+        }
+
     #endregion
 
     #endregion
@@ -101,6 +115,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
             init_source_voxel();
             source_voxel_2_normal_tangent();
             voxel_6_quad_2_i_rotation_i_face_i_vertex_quads();
+            transform_all_quads();
         }
 
         public static void SetBuffer(
