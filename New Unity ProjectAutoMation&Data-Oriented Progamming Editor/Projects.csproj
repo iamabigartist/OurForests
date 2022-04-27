@@ -53,6 +53,7 @@
      <Compile Include="Assets\Projects\UI\ShowAndExecuteFunctionLab\EasyPropertyDrawer.cs" />
      <Compile Include="Assets\Projects\MyUtils\ContextUtil.cs" />
      <Compile Include="Assets\Projects\Automation\AsyncLab\Editor\TestWaitNull.cs" />
+     <Compile Include="Assets\Projects\Serialization\Editor\TestYamlDotNet.cs" />
      <Compile Include="Assets\Projects\Automation\RunCodeLab\TryRoslynServices.cs" />
      <Compile Include="Assets\Projects\Serialization\BuildingBlocks.cs" />
      <Compile Include="Assets\Projects\UI\ShowAndExecuteFunctionLab\Editor\DynamicShower1.cs" />
@@ -60,8 +61,9 @@
      <Compile Include="Assets\Projects\UI\ShowAndExecuteFunctionLab\SerializedMethodArguments.cs" />
      <Compile Include="Assets\Projects\MyUtils\AsyncUtil.cs" />
      <Compile Include="Assets\Projects\MyUtils\ReflectionUtil.cs" />
-     <Compile Include="Assets\Projects\Serialization\Editor\TestYamlDotNet.cs" />
+     <Compile Include="Assets\Projects\UI\UssLab\Editor\TestIntegerField.cs" />
      <None Include="Assets\Projects\Projects.asmdef" />
+     <None Include="Assets\Projects\UI\UssLab\Resources\MyIntegerField.uss" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\2022.1.0b11\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>
