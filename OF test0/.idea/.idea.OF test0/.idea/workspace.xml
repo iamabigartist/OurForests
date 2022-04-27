@@ -5,11 +5,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8aa6f73-f44f-4013-b18c-6364ab72914d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/ProceduralMesh/Voxel/VoxelSurfaceUVNew.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/ProceduralMesh/Voxel/VoxelSurfaceUVNew.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/.idea/.idea.VolumeMegaStructure/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/MeshInfoLibrary/VoxelIndexDecomposer.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/MeshInfoLibrary/VoxelIndexDecomposer.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/MeshInfoLibrary/VoxelPositionDecomposer.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/MeshInfoLibrary/VoxelPositionDecomposer.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/VoxelMeshLit_Decompose.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/VoxelMeshLit_Decompose.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/VoxelMeshLit_V4.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/VoxelMeshLit_V4.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Util/TextureUtil.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Util/TextureUtil.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/New Scene.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/New Scene.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/Resources.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/Resources/Lab9Textures.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/Resources/Lab9Textures/acacia_log.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/Resources/Lab9Textures/acacia_log.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/Resources/Lab9Textures/azalea_leaves_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/Resources/Lab9Textures/azalea_leaves_1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/Resources/Lab9Textures/barrel_bottom.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/Resources/Lab9Textures/barrel_bottom.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/Resources/Lab9Textures/birch_planks.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/Resources/Lab9Textures/birch_planks.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/Resources/Lab9Textures/dirt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/Resources/Lab9Textures/dirt.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/TestVRenderer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/TestVRenderer.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Generate/SourceGenerator/VoxelSurfaceUVNew.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Generate/SourceGenerator/VoxelSurfaceUVNew.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/MeshInfoLibrary/VoxelMeshIndexSplitter.shadersubgraph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/MeshInfoLibrary/VoxelMeshIndexSplitter.shadersubgraph.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/MeshInfoLibrary/VoxelMeshInfo.hlsl" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/MeshInfoLibrary/VoxelMeshInfo.hlsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/VoxelMeshLit.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/VoxelMeshLit.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/VoxelMeshLit.shadergraph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/VoxelMeshLit.shadergraph.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Util/VoxelProcessUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Util/VoxelProcessUtility.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,21 +63,25 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/360703369b774fa0acb8bf316617f6746600/e2/63781738/0200000Dpdb.il" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b2c530e619ab42aeba489c5671c8267115d000/dc/e50456c3/TextureFormat.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bc1d04d811fc4873ab7d8d9d4daddcc9568788/f7/3a50758c/Array.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/VolumeMatrix.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/AssetTest/MyAssetImporter.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/MarchingCubeMesh.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Text.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Projects/MUtility/VoxelGenerationUtility.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/CPUVoxelTest/Scripts/Tests/ManyCubeRendering.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/RaycastMesh.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.chua.prototype-utils@7d0fca7634/Runtime/MemoryUtility.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Projects/MUtility/VoxelGenerationUtility.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Config/BlockConfig.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Config/BlockConfigInspector.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Generate/SourceGenerator/VoxelSurfaceUVOld.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/ChunkMesh.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/MarchingCubeMesh.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/RaycastMesh.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/VolumeMatrix.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Generate/SourceGenerator/VoxelSurfaceUVOld.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.chua.prototype-utils@7d0fca7634/Runtime/MemoryUtility.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.chua.prototype-utils@7d0fca7634/Runtime/TextureUtility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.chua.prototype-utils@7d0fca7634/Runtime/VectorUtil.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/360703369b774fa0acb8bf316617f6746600/e2/63781738/0200000Dpdb.il" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.burst@1.6.0/Runtime/bee~/Burst.bee.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/DefaultControls.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Text.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -61,29 +100,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.5294118" />
-    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
-    <property name="Discover.Launch.Via.Unity" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="XThreadsFramesViewSplitterKey" value="0.5258398" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="rider.run.widget.enabled.cache" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
-    <property name="settings.editor.splitter.proportion" value="0.2272309" />
-    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/Assets/Projects/MUtility/EnumerateUtility.cs" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Discover.Launch.Via.Unity": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "rider.run.widget.enabled.cache": "false",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\2022.1.0b11\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;C:\Users\HonorPro162021.11.11\Documents\GitHub\OurForests\OF test0&quot; -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\HonorPro162021.11.11\Documents\GitHub\OurForests\OF test0" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
@@ -228,6 +265,7 @@
       <workItem from="1649685262680" duration="3717000" />
       <workItem from="1649695305423" duration="404000" />
       <workItem from="1649737125419" duration="2421000" />
+      <workItem from="1651070296124" duration="2300000" />
     </task>
     <task id="LOCAL-00001" summary="Add some test method">
       <created>1639398343342</created>
