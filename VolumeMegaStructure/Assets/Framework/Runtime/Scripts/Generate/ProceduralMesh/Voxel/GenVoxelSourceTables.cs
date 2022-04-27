@@ -59,8 +59,8 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 
     #region Results
 
-        public static float3[] quad_normals;
-        public static float4[] quad_tangents;
+        static float3[] quad_normals;
+        static float4[] quad_tangents;
 
         static void source_voxel_2_normal_tangent()
         {
@@ -68,10 +68,10 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
             quad_tangents = source_voxel.tangents.@select( v => (float4)v );
         }
 
-        public static float3[] i_rotation_i_face_i_vertex_quads;
+        static float3[] fixed_uv_vertex_table;
         static void voxel_6_quad_2_i_rotation_i_face_i_vertex_quads()
         {
-            i_rotation_i_face_i_vertex_quads = new float3[6 * 6 * 6 * 4];
+            fixed_uv_vertex_table = new float3[6 * 6 * 6 * 4];
 
             for (int i_up = 0; i_up < 6; i_up++)
             {
@@ -89,7 +89,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
                         for (int i_vertex = 0; i_vertex < 4; i_vertex++)
                         {
                             int i_rotation_i_face_i_vertex = i_rotation_i_face * 4 + i_vertex;
-                            i_rotation_i_face_i_vertex_quads[i_rotation_i_face_i_vertex] = rotated_quad[i_vertex];
+                            fixed_uv_vertex_table[i_rotation_i_face_i_vertex] = rotated_quad[i_vertex];
                         }
                     }
                 }
@@ -98,14 +98,14 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 
         static void transform_all_quads()
         {
-            for (int i = 0; i < i_rotation_i_face_i_vertex_quads.Length; i++)
+            for (int i = 0; i < fixed_uv_vertex_table.Length; i++)
             {
-                var quad = i_rotation_i_face_i_vertex_quads[i];
-                i_rotation_i_face_i_vertex_quads[i] = (quad + (1, 1, 1).f3()) / 2f;
+                var quad = fixed_uv_vertex_table[i];
+                fixed_uv_vertex_table[i] = (quad + (1, 1, 1).f3()) / 2f;
             }
 
-            i_rotation_i_face_i_vertex_quads = i_rotation_i_face_i_vertex_quads.round();
-            Debug.Log(i_rotation_i_face_i_vertex_quads.ToMString(","));
+            fixed_uv_vertex_table = fixed_uv_vertex_table.round();
+            Debug.Log(fixed_uv_vertex_table.ToMString(","));
         }
 
     #endregion
@@ -123,14 +123,18 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
             transform_all_quads();
         }
 
+        public static float3[] QuadNormals => quad_normals;
+        public static float4[] QuadTangents => quad_tangents;
+        public static float3[] FixedUVVertexTable => fixed_uv_vertex_table;
+
         public static void SetBuffer(
-            out ComputeBuffer quad_buffer,
+            out ComputeBuffer voxel_vertex_buffer,
             out ComputeBuffer uv_buffer,
             out ComputeBuffer normal_buffer,
             out ComputeBuffer tangent_buffer)
         {
-            quad_buffer = new(i_rotation_i_face_i_vertex_quads.Length, sizeof(float) * 3, ComputeBufferType.Structured, ComputeBufferMode.Immutable);
-            quad_buffer.SetData( i_rotation_i_face_i_vertex_quads );
+            voxel_vertex_buffer = new(fixed_uv_vertex_table.Length, sizeof(float) * 3, ComputeBufferType.Structured, ComputeBufferMode.Immutable);
+            voxel_vertex_buffer.SetData( fixed_uv_vertex_table );
 
             uv_buffer = new(4, sizeof(float) * 2, ComputeBufferType.Structured, ComputeBufferMode.Immutable);
             uv_buffer.SetData( uv_4p_gen );
