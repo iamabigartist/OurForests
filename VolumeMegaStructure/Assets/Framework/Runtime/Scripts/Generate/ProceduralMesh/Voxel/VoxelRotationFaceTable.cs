@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static VolumeMegaStructure.Util.VoxelProcessUtility;
 namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 {
 
@@ -11,46 +12,6 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
     #region Util
 
     #region Table
-
-        /// <summary>
-        ///     The normal of a source_cube in the index order.
-        /// </summary>
-        public static int[][] index_2_normal =
-        {
-            new[] { 0, 0 },
-            new[] { 0, 1 },
-            new[] { 1, 0 },
-            new[] { 1, 1 },
-            new[] { 2, 0 },
-            new[] { 2, 1 }
-        };
-
-        /// <summary>
-        ///     The index that a normal direction maps to.
-        /// </summary>
-        public static int[][] normal_2_index =
-        {
-            new[] { 0, 1 },
-            new[] { 2, 3 },
-            new[] { 4, 5 }
-        };
-
-        /// <summary>
-        ///     Indicate the surface order of our cube
-        ///     <remarks>
-        ///         <para>1. The face indices can represent the real direction of a face.</para>
-        ///         <para>2. It can also represents a unique id of a face itself. </para>
-        ///     </remarks>
-        /// </summary>
-        public static Vector3[] index_2_normal_vector3d =
-        {
-            Vector3.right,
-            Vector3.left,
-            Vector3.up,
-            Vector3.down,
-            Vector3.forward,
-            Vector3.back
-        };
 
         /// <summary>
         ///     <para>
@@ -114,34 +75,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 
     #endregion
 
-        public struct SurfaceNormalDirection
-        {
-
-            /// <summary>
-            ///     x->0,y->1,z->2
-            /// </summary>
-            public int axis;
-
-            /// <summary>
-            ///     + -> 0, - -> 1.
-            /// </summary>
-            public int positive;
-
-            public SurfaceNormalDirection(int axis, int positive)
-            {
-                this.axis = axis;
-                this.positive = positive;
-            }
-        }
-
     #region Process
-
-        public static Quaternion LookRotation(int up_index, int forward_index)
-        {
-            return Quaternion.LookRotation(
-                index_2_normal_vector3d[forward_index],
-                index_2_normal_vector3d[up_index] );
-        }
 
         public static SurfaceNormalDirection IndexToNormal(int index)
         {
@@ -370,7 +304,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 
     #region Interface
 
-        public VoxelRotationFaceTable(string source_cube_path)
+        public VoxelRotationFaceTable()
         {
             Generate24CubesTable();
         }

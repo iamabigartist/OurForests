@@ -1,7 +1,8 @@
 using PrototypeUtils;
 using Unity.Mathematics;
 using UnityEngine;
-using VolumeMegaStructure.Generate.ProceduralMesh.Voxel;
+using static VolumeMegaStructure.Generate.ProceduralMesh.Voxel.GenVoxelSourceTables;
+using static VolumeMegaStructure.Util.VoxelProcessUtility;
 namespace Labs.Lab8_TestVerticesRotation
 {
     public class TestVRotation : MonoBehaviour
@@ -17,11 +18,19 @@ namespace Labs.Lab8_TestVerticesRotation
         /// <summary>
         ///     Construct a quad with 4 vertices, each with a uv in the const list.
         /// </summary>
-        static Mesh InitQuad()
+        static Mesh InitQuad(int i_up, int i_forward, int i_face)
         {
+            if (!ValidLookRotation( i_up, i_forward ))
+            {
+                Debug.LogError( "Invalid rotation" );
+
+                return null;
+            }
+
+            i_rotation_i_face_i_vertex_Compose( i_up, i_forward, i_face, 0, out var i0 );
             var mesh = new Mesh
             {
-                vertices = GenVoxelSourceTables.i_rotation_i_face_i_vertex_quads[].ToVectorArray(),
+                vertices = i_rotation_i_face_i_vertex_quads[i0..(i0 + 4)].ToVectorArray(),
                 uv = uv_list.ToVectorArray(),
                 triangles = new[] { 0, 1, 2, 2, 3, 0 }
             };
@@ -34,13 +43,27 @@ namespace Labs.Lab8_TestVerticesRotation
         Transform transform_mesh;
         Transform table_mesh;
         MeshFilter table_mesh_filter;
+        MeshFilter transform_mesh_filter;
+
+        public int i_up = 2;
+        public int i_forward = 4;
+        public int i_face = 0;
 
         void Start()
         {
             transform_mesh = transform.Find( "TransformQuad" );
-            transform_mesh.GetComponent<MeshFilter>().mesh = InitQuad();
+            transform_mesh_filter = transform_mesh.Find( "Quad" ).GetComponent<MeshFilter>();
+            table_mesh = transform.Find( "TableQuad" );
+            table_mesh_filter = table_mesh.GetComponent<MeshFilter>();
+            table_mesh_filter.mesh = InitQuad( 2, 4, 0 );
         }
 
-        void Update() { }
+        [ContextMenu( "Regenerate" )]
+        void Regenerate()
+        {
+            table_mesh_filter.mesh = InitQuad( i_up, i_forward, i_face );
+            transform_mesh_filter.mesh = InitQuad( 2, 4, i_face );
+            transform_mesh.rotation = IndexLookRotation( i_up, i_forward );
+        }
     }
 }

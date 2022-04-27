@@ -2,7 +2,7 @@
 id: jw9yf35b87zifrzj2wz4y9t
 title: data definition
 desc: ''
-updated: 1649692469470
+updated: 1649834426547
 created: 1649682065893
 ---
 
@@ -80,7 +80,7 @@ Textures:
 
 ## Interface
 
-### Matrix Check Output - Compute Shader MeshGen Input
+### Matrix Scan Output - Compute Shader MeshGen Input
 
 ```yaml
 Quad:
@@ -88,10 +88,10 @@ Quad:
  #（取决于compute shader 如何生成）
  #为了省bus依旧是压缩的。
  Position: float
- Face_uv_indices_Texture_identity: float
+ Face_index_Texture_identity: float
 ```
 
-#### Face_uv_indices_Texture_identity
+#### Face_index_Texture_identity
 
 通过Check是否生成得到的quad中
 

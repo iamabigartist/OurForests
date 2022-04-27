@@ -1,5 +1,6 @@
 using Unity.Collections;
 using Unity.Jobs;
+using UnityEngine;
 using VolumeMegaStructure.DataDefinition.DataUnit;
 using VolumeMegaStructure.Util;
 using VolumeMegaStructure.Util.JobSystem;
@@ -42,17 +43,23 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
             var y_forward_transparency = id_to_transparency_table[y_forward_block_id];
             var z_forward_transparency = id_to_transparency_table[z_forward_block_id];
 
-            if (x_forward_transparency != cur_transparency)
-            {
-                
-            }
+            if (x_forward_transparency != cur_transparency) { }
 
             if (y_forward_transparency != cur_transparency) { }
 
             if (z_forward_transparency != cur_transparency) { }
-
-
         }
 
+    }
+
+    public class Executor
+    {
+        public Executor()
+        {
+            var buffer = new ComputeBuffer( 100, 4 );
+            VolumeMatrixScan volume_matrix_scan = new VolumeMatrixScan();
+            volume_matrix_scan.mark_matrix = buffer.BeginWrite<int>( 0, 100 );
+            buffer.EndWrite<int>( 1000 );
+        }
     }
 }

@@ -5,13 +5,12 @@ using UnityEngine;
 using VolumeMegaStructure.Util;
 using static Unity.Mathematics.math;
 using static VolumeMegaStructure.Util.VoxelProcessUtility;
-using float3 = Unity.Mathematics.float3;
 using quaternion = Unity.Mathematics.quaternion;
 namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 {
     /// <summary>
-    /// <para>The vertices used to gen quads in compute shader.</para>
-    /// <para>The normals, tangents and uvs used to render</para>
+    ///     <para>The vertices used to gen quads in compute shader.</para>
+    ///     <para>The normals, tangents and uvs used to render</para>
     /// </summary>
     public static class GenVoxelSourceTables
     {
@@ -38,11 +37,11 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
         {
             voxel_6_quad = new float3[6][];
             voxel_6_quad[0] = voxel_right_quad;
-            voxel_6_quad[1] = voxel_right_quad.rotate( quaternion.RotateY( radians( 180 ) ) ).round();
-            voxel_6_quad[4] = voxel_right_quad.rotate( quaternion.RotateY( radians( -90 ) ) ).round();
-            voxel_6_quad[5] = voxel_right_quad.rotate( quaternion.RotateY( radians( 90 ) ) ).round();
-            voxel_6_quad[2] = voxel_6_quad[4].rotate( quaternion.RotateX( radians( -90 ) ) ).round();
-            voxel_6_quad[3] = voxel_6_quad[4].rotate( quaternion.RotateX( radians( 90 ) ) ).round();
+            voxel_6_quad[1] = voxel_right_quad.rotate( quaternion.RotateY( radians( 180 ) ) );
+            voxel_6_quad[4] = voxel_right_quad.rotate( quaternion.RotateY( radians( -90 ) ) );
+            voxel_6_quad[5] = voxel_right_quad.rotate( quaternion.RotateY( radians( 90 ) ) );
+            voxel_6_quad[2] = voxel_6_quad[4].rotate( quaternion.RotateX( radians( -90 ) ) );
+            voxel_6_quad[3] = voxel_6_quad[4].rotate( quaternion.RotateX( radians( 90 ) ) );
         }
 
         static Mesh source_voxel;
@@ -72,6 +71,8 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
         public static float3[] i_rotation_i_face_i_vertex_quads;
         static void voxel_6_quad_2_i_rotation_i_face_i_vertex_quads()
         {
+            i_rotation_i_face_i_vertex_quads = new float3[6 * 6 * 6 * 4];
+
             for (int i_up = 0; i_up < 6; i_up++)
             {
                 for (int i_forward = 0; i_forward < 6; i_forward++)
@@ -81,7 +82,8 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
                     for (int i_face = 0; i_face < 6; i_face++)
                     {
                         var source_quad = voxel_6_quad[i_face];
-                        var rotated_quad = source_quad.@select( v => rotate( LookRotation( i_up, i_forward ), v ) );
+                        var rotated_quad = source_quad.@select( v => rotate( IndexLookRotation( i_up, i_forward ), v ) );
+                        Debug.Log( rotated_quad.ToMString( "," ) );
                         int i_rotation_i_face = i_rotation * 6 + i_face;
 
                         for (int i_vertex = 0; i_vertex < 4; i_vertex++)
@@ -101,6 +103,9 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
                 var quad = i_rotation_i_face_i_vertex_quads[i];
                 i_rotation_i_face_i_vertex_quads[i] = (quad + (1, 1, 1).f3()) / 2f;
             }
+
+            i_rotation_i_face_i_vertex_quads = i_rotation_i_face_i_vertex_quads.round();
+            Debug.Log(i_rotation_i_face_i_vertex_quads.ToMString(","));
         }
 
     #endregion

@@ -66,10 +66,31 @@ namespace VolumeMegaStructure.Util
 
     #region Rotation
 
+        public struct SurfaceNormalDirection
+        {
+
+            /// <summary>
+            ///     x->0,y->1,z->2
+            /// </summary>
+            public int axis;
+
+            /// <summary>
+            ///     + -> 0, - -> 1.
+            /// </summary>
+            public int positive;
+
+            public SurfaceNormalDirection(int axis, int positive)
+            {
+                this.axis = axis;
+                this.positive = positive;
+            }
+        }
+
+
         /// <summary>
         ///     The normal of a source_cube in the index order.
         /// </summary>
-        public static int[][] index2normal =
+        public static int[][] index_2_normal =
         {
             new[] { 0, 0 },
             new[] { 0, 1 },
@@ -82,7 +103,7 @@ namespace VolumeMegaStructure.Util
         /// <summary>
         ///     The index that a normal direction maps to.
         /// </summary>
-        public static int[][] normal2index =
+        public static int[][] normal_2_index =
         {
             new[] { 0, 1 },
             new[] { 2, 3 },
@@ -96,7 +117,7 @@ namespace VolumeMegaStructure.Util
         ///         <para>2. It can also represents a unique id of a face itself. </para>
         ///     </remarks>
         /// </summary>
-        public static float3[] index2normal_vector3d =
+        public static float3[] index_2_normal_vector3d =
         {
             Vector3.right,
             Vector3.left,
@@ -106,16 +127,16 @@ namespace VolumeMegaStructure.Util
             Vector3.back
         };
 
-        public static quaternion LookRotation(int up_index, int forward_index)
+        public static quaternion IndexLookRotation(int up_index, int forward_index)
         {
             return quaternion.LookRotation(
-                index2normal_vector3d[forward_index],
-                index2normal_vector3d[up_index] );
+                index_2_normal_vector3d[forward_index],
+                index_2_normal_vector3d[up_index] );
         }
 
         public static bool ValidLookRotation(int up_index, int forward_index)
         {
-            return math.dot( index2normal_vector3d[up_index], index2normal_vector3d[forward_index] ) == 0;
+            return math.dot( index_2_normal_vector3d[up_index], index_2_normal_vector3d[forward_index] ) == 0;
         }
 
         public static float3[] rotate(this float3[] array, quaternion q)
