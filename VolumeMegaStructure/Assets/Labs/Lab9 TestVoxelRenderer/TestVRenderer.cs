@@ -81,9 +81,7 @@ namespace Labs.Lab9_TestVoxelRenderer
 		//3. 写两个job 吧。
 		void GetV4Buffer(in float3[] vertices, in int[] face_uv_texture_indices)
 		{
-			var a = new GraphicsBuffer(GraphicsBuffer.Target.Vertex, 100, 4);
-			var a = new Mesh();
-			a.SetVertexBufferParams();
+			
 		}
 		
 		void GetComposeBuffer()
