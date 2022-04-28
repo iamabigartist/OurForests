@@ -200,6 +200,8 @@ namespace Labs.Lab9_TestVoxelRenderer
 			Mesh v4_mesh = new();
 			Mesh composed_mesh = new();
 			ApplyAndDisposeWritableMeshData(mesh_data_2, new[] { v4_mesh, composed_mesh }, FAST_SET_FLAG);
+			v4_mesh.bounds = new(Vector3.zero, Vector3.one * 100);
+			composed_mesh.bounds = new(Vector3.zero, Vector3.one * 100);
 			return (v4_mesh, composed_mesh);
 		}
 
@@ -212,7 +214,7 @@ namespace Labs.Lab9_TestVoxelRenderer
 		[ContextMenu("Regenerate")]
 		void Regenerate()
 		{
-			 (Mesh v4_mesh, Mesh composed_mesh) = Gen2Mesh();
+			(Mesh v4_mesh, Mesh composed_mesh) = Gen2Mesh();
 			v4_voxel_mesh_game_object.GetComponent<MeshFilter>().sharedMesh = v4_mesh;
 			composed_voxel_mesh_game_object.GetComponent<MeshFilter>().sharedMesh = composed_mesh;
 		}
