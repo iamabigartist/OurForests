@@ -2,38 +2,45 @@ using UnityEngine;
 using VolumeMegaStructure.Generate.ProceduralMesh.Voxel;
 namespace VolumeMegaStructure.Manage
 {
-    /// <summary>
-    ///     The programmer custom main function of the game
-    /// </summary>
-    public static class MainManager
-    {
+	/// <summary>
+	///     The programmer custom main function of the game
+	/// </summary>
+	public static class MainManager
+	{
 
-    #region Configs
+	#region Configs
 
-        public const string SOURCE_CUBE_PATH = "UVCubeShow-m_mesh";
+		public const string SOURCE_CUBE_PATH = "UVCubeShow-m_mesh";
 
-    #endregion
+	#endregion
 
-    #region States
+	#region States
 
-    #endregion
+	#endregion
 
-    #region GlobalTools
+	#region GlobalTools
 
-        public static VoxelRotationFaceTable VoxelRotationFaceTable { get; private set; }
+		public static VoxelRotationFaceTable voxel_rotation_face_table { get; private set; }
+		public static VoxelGenSourceTables voxel_gen_source_tables { get; private set; }
 
-    #endregion
+	#endregion
 
-    #region GameMainProcess
+	#region GameMainProcess
 
-        [RuntimeInitializeOnLoadMethod( RuntimeInitializeLoadType.SubsystemRegistration )]
-        static void GameMainInit()
-        {
-            VoxelRotationFaceTable = new();
-        }
+		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+		static void GameMainInit()
+		{
+			voxel_rotation_face_table = new();
+			voxel_gen_source_tables = new();
+		}
 
-    #endregion
+		public static void TerminateManager()
+		{
+			voxel_gen_source_tables.Dispose();
+		}
+
+	#endregion
 
 
-    }
+	}
 }

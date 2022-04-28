@@ -1,21 +1,22 @@
 using PrototypeUtils;
 using Unity.Mathematics;
 using UnityEngine;
-using static VolumeMegaStructure.Generate.ProceduralMesh.Voxel.GenVoxelSourceTables;
+using VolumeMegaStructure.Generate.ProceduralMesh.Voxel;
+using static VolumeMegaStructure.Manage.MainManager;
 using static VolumeMegaStructure.Util.VoxelProcessUtility;
 namespace Labs.Lab8_TestVerticesRotation
 {
-    /// <summary>
-    ///     <para>
-    ///         1. Show how to use <see cref="VolumeMegaStructure.Generate.ProceduralMesh.Voxel.GenVoxelSourceTables" /> and
-    ///         relative part in <see cref="VolumeMegaStructure.Util.VoxelProcessUtility" />
-    ///     </para>
-    ///     <para>
-    ///         2. Test the rotation correctness of
-    ///         <see cref="VolumeMegaStructure.Generate.ProceduralMesh.Voxel.GenVoxelSourceTables" />
-    ///     </para>
-    /// </summary>
-    public class TestVRotation : MonoBehaviour
+	/// <summary>
+	///     <para>
+	///         1. Show how to use <see cref="VoxelGenSourceTables" /> and
+	///         relative part in <see cref="VolumeMegaStructure.Util.VoxelProcessUtility" />
+	///     </para>
+	///     <para>
+	///         2. Test the rotation correctness of
+	///         <see cref="VoxelGenSourceTables" />
+	///     </para>
+	/// </summary>
+	public class TestVRotation : MonoBehaviour
 	{
 		static readonly int2[] uv_list =
 		{
@@ -25,10 +26,10 @@ namespace Labs.Lab8_TestVerticesRotation
 			(0, 1).i2()
 		};
 
-        /// <summary>
-        ///     Construct a quad with 4 vertices, each with a uv in the const list.
-        /// </summary>
-        static Mesh InitQuad(int i_up, int i_forward, int i_face)
+		/// <summary>
+		///     Construct a quad with 4 vertices, each with a uv in the const list.
+		/// </summary>
+		static Mesh InitQuad(int i_up, int i_forward, int i_face)
 		{
 			if (!ValidLookRotation(i_up, i_forward))
 			{
@@ -40,7 +41,7 @@ namespace Labs.Lab8_TestVerticesRotation
 			i_rotation_i_face_i_vertex_Compose(i_up, i_forward, i_face, 0, out var i0);
 			var mesh = new Mesh
 			{
-				vertices = FixedUVVertexTable[i0..(i0 + 4)].ToVectorArray(),
+				vertices = voxel_gen_source_tables.FixedUVVertexTable[i0..(i0 + 4)].ToVectorArray(),
 				uv = uv_list.ToVectorArray(),
 				triangles = new[] { 0, 1, 2, 2, 3, 0 }
 			};

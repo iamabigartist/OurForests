@@ -102,7 +102,7 @@ namespace VolumeMegaStructure.Util
 		/// <summary>
 		///     The normal of a source_cube in the index order.
 		/// </summary>
-		public static int[][] index_2_normal =
+		public readonly static int[][] index_2_normal =
 		{
 			new[] { 0, 0 },
 			new[] { 0, 1 },
@@ -115,7 +115,7 @@ namespace VolumeMegaStructure.Util
 		/// <summary>
 		///     The index that a normal direction maps to.
 		/// </summary>
-		public static int[][] normal_2_index =
+		public readonly static int[][] normal_2_index =
 		{
 			new[] { 0, 1 },
 			new[] { 2, 3 },
@@ -129,7 +129,7 @@ namespace VolumeMegaStructure.Util
 		///         <para>2. It can also represents a unique id of a face itself. </para>
 		///     </remarks>
 		/// </summary>
-		public static float3[] index_2_normal_vector3d =
+		public readonly static float3[] index_2_normal_vector3d =
 		{
 			Vector3.right,
 			Vector3.left,

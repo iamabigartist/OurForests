@@ -4,48 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8aa6f73-f44f-4013-b18c-6364ab72914d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/.idea/.idea.VolumeMegaStructure/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/MeshInfoLibrary/VoxelIndexDecomposer.shadersubgraph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/MeshInfoLibrary/VoxelIndexDecomposer.shadersubgraph.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/MeshInfoLibrary/VoxelPositionDecomposer.shadersubgraph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/MeshInfoLibrary/VoxelPositionDecomposer.shadersubgraph.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/VoxelMeshLit_Decompose.shadergraph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/VoxelMeshLit_Decompose.shadergraph.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/VoxelMeshLit_V4.shadergraph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/VoxelMeshLit_V4.shadergraph.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Util/TextureUtil.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Util/TextureUtil.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/New Scene.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/New Scene.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/Resources.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/Resources/Lab9Textures.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/Resources/Lab9Textures/acacia_log.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/Resources/Lab9Textures/acacia_log.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/Resources/Lab9Textures/azalea_leaves_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/Resources/Lab9Textures/azalea_leaves_1.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/Resources/Lab9Textures/barrel_bottom.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/Resources/Lab9Textures/barrel_bottom.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/Resources/Lab9Textures/birch_planks.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/Resources/Lab9Textures/birch_planks.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/Resources/Lab9Textures/dirt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/Resources/Lab9Textures/dirt.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/TestVRenderer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/TestVRenderer.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/MeshInfoLibrary/VoxelMeshIndexSplitter.shadersubgraph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/MeshInfoLibrary/VoxelMeshIndexSplitter.shadersubgraph.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/MeshInfoLibrary/VoxelMeshInfo.hlsl" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/MeshInfoLibrary/VoxelMeshInfo.hlsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/VoxelMeshLit.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/VoxelMeshLit.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/VoxelMeshLit.shadergraph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/VoxelMeshLit.shadergraph.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Util/VoxelProcessUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Util/VoxelProcessUtility.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/UserSettings/EditorUserSettings.asset" afterDir="false" />
-    </list>
+    <list default="true" id="a8aa6f73-f44f-4013-b18c-6364ab72914d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
