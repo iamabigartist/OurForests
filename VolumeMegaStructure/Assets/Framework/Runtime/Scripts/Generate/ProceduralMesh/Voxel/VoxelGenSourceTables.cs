@@ -14,7 +14,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 	///     <para>The vertices used to gen quads in compute shader.</para>
 	///     <para>The normals, tangents and uvs used to render</para>
 	/// </summary>
-	public class VoxelGenSourceTables:IDisposable
+	public class VoxelGenSourceTables : IDisposable
 	{
 
 	#region Data&Process
@@ -61,13 +61,19 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 
 	#region Results
 
-		float3[] quad_normals;
-		float4[] quad_tangents;
+		float3[] face_normals;
+		float4[] face_tangents;
 
 		void source_voxel_2_normal_tangent()
 		{
-			quad_normals = source_voxel.normals.@select(v => (float3)v);
-			quad_tangents = source_voxel.tangents.@select(v => (float4)v);
+			face_normals = new float3[6];
+			face_tangents = new float4[6];
+			for (int i_face = 0; i_face < 6; i_face++)
+			{
+				int i_vertex0 = i_face * 4;
+				face_normals[i_face] = source_voxel.normals[i_vertex0];
+				face_tangents[i_face] = source_voxel.tangents[i_vertex0];
+			}
 		}
 
 		float3[] fixed_uv_vertex_table;
@@ -133,8 +139,8 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 			GenNativeVertexTable();
 		}
 
-		public float3[] QuadNormals => quad_normals;
-		public float4[] QuadTangents => quad_tangents;
+		public float3[] FaceNormals => face_normals;
+		public float4[] FaceTangents => face_tangents;
 		public float3[] FixedUVVertexTable => fixed_uv_vertex_table;
 		public NativeArray<float3> FixedUVVertexTable_Native => fixed_uv_vertex_table_na;
 
@@ -147,22 +153,22 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 			voxel_vertex_buffer = new(fixed_uv_vertex_table.Length, sizeof(float) * 3, ComputeBufferType.Structured, ComputeBufferMode.Immutable);
 			voxel_vertex_buffer.SetData(fixed_uv_vertex_table);
 
-			uv_buffer = new(4, sizeof(float) * 2, ComputeBufferType.Structured, ComputeBufferMode.Immutable);
+			uv_buffer = new(4, sizeof(float) * 2, ComputeBufferType.Constant, ComputeBufferMode.Immutable);
 			uv_buffer.SetData(uv_4p_gen);
 
-			normal_buffer = new(6, sizeof(float) * 3, ComputeBufferType.Structured, ComputeBufferMode.Immutable);
-			normal_buffer.SetData(quad_normals);
+			normal_buffer = new(6, sizeof(float) * 3, ComputeBufferType.Constant, ComputeBufferMode.Immutable);
+			normal_buffer.SetData(face_normals);
 
-			tangent_buffer = new(6, sizeof(float) * 4, ComputeBufferType.Structured, ComputeBufferMode.Immutable);
-			tangent_buffer.SetData(quad_tangents);
+			tangent_buffer = new(6, sizeof(float) * 4, ComputeBufferType.Constant, ComputeBufferMode.Immutable);
+			tangent_buffer.SetData(face_tangents);
 		}
-		
+
 		public void Dispose()
 		{
 			fixed_uv_vertex_table_na.Dispose();
 		}
 
 	#endregion
-		
+
 	}
 }

@@ -24,10 +24,10 @@ namespace VolumeMegaStructure.Util
 			return target_texture;
 		}
 
-		public static Texture2DArray GenTexture2DArray(this Texture2D[] array)
+		public static Texture2DArray GenTexture2DArray(this Texture2D[] array, bool linear)
 		{
 			var info_texture = array[0];
-			var texture_2d_array = new Texture2DArray(info_texture.width, info_texture.height, array.Length, info_texture.format, info_texture.mipmapCount, info_texture.filterMode != FilterMode.Point);
+			var texture_2d_array = new Texture2DArray(info_texture.width, info_texture.height, array.Length, info_texture.format, info_texture.mipmapCount, linear);
 			for (int i = 0; i < array.Length; i++)
 			{
 				Graphics.CopyTexture(array[i],
