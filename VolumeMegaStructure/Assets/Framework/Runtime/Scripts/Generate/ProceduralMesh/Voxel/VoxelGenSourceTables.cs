@@ -153,13 +153,13 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 			voxel_vertex_buffer = new(fixed_uv_vertex_table.Length, sizeof(float) * 3, ComputeBufferType.Structured, ComputeBufferMode.Immutable);
 			voxel_vertex_buffer.SetData(fixed_uv_vertex_table);
 
-			uv_buffer = new(4, sizeof(float) * 2, ComputeBufferType.Constant, ComputeBufferMode.Immutable);
+			uv_buffer = new(4, sizeof(float) * 2, ComputeBufferType.Structured, ComputeBufferMode.Immutable);
 			uv_buffer.SetData(uv_4p_gen);
 
-			normal_buffer = new(6, sizeof(float) * 3, ComputeBufferType.Constant, ComputeBufferMode.Immutable);
+			normal_buffer = new(6, sizeof(float) * 3, ComputeBufferType.Structured, ComputeBufferMode.Immutable);
 			normal_buffer.SetData(face_normals);
 
-			tangent_buffer = new(6, sizeof(float) * 4, ComputeBufferType.Constant, ComputeBufferMode.Immutable);
+			tangent_buffer = new(6, sizeof(float) * 4, ComputeBufferType.Structured, ComputeBufferMode.Immutable);
 			tangent_buffer.SetData(face_tangents);
 		}
 
