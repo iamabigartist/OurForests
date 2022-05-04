@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 780.8
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Inspector
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
@@ -93,7 +93,7 @@ MonoBehaviour:
     x: 0
     y: 0
     width: 222.4
-    height: 250.4
+    height: 432.8
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
@@ -117,9 +117,9 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 250.4
+    y: 432.8
     width: 1022.4
-    height: 480.4
+    height: 298
   m_MinSize: {x: 231, y: 271}
   m_MaxSize: {x: 10001, y: 10021}
   m_ActualView: {fileID: 12}
@@ -244,7 +244,7 @@ MonoBehaviour:
     x: 0
     y: 0
     width: 1022.4
-    height: 250.4
+    height: 432.8
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
@@ -267,7 +267,7 @@ MonoBehaviour:
     x: 222.4
     y: 0
     width: 800
-    height: 250.4
+    height: 432.8
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 15}
@@ -297,9 +297,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 364
+    y: 546.4
     width: 1021.4
-    height: 459.4
+    height: 277
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -317,23 +317,23 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Projects/UI/UssLab/Resources
+    - Assets/Projects/VisualScripting
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Projects/UI/UssLab/Resources
+  - Assets/Projects/VisualScripting
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\HonorPro162021.11.11\Documents\GitHub\OurForests\New
     Unity ProjectAutoMation&Data-Oriented Progamming Editor
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 88570000
-    m_LastClickedID: 22408
-    m_ExpandedIDs: 0000000016560000185600001a5600001c5600001e56000020560000225600002456000026560000285600002a5600002c5600002e56000030560000325600003456000036560000385600003a560000145700006657000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 42.200012}
+    m_SelectedIDs: 66760000
+    m_LastClickedID: 30310
+    m_ExpandedIDs: 0000000020560000225600002456000026560000285600002a5600002c5600002e56000030560000325600003456000036560000385600003a5600003c5600003e5600004056000042560000445600004856000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -361,7 +361,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000016560000185600001a5600001c5600001e56000020560000225600002456000026560000285600002a5600002c5600002e56000030560000325600003456000036560000385600003a560000
+    m_ExpandedIDs: 0000000020560000225600002456000026560000285600002a5600002c5600002e56000030560000325600003456000036560000385600003a5600003c5600003e5600004056000042560000445600004656000048560000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -481,7 +481,7 @@ MonoBehaviour:
     x: 0
     y: 113.6
     width: 221.4
-    height: 229.4
+    height: 411.8
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -489,7 +489,7 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: d2f1ffff
+      m_SelectedIDs: 
       m_LastClickedID: 0
       m_ExpandedIDs: 30fbffff
       m_RenameOverlay:
@@ -538,7 +538,7 @@ MonoBehaviour:
     x: 222.40001
     y: 113.6
     width: 798
-    height: 229.4
+    height: 411.8
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -983,9 +983,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 645.60004
+    y: 538.4
     width: 1021.4
-    height: 177.79999
+    height: 285
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default

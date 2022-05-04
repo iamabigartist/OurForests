@@ -1,3 +1,4 @@
+using System;
 using Labs.Lab3_TestGPUBuffer;
 using Unity.Burst;
 using Unity.Collections;
@@ -228,6 +229,13 @@ namespace Labs.Lab9_TestVoxelRenderer
 			return (v4_mesh, null);
 		}
 
+		void DisposeRenderBuffers()
+		{
+			uv_buffer.Release();
+			normal_buffer.Release();
+			tangent_buffer.Release();
+		}
+
 	#endregion
 
 	#endregion
@@ -254,6 +262,11 @@ namespace Labs.Lab9_TestVoxelRenderer
 			Init2Material();
 			
 			Regenerate();
+		}
+
+		void OnDestroy()
+		{
+			DisposeRenderBuffers();
 		}
 
 	#endregion
