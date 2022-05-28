@@ -22,6 +22,7 @@ namespace VolumeMegaStructure.Manage
 
 		public static VoxelRotationFaceTable voxel_rotation_face_table { get; private set; }
 		public static VoxelGenSourceTables voxel_gen_source_tables { get; private set; }
+		public static IDManager id_manager { get; private set; }
 
 	#endregion
 
@@ -32,6 +33,7 @@ namespace VolumeMegaStructure.Manage
 		{
 			voxel_rotation_face_table = new();
 			voxel_gen_source_tables = new();
+			id_manager = new();
 		}
 
 		public static void TerminateManager()
