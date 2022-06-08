@@ -2,7 +2,7 @@
 id: k39cmt3y1vtr8s1xj20yu9r
 title: 2022_4_12_关于使用source_cube的问题
 desc: ''
-updated: 1649744580545
+updated: 1653924337676
 created: 1649742966354
 ---
 
@@ -21,4 +21,3 @@ created: 1649742966354
 并且100x100x100的chunk，会一共有101x101x101的vertices。
 因此quad的位置压缩长度应当是100，而vertices应当是101。
 在压缩解压缩的时候使用floor，可以保证数据的准确。
-
