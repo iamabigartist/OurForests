@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Labs.Lab0_Misc.Editor
 {
 	/// <summary>
-	///     结论：job中可以使用普通结构并且通过burst编译，可以使用普通结构作为只读成员，可以使用自定义结构来包装 native container!
+	///     结论：job中可以使用普通结构并且通过burst编译，可以使用普通结构作为只读成员，可以使用自定义结构来包装 native container,甚至可以不用标记乱序访问来访问结构中的native container!
 	/// </summary>
 	struct MyUtils
 	{
@@ -21,7 +21,12 @@ namespace Labs.Lab0_Misc.Editor
 		[WriteOnly] public NativeArray<int> table2;
 		public void Execute(int index)
 		{
-			table2[index] = utils.table1[index] + utils.config2;
+			int bonus = 0;
+			if (index > 0)
+			{
+				bonus = utils.table1[index - 1];
+			}
+			table2[index] = utils.table1[index] + utils.config2 + bonus;
 		}
 	}
 
@@ -47,7 +52,7 @@ namespace Labs.Lab0_Misc.Editor
 				table2 = new(new int[6], Allocator.Persistent)
 			};
 			m_job.Schedule(m_job.utils.table1.Length, 1).Complete();
-			Debug.Log(m_job.table2[0]);
+			Debug.Log(m_job.table2[1]);
 			m_job.utils.table1.Dispose();
 			m_job.table2.Dispose();
 		}
