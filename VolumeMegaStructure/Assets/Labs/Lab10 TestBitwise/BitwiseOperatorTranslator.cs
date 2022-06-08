@@ -2,7 +2,7 @@ using UnityEngine;
 namespace Labs.Lab10_TestBitwise
 {
 	/// <summary>
-	/// //结论： GPU仍需要特殊的位运算处理函数，CPU上处理方式不太一样，但是也是必要的。
+	///     //结论：GPU仍需要特殊的位运算处理函数，CPU上处理方式不太一样，但是也是必要的。
 	/// </summary>
 	public class BitwiseOperatorTranslator : MonoBehaviour
 	{
@@ -67,9 +67,6 @@ namespace Labs.Lab10_TestBitwise
 			Debug.Log(GetBits(0b11111111111111111111111111111111, 3, 3));
 		}
 
-		void Update()
-		{
-
-		}
+		void Update() {}
 	}
 }

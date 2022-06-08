@@ -48,10 +48,10 @@ namespace VolumeMegaStructure.Editor
 			base.OnInspectorGUI();
 			preview_renderer.DrawPreview(256f, 256f, util =>
 			{
-				util.DrawMesh(
-					target_.mesh,
-					Vector3.zero, Quaternion.identity,
-					target_.material, 0);
+				// util.DrawMesh(
+				// 	target_.mesh,
+				// 	Vector3.zero, Quaternion.identity,
+				// 	target_.material, 0);
 			});
 
 		}

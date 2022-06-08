@@ -4,6 +4,18 @@
 #define FACE_SIZE_D 1/6.0
 #define QUAD_VERTEX_SIZE 4
 #define QUAD_VERTEX_SIZE_D 1/4.0
+
+struct voxel_material
+{
+    float3 base_color;
+    float smoothness;
+    float3 emission;
+    float metallic;
+    float ambient_occlusion;
+};
+
+
+
 StructuredBuffer<float2> vertex_uvs;//4 vertex in a quad
 StructuredBuffer<float3> face_normals;//6 face of a cube
 StructuredBuffer<float4> face_tangents;//6 face of a cube
@@ -33,6 +45,12 @@ void i_face_i_uv_i_texture_Decompose_float(uint i, out uint i_texture, out uint 
     Decompose(i,FACE_SIZE_D * QUAD_VERTEX_SIZE_D,FACE_SIZE * QUAD_VERTEX_SIZE, i_texture, i);
     Decompose(i,QUAD_VERTEX_SIZE_D,QUAD_VERTEX_SIZE, i_face, i);
     i_uv = i;
+}
+
+void i_face_i_texture_Decompose_float(uint i, out uint i_texture, out uint i_face)
+{
+    Decompose(i,FACE_SIZE_D ,FACE_SIZE , i_texture, i);
+    i_face = i;
 }
 
 void position_Decompose_float(uint composed_position, uint size_x, float size_x_d, uint size_y, float size_y_d, out float3 position)
