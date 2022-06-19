@@ -1,8 +1,8 @@
 using Unity.Collections;
 using Unity.Jobs;
 using UnityEngine;
+using VolumeMegaStructure.DataDefinition.Container;
 using VolumeMegaStructure.DataDefinition.DataUnit;
-using VolumeMegaStructure.Util;
 using VolumeMegaStructure.Util.JobSystem;
 namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 {
@@ -11,19 +11,13 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 
 	#region Table
 
-		/// <summary>
-		///     <para>不透明度小的更加透明,空气不透明度小于固体，范围从0到1.</para>
-		///     <para>当遇到交界的时候，只有不透明度更大的需要被渲染出来</para>
-		///     <para>但是这就需要后处理等当时渲染水下了，也就是说介质之中往外看的效果</para>
-		/// </summary>
-		[ReadOnly] public NativeArray<int> id_to_opacity_table;
+		[ReadOnly] public NativeArray<bool> IsOpacityById;
 
 	#endregion
 
 	#region Data
 
-		[ReadOnly] public Indexer3D indexer;
-		[NativeDisableParallelForRestriction] [ReadOnly] public NativeArray<VolumeUnit> volume_matrix;
+		[NativeDisableParallelForRestriction] [ReadOnly] public DataMatrix<VolumeUnit> volume_matrix;
 		[NativeDisableParallelForRestriction] [WriteOnly] public NativeArray<int> mark_matrix;
 		NativeCounter quad_counter;
 
@@ -32,21 +26,21 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 		public void Execute(int volume_i)
 		{
 			var (x, y, z) = indexer[volume_i];
-			var (cur_block_id, cur_rotation_index) = volume_matrix[volume_i];
-			var cur_opacity = id_to_opacity_table[cur_block_id];
+			var cur_block_id = volume_matrix[volume_i].block_id;
+			var cur_opacity = id_to_opacity[cur_block_id];
 
 			if (indexer.IsEdge(x, y, z))
 			{
 				return;
 			}
 
-			var (x_forward_block_id, x_forward_rotation_index) = volume_matrix[indexer[x + 1, y, z]];
-			var (y_forward_block_id, y_forward_rotation_index) = volume_matrix[indexer[x, y + 1, z]];
-			var (z_forward_block_id, z_forward_rotation_index) = volume_matrix[indexer[x, y, z + 1]];
+			var x_forward_block_id = volume_matrix[indexer[x + 1, y, z]].block_id;
+			var y_forward_block_id = volume_matrix[indexer[x, y + 1, z]].block_id;
+			var z_forward_block_id = volume_matrix[indexer[x, y, z + 1]].block_id;
 
-			var x_forward_opacity = id_to_opacity_table[x_forward_block_id];
-			var y_forward_opacity = id_to_opacity_table[y_forward_block_id];
-			var z_forward_opacity = id_to_opacity_table[z_forward_block_id];
+			var x_forward_opacity = id_to_opacity[x_forward_block_id];
+			var y_forward_opacity = id_to_opacity[y_forward_block_id];
+			var z_forward_opacity = id_to_opacity[z_forward_block_id];
 
 			if (x_forward_opacity != cur_opacity) {}
 
