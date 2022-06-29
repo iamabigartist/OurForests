@@ -1,16 +1,19 @@
 using Unity.Collections;
 using Unity.Jobs;
 using UnityEditor;
+using UnityEngine;
 using VolumeMegaStructure.DataDefinition.Container;
 using VolumeMegaStructure.DataDefinition.DataUnit;
 using VolumeMegaStructure.DataDefinition.Mesh;
 using VolumeMegaStructure.Generate.ProceduralMesh.Voxel;
 using VolumeMegaStructure.Generate.Volume;
+using VolumeMegaStructure.Manage;
 using static VolumeMegaStructure.Util.VectorUtil;
 namespace Labs.Lab6_TestGenVoxel.Editor
 {
 	public class TestGenVoxelEditor : EditorWindow
 	{
+
 		[MenuItem("Labs/Labs.Lab6_TestGenVoxel.Editor/TestGenVoxelEditor")]
 		static void ShowWindow()
 		{
@@ -24,6 +27,8 @@ namespace Labs.Lab6_TestGenVoxel.Editor
 		VoxelMesh voxel_mesh;
 		void OnEnable()
 		{
+			MainManager.GameMainInit();
+
 			volume_matrix = new(int3_one * 100, Allocator.Persistent);
 			volume_matrix.GenerateRandom01(0.6f, new(0), new(1));
 			volume_inside_matrix = new(volume_matrix.size, Allocator.Persistent);
@@ -37,6 +42,15 @@ namespace Labs.Lab6_TestGenVoxel.Editor
 			voxel_mesh.InitGenerate();
 		}
 
-		void OnGUI() {}
+		void OnGUI()
+		{
+			EditorGUILayout.ObjectField("GeneratedVoxelMesh", voxel_mesh.unity_mesh, typeof(Mesh), false);
+		}
+
+		void OnDisable()
+		{
+			voxel_mesh.Dispose();
+			MainManager.TerminateManagers();
+		}
 	}
 }

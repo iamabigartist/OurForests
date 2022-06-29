@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Collections;
@@ -8,10 +9,11 @@ using VolumeMegaStructure.DataDefinition.Container;
 using VolumeMegaStructure.DataDefinition.DataUnit;
 using VolumeMegaStructure.Generate.ProceduralMesh.Voxel;
 using VolumeMegaStructure.Manage;
+using Object = UnityEngine.Object;
 namespace VolumeMegaStructure.DataDefinition.Mesh
 {
 	using UnityMesh = UnityEngine.Mesh;
-	public class VoxelMesh
+	public class VoxelMesh : IDisposable
 	{
 		const MeshUpdateFlags FAST_SET_FLAG =
 			MeshUpdateFlags.DontValidateIndices |
@@ -19,7 +21,7 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			MeshUpdateFlags.DontRecalculateBounds;
 		const int QUAD_ARRAY_CAPACITY = 3 * 100 * 100 * 101;
 
-		UnityMesh unity_mesh;
+		public UnityMesh unity_mesh;
 		DataMatrix<VolumeUnit> volume_matrix;
 		DataMatrix<bool> volume_inside_matrix;
 		Dictionary<QuadMark, int> quad_index_by_quad_mark;
@@ -52,16 +54,17 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			gen_quad_mark_list_job.Schedule(volume_count, 1).Complete();
 			//有可能做一个返回JobHandle的携程？
 
-			quad_index_by_quad_mark = quad_mark_list.
+			quad_index_by_quad_mark = quad_mark_list.ToArray().
 				Select((quad_mark, index) => (index, quad_mark)).
 				ToDictionary(pair => pair.quad_mark, pair => pair.index);
 
 			int quad_count = quad_mark_list.Length;
 
-			quad_unit_buffer = new(quad_count * 7, sizeof(float));
+			quad_unit_buffer = new(quad_count * 7, sizeof(float), ComputeBufferType.Structured, ComputeBufferMode.SubUpdates);
 			var gen_quad_unit_array_job = new GenQuadUnitArray()
 			{
 				volume_matrix = volume_matrix,
+				quad_mark_array = quad_mark_list.AsArray(),
 				quad_unit_array = quad_unit_buffer.BeginWrite<float>(0, quad_count * 7)
 			};
 			gen_quad_unit_array_job.Schedule(quad_count, 1).Complete();
@@ -102,6 +105,14 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			unity_mesh.SetSubMesh(0, new(0, quad_count * 6), FAST_SET_FLAG);
 			unity_mesh.bounds = new(Vector3.one * 50, Vector3.one * 100 /*这个是50还是100？*/);
 
+		}
+
+		public void Dispose()
+		{
+			volume_matrix.Dispose();
+			volume_inside_matrix.Dispose();
+			quad_mark_list.Dispose();
+			quad_unit_buffer.Release();
 		}
 
 	}

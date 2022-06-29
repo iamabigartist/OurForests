@@ -11,7 +11,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 	public struct GenQuadUnitArray : IJobParallelFor
 	{
 		[ReadOnly] public DataMatrix<VolumeUnit> volume_matrix;
-		[ReadOnly] public NativeArray<QuadMark> quad_mark_array;
+		[ReadOnly] public NativeArray<QuadMark> /*.ReadOnly*/ quad_mark_array;
 		[WriteOnly] public NativeArray<float> quad_unit_array;
 
 		public void Execute(int quad_i)

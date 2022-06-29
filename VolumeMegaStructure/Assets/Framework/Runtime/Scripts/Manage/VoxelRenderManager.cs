@@ -7,9 +7,15 @@ namespace VolumeMegaStructure.Manage
 {
 	public struct VoxelColorTexture
 	{
-		float3 base_color;
-		float smoothness;
-		float metallic;
+		public float3 base_color;
+		public float smoothness;
+		public float metallic;
+		public VoxelColorTexture(float3 base_color, float smoothness, float metallic)
+		{
+			this.base_color = base_color;
+			this.smoothness = smoothness;
+			this.metallic = metallic;
+		}
 	}
 	public class VoxelRenderManager : IDisposable
 	{
@@ -17,7 +23,7 @@ namespace VolumeMegaStructure.Manage
 		public Material material;
 		public ComputeShader quad_gen_unit_to_vertex_buffer;
 		public ComputeShader gen_quad6_index_buffer;
-		// public ComputeShader vertex_buffer_editor;
+		public ComputeShader vertex_buffer_editor; //暂时没用
 		ComputeBuffer source_vertex_buffer; //暂时没用
 		ComputeBuffer uv_buffer;
 		ComputeBuffer normal_buffer;
@@ -26,7 +32,11 @@ namespace VolumeMegaStructure.Manage
 
 		public VoxelRenderManager(VoxelSourceTables sourceTables)
 		{
-			textures = new();
+			textures = new()
+			{
+				new(),
+				new(new(0.2f, 0.4f, 0.1f), 0f, 0f)
+			};
 			material = new(Shader.Find("Shader Graphs/VoxelMeshLit_PureColor"));
 			quad_gen_unit_to_vertex_buffer = Resources.Load<ComputeShader>("QuadGenUnitToVertexBuffer");
 			gen_quad6_index_buffer = Resources.Load<ComputeShader>("GenQuad6IndexBuffer");

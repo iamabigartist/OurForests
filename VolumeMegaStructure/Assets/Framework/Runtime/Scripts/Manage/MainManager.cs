@@ -30,7 +30,7 @@ namespace VolumeMegaStructure.Manage
 	#region GameMainProcess
 
 		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
-		static void GameMainInit()
+		public static void GameMainInit()
 		{
 			voxel_rotation_face_table = new();
 			voxel_source_tables = new();
