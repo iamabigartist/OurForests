@@ -5,20 +5,26 @@
 #define QUAD_VERTEX_SIZE 4
 #define QUAD_VERTEX_SIZE_D 1/4.0
 
-struct voxel_material
+struct voxel_color_texture
 {
     float3 base_color;
     float smoothness;
-    float3 emission;
     float metallic;
-    float ambient_occlusion;
 };
-
-
 
 StructuredBuffer<float2> vertex_uvs;//4 vertex in a quad
 StructuredBuffer<float3> face_normals;//6 face of a cube
 StructuredBuffer<float4> face_tangents;//6 face of a cube
+StructuredBuffer<voxel_color_texture> quad_color_textures;//all color texture for this shader of all kinds of quads
+
+void GetColorTexture_float(int texture_id, out float3 base_color, out float smoothness, out float metallic)
+{
+    voxel_color_texture cur_texture = quad_color_textures[texture_id];
+    base_color = cur_texture.base_color;
+    smoothness = cur_texture.smoothness;
+    metallic = cur_texture.metallic;
+}
+
 void GetVertexUV_float(int vertex_index, out float2 uv)
 {
     uv = vertex_uvs[vertex_index];
@@ -49,7 +55,7 @@ void i_face_i_uv_i_texture_Decompose_float(uint i, out uint i_texture, out uint 
 
 void i_face_i_texture_Decompose_float(uint i, out uint i_texture, out uint i_face)
 {
-    Decompose(i,FACE_SIZE_D ,FACE_SIZE , i_texture, i);
+    Decompose(i,FACE_SIZE_D,FACE_SIZE, i_texture, i);
     i_face = i;
 }
 
