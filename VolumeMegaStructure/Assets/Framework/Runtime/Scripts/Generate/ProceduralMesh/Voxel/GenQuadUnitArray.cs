@@ -1,6 +1,7 @@
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Jobs;
+using UnityEngine;
 using VolumeMegaStructure.DataDefinition.Container;
 using VolumeMegaStructure.DataDefinition.DataUnit;
 using VolumeMegaStructure.Util;
@@ -53,7 +54,11 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 						forward_block_id = volume_matrix[x, y, z + 1].block_id;
 						break;
 					}
-				default: throw new("dir is not valid");
+				default:
+					{
+						Debug.Log("dir is not valid");
+						throw new("dir is not valid");
+					}
 			}
 			a1 -= 0.5f;
 			a2 += 0.5f;
@@ -73,7 +78,11 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 						texture_id = forward_block_id;
 						break;
 					}
-				default: throw new("dir is not valid");
+				default:
+					{
+						Debug.Log("dir is not valid");
+						throw new("dir is not valid");
+					}
 			}
 
 			int quad_unit_start_index = quad_i * 7;

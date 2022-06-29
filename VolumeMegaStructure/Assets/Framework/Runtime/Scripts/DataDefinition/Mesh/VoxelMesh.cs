@@ -33,6 +33,15 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 
 	#endregion
 
+
+	#region Debug
+
+		float[] quad_unit_array;
+		float[] vertex_buffer_array;
+		int[] index_buffer_array;
+
+	#endregion
+
 		public VoxelMesh(DataMatrix<VolumeUnit> volume_matrix, DataMatrix<bool> volume_inside_matrix)
 		{
 			unity_mesh = new();
@@ -104,6 +113,16 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			unity_mesh.subMeshCount = 1;
 			unity_mesh.SetSubMesh(0, new(0, quad_count * 6), FAST_SET_FLAG);
 			unity_mesh.bounds = new(Vector3.one * 50, Vector3.one * 100 /*这个是50还是100？*/);
+
+			index_buffer_array = new int[quad_count * 6];
+			vertex_buffer_array = new float[quad_count * 4 * 5];
+			quad_unit_array = new float[quad_count * 7];
+			index_buffer.GetData(index_buffer_array);
+			vertex_buffer.GetData(vertex_buffer_array);
+			quad_unit_buffer.GetData(quad_unit_array);
+
+			index_buffer.Release();
+			vertex_buffer.Release();
 
 		}
 
