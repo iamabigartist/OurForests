@@ -6,7 +6,7 @@ using Unity.Collections.LowLevel.Unsafe;
 using Unity.Jobs;
 using UnityEditor;
 using UnityEngine;
-namespace BurstTest.Editor
+namespace BurstTest
 {
 	/// <summary>
 	///     结论:对于Struct内部的NativeArray,无法通过<see cref="NativeDisableParallelForRestrictionAttribute" /> 或者
