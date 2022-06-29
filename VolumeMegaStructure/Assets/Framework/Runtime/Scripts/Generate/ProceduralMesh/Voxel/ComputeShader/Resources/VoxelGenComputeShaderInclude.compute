@@ -1,0 +1,13 @@
+struct VertexBufferUnit
+{
+    float3 position;
+    float dir;
+    float texture_id;
+
+    void make(float3 _position, float _dir, float _texture_id)
+    {
+        position = _position;
+        dir = _dir;
+        texture_id = _texture_id;
+    }
+};

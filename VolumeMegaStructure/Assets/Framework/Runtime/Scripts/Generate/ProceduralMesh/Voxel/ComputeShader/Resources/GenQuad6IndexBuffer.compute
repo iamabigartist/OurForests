@@ -1,0 +1,23 @@
+#pragma kernel CSMain
+
+static int local_vertex_index[6] = {0, 1, 2, 2, 3, 0};
+
+int quad_count;
+RWStructuredBuffer<int> render_index_buffer;
+RWStructuredBuffer<int> wait;
+
+[numthreads(1024,1,1)]
+void CSMain(uint3 id : SV_DispatchThreadID)
+{
+    int i_quad = id.x;
+    if (!(i_quad < quad_count)) { return; }
+    int render_i0 = i_quad * 6;
+    int vertex_i0 = i_quad * 4;
+
+    for (int local_render_i = 0; local_render_i < 6; local_render_i++)
+    {
+        int render_i = render_i0 + local_render_i;
+        int vertex_i = local_vertex_index[local_render_i] + vertex_i0;
+        render_index_buffer[render_i] = vertex_i;
+    }
+}
