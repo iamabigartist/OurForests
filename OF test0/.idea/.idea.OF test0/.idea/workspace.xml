@@ -5,20 +5,66 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8aa6f73-f44f-4013-b18c-6364ab72914d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Editor/Scripts/Util.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Editor/Scripts/Util/EditorPreviewRenderer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Editor/Scripts/Util/EditorPreviewRenderer.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/ProceduralMesh/Voxel/Table.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Manage/IdentityManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Manage/IdentityManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Projects/BurstTest.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Projects/BurstTest/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Projects/BurstTest/Editor/TestStructArray.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Projects/BurstTest/Editor/TestStructArray.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserSettings/Search.settings" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/ProceduralMesh/Voxel/ComputeShader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/ProceduralMesh/Voxel/ComputeShader/Resources.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/ProceduralMesh/Voxel/ComputeShader/Resources/GenQuad6IndexBuffer.compute" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/ProceduralMesh/Voxel/ComputeShader/Resources/GenQuad6IndexBuffer.compute.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/ProceduralMesh/Voxel/ComputeShader/Resources/QuadGenUnitToVertexBuffer.compute" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/ProceduralMesh/Voxel/ComputeShader/Resources/QuadGenUnitToVertexBuffer.compute.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/ProceduralMesh/Voxel/ComputeShader/Resources/VoxelGenComputeShaderInclude.compute" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/ProceduralMesh/Voxel/ComputeShader/Resources/VoxelGenComputeShaderInclude.compute.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/ProceduralMesh/Voxel/GenQuadUnitArray.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/ProceduralMesh/Voxel/GenSurfaceMarkMatrix.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/ProceduralMesh/Voxel/GenSurfaceMarkMatrix.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab0 Misc/Editor/TestComputeShader.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab0 Misc/Editor/TestComputeShader.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab0 Misc/Editor/TestSpan.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab0 Misc/Editor/TestSpan.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab0 Misc/Resources.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab0 Misc/Resources/InitIndexBuffer.compute" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab0 Misc/Resources/InitIndexBuffer.compute.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/BurstAotSettings_StandaloneWindows.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/BurstAotSettings_StandaloneWindows.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/CommonBurstAotSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/CommonBurstAotSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Editor/Scripts/BlockConfigInspector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Editor/Scripts/BlockConfigInspector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Config/BlockConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Config/BlockConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/ProceduralMesh/Voxel/VoxelGenSourceTables.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/ProceduralMesh/Voxel/Table/VoxelGenSourceTables.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/ProceduralMesh/Voxel/VoxelGenSourceTables.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/ProceduralMesh/Voxel/Table/VoxelGenSourceTables.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/ProceduralMesh/Voxel/VoxelRotationFaceTable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/ProceduralMesh/Voxel/Table/VoxelRotationFaceTable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/ProceduralMesh/Voxel/VoxelRotationFaceTable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/ProceduralMesh/Voxel/Table/VoxelRotationFaceTable.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Config/BlockConfig.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Config/BlockConfig.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/DataDefinition/Container/DataMatrix.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/DataDefinition/Container/DataMatrix.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/DataDefinition/DataUnit/VolumeUnit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/DataDefinition/DataUnit/VolumeUnit.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/DataDefinition/Mesh/VoxelMesh.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/DataDefinition/Mesh/VoxelMesh.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/ProceduralMesh/Voxel/Table/VoxelGenSourceTables.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/ProceduralMesh/Voxel/Table/VoxelSourceTables.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/ProceduralMesh/Voxel/Table/VoxelGenSourceTables.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/ProceduralMesh/Voxel/Table/VoxelSourceTables.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/ProceduralMesh/Voxel/VolumeMatrixScan.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/ProceduralMesh/Voxel/VolumeMatrixScan.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/ProceduralMesh/Voxel/GenQuadUnitArray.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/Volume/VolumeMatrixGeneration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/Volume/VolumeMatrixGeneration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Manage/IDManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Manage/IDManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Manage/MainManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Manage/MainManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Manage/MainManagerMono.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Manage/MainManagerMono.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Manage/VoxelRenderManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Manage/VoxelRenderManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/MeshInfoLibrary/PureVoxelMeshInfoGetter.shadersubgraph" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/MeshInfoLibrary/PureVoxelMeshInfoGetter.shadersubgraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/MeshInfoLibrary/VoxelMeshInfo.hlsl" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/MeshInfoLibrary/VoxelMeshInfo.hlsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/VoxelMeshLit_PureColor.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/VoxelMeshLit_PureColor.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/VoxelMeshLit_V4.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/VoxelMeshLit_V4.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Util/EnumerateUtil.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Util/EnumerateUtil.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab0 Misc/Editor/TestJobRestriction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab0 Misc/Editor/TestJobRestriction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab2 TestJobs/Editor/TestClassTransferInJob.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab2 TestJobs/Editor/TestClassTransferInJob.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab5 TestGenSource/TestGenVoxel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab5 TestGenSource/TestGenVoxel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab6 TestGenVoxel/Editor/TestGenVoxelEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab6 TestGenVoxel/Editor/TestGenVoxelEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab8 TestVerticesRotation/TestVRotation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab8 TestVerticesRotation/TestVRotation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/TestVRenderer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab9 TestVoxelRenderer/TestVRenderer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,18 +121,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;rider.run.widget.enabled.cache&quot;: &quot;false&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Discover.Launch.Via.Unity": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "rider.code.cleanup.on.save": "true",
+    "rider.code.cleanup.on.save.profile": "Built-in: Simple Cleanup",
+    "rider.run.widget.enabled.cache": "false",
+    "settings.editor.selected.configurable": "actions.on.save",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\2022.1.0b11\Editor\Unity.exe" />
@@ -242,6 +291,12 @@
       <workItem from="1649737125419" duration="2421000" />
       <workItem from="1651070296124" duration="2300000" />
       <workItem from="1651654991330" duration="1854000" />
+      <workItem from="1655621824950" duration="1391000" />
+      <workItem from="1655648149017" duration="1200000" />
+      <workItem from="1655778301696" duration="1318000" />
+      <workItem from="1655781473351" duration="783000" />
+      <workItem from="1656387063394" duration="844000" />
+      <workItem from="1656503078975" duration="2908000" />
     </task>
     <task id="LOCAL-00001" summary="Add some test method">
       <created>1639398343342</created>
