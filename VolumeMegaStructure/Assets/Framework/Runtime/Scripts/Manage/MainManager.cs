@@ -21,8 +21,9 @@ namespace VolumeMegaStructure.Manage
 	#region GlobalTools
 
 		public static VoxelRotationFaceTable voxel_rotation_face_table { get; private set; }
-		public static VoxelGenSourceTables voxel_gen_source_tables { get; private set; }
+		public static VoxelSourceTables voxel_source_tables { get; private set; }
 		public static IDManager id_manager { get; private set; }
+		public static VoxelRenderManager voxel_render_manager { get; private set; }
 
 	#endregion
 
@@ -32,13 +33,15 @@ namespace VolumeMegaStructure.Manage
 		static void GameMainInit()
 		{
 			voxel_rotation_face_table = new();
-			voxel_gen_source_tables = new();
+			voxel_source_tables = new();
 			id_manager = new();
+			voxel_render_manager = new(voxel_source_tables);
 		}
 
-		public static void TerminateManager()
+		public static void TerminateManagers()
 		{
-			voxel_gen_source_tables.Dispose();
+			voxel_source_tables.Dispose();
+			voxel_render_manager.Dispose();
 		}
 
 	#endregion

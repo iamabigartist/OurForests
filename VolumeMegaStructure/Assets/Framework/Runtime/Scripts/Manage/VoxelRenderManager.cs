@@ -16,6 +16,7 @@ namespace VolumeMegaStructure.Manage
 		public List<VoxelColorTexture> textures;
 		public Material material;
 		public ComputeShader quad_gen_unit_to_vertex_buffer;
+		public ComputeShader gen_quad6_index_buffer;
 		// public ComputeShader vertex_buffer_editor;
 		ComputeBuffer source_vertex_buffer; //暂时没用
 		ComputeBuffer uv_buffer;
@@ -28,6 +29,7 @@ namespace VolumeMegaStructure.Manage
 			textures = new();
 			material = new(Shader.Find("Shader Graphs/VoxelMeshLit_PureColor"));
 			quad_gen_unit_to_vertex_buffer = Resources.Load<ComputeShader>("QuadGenUnitToVertexBuffer");
+			gen_quad6_index_buffer = Resources.Load<ComputeShader>("GenQuad6IndexBuffer");
 			InitMaterial(sourceTables);
 		}
 

@@ -5,7 +5,7 @@ namespace VolumeMegaStructure.Manage
 	{
 		void OnDestroy()
 		{
-			MainManager.TerminateManager();
+			MainManager.TerminateManagers();
 		}
 	}
 }

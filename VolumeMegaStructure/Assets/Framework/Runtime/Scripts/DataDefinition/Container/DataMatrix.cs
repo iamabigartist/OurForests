@@ -1,6 +1,7 @@
 using System;
 using Unity.Collections;
 using Unity.Mathematics;
+using VolumeMegaStructure.Util;
 namespace VolumeMegaStructure.DataDefinition.Container
 {
 	/// <summary>
@@ -35,6 +36,13 @@ namespace VolumeMegaStructure.DataDefinition.Container
 			this.size = size;
 			this.data = data;
 		}
+
+		public DataMatrix(int3 size, Allocator allocator, NativeArrayOptions options = NativeArrayOptions.ClearMemory)
+		{
+			this.size = size;
+			data = new(this.size.volume(), allocator, options);
+		}
+
 		public void Dispose() { data.Dispose(); }
 
 	#endregion
@@ -77,6 +85,14 @@ namespace VolumeMegaStructure.DataDefinition.Container
 			int x = i;
 
 			return new(x, y, z);
+		}
+
+		public bool IsPositiveEdge(int x, int y, int z)
+		{
+			return
+				x == size.x - 1 ||
+				y == size.y - 1 ||
+				z == size.z - 1;
 		}
 
 		public bool IsEdge(int x, int y, int z)

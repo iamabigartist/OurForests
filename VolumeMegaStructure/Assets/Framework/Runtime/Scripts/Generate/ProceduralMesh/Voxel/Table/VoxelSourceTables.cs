@@ -14,7 +14,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 	///     <para>The vertices used to gen quads in compute shader.</para>
 	///     <para>The normals, tangents and uvs used to render</para>
 	/// </summary>
-	public class VoxelGenSourceTables : IDisposable
+	public class VoxelSourceTables : IDisposable
 	{
 
 	#region Data&Process
@@ -129,7 +129,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 
 	#region Entry
 
-		public VoxelGenSourceTables()
+		public VoxelSourceTables()
 		{
 			voxel_right_quad_2_6_quad();
 			init_source_voxel();
@@ -144,14 +144,14 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 		public float3[] FixedUVVertexTable => fixed_uv_vertex_table;
 		public NativeArray<float3> FixedUVVertexTable_Native => fixed_uv_vertex_table_na;
 
-		public void SetBuffer(
-			out ComputeBuffer voxel_vertex_buffer,
+		public void GetVoxelSourceRenderBuffers(
+			out ComputeBuffer source_vertex_buffer,
 			out ComputeBuffer uv_buffer,
 			out ComputeBuffer normal_buffer,
 			out ComputeBuffer tangent_buffer)
 		{
-			voxel_vertex_buffer = new(fixed_uv_vertex_table.Length, sizeof(float) * 3, ComputeBufferType.Structured, ComputeBufferMode.Immutable);
-			voxel_vertex_buffer.SetData(fixed_uv_vertex_table);
+			source_vertex_buffer = new(fixed_uv_vertex_table.Length, sizeof(float) * 3, ComputeBufferType.Structured, ComputeBufferMode.Immutable);
+			source_vertex_buffer.SetData(fixed_uv_vertex_table);
 
 			uv_buffer = new(4, sizeof(float) * 2, ComputeBufferType.Structured, ComputeBufferMode.Immutable);
 			uv_buffer.SetData(uv_4p_gen);
@@ -161,6 +161,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 
 			tangent_buffer = new(6, sizeof(float) * 4, ComputeBufferType.Structured, ComputeBufferMode.Immutable);
 			tangent_buffer.SetData(face_tangents);
+
 		}
 
 		public void Dispose()
