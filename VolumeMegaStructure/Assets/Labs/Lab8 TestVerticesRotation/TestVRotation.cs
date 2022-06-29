@@ -8,12 +8,12 @@ namespace Labs.Lab8_TestVerticesRotation
 {
 	/// <summary>
 	///     <para>
-	///         1. Show how to use <see cref="VoxelGenSourceTables" /> and
+	///         1. Show how to use <see cref="VoxelSourceTables" /> and
 	///         relative part in <see cref="VolumeMegaStructure.Util.VoxelProcessUtility" />
 	///     </para>
 	///     <para>
 	///         2. Test the rotation correctness of
-	///         <see cref="VoxelGenSourceTables" />
+	///         <see cref="VoxelSourceTables" />
 	///     </para>
 	/// </summary>
 	public class TestVRotation : MonoBehaviour
@@ -41,7 +41,7 @@ namespace Labs.Lab8_TestVerticesRotation
 			i_rotation_i_face_i_vertex_Compose(i_up, i_forward, i_face, 0, out var i0);
 			var mesh = new Mesh
 			{
-				vertices = voxel_gen_source_tables.FixedUVVertexTable[i0..(i0 + 4)].ToVectorArray(),
+				vertices = voxel_source_tables.FixedUVVertexTable[i0..(i0 + 4)].ToVectorArray(),
 				uv = uv_list.ToVectorArray(),
 				triangles = new[] { 0, 1, 2, 2, 3, 0 }
 			};

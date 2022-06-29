@@ -1,4 +1,3 @@
-using System;
 using Labs.Lab3_TestGPUBuffer;
 using Unity.Burst;
 using Unity.Collections;
@@ -14,7 +13,7 @@ using Random = Unity.Mathematics.Random;
 namespace Labs.Lab9_TestVoxelRenderer
 {
 	/// <summary>
-	/// 在有显示bug的情况下测试了是否压缩位置对于渲染性能的影响，结论是不压缩位置的话渲染性能会更好。因此目前抛弃了压缩位置的方法。
+	///     在有显示bug的情况下测试了是否压缩位置对于渲染性能的影响，结论是不压缩位置的话渲染性能会更好。因此目前抛弃了压缩位置的方法。
 	/// </summary>
 	public class TestVRenderer : MonoBehaviour
 	{
@@ -68,7 +67,7 @@ namespace Labs.Lab9_TestVoxelRenderer
 
 		void InitRenderBuffers()
 		{
-			voxel_gen_source_tables.SetBuffer(out _, out uv_buffer, out normal_buffer, out tangent_buffer);
+			voxel_source_tables.GetVoxelSourceRenderBuffers(out _, out uv_buffer, out normal_buffer, out tangent_buffer);
 		}
 
 		void Init2Material()
@@ -175,7 +174,7 @@ namespace Labs.Lab9_TestVoxelRenderer
 			};
 			var vertex_buffer_job = new GenV4VertexBufferJob
 			{
-				fixed_uv_vertex_table = voxel_gen_source_tables.FixedUVVertexTable_Native,
+				fixed_uv_vertex_table = voxel_source_tables.FixedUVVertexTable_Native,
 				texture_2d_array_depth = texture_2d_array.depth,
 				vertex_buffer = mesh_data.GetVertexData<float4>()
 			};
@@ -194,7 +193,7 @@ namespace Labs.Lab9_TestVoxelRenderer
 			};
 			var vertex_buffer_job = new GenComposedVertexBufferJob
 			{
-				fixed_uv_vertex_table = voxel_gen_source_tables.FixedUVVertexTable_Native,
+				fixed_uv_vertex_table = voxel_source_tables.FixedUVVertexTable_Native,
 				texture_2d_array_depth = texture_2d_array.depth,
 				vertex_buffer = mesh_data.GetVertexData<float2>()
 			};
@@ -260,7 +259,7 @@ namespace Labs.Lab9_TestVoxelRenderer
 			InitTexture2DArray();
 			InitRenderBuffers();
 			Init2Material();
-			
+
 			Regenerate();
 		}
 
