@@ -1,0 +1,9 @@
+#pragma kernel CSMain
+
+RWStructuredBuffer<int> index_buffer;
+
+[numthreads(1,1,1)]
+void CSMain(uint3 id : SV_DispatchThreadID)
+{
+    index_buffer[id.x] = id.x;
+}

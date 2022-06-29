@@ -5,7 +5,6 @@ using Unity.Jobs;
 using UnityEditor;
 using UnityEngine;
 using VolumeMegaStructure.DataDefinition.DataUnit;
-using VolumeMegaStructure.Manage;
 namespace Labs.Lab0_Misc.Editor
 {
 	/// <summary>
@@ -25,7 +24,7 @@ namespace Labs.Lab0_Misc.Editor
 		{
 			return delegate(VolumeUnit unit)
 			{
-				return MainManager.id_manager.voxel_id_opacity[unit.block_id] == opacity_group;
+				return unit.block_id == opacity_group;
 			};
 		}
 
@@ -78,6 +77,13 @@ namespace Labs.Lab0_Misc.Editor
 		}
 	}
 
+	[BurstCompile]
+	public struct TestJob2 : IJobParallelFor
+	{
+		[WriteOnly] public NativeHashMap<int, int>.ParallelWriter write_to_list;
+		public void Execute(int index) {}
+	}
+
 	public class TestJobRestriction : EditorWindow
 	{
 		[MenuItem("Labs/Labs.Lab0_Misc.Editor/TestJobRestriction")]
@@ -107,11 +113,20 @@ namespace Labs.Lab0_Misc.Editor
 				table2 = new(new int[6], Allocator.Persistent)
 			};*/
 
-
 			m_job.Schedule(m_job.utils.table1.Length, 1).Complete();
-			Debug.Log(m_job.table2.ToArray().ToMString(","));
+			Debug.Log(m_job.table2.ToArray().ListToString(","));
 			m_job.utils.table1.Dispose();
 			m_job.table2.Dispose();
+
+			NativeList<int> write_to_list = new();
+
+			// var test_job2 = new TestJob2()
+			// {
+			// 	write_to_list = write_to_list.AsParallelWriter()
+			// };
+			// test_job2.Schedule(10, 1).Complete();
+			Debug.Log(write_to_list.ToArray());
+			write_to_list.Dispose();
 		}
 
 		void OnGUI() {}
