@@ -2,7 +2,7 @@
 using Unity.Collections;
 using Unity.Jobs;
 using UnityEditor;
-namespace BurstTest
+namespace BurstAndJobTest
 {
 
 	public struct TestStruct1
@@ -27,7 +27,7 @@ namespace BurstTest
 
 	public class TestTupleArray : EditorWindow
 	{
-		[MenuItem("BurstTest/TestTupleArray")]
+		[MenuItem("BurstAndJobTest/TestTupleArray")]
 		static void ShowWindow()
 		{
 			var window = GetWindow<TestTupleArray>();
