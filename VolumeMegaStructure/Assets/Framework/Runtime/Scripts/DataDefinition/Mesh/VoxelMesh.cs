@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.Collections;
 using Unity.Jobs;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Rendering;
 using VolumeMegaStructure.DataDefinition.Container;
@@ -11,6 +10,7 @@ using VolumeMegaStructure.DataDefinition.DataUnit;
 using VolumeMegaStructure.Generate.ProceduralMesh.Voxel;
 using VolumeMegaStructure.Manage;
 using VolumeMegaStructure.Util;
+using VolumeMegaStructure.Util.JobSystem;
 using Object = UnityEngine.Object;
 namespace VolumeMegaStructure.DataDefinition.Mesh
 {
@@ -27,20 +27,10 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 		DataMatrix<VolumeUnit> volume_matrix;
 		DataMatrix<bool> volume_inside_matrix;
 		Dictionary<QuadMark, int> quad_index_by_quad_mark;
-		int quad_array_capacity
-		{
-			get
-			{
-				var size = volume_matrix.size;
-				return
-					(size + new int3(1, 0, 0)).volume() +
-					(size + new int3(0, 1, 0)).volume() +
-					(size + new int3(0, 0, 1)).volume();
-			}
-		}
 
 	#region GenIntermediate
 
+		NativeCounter quad_counter;
 		NativeList<QuadMark> quad_mark_list;
 		ComputeBuffer quad_unit_buffer;
 
@@ -60,13 +50,25 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			unity_mesh = new();
 			this.volume_matrix = volume_matrix;
 			this.volume_inside_matrix = volume_inside_matrix;
-			quad_mark_list = new(quad_array_capacity, Allocator.Persistent);
+			quad_counter = new(Allocator.Persistent);
 		}
 
 		public void InitGenerate()
 		{
+
 			int volume_count = volume_matrix.Count;
 
+			var gen_quad_count_job = new GenQuadCount()
+			{
+				volume_matrix = volume_matrix,
+				volume_inside_matrix = volume_inside_matrix,
+				quad_counter = quad_counter
+			};
+			gen_quad_count_job.Schedule(volume_count, 1).Complete();
+
+			int quad_count = quad_counter.Count;
+
+			quad_mark_list = new(quad_count, Allocator.Persistent);
 			var gen_quad_mark_list_job = new GenQuadMarkList()
 			{
 				volume_matrix = volume_matrix,
@@ -79,8 +81,6 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			quad_index_by_quad_mark = quad_mark_list.ToArray().
 				Select((quad_mark, index) => (index, quad_mark)).
 				ToDictionary(pair => pair.quad_mark, pair => pair.index);
-
-			int quad_count = quad_mark_list.Length;
 
 			quad_unit_buffer = new(quad_count * 7, sizeof(float), ComputeBufferType.Structured, ComputeBufferMode.SubUpdates);
 			var gen_quad_unit_array_job = new GenQuadUnitArray()
@@ -143,6 +143,7 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 
 		public void Dispose()
 		{
+			quad_counter.Dispose();
 			quad_mark_list.Dispose();
 			quad_unit_buffer.Release();
 		}
