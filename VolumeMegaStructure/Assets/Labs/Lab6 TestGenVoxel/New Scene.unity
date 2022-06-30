@@ -155,6 +155,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 381e8b62154345159c86a7202e830ada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chunk_size:
+    x: 2000
+    y: 250
+    z: 2000
+  MyTerrainParams:
+    stone_params:
+      block_id: 1
+      cube_height: 2
+      noise_height_scale: 250
+      noise_scale: 6
+      noise_offset: {x: 0, y: 0}
+    soil_params:
+      block_id: 2
+      cube_height: 1
+      noise_height_scale: 3
+      noise_scale: 10
+      noise_offset: {x: 500, y: 500}
+    grass_id: 3
+    snow_id: 4
+    snow_min_altitude: 130
+    grass_max_altitude: 100
+    noise_scale: 0.001
+    noise_offset: {x: 100, y: 1000}
 --- !u!4 &632332470
 Transform:
   m_ObjectHideFlags: 0
@@ -164,7 +187,7 @@ Transform:
   m_GameObject: {fileID: 632332468}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -432,8 +455,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
+  far clip plane: 100000
+  field of view: 83.8
   orthographic: 0
   orthographic size: 5
   m_Depth: 0

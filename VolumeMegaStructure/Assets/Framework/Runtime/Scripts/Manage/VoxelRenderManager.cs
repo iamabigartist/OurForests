@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using VolumeMegaStructure.Generate.ProceduralMesh.Voxel;
+using VolumeMegaStructure.Util;
 namespace VolumeMegaStructure.Manage
 {
 	public struct VoxelColorTexture
@@ -10,9 +11,9 @@ namespace VolumeMegaStructure.Manage
 		public float3 base_color;
 		public float smoothness;
 		public float metallic;
-		public VoxelColorTexture(float3 base_color, float smoothness, float metallic)
+		public VoxelColorTexture(Color base_color, float smoothness, float metallic)
 		{
-			this.base_color = base_color;
+			this.base_color = base_color.f3();
 			this.smoothness = smoothness;
 			this.metallic = metallic;
 		}
@@ -40,8 +41,11 @@ namespace VolumeMegaStructure.Manage
 		{
 			textures = new()
 			{
-				new(new(0.6f, 0.4f, 0.3f), 0f, 0f),
-				new(new(0.2f, 0.4f, 0.1f), 0f, 0f)
+				new(),
+				new(new(0.4f, 0.4f, 0.4f), 0f, 0.2f),
+				new(new(0.24f, 0.16f, 0f), 0f, 0.1f),
+				new(new(0.6f, 1.0f, 0.25f), 0f, 0f),
+				new(new(0.95f, 0.95f, 0.95f), 0.2f, 0f)
 			};
 
 			material = new(Shader.Find("Shader Graphs/VoxelMeshLit_PureColor"));

@@ -47,6 +47,16 @@ namespace VolumeMegaStructure.Util
 			return new(i3.x, i3.y, i3.z);
 		}
 
+		public static float3 f3(this Color color)
+		{
+			return new(color.r, color.g, color.b);
+		}
+
+		public static float4 f4(this Color color)
+		{
+			return new(color.r, color.g, color.b, color.a);
+		}
+
 	#endregion
 
 	#region EaseDefine

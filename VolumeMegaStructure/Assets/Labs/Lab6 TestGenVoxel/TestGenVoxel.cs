@@ -1,15 +1,16 @@
 using Unity.Collections;
 using Unity.Jobs;
+using Unity.Mathematics;
 using UnityEngine;
 using VolumeMegaStructure.DataDefinition.Container;
 using VolumeMegaStructure.DataDefinition.DataUnit;
 using VolumeMegaStructure.DataDefinition.Mesh;
 using VolumeMegaStructure.Generate.ProceduralMesh.Voxel;
-using VolumeMegaStructure.Generate.Volume;
 using VolumeMegaStructure.Manage;
-using static VolumeMegaStructure.Util.VectorUtil;
+using static VolumeMegaStructure.Generate.Volume.VolumeMatrixGeneration;
 namespace Labs.Lab6_TestGenVoxel
 {
+
 	public class TestGenVoxel : MonoBehaviour
 	{
 
@@ -20,17 +21,22 @@ namespace Labs.Lab6_TestGenVoxel
 		MeshFilter mesh_filter;
 		MeshRenderer mesh_renderer;
 
-		void OnEnable()
-		{
-			volume_matrix = new(int3_one * 100, Allocator.Persistent);
-			// volume_matrix.GenerateSphere01(new(1), new(0), 25, new(50, 50, 50));
-			// volume_matrix.GenerateRandom01(0.6f, new(1), new(0));
-			// for (int i = 0; i < 100; i++)
-			// {
-			// 	volume_matrix[i, i, i] = new(1);
-			// }
+		public int3 chunk_size;
+		public GenerateGrassSnowTerrainParams MyTerrainParams;
 
-			volume_matrix.GenerateCoherentNoise01(0.6f, new(1), new(0), "Hello Voxel the 3rd time");
+		void Clear()
+		{
+			voxel_mesh?.Dispose();
+			volume_matrix.Dispose();
+			volume_inside_matrix.Dispose();
+		}
+
+		void Generate()
+		{
+			volume_matrix = new(chunk_size, Allocator.Persistent);
+			var block_id_matrix = new DataMatrix<ushort>(volume_matrix.size, Allocator.Temp);
+			block_id_matrix.GenerateGrassSnowTerrain(MyTerrainParams);
+			volume_matrix.SetBlockId(block_id_matrix);
 
 			volume_inside_matrix = new(volume_matrix.size, Allocator.Persistent);
 			voxel_mesh = new(volume_matrix, volume_inside_matrix);
@@ -42,7 +48,6 @@ namespace Labs.Lab6_TestGenVoxel
 			empty_check_job.Schedule(volume_matrix.Count, 1024).Complete();
 			voxel_mesh.InitGenerate();
 
-
 			mesh_filter = GetComponent<MeshFilter>();
 			mesh_filter.mesh = voxel_mesh.unity_mesh;
 
@@ -50,11 +55,22 @@ namespace Labs.Lab6_TestGenVoxel
 			mesh_renderer.material = MainManager.voxel_render_manager.material;
 		}
 
-		void OnDisable()
+		[ContextMenu("Regenerate Terrain")]
+		public void Regenerate()
 		{
-			voxel_mesh.Dispose();
-			volume_matrix.Dispose();
-			volume_inside_matrix.Dispose();
+			Clear();
+			Generate();
+			new Color(0.24f, 0.16f, 0f);
+		}
+
+
+		void OnEnable()
+		{
+			Generate();
+		}
+		void OnDestroy()
+		{
+			Clear();
 		}
 
 		void OnDrawGizmos()

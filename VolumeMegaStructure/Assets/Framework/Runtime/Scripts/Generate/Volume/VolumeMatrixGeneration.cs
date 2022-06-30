@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using VolumeMegaStructure.DataDefinition.Container;
 using VolumeMegaStructure.DataDefinition.DataUnit;
 using VolumeMegaStructure.Generate.Volume.Noise;
+using Random = UnityEngine.Random;
 namespace VolumeMegaStructure.Generate.Volume
 {
 	public static class VolumeMatrixGeneration
@@ -78,7 +80,6 @@ namespace VolumeMegaStructure.Generate.Volume
 				return position * noise_scale + noise_offset;
 			}
 
-
 			for (int z = 0; z < matrix.size.z; z++)
 			{
 				for (int x = 0; x < matrix.size.x; x++)
@@ -109,6 +110,7 @@ namespace VolumeMegaStructure.Generate.Volume
 
 		}
 
+		[Serializable]
 		public struct GenBlockParams
 		{
 			public ushort block_id;
@@ -138,12 +140,35 @@ namespace VolumeMegaStructure.Generate.Volume
 			}
 		}
 
+		[Serializable]
+		public struct GenerateGrassSnowTerrainParams
+		{
+			public GenBlockParams stone_params;
+			public GenBlockParams soil_params;
+			public ushort grass_id;
+			public ushort snow_id;
+			public float snow_min_altitude;
+			public float grass_max_altitude;
+			public float noise_scale;
+			public Vector2 noise_offset;
+		}
 
-		/// <summary>
-		///     <para>0 for air.</para>
-		///     <para>1 for soil.</para>
-		///     <para>2 for stone.</para>
-		/// </summary>
+		public static void GenerateGrassSnowTerrain(
+			this DataMatrix<ushort> matrix,
+			GenerateGrassSnowTerrainParams parameters
+		)
+		{
+			matrix.GenerateGrassSnowTerrain(
+				parameters.stone_params,
+				parameters.soil_params,
+				parameters.grass_id,
+				parameters.snow_id,
+				parameters.snow_min_altitude,
+				parameters.grass_max_altitude,
+				parameters.noise_scale,
+				parameters.noise_offset);
+		}
+
 		public static void GenerateGrassSnowTerrain(
 			this DataMatrix<ushort> matrix,
 			GenBlockParams stone_params,
@@ -206,10 +231,8 @@ namespace VolumeMegaStructure.Generate.Volume
 							matrix[x, y, z] = 0;
 						}
 					}
-
 				}
 			}
-
 		}
 
 	#endregion
