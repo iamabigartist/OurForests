@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using VolumeMegaStructure.DataDefinition.Container;
+using VolumeMegaStructure.DataDefinition.DataUnit;
 using VolumeMegaStructure.Generate.Volume.Noise;
 namespace VolumeMegaStructure.Generate.Volume
 {
@@ -108,8 +109,125 @@ namespace VolumeMegaStructure.Generate.Volume
 
 		}
 
+		public struct GenBlockParams
+		{
+			public ushort block_id;
+			public int cube_height;
+			public float noise_height_scale;
+			public float noise_scale;
+			public Vector2 noise_offset;
+			public GenBlockParams(ushort block_id, int cube_height, float noise_height_scale, float noise_scale, Vector2 noise_offset)
+			{
+				this.block_id = block_id;
+				this.cube_height = cube_height;
+				this.noise_height_scale = noise_height_scale;
+				this.noise_scale = noise_scale;
+				this.noise_offset = noise_offset;
+			}
+
+			public Vector2 GetSamplePosition(Vector2 position)
+			{
+				return position * noise_scale + noise_offset;
+			}
+
+			public float GetHeight(float noise)
+			{
+				var scaled_noise = noise * noise_height_scale;
+				float height = (int)scaled_noise / cube_height * cube_height;
+				return height;
+			}
+		}
+
+
+		/// <summary>
+		///     <para>0 for air.</para>
+		///     <para>1 for soil.</para>
+		///     <para>2 for stone.</para>
+		/// </summary>
+		public static void GenerateGrassSnowTerrain(
+			this DataMatrix<ushort> matrix,
+			GenBlockParams stone_params,
+			GenBlockParams soil_params,
+			ushort grass_id,
+			ushort snow_id,
+			float snow_min_altitude,
+			float grass_max_altitude,
+			float noise_scale,
+			Vector2 noise_offset
+		)
+		{
+			Vector2 TransformSamplePosition(Vector2 position)
+			{
+				return position * noise_scale + noise_offset;
+			}
+
+			float GetHeight(GenBlockParams block_params, Vector2 position)
+			{
+				var noise_position = TransformSamplePosition(block_params.GetSamplePosition(position));
+				float height = block_params.GetHeight(Mathf.PerlinNoise(noise_position.x, noise_position.y));
+				return height;
+			}
+
+			for (int z = 0; z < matrix.size.z; z++)
+			{
+				for (int x = 0; x < matrix.size.x; x++)
+				{
+					var position = new Vector2(x, z);
+					float stone_height = GetHeight(stone_params, position);
+					float soil_height = GetHeight(soil_params, position);
+
+					for (int y = 0; y < matrix.size.y; y++)
+					{
+						if (y <= stone_height)
+						{
+							matrix[x, y, z] = stone_params.block_id;
+						}
+						else if (y <= stone_height + soil_height)
+						{
+							matrix[x, y, z] = soil_params.block_id;
+						}
+						else if (y <= stone_height + soil_height + 1)
+						{
+							if (y <= grass_max_altitude)
+							{
+								matrix[x, y, z] = grass_id;
+							}
+							else if (y <= snow_min_altitude)
+							{
+								matrix[x, y, z] = 0;
+							}
+							else
+							{
+								matrix[x, y, z] = snow_id;
+							}
+						}
+						else
+						{
+							matrix[x, y, z] = 0;
+						}
+					}
+
+				}
+			}
+
+		}
+
 	#endregion
 		//TODO classify methods into different class//
+
+	#region Util
+
+		public static void SetBlockId(this DataMatrix<VolumeUnit> volume_matrix, DataMatrix<ushort> block_id_matrix)
+		{
+			for (int i = 0; i < volume_matrix.Count; i++)
+			{
+				var cur_volume_unit = volume_matrix[i];
+				cur_volume_unit.block_id = block_id_matrix[i];
+				volume_matrix[i] = cur_volume_unit;
+			}
+		}
+
+	#endregion
 
 	}
 }
