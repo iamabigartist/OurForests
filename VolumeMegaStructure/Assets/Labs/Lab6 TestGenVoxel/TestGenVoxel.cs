@@ -18,6 +18,7 @@ namespace Labs.Lab6_TestGenVoxel
 		VoxelMesh voxel_mesh;
 
 		MeshFilter mesh_filter;
+		MeshRenderer mesh_renderer;
 
 		void OnEnable()
 		{
@@ -45,6 +46,8 @@ namespace Labs.Lab6_TestGenVoxel
 			mesh_filter = GetComponent<MeshFilter>();
 			mesh_filter.mesh = voxel_mesh.unity_mesh;
 
+			mesh_renderer = GetComponent<MeshRenderer>();
+			mesh_renderer.material = MainManager.voxel_render_manager.material;
 		}
 
 		void OnDisable()
