@@ -17,7 +17,7 @@ namespace VolumeMegaStructure.Generate.Volume
 			}
 		}
 
-		public static void GenerateCoherentNoiseThreshold<T>(this DataMatrix<T> matrix, Vector2 range, string seed)
+		public static void GenerateCoherentNoise01<T>(this DataMatrix<T> matrix, float ratio_0, T element_0, T element_1, string seed)
 			where T : struct
 		{
 			var noisier = new SimplexNoiseGenerator(seed);
@@ -28,16 +28,15 @@ namespace VolumeMegaStructure.Generate.Volume
 				{
 					for (int x = 0; x < matrix.size.x; x++)
 					{
-						matrix[x, y, z] = (dynamic)
-							((noisier.coherentNoise(x, y, z) + 1) / 2 *
-								(range.y - range.x) + range.x);
+						// Debug.Log((noisier.coherentNoise(x, y, z) + 1) / 2);
+						matrix[x, y, z] = (noisier.coherentNoise(x, y, z) + 1f) / 2f < (noisier.coherentNoise(20, 20, 20) + 1f) / 2f ? element_0 : element_1;
 						// matrix[x, y, z] = (dynamic)(noisier.coherentNoise( x, y, z ) + 1) * 5;
 					}
 				}
 			}
 		}
 
-		public static void GenerateSphereThreshold<T>(this DataMatrix<T> matrix, T inside_value, T outside_value, float radius, Vector3Int mid_point)
+		public static void GenerateSphere01<T>(this DataMatrix<T> matrix, T inside_value, T outside_value, float radius, Vector3Int mid_point)
 			where T : struct
 		{
 			for (int z = 0; z < matrix.size.z; z++)

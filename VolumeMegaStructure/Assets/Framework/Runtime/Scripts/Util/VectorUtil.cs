@@ -37,6 +37,16 @@ namespace VolumeMegaStructure.Util
 			return array.@select(v => v.ToVector());
 		}
 
+		public static Vector3 V(this int3 i3)
+		{
+			return new(i3.x, i3.y, i3.z);
+		}
+
+		public static Vector3 V(this float3 i3)
+		{
+			return new(i3.x, i3.y, i3.z);
+		}
+
 	#endregion
 
 	#region EaseDefine

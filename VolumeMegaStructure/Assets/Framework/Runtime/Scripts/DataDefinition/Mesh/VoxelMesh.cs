@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.Collections;
 using Unity.Jobs;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Rendering;
 using VolumeMegaStructure.DataDefinition.Container;
 using VolumeMegaStructure.DataDefinition.DataUnit;
 using VolumeMegaStructure.Generate.ProceduralMesh.Voxel;
 using VolumeMegaStructure.Manage;
+using VolumeMegaStructure.Util;
 using Object = UnityEngine.Object;
 namespace VolumeMegaStructure.DataDefinition.Mesh
 {
@@ -19,12 +21,23 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			MeshUpdateFlags.DontValidateIndices |
 			MeshUpdateFlags.DontNotifyMeshUsers |
 			MeshUpdateFlags.DontRecalculateBounds;
-		const int QUAD_ARRAY_CAPACITY = 3 * 100 * 100 * 101;
+
 
 		public UnityMesh unity_mesh;
 		DataMatrix<VolumeUnit> volume_matrix;
 		DataMatrix<bool> volume_inside_matrix;
 		Dictionary<QuadMark, int> quad_index_by_quad_mark;
+		int quad_array_capacity
+		{
+			get
+			{
+				var size = volume_matrix.size;
+				return
+					(size + new int3(1, 0, 0)).volume() +
+					(size + new int3(0, 1, 0)).volume() +
+					(size + new int3(0, 0, 1)).volume();
+			}
+		}
 
 	#region GenIntermediate
 
@@ -47,7 +60,7 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			unity_mesh = new();
 			this.volume_matrix = volume_matrix;
 			this.volume_inside_matrix = volume_inside_matrix;
-			quad_mark_list = new(QUAD_ARRAY_CAPACITY, Allocator.Persistent);
+			quad_mark_list = new(quad_array_capacity, Allocator.Persistent);
 		}
 
 		public void InitGenerate()
@@ -112,7 +125,7 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 
 			unity_mesh.subMeshCount = 1;
 			unity_mesh.SetSubMesh(0, new(0, quad_count * 6), FAST_SET_FLAG);
-			unity_mesh.bounds = new(Vector3.one * 50, Vector3.one * 100 /*这个是50还是100？*/);
+			unity_mesh.bounds = new(volume_matrix.CenterPoint.V(), volume_matrix.size.V());
 
 			index_buffer_array = new int[quad_count * 6];
 			vertex_buffer_array = new float[quad_count * 4 * 5];
@@ -123,13 +136,13 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 
 			index_buffer.Release();
 			vertex_buffer.Release();
+			quad_gen_unit_to_vertex_buffer_wait.Release();
+			gen_quad6_index_buffer_wait.Release();
 
 		}
 
 		public void Dispose()
 		{
-			volume_matrix.Dispose();
-			volume_inside_matrix.Dispose();
 			quad_mark_list.Dispose();
 			quad_unit_buffer.Release();
 		}
