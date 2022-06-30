@@ -6,12 +6,10 @@ using VolumeMegaStructure.DataDefinition.DataUnit;
 using VolumeMegaStructure.Util;
 namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 {
-
-
 	/// <summary>
-	///     在扫描VolumeMatrix之前，是不知道一共有多少个quad需要生成的，而最多可能有3*n*n*(n+1)个quad，这个数量很大，因此使用冗余的数组作为最终quad结果的存放内存很不划算。然而在扫描之后，使用NativeList积累所有quad，最终可以总结出quad的数量，再以此数量分配后续各种数组的长度。
+	///     统计所有quad的必要信息，以随机顺序组成一个列表，供后面的数组赋值操作时候参考位置。
 	/// </summary>
-	[BurstCompile(DisableSafetyChecks = true)]
+	[BurstCompile(DisableSafetyChecks = true, OptimizeFor = OptimizeFor.Performance)]
 	public struct GenQuadMarkList : IJobParallelFor
 	{
 		[ReadOnly] public DataMatrix<VolumeUnit> volume_matrix;

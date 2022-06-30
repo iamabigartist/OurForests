@@ -5,7 +5,7 @@ using VolumeMegaStructure.DataDefinition.Container;
 using VolumeMegaStructure.DataDefinition.DataUnit;
 namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 {
-	[BurstCompile(DisableSafetyChecks = true)]
+	[BurstCompile(DisableSafetyChecks = true,OptimizeFor = OptimizeFor.Performance)]
 	public struct VolumeMatrixEmptyCheckInside : IJobParallelFor
 	{
 		[NativeDisableParallelForRestriction] [ReadOnly] public DataMatrix<VolumeUnit> volume_matrix;

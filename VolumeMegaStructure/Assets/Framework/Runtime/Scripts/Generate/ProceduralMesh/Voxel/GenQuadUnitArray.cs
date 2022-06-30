@@ -8,7 +8,10 @@ using VolumeMegaStructure.Util;
 namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 {
 
-	[BurstCompile(DisableSafetyChecks = true)]
+	/// <summary>
+	///     对于quad_mark_list中的每个quad进行进一步计算获取其生成mesh所必要的信息，生成quad_unit_array传入compute shader进行后续生成。
+	/// </summary>
+	[BurstCompile(DisableSafetyChecks = true, OptimizeFor = OptimizeFor.Performance)]
 	public struct GenQuadUnitArray : IJobParallelFor
 	{
 		[ReadOnly] public DataMatrix<VolumeUnit> volume_matrix;
