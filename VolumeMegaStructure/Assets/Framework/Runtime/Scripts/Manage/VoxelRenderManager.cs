@@ -19,6 +19,12 @@ namespace VolumeMegaStructure.Manage
 	}
 	public class VoxelRenderManager : IDisposable
 	{
+	#region Debug
+
+		float[] texture_buffer_array;
+
+	#endregion
+
 		public List<VoxelColorTexture> textures;
 		public Material material;
 		public ComputeShader quad_gen_unit_to_vertex_buffer;
@@ -34,9 +40,10 @@ namespace VolumeMegaStructure.Manage
 		{
 			textures = new()
 			{
-				new(),
+				new(new(0.6f, 0.4f, 0.3f), 0f, 0f),
 				new(new(0.2f, 0.4f, 0.1f), 0f, 0f)
 			};
+
 			material = new(Shader.Find("Shader Graphs/VoxelMeshLit_PureColor"));
 			quad_gen_unit_to_vertex_buffer = Resources.Load<ComputeShader>("QuadGenUnitToVertexBuffer");
 			gen_quad6_index_buffer = Resources.Load<ComputeShader>("GenQuad6IndexBuffer");
@@ -52,6 +59,10 @@ namespace VolumeMegaStructure.Manage
 			material.SetBuffer("face_normals", normal_buffer);
 			material.SetBuffer("face_tangents", tangent_buffer);
 			material.SetBuffer("quad_color_textures", color_texture_buffer);
+
+
+			texture_buffer_array = new float[textures.Count * 5];
+			color_texture_buffer.GetData(texture_buffer_array);
 		}
 
 		public void Dispose()

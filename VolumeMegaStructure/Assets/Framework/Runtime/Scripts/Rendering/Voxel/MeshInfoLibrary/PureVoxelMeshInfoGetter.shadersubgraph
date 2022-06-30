@@ -338,7 +338,7 @@
         "code",
         "HLSL"
     ],
-    "m_Precision": 0,
+    "m_Precision": 1,
     "m_PreviewExpanded": false,
     "m_DismissedVersion": 0,
     "m_PreviewMode": 0,
@@ -411,10 +411,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -130.39999389648438,
-            "y": 124.79999542236328,
-            "width": 95.99998474121094,
-            "height": 172.800048828125
+            "x": -131.19996643066407,
+            "y": 124.80001831054688,
+            "width": 116.80000305175781,
+            "height": 172.80001831054688
         }
     },
     "m_Slots": [
@@ -480,10 +480,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -488.79998779296877,
-            "y": 124.80000305175781,
-            "width": 251.20001220703126,
-            "height": 93.59999084472656
+            "x": -488.800048828125,
+            "y": 124.80001068115235,
+            "width": 251.1999969482422,
+            "height": 93.5999984741211
         }
     },
     "m_Slots": [
