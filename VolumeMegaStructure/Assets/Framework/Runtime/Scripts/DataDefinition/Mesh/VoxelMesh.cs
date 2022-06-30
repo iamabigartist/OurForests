@@ -43,6 +43,8 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 		float[] vertex_buffer_array;
 		int[] index_buffer_array;
 
+		ProfileStopWatch stop_watch;
+
 	#endregion
 
 		public VoxelMesh(DataMatrix<VolumeUnit> volume_matrix, DataMatrix<bool> volume_inside_matrix)

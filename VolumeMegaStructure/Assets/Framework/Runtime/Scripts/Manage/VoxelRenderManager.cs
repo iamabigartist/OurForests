@@ -43,8 +43,8 @@ namespace VolumeMegaStructure.Manage
 			{
 				new(),
 				new(new(0.4f, 0.4f, 0.4f), 0f, 0.2f),
-				new(new(0.24f, 0.16f, 0f), 0f, 0.1f),
-				new(new(0.6f, 1.0f, 0.25f), 0f, 0f),
+				new(new(0.32f, 0.24f, 0f), 0f, 0.1f),
+				new(new(0.5f, 0.76f, 0.27f), 0f, 0f),
 				new(new(0.95f, 0.95f, 0.95f), 0.2f, 0f)
 			};
 

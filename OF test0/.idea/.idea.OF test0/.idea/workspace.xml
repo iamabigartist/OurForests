@@ -5,16 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8aa6f73-f44f-4013-b18c-6364ab72914d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Util/DebugUtil.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Util/DebugUtil.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Util/ProfileStopWatch.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Util/ProfileStopWatch.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/Volume/VolumeMatrixGeneration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/Volume/VolumeMatrixGeneration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/DataDefinition/Mesh/VoxelMesh.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/DataDefinition/Mesh/VoxelMesh.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Manage/VoxelRenderManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Manage/VoxelRenderManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/VoxelMeshLit_PureColor.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Rendering/Voxel/VoxelMeshLit_PureColor.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Util/VectorUtil.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Util/VectorUtil.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab6 TestGenVoxel/New Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab6 TestGenVoxel/New Scene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab6 TestGenVoxel/TestGenVoxel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab6 TestGenVoxel/TestGenVoxel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +49,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/DataDefinition/VolumeMatrix.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Generate/SourceGenerator/VoxelSurfaceUVOld.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.chua.prototype-utils@7d0fca7634/Runtime/MemoryUtility.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.chua.prototype-utils@7d0fca7634/Runtime/ProfileUtils.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.chua.prototype-utils@7d0fca7634/Runtime/TextureUtility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.chua.prototype-utils@7d0fca7634/Runtime/VectorUtil.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.burst@1.6.0/Runtime/bee~/Burst.bee.cs" root0="SKIP_HIGHLIGHTING" />
@@ -248,6 +251,7 @@
       <workItem from="1656503078975" duration="2908000" />
       <workItem from="1656516803299" duration="1134000" />
       <workItem from="1656567997439" duration="1248000" />
+      <workItem from="1656581229101" duration="1435000" />
     </task>
     <task id="LOCAL-00001" summary="Add some test method">
       <created>1639398343342</created>

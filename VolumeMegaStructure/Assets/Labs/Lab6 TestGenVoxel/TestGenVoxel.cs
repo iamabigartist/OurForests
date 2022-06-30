@@ -7,6 +7,7 @@ using VolumeMegaStructure.DataDefinition.DataUnit;
 using VolumeMegaStructure.DataDefinition.Mesh;
 using VolumeMegaStructure.Generate.ProceduralMesh.Voxel;
 using VolumeMegaStructure.Manage;
+using VolumeMegaStructure.Util;
 using static VolumeMegaStructure.Generate.Volume.VolumeMatrixGeneration;
 namespace Labs.Lab6_TestGenVoxel
 {
@@ -24,20 +25,27 @@ namespace Labs.Lab6_TestGenVoxel
 		public int3 chunk_size;
 		public GenerateGrassSnowTerrainParams MyTerrainParams;
 
+		ProfileStopWatch stop_watch;
+
 		void Clear()
 		{
 			voxel_mesh?.Dispose();
 			volume_matrix.Dispose();
 			volume_inside_matrix.Dispose();
+
+			stop_watch.Clear();
 		}
 
 		void Generate()
 		{
+			stop_watch.StartRecord("Generate Terrain");
 			volume_matrix = new(chunk_size, Allocator.Persistent);
 			var block_id_matrix = new DataMatrix<ushort>(volume_matrix.size, Allocator.Temp);
 			block_id_matrix.GenerateGrassSnowTerrain(MyTerrainParams);
 			volume_matrix.SetBlockId(block_id_matrix);
+			stop_watch.StopRecord();
 
+			stop_watch.StartRecord("Generate Mesh");
 			volume_inside_matrix = new(volume_matrix.size, Allocator.Persistent);
 			voxel_mesh = new(volume_matrix, volume_inside_matrix);
 			var empty_check_job = new VolumeMatrixEmptyCheckInside()
@@ -47,12 +55,18 @@ namespace Labs.Lab6_TestGenVoxel
 			};
 			empty_check_job.Schedule(volume_matrix.Count, 1024).Complete();
 			voxel_mesh.InitGenerate();
+			stop_watch.StopRecord();
 
+			stop_watch.StartRecord("Bind Components");
 			mesh_filter = GetComponent<MeshFilter>();
 			mesh_filter.mesh = voxel_mesh.unity_mesh;
 
 			mesh_renderer = GetComponent<MeshRenderer>();
 			mesh_renderer.material = MainManager.voxel_render_manager.material;
+			stop_watch.StopRecord();
+
+			Debug.Log(stop_watch.PrintAllRecords());
+
 		}
 
 		[ContextMenu("Regenerate Terrain")]
@@ -60,12 +74,12 @@ namespace Labs.Lab6_TestGenVoxel
 		{
 			Clear();
 			Generate();
-			new Color(0.24f, 0.16f, 0f);
 		}
 
 
 		void OnEnable()
 		{
+			stop_watch = new();
 			Generate();
 		}
 		void OnDestroy()
