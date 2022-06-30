@@ -64,17 +64,17 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 			a2 += 0.5f;
 			b1 -= 0.5f;
 			b2 += 0.5f;
+			c += 0.5f;
+
 			switch (dir % 2)
 			{
 				case 0:
 					{
-						c += 0.5f;
 						texture_id = cur_block_id;
 						break;
 					}
 				case 1:
 					{
-						c -= 0.5f;
 						texture_id = forward_block_id;
 						break;
 					}
