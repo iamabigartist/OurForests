@@ -7,7 +7,9 @@
     <list default="true" id="a8aa6f73-f44f-4013-b18c-6364ab72914d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OF test0/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/Volume/VolumeMatrixGeneration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Framework/Runtime/Scripts/Generate/Volume/VolumeMatrixGeneration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab6 TestGenVoxel/TestGenVoxel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab6 TestGenVoxel/TestGenVoxel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab6 TestGenVoxel/New Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/Assets/Labs/Lab6 TestGenVoxel/New Scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VolumeMegaStructure/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/../VolumeMegaStructure/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +32,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b2c530e619ab42aeba489c5671c8267115d000/dc/e50456c3/TextureFormat.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bc1d04d811fc4873ab7d8d9d4daddcc9568788/f7/3a50758c/Array.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/AssetTest/MyAssetImporter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Projects/BurstAndJobTest/Editor/TestStructArray.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Projects/BurstAndJobTest/Editor/TestTupleArray.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/CPUVoxelTest/Scripts/Tests/ManyCubeRendering.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/MUtility/VoxelGenerationUtility.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Projects/VolumeTerra/Scripts/Config/BlockConfig.cs" root0="FORCE_HIGHLIGHTING" />
@@ -243,6 +247,7 @@
       <workItem from="1656516803299" duration="1134000" />
       <workItem from="1656567997439" duration="1248000" />
       <workItem from="1656581229101" duration="2644000" />
+      <workItem from="1656586605989" duration="825000" />
     </task>
     <task id="LOCAL-00001" summary="Add some test method">
       <created>1639398343342</created>

@@ -171,13 +171,13 @@ MonoBehaviour:
       cube_height: 1
       noise_height_scale: 3
       noise_scale: 10
-      noise_offset: {x: 500, y: 500}
+      noise_offset: {x: 11, y: 500}
     grass_id: 3
     snow_id: 4
     snow_min_altitude: 130
     grass_max_altitude: 100
     noise_scale: 0.001
-    noise_offset: {x: 100, y: 1000}
+    noise_offset: {x: 22, y: 1000}
 --- !u!4 &632332470
 Transform:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using UnityEngine;
 using VolumeMegaStructure.DataDefinition.Container;
 using VolumeMegaStructure.DataDefinition.DataUnit;
@@ -193,7 +194,7 @@ namespace VolumeMegaStructure.Generate.Volume
 				return height;
 			}
 
-			for (int z = 0; z < matrix.size.z; z++)
+			Parallel.For(0, matrix.size.z, z =>
 			{
 				for (int x = 0; x < matrix.size.x; x++)
 				{
@@ -232,7 +233,7 @@ namespace VolumeMegaStructure.Generate.Volume
 						}
 					}
 				}
-			}
+			});
 		}
 
 	#endregion
