@@ -19,12 +19,12 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.collections": {
-      "version": "1.1.0",
+      "version": "1.2.3",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.burst": "1.5.4",
-        "com.unity.test-framework": "1.1.29"
+        "com.unity.burst": "1.6.4",
+        "com.unity.test-framework": "1.1.31"
       },
       "url": "https://packages.unity.com"
     },
@@ -45,7 +45,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
-      "version": "2.0.14",
+      "version": "2.0.15",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -70,7 +70,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.mathematics": {
-      "version": "1.2.5",
+      "version": "1.2.6",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
@@ -84,7 +84,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.render-pipelines.core": {
-      "version": "13.1.7",
+      "version": "13.1.8",
       "depth": 1,
       "source": "builtin",
       "dependencies": {
@@ -94,30 +94,30 @@
       }
     },
     "com.unity.render-pipelines.universal": {
-      "version": "13.1.7",
+      "version": "13.1.8",
       "depth": 0,
       "source": "builtin",
       "dependencies": {
         "com.unity.mathematics": "1.2.1",
         "com.unity.burst": "1.5.0",
-        "com.unity.render-pipelines.core": "13.1.7",
-        "com.unity.shadergraph": "13.1.7"
+        "com.unity.render-pipelines.core": "13.1.8",
+        "com.unity.shadergraph": "13.1.8"
       }
     },
     "com.unity.searcher": {
-      "version": "4.9.1",
+      "version": "4.9.2",
       "depth": 2,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.shadergraph": {
-      "version": "13.1.7",
+      "version": "13.1.8",
       "depth": 1,
       "source": "builtin",
       "dependencies": {
-        "com.unity.render-pipelines.core": "13.1.7",
-        "com.unity.searcher": "4.9.1"
+        "com.unity.render-pipelines.core": "13.1.8",
+        "com.unity.searcher": "4.9.2"
       }
     },
     "com.unity.test-framework": {
@@ -141,7 +141,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.timeline": {
-      "version": "1.7.0-pre.2",
+      "version": "1.7.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -162,7 +162,7 @@
       }
     },
     "com.unity.visualscripting": {
-      "version": "1.7.6",
+      "version": "1.7.8",
       "depth": 0,
       "source": "registry",
       "dependencies": {
