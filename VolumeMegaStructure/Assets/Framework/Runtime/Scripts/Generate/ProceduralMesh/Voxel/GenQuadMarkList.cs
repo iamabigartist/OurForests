@@ -10,7 +10,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 	///     统计所有quad的必要信息，以随机顺序组成一个列表，供后面的数组赋值操作时候参考位置。
 	/// </summary>
 	[BurstCompile(DisableSafetyChecks = true, OptimizeFor = OptimizeFor.Performance)]
-	public struct GenQuadMarkList : IJobParallelFor
+	public struct GenQuadMarkList : IJobFor
 	{
 		[ReadOnly] public DataMatrix<VolumeUnit> volume_matrix;
 		[ReadOnly] public DataMatrix<bool> volume_inside_matrix;
@@ -47,6 +47,23 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 			{
 				CreateSurfaceMark(volume_i, 2, cur_block_inside);
 			}
+		}
+
+		public static JobHandle ScheduleParallel(
+			DataMatrix<VolumeUnit> volume_matrix,
+			DataMatrix<bool> volume_inside_matrix,
+			int quad_count,
+			out NativeList<QuadMark> quad_mark_list,
+			JobHandle deps = default)
+		{
+			quad_mark_list = new(quad_count, Allocator.Persistent);
+			var job = new GenQuadMarkList()
+			{
+				volume_matrix = volume_matrix,
+				volume_inside_matrix = volume_inside_matrix,
+				quad_mark_list = quad_mark_list.AsParallelWriter()
+			};
+			return job.ScheduleParallel(volume_matrix.Count, 1, deps);
 		}
 	}
 }

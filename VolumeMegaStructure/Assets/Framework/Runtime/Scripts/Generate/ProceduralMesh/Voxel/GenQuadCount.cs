@@ -11,7 +11,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 	///     在扫描VolumeMatrix之前，是不知道一共有多少个quad需要生成的，而最多可能有3*n*n*(n+1)个quad，这个数量很大，因此使用冗余的数组作为最终quad结果的存放内存很不划算。然而在扫描之后，使用NativeCounter统计quad数量，再以此数量分配后续各种数组的长度。
 	/// </summary>
 	[BurstCompile(DisableSafetyChecks = true, OptimizeFor = OptimizeFor.Performance)]
-	public struct GenQuadCount : IJobParallelFor
+	public struct GenQuadCount : IJobFor
 	{
 		[ReadOnly] public DataMatrix<VolumeUnit> volume_matrix;
 		[ReadOnly] public DataMatrix<bool> volume_inside_matrix;
@@ -40,6 +40,22 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 			{
 				quad_counter.Increment();
 			}
+		}
+
+		public static JobHandle ScheduleParallel(
+			DataMatrix<VolumeUnit> volume_matrix,
+			DataMatrix<bool> volume_inside_matrix,
+			out NativeCounter quad_counter,
+			JobHandle deps = default)
+		{
+			quad_counter = new(Allocator.TempJob);
+			var job = new GenQuadCount()
+			{
+				volume_matrix = volume_matrix,
+				volume_inside_matrix = volume_inside_matrix,
+				quad_counter = quad_counter
+			};
+			return job.ScheduleParallel(volume_matrix.Count, 1, deps);
 		}
 	}
 }

@@ -30,7 +30,6 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 
 	#region GenIntermediate
 
-		NativeCounter quad_counter;
 		NativeList<QuadMark> quad_mark_list;
 		ComputeBuffer quad_unit_buffer;
 
@@ -52,7 +51,6 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			unity_mesh = new();
 			this.volume_matrix = volume_matrix;
 			this.volume_inside_matrix = volume_inside_matrix;
-			quad_counter = new(Allocator.Persistent);
 		}
 
 		public void InitGenerate()
@@ -60,24 +58,14 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 
 			int volume_count = volume_matrix.Count;
 
-			var gen_quad_count_job = new GenQuadCount()
-			{
-				volume_matrix = volume_matrix,
-				volume_inside_matrix = volume_inside_matrix,
-				quad_counter = quad_counter
-			};
-			gen_quad_count_job.Schedule(volume_count, 1).Complete();
+			var gen_quad_count_jh = GenQuadCount.ScheduleParallel(volume_matrix, volume_inside_matrix, out NativeCounter quad_counter);
+			gen_quad_count_jh.Complete();
 
 			int quad_count = quad_counter.Count;
+			quad_counter.Dispose();
 
-			quad_mark_list = new(quad_count, Allocator.Persistent);
-			var gen_quad_mark_list_job = new GenQuadMarkList()
-			{
-				volume_matrix = volume_matrix,
-				volume_inside_matrix = volume_inside_matrix,
-				quad_mark_list = quad_mark_list.AsParallelWriter()
-			};
-			gen_quad_mark_list_job.Schedule(volume_count, 1).Complete();
+			var gen_quad_mark_list_jh = GenQuadMarkList.ScheduleParallel(volume_matrix, volume_inside_matrix, quad_count, out quad_mark_list);
+			gen_quad_mark_list_jh.Complete();
 			//有可能做一个返回JobHandle的携程？
 
 			quad_index_by_quad_mark = quad_mark_list.ToArray().
@@ -145,7 +133,6 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 
 		public void Dispose()
 		{
-			quad_counter.Dispose();
 			quad_mark_list.Dispose();
 			quad_unit_buffer.Release();
 		}
