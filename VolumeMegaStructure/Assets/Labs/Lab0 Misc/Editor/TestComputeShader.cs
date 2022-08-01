@@ -34,7 +34,7 @@ namespace Labs.Lab0_Misc.Editor
 			var index_buffer_array = new int[100];
 			index_buffer.GetData(index_buffer_array);
 			index_buffer.Release();
-			index_buffer_array_string = index_buffer_array.ListToString(".");
+			index_buffer_array_string = index_buffer_array.ToMString(".");
 			Debug.Log(index_buffer_array_string);
 		}
 

@@ -114,7 +114,7 @@ namespace Labs.Lab0_Misc.Editor
 			};*/
 
 			m_job.Schedule(m_job.utils.table1.Length, 1).Complete();
-			Debug.Log(m_job.table2.ToArray().ListToString(","));
+			Debug.Log(m_job.table2.ToArray().ToMString(","));
 			m_job.utils.table1.Dispose();
 			m_job.table2.Dispose();
 
