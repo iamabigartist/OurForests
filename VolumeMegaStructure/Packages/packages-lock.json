@@ -1,13 +1,20 @@
 {
   "dependencies": {
     "com.chua.prototype-utils": {
-      "version": "https://github.com/iamabigartist/UnityPrototypeUtils.git?path=/Assets/PrototypeUtils#dev",
+      "version": "https://github.com/iamabigartist/UnityPrototypeUtils.git?path=/Assets/PrototypePackages/PrototypeUtils#dev",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.mathematics": "1.2.5"
       },
-      "hash": "3585efa7dd5f36b105a281a50eb6bea0740170e9"
+      "hash": "de7c6b8e857db6c31099e020974096f32839235b"
+    },
+    "com.chua.time-utils": {
+      "version": "https://github.com/iamabigartist/UnityPrototypeUtils.git?path=/Assets/PrototypePackages/TimeUtils#dev",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "de7c6b8e857db6c31099e020974096f32839235b"
     },
     "com.unity.burst": {
       "version": "1.7.3",

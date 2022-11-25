@@ -1,5 +1,4 @@
 using System;
-using PrototypeUtils;
 using Unity.Mathematics;
 using UnityEngine;
 namespace VolumeMegaStructure.Util
@@ -34,7 +33,7 @@ namespace VolumeMegaStructure.Util
 
 		public static Vector3[] f3_2_v3(this float3[] array)
 		{
-			return array.@select(v => v.ToVector());
+			return array.@select(f3 => f3.V());
 		}
 
 		public static Vector3 V(this int3 i3)
@@ -42,9 +41,19 @@ namespace VolumeMegaStructure.Util
 			return new(i3.x, i3.y, i3.z);
 		}
 
-		public static Vector3 V(this float3 i3)
+		public static Vector3 V(this float3 f3)
 		{
-			return new(i3.x, i3.y, i3.z);
+			return new(f3.x, f3.y, f3.z);
+		}
+
+		public static float3 f3(this (float a, float b, float c) tuple)
+		{
+			return new(tuple.a, tuple.b, tuple.c);
+		}
+
+		public static float3 f3(this (int a, int b, int c) tuple)
+		{
+			return new(tuple.a, tuple.b, tuple.c);
 		}
 
 		public static float3 f3(this Color color)

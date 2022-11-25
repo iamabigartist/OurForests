@@ -1,5 +1,5 @@
 using System.Linq;
-using PrototypeUtils;
+using PrototypePackages.PrototypeUtils;
 using Unity.Collections;
 using Unity.Jobs;
 using Unity.Mathematics;
@@ -106,7 +106,7 @@ namespace Labs.Lab2_TestJobs.Editor
 			var do_handle = do_job.Schedule(before_handle);
 			var after_handle = after_job.Schedule(1000, 1, do_handle);
 			after_handle.Complete();
-			result_string = after_job.result_list.ToArray()[..100].ToMString(",");
+			result_string = after_job.result_list.ToArray()[..100].JoinString(",");
 			original_array.Dispose();
 			result_array.Dispose();
 		}

@@ -1,4 +1,4 @@
-using PrototypeUtils;
+using PrototypePackages.PrototypeUtils;
 using Unity.Mathematics;
 using UnityEngine;
 using VolumeMegaStructure.Generate.ProceduralMesh.Voxel;

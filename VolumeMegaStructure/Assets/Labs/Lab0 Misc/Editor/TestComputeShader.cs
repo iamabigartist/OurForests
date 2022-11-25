@@ -1,4 +1,4 @@
-using PrototypeUtils;
+using PrototypePackages.PrototypeUtils;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -34,7 +34,7 @@ namespace Labs.Lab0_Misc.Editor
 			var index_buffer_array = new int[100];
 			index_buffer.GetData(index_buffer_array);
 			index_buffer.Release();
-			index_buffer_array_string = index_buffer_array.ToMString(".");
+			index_buffer_array_string = index_buffer_array.JoinString(".");
 			Debug.Log(index_buffer_array_string);
 		}
 
