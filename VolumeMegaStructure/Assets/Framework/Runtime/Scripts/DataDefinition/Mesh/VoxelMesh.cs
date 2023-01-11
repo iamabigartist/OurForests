@@ -11,7 +11,6 @@ using VolumeMegaStructure.DataDefinition.DataUnit;
 using VolumeMegaStructure.Generate.ProceduralMesh.Voxel;
 using VolumeMegaStructure.Manage;
 using VolumeMegaStructure.Util;
-using VolumeMegaStructure.Util.JobSystem;
 using Object = UnityEngine.Object;
 namespace VolumeMegaStructure.DataDefinition.Mesh
 {
@@ -64,27 +63,18 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 		public void InitGenerate()
 		{
 			var stop_watch = new ProfileStopWatch();
-			int max_quad_count = MaxQuadCount(volume_matrix.size);
-
-			stop_watch.StartRecord("GenQuadCount");
-
 			int volume_count = volume_matrix.Count;
-
-			var gen_quad_count_jh = GenQuadCount.ScheduleParallel(volume_matrix, volume_inside_matrix, out NativeCounter quad_counter);
-			gen_quad_count_jh.Complete();
-
-			int quad_count = quad_counter.Count;
-			quad_counter.Dispose();
-
-			stop_watch.StopRecord();
+			int max_quad_count = MaxQuadCount(volume_matrix.size);
 
 			stop_watch.StartRecord("GenQuadMarkList");
 
-			var gen_quad_mark_list_jh = GenQuadMarkList.ScheduleParallel(volume_matrix, volume_inside_matrix, quad_count, out quad_mark_list);
+			var gen_quad_mark_list_jh = GenQuadMarkList.ScheduleParallel(volume_matrix, volume_inside_matrix, max_quad_count, out quad_mark_list);
 			gen_quad_mark_list_jh.Complete();
 			//有可能做一个返回JobHandle的携程？
 
 			stop_watch.StopRecord();
+
+			int quad_count = quad_mark_list.Length;
 
 			quad_index_by_quad_mark = quad_mark_list.ToArray().
 				Select((quad_mark, index) => (index, quad_mark)).

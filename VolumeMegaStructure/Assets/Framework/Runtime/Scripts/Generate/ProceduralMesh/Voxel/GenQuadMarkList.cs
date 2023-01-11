@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Jobs;
@@ -16,6 +17,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 		[ReadOnly] public DataMatrix<bool> volume_inside_matrix;
 		[WriteOnly] public NativeList<QuadMark>.ParallelWriter quad_mark_list;
 
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		void CreateSurfaceMark(int volume_i, int axis, bool cur_block_inside)
 		{
 			int cur_quad_dir = 2 * axis + (cur_block_inside ? 0 : 1);
@@ -52,11 +54,11 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 		public static JobHandle ScheduleParallel(
 			DataMatrix<VolumeUnit> volume_matrix,
 			DataMatrix<bool> volume_inside_matrix,
-			int quad_count,
+			int max_quad_count,
 			out NativeList<QuadMark> quad_mark_list,
 			JobHandle deps = default)
 		{
-			quad_mark_list = new(quad_count, Allocator.Persistent);
+			quad_mark_list = new(max_quad_count, Allocator.Persistent);
 			var job = new GenQuadMarkList()
 			{
 				volume_matrix = volume_matrix,
