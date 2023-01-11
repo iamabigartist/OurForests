@@ -45,7 +45,7 @@ namespace VolumeMegaStructure.Manage
 				new(new(0.4f, 0.4f, 0.4f), 0f, 0.2f),
 				new(new(0.32f, 0.24f, 0f), 0f, 0.1f),
 				new(new(0.5f, 0.76f, 0.27f), 0f, 0f),
-				new(new(0.95f, 0.95f, 0.95f), 0.2f, 0f)
+				new(new(0.95f, 0.95f, 0.95f), 0f, 0f)
 			};
 
 			material = new(Shader.Find("Shader Graphs/VoxelMeshLit_PureColor"));
