@@ -8,9 +8,6 @@ using VolumeMegaStructure.DataDefinition.DataUnit;
 using VolumeMegaStructure.Util;
 namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 {
-	/// <summary>
-	///     统计所有quad的必要信息，以随机顺序组成一个列表，供后面的数组赋值操作时候参考位置。
-	/// </summary>
 	[BurstCompile(DisableSafetyChecks = true, OptimizeFor = OptimizeFor.Performance)]
 	public struct GenQuadMarkArray : IJobFor
 	{

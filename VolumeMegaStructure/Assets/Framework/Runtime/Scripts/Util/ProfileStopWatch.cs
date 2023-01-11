@@ -48,7 +48,7 @@ namespace VolumeMegaStructure.Util
 				return new
 				{
 					name = pair.Key,
-					start_time = pair.Value.start_time.Millisecond,
+					start_time = pair.Value.start_time.Ticks.Get_ms(),
 					ms = pair.Value.ticks.Get_ms()
 				};
 			});

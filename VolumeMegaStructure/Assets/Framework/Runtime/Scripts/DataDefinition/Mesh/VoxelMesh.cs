@@ -74,6 +74,22 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 
 			stop_watch.StopRecord();
 
+			int3 size_1 = new int3(1000, 250, 1000);
+			var max_quad_count_1 = MaxQuadCount(size_1);
+			var test_matrix = new NativeArray<int>(max_quad_count_1, Allocator.Persistent);
+			test_matrix.Dispose();
+
+			stop_watch.StartRecord("GenVolumeQuadHolderMatrix");
+
+			var gen_quad_holder_list_job = new GenVolumeQuadHolderMatrix()
+			{
+				volume_inside_matrix = volume_inside_matrix,
+				volume_quad_holder_matrix = new(volume_matrix.size, Allocator.Persistent)
+			};
+			gen_quad_holder_list_job.Schedule(volume_count, 1024).Complete();
+
+			stop_watch.StopRecord();
+
 			int quad_count = quad_mark_list.Length;
 
 			quad_index_by_quad_mark = quad_mark_list.ToArray().

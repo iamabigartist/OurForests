@@ -65,7 +65,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 				volume_inside_matrix = volume_inside_matrix,
 				quad_mark_list = quad_mark_list.AsParallelWriter()
 			};
-			return job.ScheduleParallel(volume_matrix.Count, 1, deps);
+			return job.ScheduleParallel(volume_matrix.Count, 1024, deps);
 		}
 	}
 }
