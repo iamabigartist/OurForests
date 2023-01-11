@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.Collections;
 using Unity.Jobs;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Rendering;
 using VolumeMegaStructure.DataDefinition.Container;
@@ -42,8 +43,6 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 		float[] vertex_buffer_array;
 		int[] index_buffer_array;
 
-		ProfileStopWatch stop_watch;
-
 	#endregion
 
 		public VoxelMesh(DataMatrix<VolumeUnit> volume_matrix, DataMatrix<bool> volume_inside_matrix)
@@ -53,8 +52,21 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			this.volume_inside_matrix = volume_inside_matrix;
 		}
 
+		public int MaxQuadCount(int3 size)
+		{
+			return
+				(size.x + 1) * size.y * size.z +
+				size.x * (size.y + 1) * size.z +
+				size.x * size.y * (size.z + 1);
+
+		}
+
 		public void InitGenerate()
 		{
+			var stop_watch = new ProfileStopWatch();
+			int max_quad_count = MaxQuadCount(volume_matrix.size);
+
+			stop_watch.StartRecord("GenQuadCount");
 
 			int volume_count = volume_matrix.Count;
 
@@ -64,13 +76,21 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			int quad_count = quad_counter.Count;
 			quad_counter.Dispose();
 
+			stop_watch.StopRecord();
+
+			stop_watch.StartRecord("GenQuadMarkList");
+
 			var gen_quad_mark_list_jh = GenQuadMarkList.ScheduleParallel(volume_matrix, volume_inside_matrix, quad_count, out quad_mark_list);
 			gen_quad_mark_list_jh.Complete();
 			//有可能做一个返回JobHandle的携程？
 
+			stop_watch.StopRecord();
+
 			quad_index_by_quad_mark = quad_mark_list.ToArray().
 				Select((quad_mark, index) => (index, quad_mark)).
 				ToDictionary(pair => pair.quad_mark, pair => pair.index);
+
+			stop_watch.StartRecord("GenQuadUnitArray");
 
 			quad_unit_buffer = new(quad_count * 7, sizeof(float), ComputeBufferType.Structured, ComputeBufferMode.SubUpdates);
 			var gen_quad_unit_array_job = new GenQuadUnitArray()
@@ -81,6 +101,10 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			};
 			gen_quad_unit_array_job.Schedule(quad_count, 1).Complete();
 			quad_unit_buffer.EndWrite<float>(quad_count * 7);
+
+			stop_watch.StopRecord();
+
+			stop_watch.StartRecord("SetMesh");
 
 			unity_mesh.SetIndexBufferParams(quad_count * 6, IndexFormat.UInt32);
 			unity_mesh.SetVertexBufferParams(quad_count * 4,
@@ -94,12 +118,23 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			GraphicsBuffer index_buffer = unity_mesh.GetIndexBuffer();
 			GraphicsBuffer vertex_buffer = unity_mesh.GetVertexBuffer(0);
 
+			stop_watch.StopRecord();
+
+			stop_watch.StartRecord("GenQuad6IndexBuffer");
+
 			ComputeShader gen_quad6_index_buffer = Object.Instantiate(MainManager.voxel_render_manager.gen_quad6_index_buffer);
 			ComputeBuffer gen_quad6_index_buffer_wait = new ComputeBuffer(1, sizeof(int));
 			gen_quad6_index_buffer.SetInt("quad_count", quad_count);
 			gen_quad6_index_buffer.SetBuffer(0, "render_index_buffer", index_buffer);
 			gen_quad6_index_buffer.Dispatch(0,
 				Mathf.CeilToInt(quad_count / 1024f), 1, 1);
+
+			AsyncGPUReadback.Request(gen_quad6_index_buffer_wait);
+			AsyncGPUReadback.WaitAllRequests();
+
+			stop_watch.StopRecord();
+
+			stop_watch.StartRecord("QuadGenUnitToVertexBuffer");
 
 			ComputeShader quad_gen_unit_to_vertex_buffer = Object.Instantiate(MainManager.voxel_render_manager.quad_gen_unit_to_vertex_buffer);
 			ComputeBuffer quad_gen_unit_to_vertex_buffer_wait = new ComputeBuffer(1, sizeof(int));
@@ -110,8 +145,11 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 				Mathf.CeilToInt(quad_count / 1024f), 1, 1);
 
 			AsyncGPUReadback.Request(quad_gen_unit_to_vertex_buffer_wait);
-			AsyncGPUReadback.Request(gen_quad6_index_buffer_wait);
 			AsyncGPUReadback.WaitAllRequests();
+
+			stop_watch.StopRecord();
+
+			stop_watch.StartRecord("CopyArraysAndClean");
 
 			unity_mesh.subMeshCount = 1;
 			unity_mesh.SetSubMesh(0, new(0, quad_count * 6), FAST_SET_FLAG);
@@ -128,6 +166,10 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			vertex_buffer.Release();
 			quad_gen_unit_to_vertex_buffer_wait.Release();
 			gen_quad6_index_buffer_wait.Release();
+
+			stop_watch.StopRecord();
+
+			Debug.Log(stop_watch.PrintAllRecords());
 
 		}
 
