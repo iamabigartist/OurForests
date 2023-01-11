@@ -156,9 +156,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chunk_size:
-    x: 250
+    x: 1000
     y: 250
-    z: 250
+    z: 1000
   MyTerrainParams:
     stone_params:
       block_id: 1

@@ -30,7 +30,7 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 
 	#region GenIntermediate
 
-		NativeList<QuadMark> quad_mark_list;
+		NativeQueue<QuadMark> quad_mark_queue;
 		ComputeBuffer quad_unit_buffer;
 
 	#endregion
@@ -64,35 +64,30 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 		{
 			var stop_watch = new ProfileStopWatch();
 			int volume_count = volume_matrix.Count;
-			int max_quad_count = MaxQuadCount(volume_matrix.size);
 
-			stop_watch.StartRecord("GenQuadMarkList");
+			// stop_watch.StartRecord("GenQuadMarkList");
+			//
+			// var gen_quad_mark_list_jh = GenQuadMarkList.ScheduleParallel(volume_matrix, volume_inside_matrix, max_quad_count, out quad_mark_list);
+			// gen_quad_mark_list_jh.Complete();
+			// //有可能做一个返回JobHandle的携程？
+			//
+			// stop_watch.StopRecord();
 
-			var gen_quad_mark_list_jh = GenQuadMarkList.ScheduleParallel(volume_matrix, volume_inside_matrix, max_quad_count, out quad_mark_list);
-			gen_quad_mark_list_jh.Complete();
+			stop_watch.StartRecord("GenQuadMarkQueue");
+
+			var gen_quad_mark_jh = GenQuadMarkQueue.ScheduleParallel(volume_inside_matrix, out quad_mark_queue);
+			gen_quad_mark_jh.Complete();
 			//有可能做一个返回JobHandle的携程？
 
 			stop_watch.StopRecord();
 
-			int3 size_1 = new int3(1000, 250, 1000);
-			var max_quad_count_1 = MaxQuadCount(size_1);
-			var test_matrix = new NativeArray<int>(max_quad_count_1, Allocator.Persistent);
-			test_matrix.Dispose();
+			int quad_count = quad_mark_queue.Count;
 
-			stop_watch.StartRecord("GenVolumeQuadHolderMatrix");
-
-			var gen_quad_holder_list_job = new GenVolumeQuadHolderMatrix()
-			{
-				volume_inside_matrix = volume_inside_matrix,
-				volume_quad_holder_matrix = new(volume_matrix.size, Allocator.Persistent)
-			};
-			gen_quad_holder_list_job.Schedule(volume_count, 1024).Complete();
-
+			stop_watch.StartRecord("QuadMarkQueueToArray");
+			var quad_mark_array = quad_mark_queue.ToArray(Allocator.TempJob);
 			stop_watch.StopRecord();
 
-			int quad_count = quad_mark_list.Length;
-
-			quad_index_by_quad_mark = quad_mark_list.ToArray().
+			quad_index_by_quad_mark = quad_mark_array.
 				Select((quad_mark, index) => (index, quad_mark)).
 				ToDictionary(pair => pair.quad_mark, pair => pair.index);
 
@@ -102,13 +97,15 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			var gen_quad_unit_array_job = new GenQuadUnitArray()
 			{
 				volume_matrix = volume_matrix,
-				quad_mark_array = quad_mark_list.AsArray(),
+				quad_mark_array = quad_mark_array,
 				quad_unit_array = quad_unit_buffer.BeginWrite<float>(0, quad_count * 7)
 			};
 			gen_quad_unit_array_job.Schedule(quad_count, 1).Complete();
 			quad_unit_buffer.EndWrite<float>(quad_count * 7);
 
 			stop_watch.StopRecord();
+
+			quad_mark_array.Dispose();
 
 			stop_watch.StartRecord("SetMesh");
 
@@ -181,7 +178,7 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 
 		public void Dispose()
 		{
-			quad_mark_list.Dispose();
+			quad_mark_queue.Dispose();
 			quad_unit_buffer.Release();
 		}
 
