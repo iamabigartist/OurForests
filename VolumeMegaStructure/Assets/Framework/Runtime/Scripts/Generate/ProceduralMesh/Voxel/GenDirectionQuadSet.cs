@@ -12,20 +12,20 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 	///     统计所有quad的必要信息，以随机顺序组成一个列表，供后面的数组赋值操作时候参考位置。
 	/// </summary>
 	[BurstCompile(DisableSafetyChecks = true, OptimizeFor = OptimizeFor.Performance)]
-	public struct GenDirectionQuadQueue : IJobFor
+	public struct GenDirectionQuadSet : IJobFor
 	{
 		[ReadOnly] public DataMatrix<bool> volume_inside_matrix;
-		[WriteOnly] public NativeQueue<int>.ParallelWriter stream_x;
-		[WriteOnly] public NativeQueue<int>.ParallelWriter stream_x_minus;
-		[WriteOnly] public NativeQueue<int>.ParallelWriter stream_y;
-		[WriteOnly] public NativeQueue<int>.ParallelWriter stream_y_minus;
-		[WriteOnly] public NativeQueue<int>.ParallelWriter stream_z;
-		[WriteOnly] public NativeQueue<int>.ParallelWriter stream_z_minus;
+		[WriteOnly] public NativeHashSet<int>.ParallelWriter stream_x_minus;
+		[WriteOnly] public NativeHashSet<int>.ParallelWriter stream_y;
+		[WriteOnly] public NativeHashSet<int>.ParallelWriter stream_y_minus;
+		[WriteOnly] public NativeHashSet<int>.ParallelWriter stream_z;
+		[WriteOnly] public NativeHashSet<int>.ParallelWriter stream_z_minus;
+		[WriteOnly] public NativeHashSet<int>.ParallelWriter stream_x;
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		void WriteQuadToStream(int i, ref NativeQueue<int>.ParallelWriter stream)
+		void WriteQuadToStream(int i, ref NativeHashSet<int>.ParallelWriter stream)
 		{
-			stream.Enqueue(i);
+			stream.Add(i);
 		}
 
 		public void Execute(int volume_i)
@@ -57,7 +57,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 			}
 		}
 
-		static int GetBatchSize_SquareThreadCount(int total)
+		static int GetBatchSize_SquareThreadSeparate(int total)
 		{
 			float pow = math.pow(JobsUtility.MaxJobThreadCount, 2);
 
@@ -66,22 +66,22 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 
 		public static JobHandle ScheduleParallel(
 			DataMatrix<bool> volume_inside_matrix,
-			out NativeQueue<int> stream_x,
-			out NativeQueue<int> stream_x_minus,
-			out NativeQueue<int> stream_y,
-			out NativeQueue<int> stream_y_minus,
-			out NativeQueue<int> stream_z,
-			out NativeQueue<int> stream_z_minus,
+			out NativeHashSet<int> stream_x,
+			out NativeHashSet<int> stream_x_minus,
+			out NativeHashSet<int> stream_y,
+			out NativeHashSet<int> stream_y_minus,
+			out NativeHashSet<int> stream_z,
+			out NativeHashSet<int> stream_z_minus,
 			JobHandle deps = default)
 		{
 			int volume_count = volume_inside_matrix.Count;
-			stream_x = new(Allocator.TempJob);
-			stream_x_minus = new(Allocator.TempJob);
-			stream_y = new(Allocator.TempJob);
-			stream_y_minus = new(Allocator.TempJob);
-			stream_z = new(Allocator.TempJob);
-			stream_z_minus = new(Allocator.TempJob);
-			var job = new GenDirectionQuadQueue()
+			stream_x = new(1, Allocator.TempJob);
+			stream_x_minus = new(1, Allocator.TempJob);
+			stream_y = new(1, Allocator.TempJob);
+			stream_y_minus = new(1, Allocator.TempJob);
+			stream_z = new(1, Allocator.TempJob);
+			stream_z_minus = new(1, Allocator.TempJob);
+			var job = new GenDirectionQuadSet()
 			{
 				volume_inside_matrix = volume_inside_matrix,
 				stream_x = stream_x.AsParallelWriter(),
@@ -92,7 +92,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 				stream_z_minus = stream_z_minus.AsParallelWriter()
 			};
 			return job.ScheduleParallel(volume_count,
-				GetBatchSize_SquareThreadCount(volume_count), deps);
+				GetBatchSize_SquareThreadSeparate(volume_count), deps);
 		}
 	}
 }
