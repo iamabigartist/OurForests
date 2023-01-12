@@ -84,6 +84,12 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 
 		#region QueueAndSet
 
+			///思路
+			/// 数组虽然不能在job内部使用，但是可以在外部使用，在job自身的构造函数中再将数组和job中字段对应。
+			/// 关于scan line，使用array和set，选取一个quad，先看前面是否断裂，再往后递归直到断裂，来选取一个line，即（原点id，纹理id，长度）。
+			/// 关于不同方向quad访问方向不同，使用TWalker，每个方向一个Walker，有 walk_in_line 函数，也有 walk_among_line 函数。
+			/// 一个greedy surface，即（原点id，纹理id，主方向长度，副方向长度）
+
 			// stop_watch.StartRecord("GenDirectionQuadQueue");
 			// GenDirectionQuadQueue.ScheduleParallel(volume_inside_matrix,
 			// 	out var stream_x,
@@ -123,10 +129,10 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 
 		#region Buffer
 
-			stop_watch.StartRecord("GenQuadMarkBuffer");
-			GenQuadMarkBuffer.ScheduleParallel(volume_inside_matrix, out var buffers).Complete();
-			stop_watch.StopRecord();
-			Debug.Log($"buffer len:{buffers[0][0].Length}");
+			// stop_watch.StartRecord("GenQuadMarkBuffer");
+			// GenQuadMarkBuffer.ScheduleParallel(volume_inside_matrix, out var buffers).Complete();
+			// stop_watch.StopRecord();
+			// Debug.Log($"buffer len:{buffers[0][0].Length}");
 
 		#endregion
 
