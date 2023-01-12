@@ -73,24 +73,31 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			//
 			// stop_watch.StopRecord();
 
-			stop_watch.StartRecord("GenDirectionQuadStream");
-
-			GenDirectionQuadStream.ScheduleParallel(volume_inside_matrix,
+			stop_watch.StartRecord("GenDirectionQuadQueue");
+			GenDirectionQuadQueue.ScheduleParallel(volume_inside_matrix,
 				out var stream_x,
 				out var stream_x_minus,
 				out var stream_y,
 				out var stream_y_minus,
 				out var stream_z,
 				out var stream_z_minus).Complete();
+			stop_watch.StopRecord();
 
+			stop_watch.StartRecord("SortAllQueue");
+			var jh_array = new NativeArray<JobHandle>(6, Allocator.Temp);
+			jh_array[0] = stream_x.ToArray(Allocator.Temp).SortJob().Schedule();
+			jh_array[1] = stream_x.ToArray(Allocator.Temp).SortJob().Schedule();
+			jh_array[2] = stream_x.ToArray(Allocator.Temp).SortJob().Schedule();
+			jh_array[3] = stream_x.ToArray(Allocator.Temp).SortJob().Schedule();
+			jh_array[4] = stream_x.ToArray(Allocator.Temp).SortJob().Schedule();
+			jh_array[5] = stream_x.ToArray(Allocator.Temp).SortJob().Schedule();
+			JobHandle.CompleteAll(jh_array);
 			stop_watch.StopRecord();
 
 			stop_watch.StartRecord("GenQuadMarkQueue");
-
 			var gen_quad_mark_jh = GenQuadMarkQueue.ScheduleParallel(volume_inside_matrix, out quad_mark_queue);
 			gen_quad_mark_jh.Complete();
 			//有可能做一个返回JobHandle的携程？
-
 			stop_watch.StopRecord();
 
 			int quad_count = quad_mark_queue.Count;
