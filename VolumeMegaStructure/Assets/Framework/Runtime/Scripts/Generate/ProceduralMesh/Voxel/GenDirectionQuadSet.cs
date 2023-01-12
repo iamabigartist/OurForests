@@ -40,20 +40,20 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 
 			if (cur_block_inside != x_forward_inside)
 			{
-				if (cur_block_inside) { WriteQuadToStream(volume_i, ref stream_x); }
-				else { WriteQuadToStream(volume_i, ref stream_x_minus); }
+				if (cur_block_inside) { stream_x.Add(volume_i); }
+				else { stream_x_minus.Add(volume_i); }
 			}
 
 			if (cur_block_inside != y_forward_inside)
 			{
-				if (cur_block_inside) { WriteQuadToStream(volume_i, ref stream_y); }
-				else { WriteQuadToStream(volume_i, ref stream_y_minus); }
+				if (cur_block_inside) { stream_y.Add(volume_i); }
+				else { stream_y_minus.Add(volume_i); }
 			}
 
 			if (cur_block_inside != z_forward_inside)
 			{
-				if (cur_block_inside) { WriteQuadToStream(volume_i, ref stream_z); }
-				else { WriteQuadToStream(volume_i, ref stream_z_minus); }
+				if (cur_block_inside) { stream_z.Add(volume_i); }
+				else { stream_z_minus.Add(volume_i); }
 			}
 		}
 

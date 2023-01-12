@@ -88,29 +88,33 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 				out var stream_z,
 				out var stream_z_minus).Complete();
 			stop_watch.StopRecord();
+
 			DisposeAll(stream_x, stream_x_minus, stream_y, stream_y_minus, stream_z, stream_z_minus);
 
+			var w = new NativeStream().AsWriter();
 
-			stop_watch.StartRecord("GenDirectionQuadSet");
-			GenDirectionQuadSet.ScheduleParallel(volume_inside_matrix,
-				out var set_x,
-				out var set_x_m,
-				out var set_y,
-				out var set_y_m,
-				out var set_z,
-				out var set_z_m).Complete();
-			stop_watch.StopRecord();
 
-			stop_watch.StartRecord("SetToArray");
-			var array_x = set_x.ToNativeArray(Allocator.Temp);
-			var array_x_m = set_x_m.ToNativeArray(Allocator.Temp);
-			var array_y = set_y.ToNativeArray(Allocator.Temp);
-			var array_y_m = set_y_m.ToNativeArray(Allocator.Temp);
-			var array_z = set_z.ToNativeArray(Allocator.Temp);
-			var array_z_m = set_z_m.ToNativeArray(Allocator.Temp);
-			stop_watch.StopRecord();
+			// stop_watch.StartRecord("GenDirectionQuadSet");
+			// GenDirectionQuadSet.ScheduleParallel(volume_inside_matrix,
+			// 	out var set_x,
+			// 	out var set_x_m,
+			// 	out var set_y,
+			// 	out var set_y_m,
+			// 	out var set_z,
+			// 	out var set_z_m).Complete();
+			// stop_watch.StopRecord();
 
-			DisposeAll(set_x, set_x_m, set_y, set_y_m, set_z, set_z_m);
+			// stop_watch.StartRecord("SetToArray");
+			// var array_x = set_x.ToNativeArray(Allocator.Temp);
+			// var array_x_m = set_x_m.ToNativeArray(Allocator.Temp);
+			// var array_y = set_y.ToNativeArray(Allocator.Temp);
+			// var array_y_m = set_y_m.ToNativeArray(Allocator.Temp);
+			// var array_z = set_z.ToNativeArray(Allocator.Temp);
+			// var array_z_m = set_z_m.ToNativeArray(Allocator.Temp);
+			// stop_watch.StopRecord();
+			//
+			// DisposeAll(array_x, array_x_m, array_y, array_y_m, array_z, array_z_m);
+			// DisposeAll(set_x, set_x_m, set_y, set_y_m, set_z, set_z_m);
 
 			stop_watch.StartRecord("GenQuadMarkQueue");
 			var gen_quad_mark_jh = GenQuadMarkQueue.ScheduleParallel(volume_inside_matrix, out quad_mark_queue);
