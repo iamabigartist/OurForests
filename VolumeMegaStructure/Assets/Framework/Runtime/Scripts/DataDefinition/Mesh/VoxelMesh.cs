@@ -73,6 +73,18 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			//
 			// stop_watch.StopRecord();
 
+			stop_watch.StartRecord("GenDirectionQuadStream");
+
+			GenDirectionQuadStream.ScheduleParallel(volume_inside_matrix,
+				out var stream_x,
+				out var stream_x_minus,
+				out var stream_y,
+				out var stream_y_minus,
+				out var stream_z,
+				out var stream_z_minus).Complete();
+
+			stop_watch.StopRecord();
+
 			stop_watch.StartRecord("GenQuadMarkQueue");
 
 			var gen_quad_mark_jh = GenQuadMarkQueue.ScheduleParallel(volume_inside_matrix, out quad_mark_queue);
