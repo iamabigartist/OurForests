@@ -11,7 +11,6 @@ using VolumeMegaStructure.DataDefinition.DataUnit;
 using VolumeMegaStructure.Generate.ProceduralMesh.Voxel;
 using VolumeMegaStructure.Manage;
 using VolumeMegaStructure.Util;
-using static VolumeMegaStructure.Util.DisposeUtil;
 using Object = UnityEngine.Object;
 namespace VolumeMegaStructure.DataDefinition.Mesh
 {
@@ -71,6 +70,8 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			var stop_watch = new ProfileStopWatch();
 			int volume_count = volume_matrix.Count;
 
+		#region OriginalMarkScan
+
 			// stop_watch.StartRecord("GenQuadMarkList");
 			//
 			// var gen_quad_mark_list_jh = GenQuadMarkList.ScheduleParallel(volume_matrix, volume_inside_matrix, max_quad_count, out quad_mark_list);
@@ -79,42 +80,55 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			//
 			// stop_watch.StopRecord();
 
-			stop_watch.StartRecord("GenDirectionQuadQueue");
-			GenDirectionQuadQueue.ScheduleParallel(volume_inside_matrix,
-				out var stream_x,
-				out var stream_x_minus,
-				out var stream_y,
-				out var stream_y_minus,
-				out var stream_z,
-				out var stream_z_minus).Complete();
-			stop_watch.StopRecord();
+		#endregion
 
-			DisposeAll(stream_x, stream_x_minus, stream_y, stream_y_minus, stream_z, stream_z_minus);
+		#region QueueAndSet
 
-			var w = new NativeStream().AsWriter();
-
-
-			// stop_watch.StartRecord("GenDirectionQuadSet");
-			// GenDirectionQuadSet.ScheduleParallel(volume_inside_matrix,
-			// 	out var set_x,
-			// 	out var set_x_m,
-			// 	out var set_y,
-			// 	out var set_y_m,
-			// 	out var set_z,
-			// 	out var set_z_m).Complete();
-			// stop_watch.StopRecord();
-
-			// stop_watch.StartRecord("SetToArray");
-			// var array_x = set_x.ToNativeArray(Allocator.Temp);
-			// var array_x_m = set_x_m.ToNativeArray(Allocator.Temp);
-			// var array_y = set_y.ToNativeArray(Allocator.Temp);
-			// var array_y_m = set_y_m.ToNativeArray(Allocator.Temp);
-			// var array_z = set_z.ToNativeArray(Allocator.Temp);
-			// var array_z_m = set_z_m.ToNativeArray(Allocator.Temp);
+			// stop_watch.StartRecord("GenDirectionQuadQueue");
+			// GenDirectionQuadQueue.ScheduleParallel(volume_inside_matrix,
+			// 	out var stream_x,
+			// 	out var stream_x_minus,
+			// 	out var stream_y,
+			// 	out var stream_y_minus,
+			// 	out var stream_z,
+			// 	out var stream_z_minus).Complete();
 			// stop_watch.StopRecord();
 			//
-			// DisposeAll(array_x, array_x_m, array_y, array_y_m, array_z, array_z_m);
-			// DisposeAll(set_x, set_x_m, set_y, set_y_m, set_z, set_z_m);
+			// stop_watch.StartRecord("QueueToArray");
+			// var array_0 = stream_x.ToArray(Allocator.TempJob);
+			// var array_1 = stream_x_minus.ToArray(Allocator.TempJob);
+			// var array_2 = stream_y.ToArray(Allocator.TempJob);
+			// var array_3 = stream_y_minus.ToArray(Allocator.TempJob);
+			// var array_4 = stream_z.ToArray(Allocator.TempJob);
+			// var array_5 = stream_z_minus.ToArray(Allocator.TempJob);
+			// stop_watch.StopRecord();
+			//
+			// stop_watch.StartRecord("ArrayToSet");
+			// var jhs = new NativeArray<JobHandle>(6, Allocator.Temp);
+			// jhs[0] = NativeArrayToHashSetForJob<int>.ScheduleParallel(array_0, out var set_0);
+			// jhs[1] = NativeArrayToHashSetForJob<int>.ScheduleParallel(array_1, out var set_1);
+			// jhs[2] = NativeArrayToHashSetForJob<int>.ScheduleParallel(array_2, out var set_2);
+			// jhs[3] = NativeArrayToHashSetForJob<int>.ScheduleParallel(array_3, out var set_3);
+			// jhs[4] = NativeArrayToHashSetForJob<int>.ScheduleParallel(array_4, out var set_4);
+			// jhs[5] = NativeArrayToHashSetForJob<int>.ScheduleParallel(array_5, out var set_5);
+			// JobHandle.CompleteAll(jhs);
+			// stop_watch.StopRecord();
+			// DisposeAll(array_0, array_1, array_2, array_3, array_4, array_5);
+			// DisposeAll(set_0, set_1, set_2, set_3, set_4, set_5);
+			// jhs.Dispose();
+			//
+			// DisposeAll(stream_x, stream_x_minus, stream_y, stream_y_minus, stream_z, stream_z_minus);
+
+		#endregion
+
+		#region Buffer
+
+			stop_watch.StartRecord("GenQuadMarkBuffer");
+			GenQuadMarkBuffer.ScheduleParallel(volume_inside_matrix, out var buffers).Complete();
+			stop_watch.StopRecord();
+			Debug.Log($"buffer len:{buffers[0][0].Length}");
+
+		#endregion
 
 			stop_watch.StartRecord("GenQuadMarkQueue");
 			var gen_quad_mark_jh = GenQuadMarkQueue.ScheduleParallel(volume_inside_matrix, out quad_mark_queue);
