@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 using Unity.Collections;
+using Unity.Collections.NotBurstCompatible;
 using Unity.Jobs;
 using Unity.Mathematics;
 using UnityEngine;
@@ -11,6 +13,8 @@ using VolumeMegaStructure.DataDefinition.DataUnit;
 using VolumeMegaStructure.Generate.ProceduralMesh.Voxel;
 using VolumeMegaStructure.Manage;
 using VolumeMegaStructure.Util;
+using VolumeMegaStructure.Util.JobSystem.Jobs;
+using static VolumeMegaStructure.Util.DisposeUtil;
 using Object = UnityEngine.Object;
 namespace VolumeMegaStructure.DataDefinition.Mesh
 {
@@ -90,42 +94,32 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			/// 关于不同方向quad访问方向不同，使用TWalker，每个方向一个Walker，有 walk_in_line 函数，也有 walk_among_line 函数。
 			/// 一个greedy surface，即（原点id，纹理id，主方向长度，副方向长度）
 
-			// stop_watch.StartRecord("GenDirectionQuadQueue");
-			// GenDirectionQuadQueue.ScheduleParallel(volume_inside_matrix,
-			// 	out var stream_x,
-			// 	out var stream_x_minus,
-			// 	out var stream_y,
-			// 	out var stream_y_minus,
-			// 	out var stream_z,
-			// 	out var stream_z_minus).Complete();
-			// stop_watch.StopRecord();
-			//
-			// stop_watch.StartRecord("QueueToArray");
-			// var array_0 = stream_x.ToArray(Allocator.TempJob);
-			// var array_1 = stream_x_minus.ToArray(Allocator.TempJob);
-			// var array_2 = stream_y.ToArray(Allocator.TempJob);
-			// var array_3 = stream_y_minus.ToArray(Allocator.TempJob);
-			// var array_4 = stream_z.ToArray(Allocator.TempJob);
-			// var array_5 = stream_z_minus.ToArray(Allocator.TempJob);
-			// stop_watch.StopRecord();
-			//
-			// stop_watch.StartRecord("ArrayToSet");
-			// var jhs = new NativeArray<JobHandle>(6, Allocator.Temp);
-			// jhs[0] = NativeArrayToHashSetForJob<int>.ScheduleParallel(array_0, out var set_0);
-			// jhs[1] = NativeArrayToHashSetForJob<int>.ScheduleParallel(array_1, out var set_1);
-			// jhs[2] = NativeArrayToHashSetForJob<int>.ScheduleParallel(array_2, out var set_2);
-			// jhs[3] = NativeArrayToHashSetForJob<int>.ScheduleParallel(array_3, out var set_3);
-			// jhs[4] = NativeArrayToHashSetForJob<int>.ScheduleParallel(array_4, out var set_4);
-			// jhs[5] = NativeArrayToHashSetForJob<int>.ScheduleParallel(array_5, out var set_5);
-			// JobHandle.CompleteAll(jhs);
-			// stop_watch.StopRecord();
-			// DisposeAll(array_0, array_1, array_2, array_3, array_4, array_5);
-			// DisposeAll(set_0, set_1, set_2, set_3, set_4, set_5);
-			// jhs.Dispose();
-			//
-			// DisposeAll(stream_x, stream_x_minus, stream_y, stream_y_minus, stream_z, stream_z_minus);
+			stop_watch.StartRecord("GenDirectionQuadQueue");
+			GenDirectionQuadQueue.ScheduleParallel(volume_matrix,volume_inside_matrix, out var quad_streams).Complete();
+			stop_watch.StopRecord();
+
+			stop_watch.StartRecord("QueueToArray");
+			var quad_arrays = quad_streams.Select(stream => stream.ToArray(Allocator.TempJob)).ToArray();
+			stop_watch.StopRecord();
+
+			stop_watch.StartRecord("ArrayToSet");
+			NativeArrayToHashSetForJob<int>.ScheduleParallel(quad_arrays, out var quad_sets).Complete();
+			bool3
+			stop_watch.StopRecord();
+
+			Debug.Log(JsonConvert.SerializeObject(new
+			{
+				count = quad_sets[0].Count(),
+				content = quad_sets[0].ToArray()[..100]
+			}));
+
+			DisposeAll(quad_streams);
+			DisposeAll(quad_arrays);
+			DisposeAll(quad_sets);
 
 		#endregion
+
+
 
 		#region Buffer
 
@@ -165,8 +159,6 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			quad_unit_buffer.EndWrite<float>(quad_count * 7);
 
 			stop_watch.StopRecord();
-
-			var hash_map = new NativeHashMap<int2, int>(100, Allocator.Persistent);
 
 			quad_mark_array.Dispose();
 

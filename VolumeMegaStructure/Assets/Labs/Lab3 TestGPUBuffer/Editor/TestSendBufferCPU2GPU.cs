@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
-using PrototypePackages.TimeUtils;
 using UnityEditor;
 using UnityEngine;
+using VolumeMegaStructure.Util;
 namespace Labs.Lab3_TestGPUBuffer.Editor
 {
 	public class TestSendBufferCPU2GPU : EditorWindow
@@ -45,12 +45,12 @@ namespace Labs.Lab3_TestGPUBuffer.Editor
 			stopwatch.Restart();
 			buffer.SetData(array);
 			stopwatch.Stop();
-			times[$"{nameof(buffer.SetData)}"] = $"{stopwatch.Get_ms()} ms";
+			times[$"{nameof(buffer.SetData)}"] = $"{stopwatch.ElapsedTicks.Get_ms()} ms";
 
 			stopwatch.Restart();
 			buffer.GetData(array);
 			stopwatch.Stop();
-			times[$"{nameof(buffer.GetData)}"] = $"{stopwatch.Get_ms()} ms";
+			times[$"{nameof(buffer.GetData)}"] = $"{stopwatch.ElapsedTicks.Get_ms()} ms";
 
 			buffer.Release();
 		}

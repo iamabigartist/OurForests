@@ -10,5 +10,14 @@ namespace VolumeMegaStructure.Util
 				disposable.Dispose();
 			}
 		}
+
+		public static void DisposeAll<T>(params T[] Disposables)
+			where T : IDisposable
+		{
+			foreach (T disposable in Disposables)
+			{
+				disposable.Dispose();
+			}
+		}
 	}
 }

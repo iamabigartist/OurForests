@@ -1,20 +1,23 @@
 {
   "dependencies": {
-    "com.chua.prototype-utils": {
-      "version": "https://github.com/iamabigartist/UnityPrototypeUtils.git?path=/Assets/PrototypePackages/PrototypeUtils#dev",
+    "com.chua.job-utils": {
+      "version": "https://github.com/iamabigartist/UnityPrototypeUtils.git?path=/Assets/PrototypePackages/JobUtils#dev",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "com.unity.mathematics": "1.2.5"
+        "com.unity.burst": "1.7.4",
+        "com.unity.mathematics": "1.2.6"
       },
-      "hash": "de7c6b8e857db6c31099e020974096f32839235b"
+      "hash": "f665d0906ba1be0e64e2823761de3dbe742bf332"
     },
-    "com.chua.time-utils": {
-      "version": "https://github.com/iamabigartist/UnityPrototypeUtils.git?path=/Assets/PrototypePackages/TimeUtils#dev",
+    "com.chua.misc-utils": {
+      "version": "https://github.com/iamabigartist/UnityPrototypeUtils.git?path=/Assets/PrototypePackages/MiscUtils#dev",
       "depth": 0,
       "source": "git",
-      "dependencies": {},
-      "hash": "de7c6b8e857db6c31099e020974096f32839235b"
+      "dependencies": {
+        "com.unity.mathematics": "1.2.6"
+      },
+      "hash": "f665d0906ba1be0e64e2823761de3dbe742bf332"
     },
     "com.unity.ai.navigation": {
       "version": "1.1.1",
