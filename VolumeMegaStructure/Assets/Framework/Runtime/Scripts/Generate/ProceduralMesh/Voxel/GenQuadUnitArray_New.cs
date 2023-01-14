@@ -32,12 +32,11 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 
 			public GenQuadIdJob(
 				int3 matrix_size,
-				int array_len,
 				DataMatrix<ushort> volume_matrix,
 				NativeArray<int> quad_pos_array,
 				out NativeArray<int2> quad_unit_array)
 			{
-				quad_unit_array = new(array_len, Allocator.TempJob);
+				quad_unit_array = new(quad_pos_array.Length, Allocator.TempJob);
 				sampler = new();
 				c = new(matrix_size);
 				this.volume_matrix = volume_matrix;
@@ -47,19 +46,19 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 		}
 
 		public static JobHandle Plan6Dir(
-			int3 matrix_size, int[] array_lens,
+			int3 matrix_size,
 			DataMatrix<ushort> volume_matrix,
 			NativeArray<int>[] quad_pos_arrays,
 			out NativeArray<int2>[] quad_id_arrays)
 		{
 			quad_id_arrays = new NativeArray<int2>[6];
 			var jhs = new JobHandle[6];
-			jhs[0] = Plan(new GenQuadIdJob<PlusQuadPosSampler>(matrix_size, array_lens[0], volume_matrix, quad_pos_arrays[0], out quad_id_arrays[0]));
-			jhs[2] = Plan(new GenQuadIdJob<PlusQuadPosSampler>(matrix_size, array_lens[2], volume_matrix, quad_pos_arrays[2], out quad_id_arrays[2]));
-			jhs[4] = Plan(new GenQuadIdJob<PlusQuadPosSampler>(matrix_size, array_lens[4], volume_matrix, quad_pos_arrays[4], out quad_id_arrays[4]));
-			jhs[1] = Plan(new GenQuadIdJob<XMinusQuadPosSampler>(matrix_size, array_lens[1], volume_matrix, quad_pos_arrays[1], out quad_id_arrays[1]));
-			jhs[3] = Plan(new GenQuadIdJob<YMinusQuadPosSampler>(matrix_size, array_lens[3], volume_matrix, quad_pos_arrays[3], out quad_id_arrays[3]));
-			jhs[5] = Plan(new GenQuadIdJob<ZMinusQuadPosSampler>(matrix_size, array_lens[5], volume_matrix, quad_pos_arrays[5], out quad_id_arrays[5]));
+			jhs[0] = Plan(new GenQuadIdJob<PlusQuadPosSampler>(matrix_size, volume_matrix, quad_pos_arrays[0], out quad_id_arrays[0]));
+			jhs[2] = Plan(new GenQuadIdJob<PlusQuadPosSampler>(matrix_size, volume_matrix, quad_pos_arrays[2], out quad_id_arrays[2]));
+			jhs[4] = Plan(new GenQuadIdJob<PlusQuadPosSampler>(matrix_size, volume_matrix, quad_pos_arrays[4], out quad_id_arrays[4]));
+			jhs[1] = Plan(new GenQuadIdJob<XMinusQuadPosSampler>(matrix_size, volume_matrix, quad_pos_arrays[1], out quad_id_arrays[1]));
+			jhs[3] = Plan(new GenQuadIdJob<YMinusQuadPosSampler>(matrix_size, volume_matrix, quad_pos_arrays[3], out quad_id_arrays[3]));
+			jhs[5] = Plan(new GenQuadIdJob<ZMinusQuadPosSampler>(matrix_size, volume_matrix, quad_pos_arrays[5], out quad_id_arrays[5]));
 			return jhs.Combine();
 		}
 	}

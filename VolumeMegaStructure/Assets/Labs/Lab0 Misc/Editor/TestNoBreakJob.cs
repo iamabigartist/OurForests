@@ -38,7 +38,6 @@ namespace Labs.Lab0_Misc.Editor
 	public struct RefNativeArrayJob : IJob
 	{
 		NativeReference<NativeArray<int>> a;
-		UnsafeReference<NativeArray<int>> array_ref;
 		public void Execute()
 		{
 			var array = a.Value;
@@ -48,7 +47,6 @@ namespace Labs.Lab0_Misc.Editor
 		public RefNativeArrayJob(int length, out NativeArray<int> array)
 		{
 			array = new(length, Allocator.TempJob);
-			array_ref = new(array);
 			a = new(array, Allocator.TempJob);
 		}
 
@@ -59,6 +57,28 @@ namespace Labs.Lab0_Misc.Editor
 
 		}
 
+	}
+
+	public struct RefJob : IJob
+	{
+		int i;
+		public void Execute()
+		{
+			Debug.Log(i);
+		}
+
+		public RefJob(int i)
+		{
+			this.i = i;
+		}
+
+		public static void Test()
+		{
+			var job = new RefJob(1);
+			var jh = job.ScheduleByRef();
+			job.i = 2;
+			jh.Complete();
+		}
 	}
 
 	public class TestNoBreakJob : EditorWindow
@@ -73,7 +93,7 @@ namespace Labs.Lab0_Misc.Editor
 
 		void OnEnable()
 		{
-			RefNativeArrayJob.Test();
+			RefJob.Test();
 		}
 
 		void OnGUI() {}

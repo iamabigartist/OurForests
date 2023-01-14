@@ -96,15 +96,13 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			stop_watch.StartRecord("GenDirectionQuadQueue");
 			GenDirectionQuadQueue.ScheduleParallel(volume_count, volume_inside_matrix, out var quad_queues).Complete();
 			stop_watch.StopRecord();
-//
+
 			stop_watch.StartRecord("QueueToArray");
 			var quad_pos_arrays = quad_queues.Select(stream => stream.ToArray(Allocator.TempJob)).ToArray();
 			stop_watch.StopRecord();
 
-			var quad_array_lens = quad_pos_arrays.Select(array => array.Length).ToArray();
-
 			stop_watch.StartRecord("GenQuadUnitArray_New");
-			GenQuadUnitArray_New.Plan6Dir(size, quad_array_lens, volume_matrix, quad_pos_arrays, out var quad_unit_arrays).Complete();
+			GenQuadUnitArray_New.Plan6Dir(size, volume_matrix, quad_pos_arrays, out var quad_unit_arrays).Complete();
 			stop_watch.StopRecord();
 
 			stop_watch.StartRecord("ArrayToSet");
