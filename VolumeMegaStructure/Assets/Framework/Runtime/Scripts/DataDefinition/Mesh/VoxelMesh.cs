@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Newtonsoft.Json;
 using Unity.Collections;
 using Unity.Jobs;
 using Unity.Mathematics;
@@ -93,7 +92,7 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			/// 一个greedy surface，即（原点id，纹理id，主方向长度，副方向长度）
 
 			stop_watch.StartRecord("GenDirectionQuadQueue");
-			GenDirectionQuadQueue.ScheduleParallel(volume_matrix, volume_inside_matrix, out var quad_streams).Complete();
+			GenDirectionQuadQueue.ScheduleParallel(volume_inside_matrix, out var quad_streams).Complete();
 			stop_watch.StopRecord();
 
 			stop_watch.StartRecord("QueueToArray");
@@ -101,14 +100,20 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			stop_watch.StopRecord();
 
 			stop_watch.StartRecord("ArrayToSet");
-			NativeArrayToHashSetForJob<int2>.ScheduleParallel(quad_arrays, out var quad_sets).Complete();
+			NativeArrayToHashSetForJob<int>.ScheduleParallel(quad_arrays, out var quad_sets).Complete();
 			stop_watch.StopRecord();
 
-			Debug.Log(JsonConvert.SerializeObject(new
-			{
-				count = quad_sets[0].Count(),
-				content = quad_sets[0].ToArray()[..100]
-			}));
+			// var array_0 = quad_sets[0].ToNativeArray(Allocator.Temp);
+			// Debug.Log(JsonConvert.SerializeObject(new
+			// {
+			// 	count = quad_sets[0].Count(),
+			// 	content = array_0.ToArray()[..100].Select(i2 => (i2.x, i2.y))
+			// }, new JsonSerializerSettings
+			// {
+			// 	Formatting = Formatting.Indented,
+			// 	ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+			// }));
+			// array_0.Dispose();
 
 			DisposeAll(quad_streams);
 			DisposeAll(quad_arrays);

@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Jobs;
@@ -14,26 +13,18 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 	[BurstCompile(DisableSafetyChecks = true, OptimizeFor = OptimizeFor.Performance)]
 	public struct GenDirectionQuadQueue : IJobFor
 	{
-		[ReadOnly] public DataMatrix<ushort> volume_matrix;
 		[ReadOnly] public DataMatrix<bool> volume_inside_matrix;
-		[WriteOnly] public NativeQueue<int2>.ParallelWriter stream_x;
-		[WriteOnly] public NativeQueue<int2>.ParallelWriter stream_x_minus;
-		[WriteOnly] public NativeQueue<int2>.ParallelWriter stream_y;
-		[WriteOnly] public NativeQueue<int2>.ParallelWriter stream_y_minus;
-		[WriteOnly] public NativeQueue<int2>.ParallelWriter stream_z;
-		[WriteOnly] public NativeQueue<int2>.ParallelWriter stream_z_minus;
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		void WriteQuadToStream(int i, ref NativeQueue<int2>.ParallelWriter stream)
-		{
-			stream.Enqueue(i);
-		}
+		[WriteOnly] public NativeQueue<int>.ParallelWriter stream_x;
+		[WriteOnly] public NativeQueue<int>.ParallelWriter stream_x_minus;
+		[WriteOnly] public NativeQueue<int>.ParallelWriter stream_y;
+		[WriteOnly] public NativeQueue<int>.ParallelWriter stream_y_minus;
+		[WriteOnly] public NativeQueue<int>.ParallelWriter stream_z;
+		[WriteOnly] public NativeQueue<int>.ParallelWriter stream_z_minus;
 
 		public void Execute(int volume_i)
 		{
 			var (x, y, z) = volume_inside_matrix.PositionByIndex(volume_i);
 			if (volume_inside_matrix.IsPositiveEdge(x, y, z)) { return; }
-			var cur_id = volume_matrix[volume_i];
 			var cur_inside = volume_inside_matrix[volume_i];
 
 			var x_forward = new int3(x + 1, y, z);
@@ -45,20 +36,20 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 
 			if (cur_inside != x_f_inside)
 			{
-				if (cur_inside) { stream_x.Enqueue(new(cur_id, volume_i)); }
-				else { stream_x_minus.Enqueue(new(volume_matrix[x_forward], volume_i)); }
+				if (cur_inside) { stream_x.Enqueue(volume_i); }
+				else { stream_x_minus.Enqueue(volume_i); }
 			}
 
 			if (cur_inside != y_f_inside)
 			{
-				if (cur_inside) { stream_y.Enqueue(new(cur_id, volume_i)); }
-				else { stream_y_minus.Enqueue(new(volume_matrix[y_forward], volume_i)); }
+				if (cur_inside) { stream_y.Enqueue(volume_i); }
+				else { stream_y_minus.Enqueue(volume_i); }
 			}
 
 			if (cur_inside != z_f_inside)
 			{
-				if (cur_inside) { stream_z.Enqueue(new(cur_id, volume_i)); }
-				else { stream_z_minus.Enqueue(new(volume_matrix[z_forward], volume_i)); }
+				if (cur_inside) { stream_z.Enqueue(volume_i); }
+				else { stream_z_minus.Enqueue(volume_i); }
 			}
 		}
 
@@ -70,17 +61,15 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 		}
 
 		public static JobHandle ScheduleParallel(
-			DataMatrix<ushort> volume_matrix,
 			DataMatrix<bool> volume_inside_matrix,
-			out NativeQueue<int2>[] streams,
+			out NativeQueue<int>[] streams,
 			JobHandle deps = default)
 		{
 			int volume_count = volume_inside_matrix.Count;
-			streams = new NativeQueue<int2>[6];
+			streams = new NativeQueue<int>[6];
 			for (int i = 0; i < 6; i++) { streams[i] = new(Allocator.TempJob); }
 			var job = new GenDirectionQuadQueue()
 			{
-				volume_matrix = volume_matrix,
 				volume_inside_matrix = volume_inside_matrix,
 				stream_x = streams[0].AsParallelWriter(),
 				stream_x_minus = streams[1].AsParallelWriter(),
