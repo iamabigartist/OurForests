@@ -3,7 +3,7 @@ using Unity.Burst;
 using Unity.Collections;
 using Unity.Jobs;
 using Unity.Jobs.LowLevel.Unsafe;
-namespace VolumeMegaStructure.Util.JobUtils.Jobs
+namespace VolumeMegaStructure.Util.JobSystem.Jobs
 {
 	[BurstCompile(DisableSafetyChecks = true, OptimizeFor = OptimizeFor.Performance)]
 	public struct NativeArrayToHashSetForJob<T> : IJobParallelFor where T : unmanaged, IEquatable<T>
@@ -25,6 +25,21 @@ namespace VolumeMegaStructure.Util.JobUtils.Jobs
 				set = set.AsParallelWriter()
 			};
 			return job.Schedule(count, count / JobsUtility.JobWorkerMaximumCount, deps);
+		}
+
+		public static JobHandle ScheduleParallel(NativeArray<T>[] arrays, out NativeHashSet<T>[] sets, JobHandle deps = default)
+		{
+			sets = new NativeHashSet<T>[arrays.Length];
+			var jhs = new NativeArray<JobHandle>(arrays.Length, Allocator.Temp);
+			for (int i = 0; i < arrays.Length; i++)
+			{
+				var cur_array = arrays[i];
+				var count = cur_array.Length;
+				jhs[i] = ScheduleParallel(cur_array, out sets[i], deps);
+			}
+			var total_deps = JobHandle.CombineDependencies(jhs);
+			jhs.Dispose();
+			return total_deps;
 		}
 
 	}

@@ -1,7 +1,7 @@
 using Unity.Jobs.LowLevel.Unsafe;
-namespace VolumeMegaStructure.Util.JobUtils
+namespace VolumeMegaStructure.Util.JobSystem
 {
-	public static class Utils
+	public static class ScheduleUtils
 	{
 		public static int GetBatchSize_MaxThreadCount(int count)
 		{

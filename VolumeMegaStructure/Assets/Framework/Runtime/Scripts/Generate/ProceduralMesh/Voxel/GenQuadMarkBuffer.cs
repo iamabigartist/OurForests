@@ -4,7 +4,7 @@ using Unity.Jobs;
 using Unity.Jobs.LowLevel.Unsafe;
 using VolumeMegaStructure.DataDefinition.Container;
 using VolumeMegaStructure.Util;
-using static VolumeMegaStructure.Util.JobUtils.Utils;
+using static VolumeMegaStructure.Util.JobSystem.ScheduleUtils;
 namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 {
 	/// <summary>
