@@ -27,12 +27,9 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 			if (volume_inside_matrix.IsPositiveEdge(x, y, z)) { return; }
 			var cur_inside = volume_inside_matrix[volume_i];
 
-			var x_forward = new int3(x + 1, y, z);
-			var y_forward = new int3(x, y + 1, z);
-			var z_forward = new int3(x, y, z + 1);
-			var x_f_inside = volume_inside_matrix[x_forward];
-			var y_f_inside = volume_inside_matrix[y_forward];
-			var z_f_inside = volume_inside_matrix[z_forward];
+			var x_f_inside = volume_inside_matrix[x + 1, y, z];
+			var y_f_inside = volume_inside_matrix[x, y + 1, z];
+			var z_f_inside = volume_inside_matrix[x, y, z + 1];
 
 			if (cur_inside != x_f_inside)
 			{
