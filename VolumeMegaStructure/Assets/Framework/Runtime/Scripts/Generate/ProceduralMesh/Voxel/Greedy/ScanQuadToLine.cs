@@ -27,14 +27,14 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.Greedy
 				c.To3D(start_pos, out var x, out var y, out var z);
 				var (beside_x, beside_y, beside_z) = (x, y, z);
 				walker.Walk(ref beside_x, ref beside_y, ref beside_z, -1);
-				var beside_pos = c[beside_x, beside_y, beside_z];
+				c.To1D(beside_x, beside_y, beside_z, out var beside_pos);
 				if (quad_set.Contains(new(block_id, beside_pos))) { return; }
 				(beside_x, beside_y, beside_z) = (x, y, z);
 				var end_pos = start_pos;
 				while (true)
 				{
 					walker.Walk(ref beside_x, ref beside_y, ref beside_z, 1);
-					beside_pos = c[beside_x, beside_y, beside_z];
+					c.To1D(beside_x, beside_y, beside_z, out beside_pos);
 					if (!quad_set.Contains(new(block_id, beside_pos))) { break; }
 					end_pos = beside_pos;
 				}

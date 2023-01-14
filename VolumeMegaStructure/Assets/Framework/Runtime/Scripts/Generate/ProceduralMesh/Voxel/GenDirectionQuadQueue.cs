@@ -4,6 +4,7 @@ using Unity.Jobs;
 using Unity.Jobs.LowLevel.Unsafe;
 using Unity.Mathematics;
 using VolumeMegaStructure.DataDefinition.Container;
+using static PrototypePackages.JobUtils.IndexUtil;
 namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 {
 	/// <summary>
@@ -12,6 +13,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 	[BurstCompile(DisableSafetyChecks = true, OptimizeFor = OptimizeFor.Performance)]
 	public struct GenDirectionQuadQueue : IJobFor
 	{
+		public Index3D c;
 		[ReadOnly] public DataMatrix<bool> volume_inside_matrix;
 		[WriteOnly] public NativeQueue<int>.ParallelWriter stream_x;
 		[WriteOnly] public NativeQueue<int>.ParallelWriter stream_x_minus;
@@ -22,27 +24,27 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 
 		public void Execute(int volume_i)
 		{
-			volume_inside_matrix.PositionByIndex(volume_i, out var x, out var y, out var z);
-			if (volume_inside_matrix.IsPositiveEdge(x, y, z)) { return; }
+			c.To3D(volume_i, out var x, out var y, out var z);
+			if (c.IsPositiveEdge(x, y, z)) { return; }
 			var cur_inside = volume_inside_matrix[volume_i];
 
-			var x_f_inside = volume_inside_matrix[x + 1, y, z];
-			var y_f_inside = volume_inside_matrix[x, y + 1, z];
-			var z_f_inside = volume_inside_matrix[x, y, z + 1];
+			c.To1D(x + 1, y, z, out var x_f);
+			c.To1D(x, y + 1, z, out var y_f);
+			c.To1D(x, y, z + 1, out var z_f);
 
-			if (cur_inside != x_f_inside)
+			if (cur_inside != volume_inside_matrix[x_f])
 			{
 				if (cur_inside) { stream_x.Enqueue(volume_i); }
 				else { stream_x_minus.Enqueue(volume_i); }
 			}
 
-			if (cur_inside != y_f_inside)
+			if (cur_inside != volume_inside_matrix[y_f])
 			{
 				if (cur_inside) { stream_y.Enqueue(volume_i); }
 				else { stream_y_minus.Enqueue(volume_i); }
 			}
 
-			if (cur_inside != z_f_inside)
+			if (cur_inside != volume_inside_matrix[z_f])
 			{
 				if (cur_inside) { stream_z.Enqueue(volume_i); }
 				else { stream_z_minus.Enqueue(volume_i); }
@@ -56,6 +58,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 		}
 
 		public static JobHandle ScheduleParallel(
+			int3 size,
 			int volume_count,
 			DataMatrix<bool> volume_inside_matrix,
 			out NativeQueue<int>[] queues,
@@ -65,6 +68,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 			for (int i = 0; i < 6; i++) { queues[i] = new(Allocator.TempJob); }
 			var job = new GenDirectionQuadQueue()
 			{
+				c = new(size),
 				volume_inside_matrix = volume_inside_matrix,
 				stream_x = queues[0].AsParallelWriter(),
 				stream_x_minus = queues[1].AsParallelWriter(),

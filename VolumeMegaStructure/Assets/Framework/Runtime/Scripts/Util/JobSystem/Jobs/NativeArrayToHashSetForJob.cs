@@ -12,7 +12,6 @@ namespace VolumeMegaStructure.Util.JobSystem.Jobs
 		[WriteOnly] NativeHashSet<T>.ParallelWriter set;
 		public void Execute(int i)
 		{
-			var buffer = new NativeStream(1, Allocator.TempJob);
 			set.Add(array[i]);
 		}
 

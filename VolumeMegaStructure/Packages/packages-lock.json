@@ -8,7 +8,7 @@
         "com.unity.burst": "1.7.4",
         "com.unity.mathematics": "1.2.6"
       },
-      "hash": "7ae2e42fb1ee4e61268a4c19186c25e9246384d6"
+      "hash": "9d58055d2e83abc73bf809fd41c814d977d1cd5a"
     },
     "com.chua.misc-utils": {
       "version": "https://github.com/iamabigartist/UnityPrototypeUtils.git?path=/Assets/PrototypePackages/MiscUtils#dev",

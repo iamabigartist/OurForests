@@ -32,7 +32,6 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 
 	#region GenIntermediate
 
-		NativeQueue<QuadMark> quad_mark_queue;
 		ComputeBuffer quad_unit_buffer;
 
 	#endregion
@@ -94,7 +93,7 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			/// 一个greedy surface，即（原点id，纹理id，主方向长度，副方向长度）
 
 			stop_watch.StartRecord("GenDirectionQuadQueue");
-			GenDirectionQuadQueue.ScheduleParallel(volume_count, volume_inside_matrix, out var quad_queues).Complete();
+			GenDirectionQuadQueue.ScheduleParallel(size, volume_count, volume_inside_matrix, out var quad_queues).Complete();
 			stop_watch.StopRecord();
 
 			stop_watch.StartRecord("QueueToArray");
@@ -106,6 +105,7 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			stop_watch.StopRecord();
 
 			stop_watch.StartRecord("ArrayToSet");
+
 			NativeArrayToHashSetForJob<int2>.ScheduleParallel(quad_unit_arrays, out var quad_unit_sets).Complete();
 			stop_watch.StopRecord();
 
@@ -145,7 +145,7 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 		#endregion
 
 			stop_watch.StartRecord("GenQuadMarkQueue");
-			var gen_quad_mark_jh = GenQuadMarkQueue.ScheduleParallel(volume_inside_matrix, out quad_mark_queue);
+			var gen_quad_mark_jh = GenQuadMarkQueue.ScheduleParallel(volume_inside_matrix, out var quad_mark_queue);
 			gen_quad_mark_jh.Complete();
 			//有可能做一个返回JobHandle的携程？
 			stop_watch.StopRecord();
@@ -155,6 +155,8 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			stop_watch.StartRecord("QuadMarkQueueToArray");
 			var quad_mark_array = quad_mark_queue.ToArray(Allocator.TempJob);
 			stop_watch.StopRecord();
+
+			quad_mark_queue.Dispose();
 
 			quad_index_by_quad_mark = quad_mark_array.
 				Select((quad_mark, index) => (index, quad_mark)).
@@ -247,7 +249,6 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 
 		public void Dispose()
 		{
-			quad_mark_queue.Dispose();
 			quad_unit_buffer.Release();
 		}
 
