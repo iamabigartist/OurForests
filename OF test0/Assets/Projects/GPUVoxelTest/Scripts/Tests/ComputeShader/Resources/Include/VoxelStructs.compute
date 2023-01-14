@@ -20,9 +20,9 @@ int xyz_x_index(int3 size, in int3 xyz)
 //The dimension order should be x->y->z
 int3 x_xyz_index(in int3 size, in int i)
 {
-    int z = floor(i / (size.y * size.z));
+    int z = i / (size.y * size.z);
     i -= z * size.y * size.z;
-    int y = floor(i / size.x);
+    int y = i / size.x;
     i -= y * size.x;
     int x = i;
 
