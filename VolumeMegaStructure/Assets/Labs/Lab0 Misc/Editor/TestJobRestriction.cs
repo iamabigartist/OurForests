@@ -4,7 +4,6 @@ using Unity.Collections;
 using Unity.Jobs;
 using UnityEditor;
 using UnityEngine;
-using VolumeMegaStructure.DataDefinition.DataUnit;
 namespace Labs.Lab0_Misc.Editor
 {
 	/// <summary>
@@ -19,12 +18,12 @@ namespace Labs.Lab0_Misc.Editor
 
 		class ArrayShared1Key {}
 		// public static readonly SharedStatic<NativeArray<int>> array_shared_1 = SharedStatic<NativeArray<int>>.GetOrCreate<MyConfig, ArrayShared1Key>();
-		public delegate bool VolumeSelector(VolumeUnit unit);
+		public delegate bool VolumeSelector(ushort unit);
 		public static VolumeSelector OpacitySelector(int opacity_group)
 		{
-			return delegate(VolumeUnit unit)
+			return delegate(ushort unit)
 			{
-				return unit.block_id == opacity_group;
+				return unit == opacity_group;
 			};
 		}
 

@@ -14,7 +14,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 	[BurstCompile(DisableSafetyChecks = true, OptimizeFor = OptimizeFor.Performance)]
 	public struct GenQuadUnitArray : IJobParallelFor
 	{
-		[ReadOnly] public DataMatrix<VolumeUnit> volume_matrix;
+		[ReadOnly] public DataMatrix<ushort> volume_matrix;
 		[ReadOnly] public NativeArray<QuadMark> /*.ReadOnly*/ quad_mark_array;
 		[WriteOnly] public NativeArray<float> quad_unit_array;
 
@@ -23,7 +23,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 			var cur_quad_mark = quad_mark_array[quad_i];
 			var (volume_i, dir) = cur_quad_mark;
 			var (x, y, z) = volume_matrix.PositionByIndex(volume_i);
-			var cur_block_id = volume_matrix[volume_i].block_id;
+			var cur_block_id = volume_matrix[volume_i];
 			float a1, a2, b1, b2, c, forward_block_id, texture_id;
 			switch (dir / 2)
 			{
@@ -34,7 +34,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 						b1 = z;
 						b2 = z;
 						c = x;
-						forward_block_id = volume_matrix[x + 1, y, z].block_id;
+						forward_block_id = volume_matrix[x + 1, y, z];
 						break;
 					}
 				case 1: //y
@@ -44,7 +44,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 						b1 = z;
 						b2 = z;
 						c = y;
-						forward_block_id = volume_matrix[x, y + 1, z].block_id;
+						forward_block_id = volume_matrix[x, y + 1, z];
 						break;
 					}
 				case 2: //z
@@ -54,7 +54,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 						b1 = y;
 						b2 = y;
 						c = z;
-						forward_block_id = volume_matrix[x, y, z + 1].block_id;
+						forward_block_id = volume_matrix[x, y, z + 1];
 						break;
 					}
 				default:

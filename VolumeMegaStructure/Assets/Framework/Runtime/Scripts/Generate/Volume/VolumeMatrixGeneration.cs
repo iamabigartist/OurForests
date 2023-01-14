@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using UnityEngine;
 using VolumeMegaStructure.DataDefinition.Container;
-using VolumeMegaStructure.DataDefinition.DataUnit;
 using VolumeMegaStructure.Generate.Volume.Noise;
 using Random = UnityEngine.Random;
 namespace VolumeMegaStructure.Generate.Volume
@@ -241,15 +240,15 @@ namespace VolumeMegaStructure.Generate.Volume
 
 	#region Util
 
-		public static void SetBlockId(this DataMatrix<VolumeUnit> volume_matrix, DataMatrix<ushort> block_id_matrix)
-		{
-			for (int i = 0; i < volume_matrix.Count; i++)
-			{
-				var cur_volume_unit = volume_matrix[i];
-				cur_volume_unit.block_id = block_id_matrix[i];
-				volume_matrix[i] = cur_volume_unit;
-			}
-		}
+		// public static void SetBlockId(this DataMatrix<VolumeUnit> volume_matrix, DataMatrix<ushort> block_id_matrix)
+		// {
+		// 	for (int i = 0; i < volume_matrix.Count; i++)
+		// 	{
+		// 		var cur_volume_unit = volume_matrix[i];
+		// 		cur_volume_unit.block_id = block_id_matrix[i];
+		// 		volume_matrix[i] = cur_volume_unit;
+		// 	}
+		// }
 
 	#endregion
 

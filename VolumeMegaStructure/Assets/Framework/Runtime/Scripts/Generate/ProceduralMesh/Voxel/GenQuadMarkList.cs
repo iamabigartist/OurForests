@@ -13,7 +13,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 	[BurstCompile(DisableSafetyChecks = true, OptimizeFor = OptimizeFor.Performance)]
 	public struct GenQuadMarkList : IJobFor
 	{
-		[ReadOnly] public DataMatrix<VolumeUnit> volume_matrix;
+		[ReadOnly] public DataMatrix<ushort> volume_matrix;
 		[ReadOnly] public DataMatrix<bool> volume_inside_matrix;
 		[WriteOnly] public NativeList<QuadMark>.ParallelWriter quad_mark_list;
 
@@ -52,7 +52,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 		}
 
 		public static JobHandle ScheduleParallel(
-			DataMatrix<VolumeUnit> volume_matrix,
+			DataMatrix<ushort> volume_matrix,
 			DataMatrix<bool> volume_inside_matrix,
 			int max_quad_count,
 			out NativeList<QuadMark> quad_mark_list,

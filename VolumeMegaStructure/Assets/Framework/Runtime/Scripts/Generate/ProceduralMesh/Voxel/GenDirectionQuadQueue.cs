@@ -14,7 +14,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 	[BurstCompile(DisableSafetyChecks = true, OptimizeFor = OptimizeFor.Performance)]
 	public struct GenDirectionQuadQueue : IJobFor
 	{
-		[ReadOnly] public DataMatrix<int> volume_matrix;
+		[ReadOnly] public DataMatrix<ushort> volume_matrix;
 		[ReadOnly] public DataMatrix<bool> volume_inside_matrix;
 		[WriteOnly] public NativeQueue<int2>.ParallelWriter stream_x;
 		[WriteOnly] public NativeQueue<int2>.ParallelWriter stream_x_minus;
@@ -70,7 +70,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 		}
 
 		public static JobHandle ScheduleParallel(
-			DataMatrix<int> volume_matrix,
+			DataMatrix<ushort> volume_matrix,
 			DataMatrix<bool> volume_inside_matrix,
 			out NativeQueue<int2>[] streams,
 			JobHandle deps = default)

@@ -3,7 +3,6 @@ using Unity.Jobs;
 using Unity.Mathematics;
 using UnityEngine;
 using VolumeMegaStructure.DataDefinition.Container;
-using VolumeMegaStructure.DataDefinition.DataUnit;
 using VolumeMegaStructure.DataDefinition.Mesh;
 using VolumeMegaStructure.Generate.ProceduralMesh.Voxel;
 using VolumeMegaStructure.Manage;
@@ -15,7 +14,7 @@ namespace Labs.Lab6_TestGenVoxel
 	public class TestGenVoxel : MonoBehaviour
 	{
 
-		DataMatrix<VolumeUnit> volume_matrix;
+		DataMatrix<ushort> volume_matrix;
 		DataMatrix<bool> volume_inside_matrix;
 		VoxelMesh voxel_mesh;
 
@@ -40,9 +39,7 @@ namespace Labs.Lab6_TestGenVoxel
 		{
 			stop_watch.StartRecord("Generate Terrain");
 			volume_matrix = new(chunk_size, Allocator.Persistent);
-			var block_id_matrix = new DataMatrix<ushort>(volume_matrix.size, Allocator.Temp);
-			block_id_matrix.GenerateGrassSnowTerrain(MyTerrainParams);
-			volume_matrix.SetBlockId(block_id_matrix);
+			volume_matrix.GenerateGrassSnowTerrain(MyTerrainParams);
 			stop_watch.StopRecord();
 
 			stop_watch.StartRecord("Generate Mesh");

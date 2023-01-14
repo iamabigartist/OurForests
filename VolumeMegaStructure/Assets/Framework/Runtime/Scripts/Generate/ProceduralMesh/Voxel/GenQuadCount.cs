@@ -2,7 +2,6 @@ using Unity.Burst;
 using Unity.Collections;
 using Unity.Jobs;
 using VolumeMegaStructure.DataDefinition.Container;
-using VolumeMegaStructure.DataDefinition.DataUnit;
 using VolumeMegaStructure.Util;
 using VolumeMegaStructure.Util.JobSystem;
 namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
@@ -13,7 +12,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 	[BurstCompile(DisableSafetyChecks = true, OptimizeFor = OptimizeFor.Performance)]
 	public struct GenQuadCount : IJobFor
 	{
-		[ReadOnly] public DataMatrix<VolumeUnit> volume_matrix;
+		[ReadOnly] public DataMatrix<ushort> volume_matrix;
 		[ReadOnly] public DataMatrix<bool> volume_inside_matrix;
 		[WriteOnly] public NativeCounter.ParallelWriter quad_counter;
 		public void Execute(int volume_i)
@@ -43,7 +42,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 		}
 
 		public static JobHandle ScheduleParallel(
-			DataMatrix<VolumeUnit> volume_matrix,
+			DataMatrix<ushort> volume_matrix,
 			DataMatrix<bool> volume_inside_matrix,
 			out NativeCounter quad_counter,
 			JobHandle deps = default)

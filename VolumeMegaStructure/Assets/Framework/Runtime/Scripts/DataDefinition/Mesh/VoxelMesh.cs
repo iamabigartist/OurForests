@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
 using Unity.Collections;
-using Unity.Collections.NotBurstCompatible;
 using Unity.Jobs;
 using Unity.Mathematics;
 using UnityEngine;
@@ -26,9 +25,8 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			MeshUpdateFlags.DontNotifyMeshUsers |
 			MeshUpdateFlags.DontRecalculateBounds;
 
-
 		public UnityMesh unity_mesh;
-		DataMatrix<VolumeUnit> volume_matrix;
+		DataMatrix<ushort> volume_matrix;
 		DataMatrix<bool> volume_inside_matrix;
 		Dictionary<QuadMark, int> quad_index_by_quad_mark;
 
@@ -48,7 +46,7 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 
 	#endregion
 
-		public VoxelMesh(DataMatrix<VolumeUnit> volume_matrix, DataMatrix<bool> volume_inside_matrix)
+		public VoxelMesh(DataMatrix<ushort> volume_matrix, DataMatrix<bool> volume_inside_matrix)
 		{
 			unity_mesh = new();
 			this.volume_matrix = volume_matrix;
@@ -95,7 +93,7 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			/// 一个greedy surface，即（原点id，纹理id，主方向长度，副方向长度）
 
 			stop_watch.StartRecord("GenDirectionQuadQueue");
-			GenDirectionQuadQueue.ScheduleParallel(volume_matrix,volume_inside_matrix, out var quad_streams).Complete();
+			GenDirectionQuadQueue.ScheduleParallel(volume_matrix, volume_inside_matrix, out var quad_streams).Complete();
 			stop_watch.StopRecord();
 
 			stop_watch.StartRecord("QueueToArray");
@@ -103,8 +101,7 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			stop_watch.StopRecord();
 
 			stop_watch.StartRecord("ArrayToSet");
-			NativeArrayToHashSetForJob<int>.ScheduleParallel(quad_arrays, out var quad_sets).Complete();
-			bool3
+			NativeArrayToHashSetForJob<int2>.ScheduleParallel(quad_arrays, out var quad_sets).Complete();
 			stop_watch.StopRecord();
 
 			Debug.Log(JsonConvert.SerializeObject(new
