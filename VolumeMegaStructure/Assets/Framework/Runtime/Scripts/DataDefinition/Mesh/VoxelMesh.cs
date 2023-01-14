@@ -9,6 +9,7 @@ using UnityEngine.Rendering;
 using VolumeMegaStructure.DataDefinition.Container;
 using VolumeMegaStructure.DataDefinition.DataUnit;
 using VolumeMegaStructure.Generate.ProceduralMesh.Voxel;
+using VolumeMegaStructure.Generate.ProceduralMesh.Voxel.Greedy;
 using VolumeMegaStructure.Manage;
 using VolumeMegaStructure.Util;
 using VolumeMegaStructure.Util.JobSystem.Jobs;
@@ -70,6 +71,7 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 		{
 			var stop_watch = new ProfileStopWatch();
 			int volume_count = volume_matrix.Count;
+			int3 size = volume_matrix.size;
 
 		#region OriginalMarkScan
 
@@ -92,15 +94,25 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			/// 一个greedy surface，即（原点id，纹理id，主方向长度，副方向长度）
 
 			stop_watch.StartRecord("GenDirectionQuadQueue");
-			GenDirectionQuadQueue.ScheduleParallel(volume_inside_matrix, out var quad_streams).Complete();
+			GenDirectionQuadQueue.ScheduleParallel(volume_count, volume_inside_matrix, out var quad_queues).Complete();
+			stop_watch.StopRecord();
+//
+			stop_watch.StartRecord("QueueToArray");
+			var quad_pos_arrays = quad_queues.Select(stream => stream.ToArray(Allocator.TempJob)).ToArray();
 			stop_watch.StopRecord();
 
-			stop_watch.StartRecord("QueueToArray");
-			var quad_arrays = quad_streams.Select(stream => stream.ToArray(Allocator.TempJob)).ToArray();
+			var quad_array_lens = quad_pos_arrays.Select(array => array.Length).ToArray();
+
+			stop_watch.StartRecord("GenQuadUnitArray_New");
+			GenQuadUnitArray_New.Plan6Dir(size, quad_array_lens, volume_matrix, quad_pos_arrays, out var quad_unit_arrays).Complete();
 			stop_watch.StopRecord();
 
 			stop_watch.StartRecord("ArrayToSet");
-			NativeArrayToHashSetForJob<int>.ScheduleParallel(quad_arrays, out var quad_sets).Complete();
+			NativeArrayToHashSetForJob<int2>.ScheduleParallel(quad_unit_arrays, out var quad_unit_sets).Complete();
+			stop_watch.StopRecord();
+
+			stop_watch.StartRecord("GreedyLine");
+			ScanQuadToLine.Plan6Dir(size, quad_unit_arrays, quad_unit_sets, out var line_queues).Complete();
 			stop_watch.StopRecord();
 
 			// var array_0 = quad_sets[0].ToNativeArray(Allocator.Temp);
@@ -115,9 +127,11 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			// }));
 			// array_0.Dispose();
 
-			DisposeAll(quad_streams);
-			DisposeAll(quad_arrays);
-			DisposeAll(quad_sets);
+			DisposeAll(quad_queues);
+			DisposeAll(quad_pos_arrays);
+			DisposeAll(quad_unit_arrays);
+			DisposeAll(quad_unit_sets);
+			DisposeAll(line_queues);
 
 		#endregion
 
@@ -164,7 +178,7 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 
 			quad_mark_array.Dispose();
 
-			stop_watch.StartRecord("SetMesh");
+			stop_watch.StartRecord("SetMeshParam");
 
 			unity_mesh.SetIndexBufferParams(quad_count * 6, IndexFormat.UInt32);
 			unity_mesh.SetVertexBufferParams(quad_count * 4,

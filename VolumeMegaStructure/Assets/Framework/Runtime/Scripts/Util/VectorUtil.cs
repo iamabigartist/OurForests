@@ -78,6 +78,13 @@ namespace VolumeMegaStructure.Util
 			y = v.y;
 			z = v.z;
 		}
+
+		public static void Deconstruct(this int2 v, out int x, out int y)
+		{
+			x = v.x;
+			y = v.y;
+		}
+
 		public static void Deconstruct(this float3 v, out float x, out float y, out float z)
 		{
 			x = v.x;
@@ -86,6 +93,8 @@ namespace VolumeMegaStructure.Util
 		}
 
 	#endregion
+
+
 
 	}
 }

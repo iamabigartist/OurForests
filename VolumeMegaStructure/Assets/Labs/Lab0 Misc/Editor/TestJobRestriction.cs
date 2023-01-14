@@ -66,6 +66,7 @@ namespace Labs.Lab0_Misc.Editor
 		// public FunctionPointer<VolumeSelector> selector;
 		public void Execute(int index)
 		{
+			var list = new NativeList<int>(100, Allocator.TempJob);
 			int bonus = 0;
 			if (index > 0)
 			{

@@ -6,12 +6,13 @@ using Unity.Jobs.LowLevel.Unsafe;
 namespace VolumeMegaStructure.Util.JobSystem.Jobs
 {
 	[BurstCompile(DisableSafetyChecks = true, OptimizeFor = OptimizeFor.Performance)]
-	public struct NativeArrayToHashSetForJob<T> : IJobParallelFor where T : unmanaged, IEquatable<T>
+	public struct NativeArrayToHashSetForJob<T> : IJobFor where T : unmanaged, IEquatable<T>
 	{
 		[ReadOnly] NativeArray<T> array;
 		[WriteOnly] NativeHashSet<T>.ParallelWriter set;
 		public void Execute(int i)
 		{
+			var buffer = new NativeStream(1, Allocator.TempJob);
 			set.Add(array[i]);
 		}
 
@@ -24,7 +25,7 @@ namespace VolumeMegaStructure.Util.JobSystem.Jobs
 				array = array,
 				set = set.AsParallelWriter()
 			};
-			return job.Schedule(count, count / JobsUtility.JobWorkerMaximumCount, deps);
+			return job.ScheduleParallel(count, count / JobsUtility.JobWorkerMaximumCount, deps);
 		}
 
 		public static JobHandle ScheduleParallel(NativeArray<T>[] arrays, out NativeHashSet<T>[] sets, JobHandle deps = default)
