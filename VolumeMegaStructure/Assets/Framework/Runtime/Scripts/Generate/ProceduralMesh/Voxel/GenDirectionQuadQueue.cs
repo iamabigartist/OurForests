@@ -1,10 +1,10 @@
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Jobs;
-using Unity.Jobs.LowLevel.Unsafe;
 using Unity.Mathematics;
 using VolumeMegaStructure.DataDefinition.Container;
 using static PrototypePackages.JobUtils.IndexUtil;
+using static VolumeMegaStructure.Util.JobSystem.ScheduleUtils;
 namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 {
 	/// <summary>
@@ -49,12 +49,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 				if (cur_inside) { stream_z.Enqueue(volume_i); }
 				else { stream_z_minus.Enqueue(volume_i); }
 			}
-		}
 
-		static int GetBatchSize_SquareThreadCount(int total)
-		{
-			float pow = math.pow(JobsUtility.MaxJobThreadCount, 2);
-			return (int)math.ceil(total / pow);
 		}
 
 		public static JobHandle ScheduleParallel(
@@ -77,8 +72,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 				stream_z = queues[4].AsParallelWriter(),
 				stream_z_minus = queues[5].AsParallelWriter()
 			};
-			return job.ScheduleParallel(volume_count,
-				GetBatchSize_SquareThreadCount(volume_count), deps);
+			return job.ScheduleParallel(volume_count, GetBatchSize_WorkerThreadCount(volume_count, 3), deps);
 		}
 	}
 }
