@@ -96,21 +96,36 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			GenDirectionQuadQueue.ScheduleParallel(size, volume_count, volume_inside_matrix, out var quad_queues).Complete();
 			stop_watch.StopRecord();
 
-			stop_watch.StartRecord("QueueToArray");
+			stop_watch.StartRecord("QuadPosQueueToArray");
 			var quad_pos_arrays = quad_queues.Select(stream => stream.ToArray(Allocator.TempJob)).ToArray();
 			stop_watch.StopRecord();
 
 			stop_watch.StartRecord("GenQuadUnitArray_New");
-			GenQuadUnitArray_New.Plan6Dir(size, volume_matrix, quad_pos_arrays, out var quad_unit_arrays).Complete();
+			GenQuadUnitArray_New.Plan6Dir(size, volume_matrix, quad_pos_arrays, out var quad_arrays).Complete();
 			stop_watch.StopRecord();
 
-			stop_watch.StartRecord("ArrayToSet");
-
-			NativeArrayToHashSetForJob<int2>.ScheduleParallel(quad_unit_arrays, out var quad_unit_sets).Complete();
+			stop_watch.StartRecord("QuadArrayToSet");
+			NativeArrayToHashSetForJob<int2>.ScheduleParallel(quad_arrays, out var quad_sets).Complete();
 			stop_watch.StopRecord();
 
 			stop_watch.StartRecord("GreedyLine");
-			ScanQuadToLine.Plan6Dir(size, quad_unit_arrays, quad_unit_sets, out var line_queues).Complete();
+			ScanQuadToLine.Plan6Dir(size, quad_arrays, quad_sets, out var line_queues).Complete();
+			stop_watch.StopRecord();
+
+			stop_watch.StartRecord("LineQueueToArray");
+			var line_arrays = line_queues.Select(queue => queue.ToArray(Allocator.TempJob)).ToArray();
+			stop_watch.StopRecord();
+
+			stop_watch.StartRecord("LineArrayToSet");
+			NativeArrayToHashSetForJob<int3>.ScheduleParallel(line_arrays, out var line_sets).Complete();
+			stop_watch.StopRecord();
+
+			stop_watch.StartRecord("GreedyRect");
+			ScanLineToRect.Plan6Dir(size, line_arrays, line_sets, out var rect_queues).Complete();
+			stop_watch.StopRecord();
+
+			stop_watch.StartRecord("RectQueueToArray");
+			var rect_arrays = rect_queues.Select(queue => queue.ToArray(Allocator.TempJob)).ToArray();
 			stop_watch.StopRecord();
 
 			// var array_0 = quad_sets[0].ToNativeArray(Allocator.Temp);
@@ -127,9 +142,12 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 
 			DisposeAll(quad_queues);
 			DisposeAll(quad_pos_arrays);
-			DisposeAll(quad_unit_arrays);
-			DisposeAll(quad_unit_sets);
+			DisposeAll(quad_arrays);
+			DisposeAll(quad_sets);
 			DisposeAll(line_queues);
+			DisposeAll(line_arrays);
+			DisposeAll(line_sets);
+			DisposeAll(rect_queues);
 
 		#endregion
 

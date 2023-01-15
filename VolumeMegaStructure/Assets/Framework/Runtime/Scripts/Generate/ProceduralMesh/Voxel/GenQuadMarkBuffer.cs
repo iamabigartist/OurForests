@@ -76,7 +76,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 				volume_inside_matrix = volume_inside_matrix,
 				buffers = buffers
 			};
-			return job.ScheduleParallel(volume_count, GetBatchSize_MaxThreadCount(volume_count), deps);
+			return job.ScheduleParallel(volume_count, GetBatchSize_MaxThreadCount(volume_count, 3), deps);
 		}
 	}
 }
