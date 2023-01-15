@@ -18,10 +18,10 @@ static const int quad_abcd_indexer[6][4][3] =
 
 int quad_count;
 StructuredBuffer<float> quad_unit_array;
-RWStructuredBuffer<VertexBufferUnit> vertex_buffer;
+RWStructuredBuffer<VBUnit> vertex_buffer;
 RWStructuredBuffer<int> wait;
 
-[numthreads(1024,1,1)]
+[numthreads(512,1,1)]
 void CSMain(uint3 id : SV_DispatchThreadID)
 {
     int i_quad = id.x;
@@ -35,7 +35,7 @@ void CSMain(uint3 id : SV_DispatchThreadID)
     }
     int cur_abcd_indices[4][3] = quad_abcd_indexer[quad_unit[5]];
 
-    VertexBufferUnit a, b, c, d;
+    VBUnit a, b, c, d;
     a.position = float3(
         quad_unit[cur_abcd_indices[0][0]],
         quad_unit[cur_abcd_indices[0][1]],

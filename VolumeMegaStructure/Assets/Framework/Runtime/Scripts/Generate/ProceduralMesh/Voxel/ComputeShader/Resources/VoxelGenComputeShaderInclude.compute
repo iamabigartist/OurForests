@@ -1,13 +1,48 @@
-struct VertexBufferUnit
+struct VBUnit
 {
     float3 position;
     float dir;
     float texture_id;
-
-    void make(float3 _position, float _dir, float _texture_id)
-    {
-        position = _position;
-        dir = _dir;
-        texture_id = _texture_id;
-    }
 };
+
+VBUnit make_vb_unit(in float3 position, in float dir, in float texture_id)
+{
+    VBUnit unit;
+    unit.position = position;
+    unit.dir = dir;
+    unit.texture_id = texture_id;
+    return unit;
+}
+
+struct VertexBufferUnit_1
+{
+    float x;
+    float y;
+    float z;
+    float dir;
+    float texture_id;
+};
+
+struct RectUnit
+{
+    int texture_id;
+    int end_pos;
+    int start_pos;
+};
+
+void i_3d_to_1d(in uint3 size, in uint x, in uint y, in uint z, out uint i)
+{
+    i =
+    x +
+    y * size.x +
+    z * size.y * size.x;
+}
+
+void i_1d_to_3d(in uint3 size, uint i, out uint x, out uint y, out uint z)
+{
+    z = i / (size.y * size.z);
+    i -= z * size.y * size.z;
+    y = i / size.x;
+    i -= y * size.x;
+    x = i;
+}

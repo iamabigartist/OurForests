@@ -128,17 +128,15 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			var rect_arrays = rect_queues.Select(queue => queue.ToArray(Allocator.TempJob)).ToArray();
 			stop_watch.StopRecord();
 
-			// var array_0 = quad_sets[0].ToNativeArray(Allocator.Temp);
-			// Debug.Log(JsonConvert.SerializeObject(new
-			// {
-			// 	count = quad_sets[0].Count(),
-			// 	content = array_0.ToArray()[..100].Select(i2 => (i2.x, i2.y))
-			// }, new JsonSerializerSettings
-			// {
-			// 	Formatting = Formatting.Indented,
-			// 	ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-			// }));
-			// array_0.Dispose();
+			var rect_buffers = rect_arrays.Select(array =>
+			{
+				int count = array.Length;
+				var buffer = new ComputeBuffer(count, 3 * sizeof(int), ComputeBufferType.Structured, ComputeBufferMode.SubUpdates);
+				buffer.SetData(array);
+				return buffer;
+			});
+
+			ComputeShader rect_uni_to_vb = Resources.Load<ComputeShader>("RectUnitToVB");
 
 			DisposeAll(quad_queues);
 			DisposeAll(quad_pos_arrays);
@@ -148,17 +146,6 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			DisposeAll(line_arrays);
 			DisposeAll(line_sets);
 			DisposeAll(rect_queues);
-
-		#endregion
-
-
-
-		#region Buffer
-
-			// stop_watch.StartRecord("GenQuadMarkBuffer");
-			// GenQuadMarkBuffer.ScheduleParallel(volume_inside_matrix, out var buffers).Complete();
-			// stop_watch.StopRecord();
-			// Debug.Log($"buffer len:{buffers[0][0].Length}");
 
 		#endregion
 
@@ -221,9 +208,6 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			gen_quad6_index_buffer.Dispatch(0,
 				Mathf.CeilToInt(quad_count / 1024f), 1, 1);
 
-			AsyncGPUReadback.Request(gen_quad6_index_buffer_wait);
-			AsyncGPUReadback.WaitAllRequests();
-
 			stop_watch.StopRecord();
 
 			stop_watch.StartRecord("QuadGenUnitToVertexBuffer");
@@ -233,12 +217,17 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			quad_gen_unit_to_vertex_buffer.SetInt("quad_count", quad_count);
 			quad_gen_unit_to_vertex_buffer.SetBuffer(0, "quad_unit_array", quad_unit_buffer);
 			quad_gen_unit_to_vertex_buffer.SetBuffer(0, "vertex_buffer", vertex_buffer);
+			quad_gen_unit_to_vertex_buffer.SetBuffer(0, "wait", quad_gen_unit_to_vertex_buffer_wait);
 			quad_gen_unit_to_vertex_buffer.Dispatch(0,
-				Mathf.CeilToInt(quad_count / 1024f), 1, 1);
+				Mathf.CeilToInt(quad_count / 512f), 1, 1);
 
-			AsyncGPUReadback.Request(quad_gen_unit_to_vertex_buffer_wait);
+			stop_watch.StopRecord();
+
+			stop_watch.StartRecord("WaitBuffers");
+
+			AsyncGPUReadback.Request(index_buffer);
+			AsyncGPUReadback.Request(vertex_buffer);
 			AsyncGPUReadback.WaitAllRequests();
-
 			stop_watch.StopRecord();
 
 			stop_watch.StartRecord("CopyArraysAndClean");
