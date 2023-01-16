@@ -29,13 +29,13 @@ namespace VolumeMegaStructure.Util
 			record_dict = new();
 			stopwatch = new();
 		}
-		public void StartRecord(string record_name)
+		public void Start(string record_name)
 		{
 			cur_record_name = record_name;
 			stopwatch.Restart();
 			record_dict[cur_record_name] = ProfileRecord.CreateRecord();
 		}
-		public void StopRecord()
+		public void Stop()
 		{
 			stopwatch.Stop();
 			record_dict[cur_record_name].ticks = stopwatch.ElapsedTicks;

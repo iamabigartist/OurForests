@@ -26,8 +26,8 @@ struct VertexBufferUnit_1
 struct RectUnit
 {
     int texture_id;
-    int end_pos;
     int start_pos;
+    int end_pos;
 };
 
 void i_3d_to_1d(in uint3 size, in uint x, in uint y, in uint z, out uint i)

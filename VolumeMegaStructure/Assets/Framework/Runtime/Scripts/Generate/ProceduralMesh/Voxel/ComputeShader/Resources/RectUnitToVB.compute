@@ -2,23 +2,25 @@
 #pragma kernel Main_PlusX
 #pragma kernel Main_MnusX
 #pragma kernel Main_PlusY
+#pragma kernel Main_MnusY
+#pragma kernel Main_PlusZ
+#pragma kernel Main_MnusZ
 
 static const float offset = 0.5f;
 int3 matrix_size;
 int dir;
 int i_rect_vb_start;
-int rect_array_len;
-StructuredBuffer<RectUnit> rect_array;
+int rect_buffer_len;
+StructuredBuffer<RectUnit> rect_buffer;
 RWStructuredBuffer<VBUnit> vertex_buffer;
-RWStructuredBuffer<int> wait;
 
 #define DefineKernel(name,apply_offset,assign_corner)\
 [numthreads(512,1,1)]\
 void Main_##name(uint3 id : SV_DispatchThreadID)\
 {\
     int i_rect = id.x;\
-    if (!(i_rect < rect_array_len)) { return; }\
-    RectUnit rect = rect_array[i_rect];\
+    if (!(i_rect < rect_buffer_len)) { return; }\
+    RectUnit rect = rect_buffer[i_rect];\
     int texture_id = rect.texture_id;\
     int i_vertex_start = (i_rect_vb_start + i_rect) * 4;\
 \

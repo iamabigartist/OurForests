@@ -37,30 +37,34 @@ namespace Labs.Lab6_TestGenVoxel
 
 		void Generate()
 		{
-			stop_watch.StartRecord("Generate Terrain");
+			stop_watch.Start("Generate Terrain");
 			volume_matrix = new(chunk_size, Allocator.Persistent);
 			volume_matrix.GenerateGrassSnowTerrain(MyTerrainParams);
-			stop_watch.StopRecord();
+			stop_watch.Stop();
 
-			stop_watch.StartRecord("Generate Mesh");
+			stop_watch.Start("CheckEmpty");
 			volume_inside_matrix = new(volume_matrix.size, Allocator.Persistent);
-			voxel_mesh = new(volume_matrix, volume_inside_matrix);
 			var empty_check_job = new VolumeMatrixEmptyCheckInside()
 			{
 				volume_matrix = volume_matrix,
 				volume_inside_matrix = volume_inside_matrix
 			};
 			empty_check_job.Schedule(volume_matrix.Count, 1024).Complete();
-			voxel_mesh.InitGenerate();
-			stop_watch.StopRecord();
+			stop_watch.Stop();
 
-			stop_watch.StartRecord("Bind Components");
+			stop_watch.Start("Generate Mesh");
+			voxel_mesh = new(volume_matrix, volume_inside_matrix);
+			// voxel_mesh.InitGenerate();
+			voxel_mesh.InitGenerate_Greedy();
+			stop_watch.Stop();
+
+			stop_watch.Start("Bind Components");
 			mesh_filter = GetComponent<MeshFilter>();
 			mesh_filter.mesh = voxel_mesh.unity_mesh;
 
 			mesh_renderer = GetComponent<MeshRenderer>();
 			mesh_renderer.material = MainManager.voxel_render_manager.material;
-			stop_watch.StopRecord();
+			stop_watch.Stop();
 
 			Debug.Log(stop_watch.PrintAllRecords());
 

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 namespace VolumeMegaStructure.Util
 {
 	public static class DisposeUtil
@@ -7,16 +8,16 @@ namespace VolumeMegaStructure.Util
 		{
 			foreach (IDisposable disposable in Disposables)
 			{
-				disposable.Dispose();
+				disposable?.Dispose();
 			}
 		}
 
-		public static void DisposeAll<T>(params T[] Disposables)
+		public static void DisposeArray<T>(IEnumerable<T> Disposables)
 			where T : IDisposable
 		{
 			foreach (T disposable in Disposables)
 			{
-				disposable.Dispose();
+				disposable?.Dispose();
 			}
 		}
 	}
