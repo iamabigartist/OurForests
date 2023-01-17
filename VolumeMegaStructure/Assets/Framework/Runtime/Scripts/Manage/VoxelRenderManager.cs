@@ -63,8 +63,7 @@ namespace VolumeMegaStructure.Manage
 			material.SetBuffer("face_normals", normal_buffer);
 			material.SetBuffer("face_tangents", tangent_buffer);
 			material.SetBuffer("quad_color_textures", color_texture_buffer);
-
-
+			material.globalIlluminationFlags = MaterialGlobalIlluminationFlags.RealtimeEmissive;
 			texture_buffer_array = new float[textures.Count * 5];
 			color_texture_buffer.GetData(texture_buffer_array);
 		}
