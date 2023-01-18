@@ -1,9 +1,9 @@
+using PrototypePackages.MathematicsUtils.Index;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Jobs;
 using Unity.Mathematics;
 using VolumeMegaStructure.DataDefinition.Container;
-using static PrototypePackages.JobUtils.IndexUtil;
 using static VolumeMegaStructure.Util.JobSystem.ScheduleUtils;
 namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 {

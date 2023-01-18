@@ -135,7 +135,8 @@ namespace VolumeMegaStructure.Generate.Volume
 			public float GetHeight(float noise)
 			{
 				var scaled_noise = noise * noise_height_scale;
-				float height = (int)scaled_noise / cube_height * cube_height;
+				// float height = (int)scaled_noise / cube_height * cube_height;
+				float height = scaled_noise;
 				return height;
 			}
 		}
@@ -237,20 +238,6 @@ namespace VolumeMegaStructure.Generate.Volume
 
 	#endregion
 		//TODO classify methods into different class//
-
-	#region Util
-
-		// public static void SetBlockId(this DataMatrix<VolumeUnit> volume_matrix, DataMatrix<ushort> block_id_matrix)
-		// {
-		// 	for (int i = 0; i < volume_matrix.Count; i++)
-		// 	{
-		// 		var cur_volume_unit = volume_matrix[i];
-		// 		cur_volume_unit.block_id = block_id_matrix[i];
-		// 		volume_matrix[i] = cur_volume_unit;
-		// 	}
-		// }
-
-	#endregion
 
 	}
 }

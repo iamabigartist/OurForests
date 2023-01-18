@@ -1,17 +1,18 @@
+using PrototypePackages.JobUtils.Template;
+using PrototypePackages.MathematicsUtils.Index;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Jobs;
 using Unity.Mathematics;
 using VolumeMegaStructure.DataDefinition.Container;
 using VolumeMegaStructure.Util.JobSystem;
-using static PrototypePackages.JobUtils.IndexUtil;
-using static VolumeMegaStructure.Util.JobSystem.IForPlan;
+using static PrototypePackages.JobUtils.Template.IPlanFor;
 namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 {
 	public static class GenQuadUnitArray_New
 	{
 		[BurstCompile(DisableSafetyChecks = true, OptimizeFor = OptimizeFor.Performance)]
-		public struct GenQuadIdJob<TQuadPosSampler> : IJobFor, IForPlan
+		public struct GenQuadIdJob<TQuadPosSampler> : IJobFor, IPlanFor
 			where TQuadPosSampler : struct, IQuadPosSampler
 		{
 			public int length => quad_pos_array.Length;

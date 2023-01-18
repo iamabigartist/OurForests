@@ -1,18 +1,18 @@
+using PrototypePackages.JobUtils.Template;
+using PrototypePackages.MathematicsUtils.Index;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Jobs;
 using Unity.Mathematics;
 using VolumeMegaStructure.Util;
-using VolumeMegaStructure.Util.JobSystem;
-using static PrototypePackages.JobUtils.IndexUtil;
-using static VolumeMegaStructure.Util.JobSystem.IForPlan;
+using static PrototypePackages.JobUtils.Template.IPlanFor;
 using static VolumeMegaStructure.Util.JobSystem.ScheduleUtils;
 namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.Greedy
 {
 	public static class ScanQuadToLine
 	{
 		[BurstCompile(DisableSafetyChecks = true, OptimizeFor = OptimizeFor.Performance)]
-		public struct ScanQuadToLineJob<TIndexWalker> : IJobFor, IForPlan
+		public struct ScanQuadToLineJob<TIndexWalker> : IJobFor, IPlanFor
 			where TIndexWalker : struct, IIndexWalker
 		{
 			public int length => quad_array.Length;

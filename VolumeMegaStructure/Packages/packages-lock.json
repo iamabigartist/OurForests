@@ -8,7 +8,16 @@
         "com.unity.burst": "1.7.4",
         "com.unity.mathematics": "1.2.6"
       },
-      "hash": "9d58055d2e83abc73bf809fd41c814d977d1cd5a"
+      "hash": "cb020ca9ca60805d8a785b1a5c8dace60be67315"
+    },
+    "com.chua.mathematics-utils": {
+      "version": "https://github.com/iamabigartist/UnityPrototypeUtils.git?path=/Assets/PrototypePackages/MathematicsUtils#dev",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.mathematics": "1.2.6"
+      },
+      "hash": "5943d9f206f8752b481c176827f74c7335d8fbf7"
     },
     "com.chua.misc-utils": {
       "version": "https://github.com/iamabigartist/UnityPrototypeUtils.git?path=/Assets/PrototypePackages/MiscUtils#dev",

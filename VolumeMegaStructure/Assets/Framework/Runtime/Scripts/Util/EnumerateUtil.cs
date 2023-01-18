@@ -12,8 +12,8 @@ namespace VolumeMegaStructure.Util
 		}
 
 		public static Dictionary<TKey, TValue> ToDictionary<TKey, TValue>(this NativeHashMap<TKey, TValue> native_map)
-			where TKey : struct, IEquatable<TKey>
-			where TValue : struct
+			where TKey : unmanaged, IEquatable<TKey>
+			where TValue : unmanaged
 		{
 			return native_map.ToDictionary(pair => pair.Key, pair => pair.Value);
 		}
