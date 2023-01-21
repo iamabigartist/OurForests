@@ -142,7 +142,7 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			stop_watch.Start("SetSubMeshAndBound");
 			unity_mesh.subMeshCount = 1;
 			unity_mesh.SetSubMesh(0, new(0, quad_count * 6), FAST_SET_FLAG);
-			unity_mesh.bounds = new(volume_matrix.CenterPoint.V(), volume_matrix.size.V());
+			unity_mesh.bounds = new(volume_matrix.CenterPoint.v(), volume_matrix.size.v());
 			stop_watch.Stop();
 
 			stop_watch.Start("AllocateVertexArray");
@@ -283,7 +283,7 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			w.Start("SetSubMeshAndBound");
 			unity_mesh.subMeshCount = 1;
 			unity_mesh.SetSubMesh(0, new(0, rect_count * 6), FAST_SET_FLAG);
-			unity_mesh.bounds = new(volume_matrix.CenterPoint.V(), volume_matrix.size.V());
+			unity_mesh.bounds = new(volume_matrix.CenterPoint.v(), volume_matrix.size.v());
 			w.Stop();
 
 			w.Start("CopyArraysAndClean");

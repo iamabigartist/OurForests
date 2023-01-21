@@ -16,7 +16,7 @@ namespace Labs.Lab0_Misc.Editor
 
 		void OnEnable()
 		{
-			Debug.Log(UnsafeUtility.SizeOf(typeof(byte4)));
+			Debug.Log(UnsafeUtility.SizeOf(typeof(byte3)));
 			Debug.Log(UnsafeUtility.SizeOf(typeof(byte2)));
 		}
 
