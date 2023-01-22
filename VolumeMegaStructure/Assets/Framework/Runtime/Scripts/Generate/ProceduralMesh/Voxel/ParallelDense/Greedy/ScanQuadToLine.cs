@@ -21,7 +21,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.Greedy
 			public TIndexWalker walker;
 			public Index3D c;
 			[ReadOnly] public NativeArray<int2> quad_array;
-			[ReadOnly] public NativeHashSet<int2> quad_set;
+			[ReadOnly] public NativeParallelHashSet<int2>.ReadOnly quad_set;
 			[WriteOnly] public NativeQueue<int3>.ParallelWriter line_queue;
 			public void Execute(int i_quad)
 			{
@@ -50,14 +50,14 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.Greedy
 			public ScanQuadToLineJob(
 				int3 matrix_size,
 				NativeArray<int2> quad_array,
-				NativeHashSet<int2> quad_set,
+				NativeParallelHashSet<int2> quad_set,
 				out NativeQueue<int3> line_queue)
 			{
 				line_queue = new(Allocator.TempJob);
 				walker = new();
 				c = new(matrix_size);
 				this.quad_array = quad_array;
-				this.quad_set = quad_set;
+				this.quad_set = quad_set.AsReadOnly();
 				this.line_queue = line_queue.AsParallelWriter();
 			}
 		}
@@ -65,7 +65,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.Greedy
 		public static JobHandle Plan6Dir(
 			int3 size,
 			NativeArray<int2>[] quad_arrays,
-			NativeHashSet<int2>[] quad_sets,
+			NativeParallelHashSet<int2>[] quad_sets,
 			out NativeQueue<int3>[] line_queues)
 		{
 			line_queues = new NativeQueue<int3>[6];

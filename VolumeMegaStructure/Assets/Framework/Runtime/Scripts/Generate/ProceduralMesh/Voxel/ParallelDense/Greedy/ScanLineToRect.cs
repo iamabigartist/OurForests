@@ -21,7 +21,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.Greedy
 			public TIndexWalker walker;
 			public Index3D c;
 			[ReadOnly] public NativeArray<int3> line_array;
-			[ReadOnly] public NativeHashSet<int3> line_set;
+			[ReadOnly] public NativeParallelHashSet<int3>.ReadOnly line_set;
 			[WriteOnly] public NativeQueue<int3>.ParallelWriter rect_queue;
 			public void Execute(int i_line)
 			{
@@ -51,21 +51,20 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.Greedy
 					if (!line_set.Contains(new(block_id, beside_start_pos, beside_end_pos))) { break; }
 					rect_end_pos = beside_end_pos;
 				}
-
 				rect_queue.Enqueue(new(block_id, start_pos, rect_end_pos));
 			}
 
 			public ScanLineToRectJob(
 				int3 matrix_size,
 				NativeArray<int3> line_array,
-				NativeHashSet<int3> line_set,
+				NativeParallelHashSet<int3> line_set,
 				out NativeQueue<int3> rect_queue)
 			{
 				rect_queue = new(Allocator.TempJob);
 				walker = new();
 				c = new(matrix_size);
 				this.line_array = line_array;
-				this.line_set = line_set;
+				this.line_set = line_set.AsReadOnly();
 				this.rect_queue = rect_queue.AsParallelWriter();
 			}
 		}
@@ -73,7 +72,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.Greedy
 		public static JobHandle Plan6Dir(
 			int3 size,
 			NativeArray<int3>[] line_arrays,
-			NativeHashSet<int3>[] line_sets,
+			NativeParallelHashSet<int3>[] line_sets,
 			out NativeQueue<int3>[] rect_queues)
 		{
 			rect_queues = new NativeQueue<int3>[6];
