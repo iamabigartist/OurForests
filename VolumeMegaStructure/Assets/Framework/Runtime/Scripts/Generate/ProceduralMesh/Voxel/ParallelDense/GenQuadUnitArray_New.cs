@@ -20,9 +20,9 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 
 			public TQuadPosSampler sampler;
 			public Index3D c;
-			[ReadOnly] public DataMatrix<ushort> volume_matrix;
-			[ReadOnly] public NativeArray<int> quad_pos_array;
-			[WriteOnly] public NativeArray<int2> quad_unit_array;
+			[NoAlias] [ReadOnly] public DataMatrix<ushort> volume_matrix;
+			[NoAlias] [ReadOnly] public NativeArray<int> quad_pos_array;
+			[NoAlias] [WriteOnly] public NativeArray<int2> quad_unit_array;
 			public void Execute(int i_quad)
 			{
 				var pos = quad_pos_array[i_quad];

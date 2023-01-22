@@ -14,13 +14,13 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
 	public struct GenDirectionQuadQueue : IJobFor
 	{
 		public Index3D c;
-		[ReadOnly] public DataMatrix<bool> volume_inside_matrix;
-		[WriteOnly] public NativeQueue<int>.ParallelWriter stream_x;
-		[WriteOnly] public NativeQueue<int>.ParallelWriter stream_x_minus;
-		[WriteOnly] public NativeQueue<int>.ParallelWriter stream_y;
-		[WriteOnly] public NativeQueue<int>.ParallelWriter stream_y_minus;
-		[WriteOnly] public NativeQueue<int>.ParallelWriter stream_z;
-		[WriteOnly] public NativeQueue<int>.ParallelWriter stream_z_minus;
+		[NoAlias] [ReadOnly] public DataMatrix<bool> volume_inside_matrix;
+		[NoAlias] [WriteOnly] public NativeQueue<int>.ParallelWriter stream_x;
+		[NoAlias] [WriteOnly] public NativeQueue<int>.ParallelWriter stream_x_minus;
+		[NoAlias] [WriteOnly] public NativeQueue<int>.ParallelWriter stream_y;
+		[NoAlias] [WriteOnly] public NativeQueue<int>.ParallelWriter stream_y_minus;
+		[NoAlias] [WriteOnly] public NativeQueue<int>.ParallelWriter stream_z;
+		[NoAlias] [WriteOnly] public NativeQueue<int>.ParallelWriter stream_z_minus;
 
 		public void Execute(int volume_i)
 		{

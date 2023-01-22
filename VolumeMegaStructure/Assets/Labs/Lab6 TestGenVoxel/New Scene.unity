@@ -164,7 +164,7 @@ MonoBehaviour:
       block_id: 1
       cube_height: 2
       noise_height_scale: 225
-      noise_scale: 7
+      noise_scale: 8
       noise_offset: {x: 0, y: 0}
     soil_params:
       block_id: 2

@@ -20,9 +20,9 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.Greedy
 
 			public TIndexWalker walker;
 			public Index3D c;
-			[ReadOnly] public NativeArray<int3> line_array;
-			[ReadOnly] public NativeParallelHashSet<int3>.ReadOnly line_set;
-			[WriteOnly] public NativeQueue<int3>.ParallelWriter rect_queue;
+			[NoAlias] [ReadOnly] public NativeArray<int3> line_array;
+			[NoAlias] [ReadOnly] public NativeParallelHashSet<int3>.ReadOnly line_set;
+			[NoAlias] [WriteOnly] public NativeQueue<int3>.ParallelWriter rect_queue;
 			public void Execute(int i_line)
 			{
 				var (block_id, start_pos, end_pos) = line_array[i_line];

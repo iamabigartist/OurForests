@@ -8,9 +8,9 @@ namespace VolumeMegaStructure.Util.JobSystem.Jobs
 	[BurstCompile(DisableSafetyChecks = true, OptimizeFor = OptimizeFor.Performance)]
 	public struct NativeArrayToParallelHashSetForJob<T> : IJobFor where T : unmanaged, IEquatable<T>
 	{
-		[ReadOnly] NativeArray<T> array;
-		[WriteOnly] NativeParallelHashSet<T>.ParallelWriter set;
-		
+		[NoAlias] [ReadOnly] NativeArray<T> array;
+		[NoAlias] [WriteOnly] NativeParallelHashSet<T>.ParallelWriter set;
+
 		public void Execute(int i)
 		{
 			set.Add(array[i]);

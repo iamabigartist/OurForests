@@ -20,9 +20,9 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.Greedy
 
 			public TIndexWalker walker;
 			public Index3D c;
-			[ReadOnly] public NativeArray<int2> quad_array;
-			[ReadOnly] public NativeParallelHashSet<int2>.ReadOnly quad_set;
-			[WriteOnly] public NativeQueue<int3>.ParallelWriter line_queue;
+			[NoAlias] [ReadOnly] public NativeArray<int2> quad_array;
+			[NoAlias] [ReadOnly] public NativeParallelHashSet<int2>.ReadOnly quad_set;
+			[NoAlias] [WriteOnly] public NativeQueue<int3>.ParallelWriter line_queue;
 			public void Execute(int i_quad)
 			{
 				var (block_id, start_pos) = quad_array[i_quad];
