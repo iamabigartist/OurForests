@@ -200,7 +200,7 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			w.Stop();
 
 			w.Start("QuadArrayToSet");
-			NativeArrayToHashSetForJob<int2>.ScheduleParallel(quad_arrays, out var quad_sets).Complete();
+			NativeArrayToParallelHashSetForJob<int2>.ScheduleParallel(quad_arrays, out var quad_sets).Complete();
 			w.Stop();
 
 			w.Start("GreedyLine");
@@ -212,7 +212,7 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			w.Stop();
 
 			w.Start("LineArrayToSet");
-			NativeArrayToHashSetForJob<int3>.ScheduleParallel(line_arrays, out var line_sets).Complete();
+			NativeArrayToParallelHashSetForJob<int3>.ScheduleParallel(line_arrays, out var line_sets).Complete();
 			w.Stop();
 
 			w.Start("GreedyRect");

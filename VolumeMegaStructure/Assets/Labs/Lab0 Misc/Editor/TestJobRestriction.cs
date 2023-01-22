@@ -80,7 +80,7 @@ namespace Labs.Lab0_Misc.Editor
 	[BurstCompile]
 	public struct TestJob2 : IJobParallelFor
 	{
-		[WriteOnly] public NativeHashMap<int, int>.ParallelWriter write_to_list;
+		[WriteOnly] public NativeHashMap<int, int> write_to_list;
 		public void Execute(int index) {}
 	}
 
@@ -125,7 +125,7 @@ namespace Labs.Lab0_Misc.Editor
 			// 	write_to_list = write_to_list.AsParallelWriter()
 			// };
 			// test_job2.Schedule(10, 1).Complete();
-			Debug.Log(write_to_list.ToArray());
+			Debug.Log(write_to_list.ToArray(Allocator.Temp));
 			write_to_list.Dispose();
 		}
 

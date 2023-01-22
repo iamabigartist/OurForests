@@ -153,13 +153,9 @@ namespace Labs.Lab13_TestPerformance.Editor
 			handle.Dispose();
 		}
 
-
 		void CreateGUI()
 		{
-			var button = new Button(() => { task_queue.Enqueue(Test0); })
-			{
-				text = "Test0"
-			};
+			var button = new Button(() => { task_queue.Enqueue(Test0); }) { text = "Test0" };
 			list_view = new(result_list, 200f, () => new Label(),
 				(ve, i) => ((Label)ve).text = result_list[i]);
 			rootVisualElement.Add(button);
