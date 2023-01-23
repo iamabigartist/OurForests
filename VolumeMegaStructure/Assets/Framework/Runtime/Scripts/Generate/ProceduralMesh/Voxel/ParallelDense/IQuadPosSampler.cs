@@ -1,5 +1,5 @@
 using System.Runtime.CompilerServices;
-namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
+namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.ParallelDense
 {
 	public interface IQuadPosSampler
 	{

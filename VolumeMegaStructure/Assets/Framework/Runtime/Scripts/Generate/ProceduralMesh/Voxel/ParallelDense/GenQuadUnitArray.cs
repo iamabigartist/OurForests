@@ -5,7 +5,7 @@ using UnityEngine;
 using VolumeMegaStructure.DataDefinition.Container;
 using VolumeMegaStructure.DataDefinition.DataUnit;
 using VolumeMegaStructure.Util;
-namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
+namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.ParallelDense
 {
 
 	/// <summary>

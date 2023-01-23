@@ -4,7 +4,7 @@ using Unity.Jobs;
 using VolumeMegaStructure.DataDefinition.Container;
 using VolumeMegaStructure.Util;
 using VolumeMegaStructure.Util.JobSystem;
-namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
+namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.ParallelDense
 {
 	/// <summary>
 	///     在扫描VolumeMatrix之前，是不知道一共有多少个quad需要生成的，而最多可能有3*n*n*(n+1)个quad，这个数量很大，因此使用冗余的数组作为最终quad结果的存放内存很不划算。然而在扫描之后，使用NativeCounter统计quad数量，再以此数量分配后续各种数组的长度。

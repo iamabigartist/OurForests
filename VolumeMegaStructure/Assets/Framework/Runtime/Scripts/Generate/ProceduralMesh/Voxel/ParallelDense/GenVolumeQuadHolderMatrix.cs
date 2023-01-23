@@ -4,7 +4,7 @@ using Unity.Jobs;
 using Unity.Mathematics;
 using VolumeMegaStructure.DataDefinition.Container;
 using VolumeMegaStructure.Util;
-namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
+namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.ParallelDense
 {
 	[BurstCompile(DisableSafetyChecks = true, OptimizeFor = OptimizeFor.Performance)]
 	public struct GenVolumeQuadHolderMatrix : IJobParallelFor

@@ -2,8 +2,8 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEditor;
 using UnityEngine;
-using static VolumeMegaStructure.Generate.Sequential_256.Octree.OctreeDebugUtil;
-using static VolumeMegaStructure.Generate.Sequential_256.Octree.OctreeEnumerateUtil;
+using static VolumeMegaStructure.Generate.ProceduralMesh.Voxel.Sequential256.Octree.OctreeDebugUtil;
+using static VolumeMegaStructure.Generate.ProceduralMesh.Voxel.Sequential256.Octree.OctreeEnumerateUtil;
 using static VolumeMegaStructure.Util.DebugUtils;
 using Random = Unity.Mathematics.Random;
 namespace Labs.Lab12_TestOctree

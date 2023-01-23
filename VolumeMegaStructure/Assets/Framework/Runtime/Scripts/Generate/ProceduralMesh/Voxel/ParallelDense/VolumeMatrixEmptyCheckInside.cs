@@ -2,7 +2,7 @@ using Unity.Burst;
 using Unity.Collections;
 using Unity.Jobs;
 using VolumeMegaStructure.DataDefinition.Container;
-namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
+namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.ParallelDense
 {
 	[BurstCompile(DisableSafetyChecks = true, OptimizeFor = OptimizeFor.Performance)]
 	public struct VolumeMatrixEmptyCheckInside : IJobParallelFor

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
-using VolumeMegaStructure.Generate.ProceduralMesh.Voxel;
+using VolumeMegaStructure.Generate.ProceduralMesh.Voxel.ParallelDense.Table;
 using VolumeMegaStructure.Util;
 namespace VolumeMegaStructure.Manage
 {

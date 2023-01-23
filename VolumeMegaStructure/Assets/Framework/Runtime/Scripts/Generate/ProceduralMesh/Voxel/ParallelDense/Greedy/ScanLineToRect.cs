@@ -7,7 +7,7 @@ using Unity.Mathematics;
 using VolumeMegaStructure.Util;
 using static PrototypePackages.JobUtils.Template.IPlanFor;
 using static VolumeMegaStructure.Util.JobSystem.ScheduleUtils;
-namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.Greedy
+namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.ParallelDense.Greedy
 {
 	public static class ScanLineToRect
 	{

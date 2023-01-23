@@ -1,8 +1,8 @@
 using Unity.Collections;
 using Unity.Mathematics;
 using VolumeMegaStructure.Util.JobSystem;
-using static VolumeMegaStructure.Generate.Sequential_256.Octree.OctreeEnumerateUtil;
-namespace VolumeMegaStructure.Generate.Sequential256.Octree
+using static VolumeMegaStructure.Generate.ProceduralMesh.Voxel.Sequential256.Octree.OctreeEnumerateUtil;
+namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.Sequential256.Octree
 {
 	public struct Octree256
 	{

@@ -7,7 +7,7 @@ using Unity.Mathematics;
 using VolumeMegaStructure.DataDefinition.Container;
 using VolumeMegaStructure.Util.JobSystem;
 using static PrototypePackages.JobUtils.Template.IPlanFor;
-namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
+namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.ParallelDense
 {
 	public static class GenQuadUnitArray_New
 	{

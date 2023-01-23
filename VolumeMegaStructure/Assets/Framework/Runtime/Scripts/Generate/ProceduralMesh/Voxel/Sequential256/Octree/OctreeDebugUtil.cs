@@ -1,8 +1,8 @@
 using Unity.Mathematics;
 using UnityEngine;
 using VolumeMegaStructure.Util;
-using static VolumeMegaStructure.Generate.Sequential_256.Octree.OctreeEnumerateUtil;
-namespace VolumeMegaStructure.Generate.Sequential_256.Octree
+using static VolumeMegaStructure.Generate.ProceduralMesh.Voxel.Sequential256.Octree.OctreeEnumerateUtil;
+namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.Sequential256.Octree
 {
 	public static class OctreeDebugUtil
 	{

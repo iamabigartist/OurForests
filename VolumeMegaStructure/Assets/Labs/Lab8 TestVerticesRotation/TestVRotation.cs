@@ -1,7 +1,7 @@
 using PrototypePackages.PrototypeUtils;
 using Unity.Mathematics;
 using UnityEngine;
-using VolumeMegaStructure.Generate.ProceduralMesh.Voxel;
+using VolumeMegaStructure.Generate.ProceduralMesh.Voxel.ParallelDense.Table;
 using static VolumeMegaStructure.Manage.MainManager;
 using static VolumeMegaStructure.Util.VoxelProcessUtility;
 namespace Labs.Lab8_TestVerticesRotation

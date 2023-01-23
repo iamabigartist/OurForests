@@ -1,5 +1,5 @@
 using UnityEngine;
-using VolumeMegaStructure.Generate.ProceduralMesh.Voxel;
+using VolumeMegaStructure.Generate.ProceduralMesh.Voxel.ParallelDense.Table;
 namespace VolumeMegaStructure.Manage
 {
 	/// <summary>

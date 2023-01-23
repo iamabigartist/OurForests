@@ -4,7 +4,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using VolumeMegaStructure.DataDefinition.Container;
 using VolumeMegaStructure.DataDefinition.Mesh;
-using VolumeMegaStructure.Generate.ProceduralMesh.Voxel;
+using VolumeMegaStructure.Generate.ProceduralMesh.Voxel.ParallelDense;
 using VolumeMegaStructure.Manage;
 using VolumeMegaStructure.Util;
 using static VolumeMegaStructure.Generate.Volume.VolumeMatrixGeneration;
@@ -35,7 +35,7 @@ namespace Labs.Lab6_TestGenVoxel
 			stop_watch.Clear();
 		}
 
-		void Generate()
+		async void Generate()
 		{
 			stop_watch.Start("Generate Terrain");
 			volume_matrix = new(chunk_size, Allocator.Persistent);
@@ -55,7 +55,7 @@ namespace Labs.Lab6_TestGenVoxel
 			stop_watch.Start("Generate Mesh");
 			voxel_mesh = new(volume_matrix, volume_inside_matrix);
 			// voxel_mesh.InitGenerate();
-			voxel_mesh.InitGenerate_Greedy();
+			await voxel_mesh.InitGenerate_Greedy();
 			stop_watch.Stop();
 
 			stop_watch.Start("Bind Components");

@@ -5,7 +5,7 @@ using Unity.Jobs;
 using Unity.Mathematics;
 using VolumeMegaStructure.DataDefinition.Container;
 using static VolumeMegaStructure.Util.JobSystem.ScheduleUtils;
-namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
+namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.ParallelDense
 {
 	/// <summary>
 	///     统计所有quad的必要信息，以随机顺序组成一个列表，供后面的数组赋值操作时候参考位置。

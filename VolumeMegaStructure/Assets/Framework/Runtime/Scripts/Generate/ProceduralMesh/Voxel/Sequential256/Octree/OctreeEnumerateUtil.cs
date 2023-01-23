@@ -1,6 +1,6 @@
 using System.Runtime.CompilerServices;
 using Unity.Mathematics;
-namespace VolumeMegaStructure.Generate.Sequential_256.Octree
+namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.Sequential256.Octree
 {
 	public static class OctreeEnumerateUtil
 	{

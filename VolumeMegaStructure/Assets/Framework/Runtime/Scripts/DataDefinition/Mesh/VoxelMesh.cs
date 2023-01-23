@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using Unity.Collections;
 using Unity.Jobs;
 using Unity.Mathematics;
@@ -8,8 +10,8 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using VolumeMegaStructure.DataDefinition.Container;
 using VolumeMegaStructure.DataDefinition.DataUnit;
-using VolumeMegaStructure.Generate.ProceduralMesh.Voxel;
-using VolumeMegaStructure.Generate.ProceduralMesh.Voxel.Greedy;
+using VolumeMegaStructure.Generate.ProceduralMesh.Voxel.ParallelDense;
+using VolumeMegaStructure.Generate.ProceduralMesh.Voxel.ParallelDense.Greedy;
 using VolumeMegaStructure.Manage;
 using VolumeMegaStructure.Util;
 using VolumeMegaStructure.Util.JobSystem.Jobs;
@@ -175,7 +177,7 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 
 		}
 
-		public void InitGenerate_Greedy()
+		public async Task InitGenerate_Greedy()
 		{
 			var w = new ProfileStopWatch();
 			int volume_count = volume_matrix.Count;
@@ -242,7 +244,7 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 				if (count == 0) { buffer = null; }
 				else
 				{
-					buffer = new(count, 3 * sizeof(int), ComputeBufferType.Structured, ComputeBufferMode.SubUpdates);
+					buffer = new(count, 3 * sizeof(int), ComputeBufferType.Structured);
 					buffer.SetData(array);
 				}
 				return buffer;
@@ -270,23 +272,27 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 				Mathf.CeilToInt(rect_count / 1024f), 1, 1);
 			w.Stop();
 
+			await UniTask.Create(() =>
+			{
+				w.Start("SetSubMeshCount");
+				unity_mesh.subMeshCount = 1;
+				w.Stop();
+
+				w.Start("SetSubMesh0Info");
+				unity_mesh.SetSubMesh(0, new(0, rect_count * 6), FAST_SET_FLAG);
+				w.Stop();
+				return UniTask.CompletedTask;
+			});
+
+			w.Start("SetBound");
+			unity_mesh.bounds = new(volume_matrix.CenterPoint.v(), volume_matrix.size.v());
+			w.Stop();
+
 			w.Start("GenRectVertexBuffer");
 			GenRectVB.Plan6Dir(matrix_size, vertex_buffer, rect_array_start_lens, rect_buffers);
 			w.Stop();
 
-			// w.Start("WaitBuffers");
-			// AsyncGPUReadback.Request(index_buffer);
-			// AsyncGPUReadback.Request(vertex_buffer);
-			// AsyncGPUReadback.WaitAllRequests();
-			// w.Stop();
-
-			w.Start("SetSubMeshAndBound");
-			unity_mesh.subMeshCount = 1;
-			unity_mesh.SetSubMesh(0, new(0, rect_count * 6), FAST_SET_FLAG);
-			unity_mesh.bounds = new(volume_matrix.CenterPoint.v(), volume_matrix.size.v());
-			w.Stop();
-
-			w.Start("CopyArraysAndClean");
+			w.Start("Clean");
 			// index_buffer_array = new int[rect_count * 6];
 			// vertex_buffer_array = new float[rect_count * 4 * 5];
 			// index_buffer.GetData(index_buffer_array);

@@ -7,7 +7,7 @@ using VolumeMegaStructure.Util;
 using static Unity.Mathematics.math;
 using static VolumeMegaStructure.Util.VoxelProcessUtility;
 using quaternion = Unity.Mathematics.quaternion;
-namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel
+namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.ParallelDense.Table
 {
 	/// <summary>
 	///     <para>The vertices used to gen quads in compute shader.</para>
