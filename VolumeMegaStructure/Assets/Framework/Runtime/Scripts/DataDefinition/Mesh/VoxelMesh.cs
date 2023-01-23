@@ -120,7 +120,7 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			gen_quad6_index_buffer.SetInt("quad_count", quad_count);
 			gen_quad6_index_buffer.SetBuffer(0, "render_index_buffer", index_buffer);
 			gen_quad6_index_buffer.Dispatch(0,
-				Mathf.CeilToInt(quad_count / 1024f), 1, 1);
+				Mathf.CeilToInt(quad_count / 512f), 1, 1);
 			stop_watch.Stop();
 
 			stop_watch.Start("QuadGenUnitToVertexBuffer");
@@ -269,7 +269,7 @@ namespace VolumeMegaStructure.DataDefinition.Mesh
 			gen_quad6_index_buffer.SetInt("quad_count", rect_count);
 			gen_quad6_index_buffer.SetBuffer(0, "render_index_buffer", index_buffer);
 			gen_quad6_index_buffer.Dispatch(0,
-				Mathf.CeilToInt(rect_count / 1024f), 1, 1);
+				Mathf.CeilToInt(rect_count / 512f), 1, 1);
 			w.Stop();
 
 			await UniTask.Create(() =>

@@ -35,7 +35,7 @@ namespace VolumeMegaStructure.Manage
 			voxel_rotation_face_table = new();
 			voxel_source_tables = new();
 			id_manager = new();
-			voxel_render_manager = new(voxel_source_tables);
+			voxel_render_manager = new(new(256, 256, 256), voxel_source_tables);
 		}
 
 		public static void TerminateManagers()

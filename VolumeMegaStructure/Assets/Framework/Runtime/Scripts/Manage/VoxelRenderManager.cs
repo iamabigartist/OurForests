@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using Unity.Collections;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Rendering;
 using VolumeMegaStructure.Generate.ProceduralMesh.Voxel.ParallelDense.Table;
 using VolumeMegaStructure.Util;
 namespace VolumeMegaStructure.Manage
@@ -37,7 +39,9 @@ namespace VolumeMegaStructure.Manage
 		ComputeBuffer tangent_buffer;
 		ComputeBuffer color_texture_buffer;
 
-		public VoxelRenderManager(VoxelSourceTables sourceTables)
+		public NativeArray<int> max_index_array;
+
+		public VoxelRenderManager(int3 chunk_size, VoxelSourceTables sourceTables)
 		{
 			textures = new()
 			{
@@ -52,6 +56,21 @@ namespace VolumeMegaStructure.Manage
 			quad_gen_unit_to_vertex_buffer = Resources.Load<ComputeShader>("QuadGenUnitToVertexBuffer");
 			gen_quad6_index_buffer = Resources.Load<ComputeShader>("GenQuad6IndexBuffer");
 			InitMaterial(sourceTables);
+			InitIndexArray(chunk_size);
+		}
+
+		void InitIndexArray(int3 chunk_size)
+		{
+			var max_rect_count = chunk_size.volume();
+			var max_index_buffer = new ComputeBuffer(max_rect_count, sizeof(int));
+			gen_quad6_index_buffer.SetInt("quad_count", max_rect_count);
+			gen_quad6_index_buffer.SetBuffer(0, "render_index_buffer", max_index_buffer);
+			gen_quad6_index_buffer.Dispatch(0,
+				Mathf.CeilToInt(max_rect_count / 512f), 1, 1);
+			max_index_array = new(max_rect_count, Allocator.Persistent);
+			AsyncGPUReadback.RequestIntoNativeArray(ref max_index_array, max_index_buffer);
+			AsyncGPUReadback.WaitAllRequests();
+			max_index_buffer.Release();
 		}
 
 		void InitMaterial(VoxelSourceTables sourceTables)
@@ -75,6 +94,7 @@ namespace VolumeMegaStructure.Manage
 			normal_buffer.Release();
 			tangent_buffer.Release();
 			color_texture_buffer.Release();
+			max_index_array.Dispose();
 		}
 	}
 }
