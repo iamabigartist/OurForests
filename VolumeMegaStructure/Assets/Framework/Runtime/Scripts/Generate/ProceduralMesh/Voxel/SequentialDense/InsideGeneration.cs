@@ -6,6 +6,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.SequentialDense
 {
 	public static class InsideGeneration
 	{
+		[BurstCompile(OptimizeFor = OptimizeFor.Performance, DisableSafetyChecks = true)]
 		public struct GenInsideJob : IJob, IPlan
 		{
 			int cur_block_group;

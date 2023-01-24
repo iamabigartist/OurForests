@@ -11,13 +11,12 @@
       "hash": "cb020ca9ca60805d8a785b1a5c8dace60be67315"
     },
     "com.chua.mathematics-utils": {
-      "version": "https://github.com/iamabigartist/UnityPrototypeUtils.git?path=/Assets/PrototypePackages/MathematicsUtils#dev",
+      "version": "file:C:/Users/HonorPro162021.11.11/Documents/GitHub/UnityPrototypeUtils/Assets/PrototypePackages/MathematicsUtils",
       "depth": 0,
-      "source": "git",
+      "source": "local",
       "dependencies": {
         "com.unity.mathematics": "1.2.6"
-      },
-      "hash": "5943d9f206f8752b481c176827f74c7335d8fbf7"
+      }
     },
     "com.chua.misc-utils": {
       "version": "https://github.com/iamabigartist/UnityPrototypeUtils.git?path=/Assets/PrototypePackages/MiscUtils#dev",

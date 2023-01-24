@@ -5,19 +5,27 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Rendering;
 using VolumeMegaStructure.Generate.ProceduralMesh.Voxel.ParallelDense;
+using VolumeMegaStructure.Util;
+using static Cysharp.Threading.Tasks.UniTask;
 namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.SequentialDense
 {
-	public class MeshGeneration
+	public static class MeshGeneration
 	{
+
+		const MeshUpdateFlags FAST_SET_FLAG =
+			MeshUpdateFlags.DontValidateIndices |
+			MeshUpdateFlags.DontNotifyMeshUsers |
+			MeshUpdateFlags.DontRecalculateBounds;
+
 		public static async UniTask<Mesh> GenMeshAsync(
 			NativeArray<int> index_array,
 			int3 chunk_size,
-			Container6Dir<NativeHashSet<int3>> rect_sets)
+			Container6Dir<NativeParallelHashSet<int3>> rect_sets)
 		{
 			//Sets to arrays
-			var rect_arrays = await UniTask.Create(() =>
+			var rect_arrays = await Create(() =>
 			{
-				return UniTask.FromResult(new[]
+				return FromResult(new[]
 				{
 					rect_sets.plus_x.ToNativeArray(Allocator.TempJob),
 					rect_sets.mnus_x.ToNativeArray(Allocator.TempJob),
@@ -29,9 +37,9 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.SequentialDense
 			});
 
 			//Arrays to buffers
-			var rect_buffers = await UniTask.Create(() =>
+			var rect_buffers = await Create(() =>
 			{
-				return UniTask.FromResult(rect_arrays.Select(array =>
+				return FromResult(rect_arrays.Select(array =>
 				{
 					int count = array.Length;
 					ComputeBuffer buffer;
@@ -67,20 +75,31 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.SequentialDense
 					VertexAttribute.TexCoord0, VertexAttributeFormat.Float32, 2));
 			unity_mesh.indexBufferTarget |= GraphicsBuffer.Target.Structured;
 			unity_mesh.vertexBufferTarget |= GraphicsBuffer.Target.Structured;
-			GraphicsBuffer index_buffer = unity_mesh.GetIndexBuffer();
+
 			GraphicsBuffer vertex_buffer = unity_mesh.GetVertexBuffer(0);
 
 			//Write to ib
-			await UniTask.Create(() =>
+			await Create(() =>
 			{
-				var ib_native_array = index_buffer.LockBufferForWrite<int>(0, ib_len);
-				index_array.Slice(0, ib_len).CopyTo(ib_native_array);
-				index_buffer.UnlockBufferAfterWrite<int>(ib_len);
-				return UniTask.CompletedTask;
+				unity_mesh.SetIndexBufferData(index_array.GetSubArray(0, ib_len), 0, 0, ib_len, FAST_SET_FLAG);
+				return CompletedTask;
 			});
 
 			//Gen vb
 			GenRectVB.Plan6Dir(chunk_size, vertex_buffer, rect_array_start_lens, rect_buffers);
+
+			//SetSubMesh
+			await Create(() =>
+			{
+				unity_mesh.subMeshCount = 1;
+				unity_mesh.SetSubMesh(0, new(0, rect_count * 6), FAST_SET_FLAG);
+				return CompletedTask;
+			});
+
+			//Set bound
+			unity_mesh.bounds = new((chunk_size / 2).v(), chunk_size.v());
+
+			vertex_buffer.Release();
 
 			return unity_mesh;
 		}

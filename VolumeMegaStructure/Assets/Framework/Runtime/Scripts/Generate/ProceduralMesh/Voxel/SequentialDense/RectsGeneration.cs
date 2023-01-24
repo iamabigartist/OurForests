@@ -1,3 +1,5 @@
+using System;
+using System.Runtime.CompilerServices;
 using PrototypePackages.JobUtils.Template;
 using PrototypePackages.MathematicsUtils.Index;
 using Unity.Burst;
@@ -11,7 +13,33 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.SequentialDense
 	[BurstCompile(OptimizeFor = OptimizeFor.Performance, DisableSafetyChecks = true)]
 	public static class RectsGeneration
 	{
-		public static void Greedy_QuadSetToLineSet<TIndexWalker>(Index3D coordinate, NativeHashSet<int2> quad_set, NativeHashSet<int3> line_set)
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static NativeParallelHashSet<T> ListToSet<T>(NativeList<T> list)
+			where T : unmanaged, IEquatable<T>
+		{
+			var set = new NativeParallelHashSet<T>(list.Length, Allocator.Temp);
+			foreach (T value in list) //faster than for? need test
+			{
+				set.Add(value);
+			}
+			return set;
+		}
+
+		public static void ContainerListsToSets<T>(Container6Dir<NativeList<T>> lists, out Container6Dir<NativeParallelHashSet<T>> sets)
+			where T : unmanaged, IEquatable<T>
+		{
+			sets = new()
+			{
+				plus_x = ListToSet(lists.plus_x),
+				mnus_x = ListToSet(lists.mnus_x),
+				plus_y = ListToSet(lists.plus_y),
+				mnus_y = ListToSet(lists.mnus_y),
+				plus_z = ListToSet(lists.plus_z),
+				mnus_z = ListToSet(lists.mnus_z)
+			};
+		}
+
+		public static void Greedy_QuadSetToLineSet<TIndexWalker>(Index3D coordinate, NativeParallelHashSet<int2> quad_set, NativeParallelHashSet<int3> line_set)
 			where TIndexWalker : unmanaged, IIndexWalker
 		{
 			var walker = new TIndexWalker();
@@ -38,7 +66,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.SequentialDense
 			}
 		}
 
-		public static void Greedy_LineSetToRectSet<TIndexWalker>(Index3D coordinate, NativeHashSet<int3> line_set, NativeHashSet<int3> rect_set)
+		public static void Greedy_LineSetToRectSet<TIndexWalker>(Index3D coordinate, NativeParallelHashSet<int3> line_set, NativeParallelHashSet<int3> rect_set)
 			where TIndexWalker : unmanaged, IIndexWalker
 		{
 			var walker = new TIndexWalker();
@@ -74,7 +102,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.SequentialDense
 		}
 
 		[BurstCompile(OptimizeFor = OptimizeFor.Performance, DisableSafetyChecks = true)]
-		public struct GenMeshJob : IJob, IPlan
+		public struct GenRectSetsJob : IJob, IPlan
 		{
 			[NoAlias] Index3D coordinate;
 			[NoAlias] [ReadOnly] NativeArray<ushort> volume_chunk;
@@ -85,15 +113,14 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.SequentialDense
 			[NoAlias] [ReadOnly] NativeArray<bool> inside_chunk_neighbor_x;
 			[NoAlias] [ReadOnly] NativeArray<bool> inside_chunk_neighbor_y;
 			[NoAlias] [ReadOnly] NativeArray<bool> inside_chunk_neighbor_z;
-			[NoAlias] [WriteOnly] Container6Dir<NativeHashSet<int3>> rect_sets;
+			[NoAlias] [WriteOnly] Container6Dir<NativeParallelHashSet<int3>> rect_sets;
 
 			public void Execute()
 			{
 				int3 chunk_size = coordinate.size;
-				int x, y, z;
 
 				//1. Gen quads
-				var quad_sets = new Container6Dir<NativeHashSet<int2>>
+				var quad_lists = new Container6Dir<NativeList<int2>>
 				{
 					plus_x = new(1, Allocator.Temp),
 					mnus_x = new(1, Allocator.Temp),
@@ -104,93 +131,88 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.SequentialDense
 				};
 
 				//1.1. Gen inside quads
-				int i;
-				int i_x_f;
-				int i_y_f;
-				int i_z_f;
-				bool cur_inside;
-				for (z = 0; z < chunk_size.z - 1; z++)
+				for (int z_0 = 0; z_0 < chunk_size.z - 1; z_0++)
 				{
-					for (y = 0; y < chunk_size.y - 1; y++)
+					for (int y_0 = 0; y_0 < chunk_size.y - 1; y_0++)
 					{
-						for (x = 0; x < chunk_size.x - 1; x++)
+						for (int x_0 = 0; x_0 < chunk_size.x - 1; x_0++)
 						{
-							coordinate.To1D(x, y, z, out i);
-							coordinate.To1D(x + 1, y, z, out i_x_f);
-							coordinate.To1D(x, y + 1, z, out i_y_f);
-							coordinate.To1D(x, y, z + 1, out i_z_f);
-							cur_inside = inside_chunk[i];
+							coordinate.To1D(x_0, y_0, z_0, out var i);
+							coordinate.To1D(x_0 + 1, y_0, z_0, out var i_x_f);
+							coordinate.To1D(x_0, y_0 + 1, z_0, out var i_y_f);
+							coordinate.To1D(x_0, y_0, z_0 + 1, out var i_z_f);
+							var cur_inside = inside_chunk[i];
 							if (cur_inside)
 							{
 								var cur_id = volume_chunk[i];
-								if (!inside_chunk[i_x_f]) { quad_sets.plus_x.Add(new(cur_id, i)); }
-								if (!inside_chunk[i_y_f]) { quad_sets.plus_y.Add(new(cur_id, i)); }
-								if (!inside_chunk[i_z_f]) { quad_sets.plus_z.Add(new(cur_id, i)); }
+								if (!inside_chunk[i_x_f]) { quad_lists.plus_x.Add(new(cur_id, i)); }
+								if (!inside_chunk[i_y_f]) { quad_lists.plus_y.Add(new(cur_id, i)); }
+								if (!inside_chunk[i_z_f]) { quad_lists.plus_z.Add(new(cur_id, i)); }
 							}
 							else
 							{
-								if (inside_chunk[i_x_f]) { quad_sets.mnus_x.Add(new(volume_chunk[i_x_f], i)); }
-								if (inside_chunk[i_y_f]) { quad_sets.mnus_y.Add(new(volume_chunk[i_y_f], i)); }
-								if (inside_chunk[i_z_f]) { quad_sets.mnus_z.Add(new(volume_chunk[i_z_f], i)); }
+								if (inside_chunk[i_x_f]) { quad_lists.mnus_x.Add(new(volume_chunk[i_x_f], i)); }
+								if (inside_chunk[i_y_f]) { quad_lists.mnus_y.Add(new(volume_chunk[i_y_f], i)); }
+								if (inside_chunk[i_z_f]) { quad_lists.mnus_z.Add(new(volume_chunk[i_z_f], i)); }
 							}
 						}
 					}
 				}
 
 				//1.2 Gen chunk edge quads
-				x = chunk_size.x - 1;
-				for (z = 0; z < chunk_size.z; z++)
+				int x_xf = chunk_size.x - 1;
+				for (int z_xf = 0; z_xf < chunk_size.z; z_xf++)
 				{
-					for (y = 0; y < chunk_size.y; y++)
+					for (int y_xf = 0; y_xf < chunk_size.y; y_xf++)
 					{
-						coordinate.To1D(x, y, z, out i);
-						coordinate.To1D(0, y, z, out i_x_f);
-						cur_inside = inside_chunk[i];
+						coordinate.To1D(x_xf, y_xf, z_xf, out var i);
+						coordinate.To1D(0, y_xf, z_xf, out var i_x_f);
+						var cur_inside = inside_chunk[i];
 						if (cur_inside)
 						{
-							if (!inside_chunk_neighbor_x[i_x_f]) { quad_sets.plus_x.Add(new(volume_chunk[i], i)); }
+							if (!inside_chunk_neighbor_x[i_x_f]) { quad_lists.plus_x.Add(new(volume_chunk[i], i)); }
 						}
 						else
 						{
-							if (inside_chunk_neighbor_x[i_x_f]) { quad_sets.mnus_x.Add(new(volume_chunk_neighbor_x[i_x_f], i)); }
+							if (inside_chunk_neighbor_x[i_x_f]) { quad_lists.mnus_x.Add(new(volume_chunk_neighbor_x[i_x_f], i)); }
 						}
 					}
 				}
 
-				y = chunk_size.y - 1;
-				for (z = 0; z < chunk_size.z; z++)
+				int y_yf = chunk_size.y - 1;
+				for (int z_yf = 0; z_yf < chunk_size.z; z_yf++)
 				{
-					for (x = 0; x < chunk_size.x; x++)
+					for (int x_yf = 0; x_yf < chunk_size.x; x_yf++)
 					{
-						coordinate.To1D(x, y, z, out i);
-						coordinate.To1D(x, 0, z, out i_y_f);
-						cur_inside = inside_chunk[i];
+						coordinate.To1D(x_xf, y_yf, z_yf, out var i);
+						coordinate.To1D(x_xf, 0, z_yf, out var i_y_f);
+						var cur_inside = inside_chunk[i];
 						if (cur_inside)
 						{
-							if (!inside_chunk_neighbor_y[i_y_f]) { quad_sets.plus_y.Add(new(volume_chunk[i], i)); }
+							if (!inside_chunk_neighbor_y[i_y_f]) { quad_lists.plus_y.Add(new(volume_chunk[i], i)); }
 						}
 						else
 						{
-							if (inside_chunk_neighbor_y[i_y_f]) { quad_sets.mnus_y.Add(new(volume_chunk_neighbor_y[i_y_f], i)); }
+							if (inside_chunk_neighbor_y[i_y_f]) { quad_lists.mnus_y.Add(new(volume_chunk_neighbor_y[i_y_f], i)); }
 						}
 					}
 				}
 
-				z = chunk_size.z - 1;
-				for (y = 0; y < chunk_size.y; y++)
+				int z_zf = chunk_size.z - 1;
+				for (int y_zf = 0; y_zf < chunk_size.y; y_zf++)
 				{
-					for (x = 0; x < chunk_size.x; x++)
+					for (int x_zf = 0; x_zf < chunk_size.x; x_zf++)
 					{
-						coordinate.To1D(x, y, z, out i);
-						coordinate.To1D(x, y, 0, out i_z_f);
-						cur_inside = inside_chunk[i];
+						coordinate.To1D(x_zf, y_zf, z_zf, out var i);
+						coordinate.To1D(x_zf, y_zf, 0, out var i_z_f);
+						var cur_inside = inside_chunk[i];
 						if (cur_inside)
 						{
-							if (!inside_chunk_neighbor_z[i_z_f]) { quad_sets.plus_z.Add(new(volume_chunk[i], i)); }
+							if (!inside_chunk_neighbor_z[i_z_f]) { quad_lists.plus_z.Add(new(volume_chunk[i], i)); }
 						}
 						else
 						{
-							if (inside_chunk_neighbor_z[i_z_f]) { quad_sets.mnus_z.Add(new(volume_chunk_neighbor_z[i_z_f], i)); }
+							if (inside_chunk_neighbor_z[i_z_f]) { quad_lists.mnus_z.Add(new(volume_chunk_neighbor_z[i_z_f], i)); }
 						}
 					}
 				}
@@ -198,7 +220,8 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.SequentialDense
 				//2. Greedy Mesh
 
 				//2.1 Greedy Line
-				var line_sets = new Container6Dir<NativeHashSet<int3>>
+				ContainerListsToSets(quad_lists, out var quad_sets);
+				var line_sets = new Container6Dir<NativeParallelHashSet<int3>>
 				{
 					plus_x = new(1, Allocator.Temp),
 					mnus_x = new(1, Allocator.Temp),
@@ -224,7 +247,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.SequentialDense
 
 			}
 
-			public GenMeshJob(int3 chunk_size,
+			public GenRectSetsJob(int3 chunk_size,
 				NativeArray<ushort> volume_chunk,
 				NativeArray<ushort> volume_chunk_neighbor_x,
 				NativeArray<ushort> volume_chunk_neighbor_y,
@@ -233,7 +256,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.SequentialDense
 				NativeArray<bool> inside_chunk_neighbor_x,
 				NativeArray<bool> inside_chunk_neighbor_y,
 				NativeArray<bool> inside_chunk_neighbor_z,
-				out Container6Dir<NativeHashSet<int3>> rect_sets)
+				out Container6Dir<NativeParallelHashSet<int3>> rect_sets)
 			{
 				rect_sets = new()
 				{

@@ -7,6 +7,8 @@ using VolumeMegaStructure.DataDefinition.Mesh;
 using VolumeMegaStructure.Generate.ProceduralMesh.Voxel.ParallelDense;
 using VolumeMegaStructure.Manage;
 using VolumeMegaStructure.Util;
+using static PrototypePackages.JobUtils.Template.IPlan;
+using static VolumeMegaStructure.Generate.Volume.Terrain.TestTerrainGeneration;
 using static VolumeMegaStructure.Generate.Volume.VolumeMatrixGeneration;
 namespace Labs.TestGenVoxel
 {
@@ -37,9 +39,21 @@ namespace Labs.TestGenVoxel
 		async void Generate()
 		{
 			stop_watch.Start("Generate Terrain");
-			volume_matrix = new(chunk_size, Allocator.Persistent);
-			volume_matrix.GenerateGrassSnowTerrain(MyTerrainParams);
+			// volume_matrix = new(chunk_size, Allocator.Persistent);
+			// volume_matrix.GenerateGrassSnowTerrain(MyTerrainParams);
+
+			var jh0 = Plan<GenSimpleMountainTerrainJob>(
+				new(3, 4, 2, 1, 0, 140, 160,
+					new(0, 0),
+					new(0.001f, 0f),
+					new(new(8f, 0), new(250f, 0), new(1000)),
+					new(new(60f, 0), new(3f, 0), new(1000)),
+					chunk_size, out var volume_chunk));
+			jh0.Complete();
+			volume_matrix = new(chunk_size, volume_chunk);
 			stop_watch.Stop();
+
+
 
 			stop_watch.Start("CheckEmpty");
 			volume_inside_matrix = new(volume_matrix.size, Allocator.Persistent);
