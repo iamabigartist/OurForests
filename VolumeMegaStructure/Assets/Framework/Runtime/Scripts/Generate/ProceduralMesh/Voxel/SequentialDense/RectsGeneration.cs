@@ -118,7 +118,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.SequentialDense
 			public void Execute()
 			{
 				int3 chunk_size = coordinate.size;
-
+				int x, y, z;
 				//1. Gen quads
 				var quad_queues = new Container6Dir<NativeQueue<int2>>
 				{
@@ -134,16 +134,16 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.SequentialDense
 
 				int i, i_x_f, i_y_f, i_z_f;
 				//1.1. Gen inside quads
-				for (int z_0 = 0; z_0 < chunk_size.z - 1; z_0++)
+				for (z = 0; z < chunk_size.z - 1; z++)
 				{
-					for (int y_0 = 0; y_0 < chunk_size.y - 1; y_0++)
+					for (y = 0; y < chunk_size.y - 1; y++)
 					{
-						for (int x_0 = 0; x_0 < chunk_size.x - 1; x_0++)
+						for (x = 0; x < chunk_size.x - 1; x++)
 						{
-							coordinate.To1D(x_0, y_0, z_0, out i);
-							coordinate.To1D(x_0 + 1, y_0, z_0, out i_x_f);
-							coordinate.To1D(x_0, y_0 + 1, z_0, out i_y_f);
-							coordinate.To1D(x_0, y_0, z_0 + 1, out i_z_f);
+							coordinate.To1D(x, y, z, out i);
+							coordinate.To1D(x + 1, y, z, out i_x_f);
+							coordinate.To1D(x, y + 1, z, out i_y_f);
+							coordinate.To1D(x, y, z + 1, out i_z_f);
 							var cur_inside = inside_chunk[i];
 							if (cur_inside)
 							{
@@ -163,13 +163,13 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.SequentialDense
 				}
 
 				//1.2 Gen chunk edge quads
-				int x_xf = chunk_size.x - 1;
-				for (int z_xf = 0; z_xf < chunk_size.z; z_xf++)
+				x = chunk_size.x - 1;
+				for (z = 0; z < chunk_size.z; z++)
 				{
-					for (int y_xf = 0; y_xf < chunk_size.y; y_xf++)
+					for (y = 0; y < chunk_size.y; y++)
 					{
-						coordinate.To1D(x_xf, y_xf, z_xf, out i);
-						coordinate.To1D(0, y_xf, z_xf, out i_x_f);
+						coordinate.To1D(x, y, z, out i);
+						coordinate.To1D(0, y, z, out i_x_f);
 						var cur_inside = inside_chunk[i];
 						if (cur_inside)
 						{
@@ -182,13 +182,13 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.SequentialDense
 					}
 				}
 
-				int y_yf = chunk_size.y - 1;
-				for (int z_yf = 0; z_yf < chunk_size.z; z_yf++)
+				y = chunk_size.y - 1;
+				for (z = 0; z < chunk_size.z; z++)
 				{
-					for (int x_yf = 0; x_yf < chunk_size.x; x_yf++)
+					for (x = 0; x < chunk_size.x; x++)
 					{
-						coordinate.To1D(x_xf, y_yf, z_yf, out i);
-						coordinate.To1D(x_xf, 0, z_yf, out i_y_f);
+						coordinate.To1D(x, y, z, out i);
+						coordinate.To1D(x, 0, z, out i_y_f);
 						var cur_inside = inside_chunk[i];
 						if (cur_inside)
 						{
@@ -201,13 +201,13 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.SequentialDense
 					}
 				}
 
-				int z_zf = chunk_size.z - 1;
-				for (int y_zf = 0; y_zf < chunk_size.y; y_zf++)
+				z = chunk_size.z - 1;
+				for (y = 0; y < chunk_size.y; y++)
 				{
 					for (int x_zf = 0; x_zf < chunk_size.x; x_zf++)
 					{
-						coordinate.To1D(x_zf, y_zf, z_zf, out i);
-						coordinate.To1D(x_zf, y_zf, 0, out i_z_f);
+						coordinate.To1D(x_zf, y, z, out i);
+						coordinate.To1D(x_zf, y, 0, out i_z_f);
 						var cur_inside = inside_chunk[i];
 						if (cur_inside)
 						{
