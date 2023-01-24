@@ -130,8 +130,6 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.SequentialDense
 					mnus_z = new(Allocator.Temp)
 				};
 
-				var list = new NativeList<int>();
-
 				int i, i_x_f, i_y_f, i_z_f;
 				//1.1. Gen inside quads
 				for (z = 0; z < chunk_size.z - 1; z++)
