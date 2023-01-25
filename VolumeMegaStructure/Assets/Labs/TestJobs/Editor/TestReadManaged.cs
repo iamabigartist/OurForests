@@ -19,7 +19,7 @@ namespace Labs.TestJobs.Editor
 	}
 	public class TestReadManaged : EditorWindow
 	{
-		[MenuItem("Labs/Labs.Lab2_TestJobs.Editor/TestReadManaged")]
+		[MenuItem("Labs/Labs.TestJobs.Editor/TestReadManaged")]
 		static void ShowWindow()
 		{
 			var window = GetWindow<TestReadManaged>();

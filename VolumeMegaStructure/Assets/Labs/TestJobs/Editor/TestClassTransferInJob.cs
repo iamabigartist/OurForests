@@ -15,7 +15,7 @@ namespace Labs.TestJobs.Editor
 	/// </summary>
 	public class TestClassTransferInJob : EditorWindow
 	{
-		[MenuItem("Labs/Labs.Lab2_TestJobs.Editor/TestClassTransferInJob")]
+		[MenuItem("Labs/Labs.TestJobs.Editor/TestClassTransferInJob")]
 		static void ShowWindow()
 		{
 			var window = GetWindow<TestClassTransferInJob>();
