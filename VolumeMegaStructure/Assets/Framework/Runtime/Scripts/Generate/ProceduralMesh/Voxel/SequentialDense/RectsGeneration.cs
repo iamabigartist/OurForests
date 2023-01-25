@@ -139,9 +139,9 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.SequentialDense
 						for (x = 0; x < chunk_size.x - 1; x++)
 						{
 							coordinate.To1D(x, y, z, out i);
-							coordinate.To1D(x + 1, y, z, out i_x_f);
-							coordinate.To1D(x, y + 1, z, out i_y_f);
-							coordinate.To1D(x, y, z + 1, out i_z_f);
+							coordinate.MoveX(i, 1, out i_x_f);
+							coordinate.MoveZ(i, 1, out i_y_f);
+							coordinate.MoveY(i, 1, out i_z_f);
 							var cur_inside = inside_chunk[i];
 							if (cur_inside)
 							{
