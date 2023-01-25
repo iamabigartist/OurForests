@@ -27,12 +27,12 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.SequentialDense
 			{
 				return FromResult(new[]
 				{
-					rect_sets.plus_x.ToNativeArray(Allocator.TempJob),
-					rect_sets.mnus_x.ToNativeArray(Allocator.TempJob),
-					rect_sets.plus_y.ToNativeArray(Allocator.TempJob),
-					rect_sets.mnus_y.ToNativeArray(Allocator.TempJob),
-					rect_sets.plus_z.ToNativeArray(Allocator.TempJob),
-					rect_sets.mnus_z.ToNativeArray(Allocator.TempJob)
+					rect_sets.plus_x.ToNativeArray(Allocator.Temp),
+					rect_sets.mnus_x.ToNativeArray(Allocator.Temp),
+					rect_sets.plus_y.ToNativeArray(Allocator.Temp),
+					rect_sets.mnus_y.ToNativeArray(Allocator.Temp),
+					rect_sets.plus_z.ToNativeArray(Allocator.Temp),
+					rect_sets.mnus_z.ToNativeArray(Allocator.Temp)
 				});
 			});
 
@@ -81,7 +81,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.SequentialDense
 			//Write to ib
 			await Create(() =>
 			{
-				unity_mesh.SetIndexBufferData(index_array.GetSubArray(0, ib_len), 0, 0, ib_len, FAST_SET_FLAG);
+				unity_mesh.SetIndexBufferData(index_array, 0, 0, ib_len, FAST_SET_FLAG);
 				return CompletedTask;
 			});
 
@@ -99,6 +99,15 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.SequentialDense
 			//Set bound
 			unity_mesh.bounds = new((chunk_size / 2).v(), chunk_size.v());
 
+			//Clear
+			for (int i = 0; i < 6; i++)
+			{
+				rect_arrays[i].Dispose();
+			}
+			for (int i = 0; i < 6; i++)
+			{
+				rect_buffers[i]?.Release();
+			}
 			vertex_buffer.Release();
 
 			return unity_mesh;
