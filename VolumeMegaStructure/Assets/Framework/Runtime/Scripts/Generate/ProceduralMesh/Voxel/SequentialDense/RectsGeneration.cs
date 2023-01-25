@@ -14,28 +14,32 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.SequentialDense
 	public static class RectsGeneration
 	{
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static NativeParallelHashSet<T> ListToSet<T>(NativeQueue<T> list)
+		public static NativeParallelHashSet<T> ListToSet<T>(NativeStream list)
 			where T : unmanaged, IEquatable<T>
 		{
-			var set = new NativeParallelHashSet<T>(list.Count, Allocator.Temp);
-			while (list.TryDequeue(out T value))
+			var reader = list.AsReader();
+			reader.BeginForEachIndex(0);
+			var count = reader.RemainingItemCount;
+			var set = new NativeParallelHashSet<T>(count, Allocator.Temp);
+			for (int i = 0; i < count; i++)
 			{
-				set.Add(value);
+				set.Add(reader.Read<T>());
 			}
+			reader.EndForEachIndex();
 			return set;
 		}
 
-		public static void ContainerListsToSets<T>(Container6Dir<NativeQueue<T>> lists, out Container6Dir<NativeParallelHashSet<T>> sets)
+		public static void ContainerListsToSets<T>(Container6Dir<NativeStream> lists, out Container6Dir<NativeParallelHashSet<T>> sets)
 			where T : unmanaged, IEquatable<T>
 		{
 			sets = new()
 			{
-				plus_x = ListToSet(lists.plus_x),
-				mnus_x = ListToSet(lists.mnus_x),
-				plus_y = ListToSet(lists.plus_y),
-				mnus_y = ListToSet(lists.mnus_y),
-				plus_z = ListToSet(lists.plus_z),
-				mnus_z = ListToSet(lists.mnus_z)
+				plus_x = ListToSet<T>(lists.plus_x),
+				mnus_x = ListToSet<T>(lists.mnus_x),
+				plus_y = ListToSet<T>(lists.plus_y),
+				mnus_y = ListToSet<T>(lists.mnus_y),
+				plus_z = ListToSet<T>(lists.plus_z),
+				mnus_z = ListToSet<T>(lists.mnus_z)
 			};
 		}
 
@@ -120,15 +124,33 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.SequentialDense
 				int3 chunk_size = coordinate.size;
 				int x, y, z;
 				//1. Gen quads
-				var quad_queues = new Container6Dir<NativeQueue<int2>>
+				var quad_streams = new Container6Dir<NativeStream>
 				{
-					plus_x = new(Allocator.Temp),
-					mnus_x = new(Allocator.Temp),
-					plus_y = new(Allocator.Temp),
-					mnus_y = new(Allocator.Temp),
-					plus_z = new(Allocator.Temp),
-					mnus_z = new(Allocator.Temp)
+					plus_x = new(1, Allocator.Temp),
+					mnus_x = new(1, Allocator.Temp),
+					plus_y = new(1, Allocator.Temp),
+					mnus_y = new(1, Allocator.Temp),
+					plus_z = new(1, Allocator.Temp),
+					mnus_z = new(1, Allocator.Temp)
 				};
+
+				var quad_streams_w = new Container6Dir<NativeStream.Writer>
+				{
+					plus_x = quad_streams.plus_x.AsWriter(),
+					mnus_x = quad_streams.mnus_x.AsWriter(),
+					plus_y = quad_streams.plus_y.AsWriter(),
+					mnus_y = quad_streams.mnus_y.AsWriter(),
+					plus_z = quad_streams.plus_z.AsWriter(),
+					mnus_z = quad_streams.mnus_z.AsWriter()
+				};
+
+				quad_streams_w.plus_x.BeginForEachIndex(0);
+				quad_streams_w.mnus_x.BeginForEachIndex(0);
+				quad_streams_w.plus_y.BeginForEachIndex(0);
+				quad_streams_w.mnus_y.BeginForEachIndex(0);
+				quad_streams_w.plus_z.BeginForEachIndex(0);
+				quad_streams_w.mnus_z.BeginForEachIndex(0);
+
 
 				int i, i_x_f, i_y_f, i_z_f;
 				//1.1. Gen inside quads
@@ -146,15 +168,15 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.SequentialDense
 							if (cur_inside)
 							{
 								var cur_id = volume_chunk[i];
-								if (!inside_chunk[i_x_f]) { quad_queues.plus_x.Enqueue(new(cur_id, i)); }
-								if (!inside_chunk[i_y_f]) { quad_queues.plus_y.Enqueue(new(cur_id, i)); }
-								if (!inside_chunk[i_z_f]) { quad_queues.plus_z.Enqueue(new(cur_id, i)); }
+								if (!inside_chunk[i_x_f]) { quad_streams_w.plus_x.Write(new int2(cur_id, i)); }
+								if (!inside_chunk[i_y_f]) { quad_streams_w.plus_y.Write(new int2(cur_id, i)); }
+								if (!inside_chunk[i_z_f]) { quad_streams_w.plus_z.Write(new int2(cur_id, i)); }
 							}
 							else
 							{
-								if (inside_chunk[i_x_f]) { quad_queues.mnus_x.Enqueue(new(volume_chunk[i_x_f], i)); }
-								if (inside_chunk[i_y_f]) { quad_queues.mnus_y.Enqueue(new(volume_chunk[i_y_f], i)); }
-								if (inside_chunk[i_z_f]) { quad_queues.mnus_z.Enqueue(new(volume_chunk[i_z_f], i)); }
+								if (inside_chunk[i_x_f]) { quad_streams_w.mnus_x.Write(new int2(volume_chunk[i_x_f], i)); }
+								if (inside_chunk[i_y_f]) { quad_streams_w.mnus_y.Write(new int2(volume_chunk[i_y_f], i)); }
+								if (inside_chunk[i_z_f]) { quad_streams_w.mnus_z.Write(new int2(volume_chunk[i_z_f], i)); }
 							}
 						}
 					}
@@ -171,11 +193,11 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.SequentialDense
 						var cur_inside = inside_chunk[i];
 						if (cur_inside)
 						{
-							if (!inside_chunk_neighbor_x[i_x_f]) { quad_queues.plus_x.Enqueue(new(volume_chunk[i], i)); }
+							if (!inside_chunk_neighbor_x[i_x_f]) { quad_streams_w.plus_x.Write(new int2(volume_chunk[i], i)); }
 						}
 						else
 						{
-							if (inside_chunk_neighbor_x[i_x_f]) { quad_queues.mnus_x.Enqueue(new(volume_chunk_neighbor_x[i_x_f], i)); }
+							if (inside_chunk_neighbor_x[i_x_f]) { quad_streams_w.mnus_x.Write(new int2(volume_chunk_neighbor_x[i_x_f], i)); }
 						}
 					}
 				}
@@ -190,11 +212,11 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.SequentialDense
 						var cur_inside = inside_chunk[i];
 						if (cur_inside)
 						{
-							if (!inside_chunk_neighbor_y[i_y_f]) { quad_queues.plus_y.Enqueue(new(volume_chunk[i], i)); }
+							if (!inside_chunk_neighbor_y[i_y_f]) { quad_streams_w.plus_y.Write(new int2(volume_chunk[i], i)); }
 						}
 						else
 						{
-							if (inside_chunk_neighbor_y[i_y_f]) { quad_queues.mnus_y.Enqueue(new(volume_chunk_neighbor_y[i_y_f], i)); }
+							if (inside_chunk_neighbor_y[i_y_f]) { quad_streams_w.mnus_y.Write(new int2(volume_chunk_neighbor_y[i_y_f], i)); }
 						}
 					}
 				}
@@ -209,19 +231,26 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.SequentialDense
 						var cur_inside = inside_chunk[i];
 						if (cur_inside)
 						{
-							if (!inside_chunk_neighbor_z[i_z_f]) { quad_queues.plus_z.Enqueue(new(volume_chunk[i], i)); }
+							if (!inside_chunk_neighbor_z[i_z_f]) { quad_streams_w.plus_z.Write(new int2(volume_chunk[i], i)); }
 						}
 						else
 						{
-							if (inside_chunk_neighbor_z[i_z_f]) { quad_queues.mnus_z.Enqueue(new(volume_chunk_neighbor_z[i_z_f], i)); }
+							if (inside_chunk_neighbor_z[i_z_f]) { quad_streams_w.mnus_z.Write(new int2(volume_chunk_neighbor_z[i_z_f], i)); }
 						}
 					}
 				}
 
+				quad_streams_w.plus_x.EndForEachIndex();
+				quad_streams_w.mnus_x.EndForEachIndex();
+				quad_streams_w.plus_y.EndForEachIndex();
+				quad_streams_w.mnus_y.EndForEachIndex();
+				quad_streams_w.plus_z.EndForEachIndex();
+				quad_streams_w.mnus_z.EndForEachIndex();
+
 				//2. Greedy Mesh
 
 				//2.1 Greedy Line
-				ContainerListsToSets(quad_queues, out var quad_sets);
+				ContainerListsToSets<int2>(quad_streams, out var quad_sets);
 				var line_sets = new Container6Dir<NativeParallelHashSet<int3>>
 				{
 					plus_x = new(1, Allocator.Temp),
