@@ -2,8 +2,6 @@
 using System.Threading.Tasks;
 using UnityEngine;
 using VolumeMegaStructure.DataDefinition.Container;
-using VolumeMegaStructure.DataDefinition.DataUnit;
-using VolumeMegaStructure.Generate.Volume.Noise;
 using Random = UnityEngine.Random;
 namespace VolumeMegaStructure.Generate.Volume
 {
@@ -18,25 +16,6 @@ namespace VolumeMegaStructure.Generate.Volume
 			for (int i = 0; i < matrix.Count; i++)
 			{
 				matrix[i] = Random.Range(0f, 1f) < ratio_0 ? element_0 : element_1;
-			}
-		}
-
-		public static void GenerateCoherentNoise01<T>(this DataMatrix<T> matrix, float ratio_0, T element_0, T element_1, string seed)
-			where T : struct
-		{
-			var noisier = new SimplexNoiseGenerator(seed);
-
-			for (int z = 0; z < matrix.size.z; z++)
-			{
-				for (int y = 0; y < matrix.size.y; y++)
-				{
-					for (int x = 0; x < matrix.size.x; x++)
-					{
-						// Debug.Log((noisier.coherentNoise(x, y, z) + 1) / 2);
-						matrix[x, y, z] = (noisier.coherentNoise(x, y, z) + 1f) / 2f < (noisier.coherentNoise(20, 20, 20) + 1f) / 2f ? element_0 : element_1;
-						// matrix[x, y, z] = (dynamic)(noisier.coherentNoise( x, y, z ) + 1) * 5;
-					}
-				}
 			}
 		}
 
@@ -136,7 +115,8 @@ namespace VolumeMegaStructure.Generate.Volume
 			public float GetHeight(float noise)
 			{
 				var scaled_noise = noise * noise_height_scale;
-				float height = (int)scaled_noise / cube_height * cube_height;
+				// float height = (int)scaled_noise / cube_height * cube_height;
+				float height = scaled_noise;
 				return height;
 			}
 		}
@@ -238,20 +218,6 @@ namespace VolumeMegaStructure.Generate.Volume
 
 	#endregion
 		//TODO classify methods into different class//
-
-	#region Util
-
-		public static void SetBlockId(this DataMatrix<VolumeUnit> volume_matrix, DataMatrix<ushort> block_id_matrix)
-		{
-			for (int i = 0; i < volume_matrix.Count; i++)
-			{
-				var cur_volume_unit = volume_matrix[i];
-				cur_volume_unit.block_id = block_id_matrix[i];
-				volume_matrix[i] = cur_volume_unit;
-			}
-		}
-
-	#endregion
 
 	}
 }

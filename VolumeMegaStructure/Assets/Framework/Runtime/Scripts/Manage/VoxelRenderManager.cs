@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
+using Unity.Collections;
 using Unity.Mathematics;
 using UnityEngine;
-using VolumeMegaStructure.Generate.ProceduralMesh.Voxel;
+using VolumeMegaStructure.Generate.ProceduralMesh.Voxel.ParallelDense.Table;
 using VolumeMegaStructure.Util;
+using static PrototypePackages.JobUtils.Template.IPlanFor;
+using static VolumeMegaStructure.Generate.ProceduralMesh.Voxel.SequentialDense.IndexGeneration;
 namespace VolumeMegaStructure.Manage
 {
 	public struct VoxelColorTexture
@@ -37,7 +40,10 @@ namespace VolumeMegaStructure.Manage
 		ComputeBuffer tangent_buffer;
 		ComputeBuffer color_texture_buffer;
 
-		public VoxelRenderManager(VoxelSourceTables sourceTables)
+		NativeArray<int> local_vertex_index;
+		public NativeArray<int> max_index_array;
+
+		public VoxelRenderManager(int3 chunk_size, VoxelSourceTables sourceTables)
 		{
 			textures = new()
 			{
@@ -52,6 +58,14 @@ namespace VolumeMegaStructure.Manage
 			quad_gen_unit_to_vertex_buffer = Resources.Load<ComputeShader>("QuadGenUnitToVertexBuffer");
 			gen_quad6_index_buffer = Resources.Load<ComputeShader>("GenQuad6IndexBuffer");
 			InitMaterial(sourceTables);
+			InitIndexArray(chunk_size);
+		}
+
+		void InitIndexArray(int3 chunk_size)
+		{
+			local_vertex_index = new(new[] { 0, 1, 2, 2, 3, 0 }, Allocator.Persistent);
+			var max_rect_count = chunk_size.volume() * 6;
+			Plan<GenIndexArray>(new(local_vertex_index, max_rect_count, out max_index_array)).Complete();
 		}
 
 		void InitMaterial(VoxelSourceTables sourceTables)
@@ -63,8 +77,7 @@ namespace VolumeMegaStructure.Manage
 			material.SetBuffer("face_normals", normal_buffer);
 			material.SetBuffer("face_tangents", tangent_buffer);
 			material.SetBuffer("quad_color_textures", color_texture_buffer);
-
-
+			material.globalIlluminationFlags = MaterialGlobalIlluminationFlags.RealtimeEmissive;
 			texture_buffer_array = new float[textures.Count * 5];
 			color_texture_buffer.GetData(texture_buffer_array);
 		}
@@ -76,6 +89,8 @@ namespace VolumeMegaStructure.Manage
 			normal_buffer.Release();
 			tangent_buffer.Release();
 			color_texture_buffer.Release();
+			local_vertex_index.Dispose();
+			max_index_array.Dispose();
 		}
 	}
 }

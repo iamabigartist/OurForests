@@ -1,0 +1,16 @@
+#include "HLSLSupport.cginc"
+RWStructuredBuffer<int> buffer;
+
+#define TEST_KERNEL(name,integer)\
+    [numthreads(1,1,1)]\
+    void name##_Main(uint3 id : SV_DispatchThreadID)\
+    {\
+        buffer[0] = integer;\
+    }
+
+TEST_KERNEL(K0, 0)
+TEST_KERNEL(K1, 1)
+TEST_KERNEL(K2, 2)
+#pragma kernel K0_Main
+#pragma kernel K1_Main
+#pragma kernel K2_Main

@@ -4,9 +4,8 @@ static int local_vertex_index[6] = {0, 1, 2, 2, 3, 0};
 
 int quad_count;
 RWStructuredBuffer<int> render_index_buffer;
-RWStructuredBuffer<int> wait;
 
-[numthreads(1024,1,1)]
+[numthreads(512,1,1)]
 void CSMain(uint3 id : SV_DispatchThreadID)
 {
     int i_quad = id.x;

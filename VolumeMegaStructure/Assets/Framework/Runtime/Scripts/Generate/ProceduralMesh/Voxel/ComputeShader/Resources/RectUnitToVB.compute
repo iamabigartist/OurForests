@@ -1,0 +1,72 @@
+#include "VoxelGenComputeShaderInclude.compute"
+#pragma kernel Main_PlusX
+#pragma kernel Main_MnusX
+#pragma kernel Main_PlusY
+#pragma kernel Main_MnusY
+#pragma kernel Main_PlusZ
+#pragma kernel Main_MnusZ
+
+static const float offset = 0.5f;
+int3 matrix_size;
+int dir;
+int i_rect_vb_start;
+int rect_buffer_len;
+StructuredBuffer<RectUnit> rect_buffer;
+RWStructuredBuffer<VBUnit> vertex_buffer;
+
+#define DefineKernel(name,apply_offset,assign_corner)\
+[numthreads(512,1,1)]\
+void Main_##name(uint3 id : SV_DispatchThreadID)\
+{\
+    int i_rect = id.x;\
+    if (!(i_rect < rect_buffer_len)) { return; }\
+    RectUnit rect = rect_buffer[i_rect];\
+    int texture_id = rect.texture_id;\
+    int i_vertex_start = (i_rect_vb_start + i_rect) * 4;\
+\
+    float3 a, b, c, d;\
+    i_1d_to_3d(matrix_size, rect.start_pos, a.x, a.y, a.z);\
+    i_1d_to_3d(matrix_size, rect.end_pos, c.x, c.y, c.z);\
+\
+    apply_offset\
+\
+    assign_corner\
+\
+    AssignToVB(0,a);\
+    AssignToVB(1,b);\
+    AssignToVB(2,c);\
+    AssignToVB(3,d);\
+}
+
+#define AssignToVB(offset,name) vertex_buffer[i_vertex_start + offset] = make_vb_unit(name, dir, texture_id)
+
+#define ApplyOffset(ax,ay,az)\
+a.x ax##= offset;\
+a.y ay##= offset;\
+a.z az##= offset;\
+c.x += offset;\
+c.y += offset;\
+c.z += offset;
+
+#define AssignCorner(bx,by,bz,dx,dy,dz)\
+b = float3(bx.x, by.y, bz.z);\
+d = float3(dx.x, dy.y, dz.z);
+
+#define OffsetX ApplyOffset(+,-,-)
+#define OffsetY ApplyOffset(-,+,-)
+#define OffsetZ ApplyOffset(-,-,+)
+
+#define CornerPlusX AssignCorner(a,c,a,a,a,c)
+#define CornerMnusX AssignCorner(a,a,c,a,c,a)
+#define CornerPlusY AssignCorner(a,a,c,c,a,a)
+#define CornerMnusY AssignCorner(c,a,a,a,a,c)
+#define CornerPlusZ AssignCorner(c,a,a,a,c,a)
+#define CornerMnusZ AssignCorner(a,c,a,c,a,a)
+
+#define DefineKernelPair(axis)\
+DefineKernel(Plus##axis, Offset##axis, CornerPlus##axis)\
+DefineKernel(Mnus##axis, Offset##axis, CornerMnus##axis)
+
+DefineKernelPair(X)
+DefineKernelPair(Y)
+DefineKernelPair(Z)

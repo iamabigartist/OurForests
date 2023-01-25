@@ -87,6 +87,15 @@ namespace VolumeMegaStructure.DataDefinition.Container
 			return new(x, y, z);
 		}
 
+		public void PositionByIndex(int i, out int x, out int y, out int z)
+		{
+			z = i / (size.x * size.y);
+			i -= z * size.x * size.y;
+			y = i / size.x;
+			i -= y * size.x;
+			x = i;
+		}
+
 		public bool IsPositiveEdge(int x, int y, int z)
 		{
 			return

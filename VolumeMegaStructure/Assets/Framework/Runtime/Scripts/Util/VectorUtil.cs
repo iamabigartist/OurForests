@@ -33,15 +33,15 @@ namespace VolumeMegaStructure.Util
 
 		public static Vector3[] f3_2_v3(this float3[] array)
 		{
-			return array.@select(f3 => f3.V());
+			return array.@select(f3 => f3.v());
 		}
 
-		public static Vector3 V(this int3 i3)
+		public static Vector3 v(this int3 i3)
 		{
 			return new(i3.x, i3.y, i3.z);
 		}
 
-		public static Vector3 V(this float3 f3)
+		public static Vector3 v(this float3 f3)
 		{
 			return new(f3.x, f3.y, f3.z);
 		}
@@ -78,6 +78,13 @@ namespace VolumeMegaStructure.Util
 			y = v.y;
 			z = v.z;
 		}
+
+		public static void Deconstruct(this int2 v, out int x, out int y)
+		{
+			x = v.x;
+			y = v.y;
+		}
+
 		public static void Deconstruct(this float3 v, out float x, out float y, out float z)
 		{
 			x = v.x;
@@ -86,6 +93,7 @@ namespace VolumeMegaStructure.Util
 		}
 
 	#endregion
+
 
 	}
 }

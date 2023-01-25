@@ -1,0 +1,15 @@
+#pragma kernel CSMain
+
+int start;
+int len;
+int value;
+RWStructuredBuffer<int> buffer;
+
+[numthreads(1,1,1)]
+void CSMain(uint3 id : SV_DispatchThreadID)
+{
+    int i = id.x;
+    if (!(i < len)) { return; }
+    i += start;
+    buffer[i] = value;
+}
