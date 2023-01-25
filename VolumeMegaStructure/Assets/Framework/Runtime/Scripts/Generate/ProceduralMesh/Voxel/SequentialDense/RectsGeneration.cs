@@ -6,7 +6,7 @@ using Unity.Burst;
 using Unity.Collections;
 using Unity.Jobs;
 using Unity.Mathematics;
-using VolumeMegaStructure.Generate.ProceduralMesh.Voxel.ParallelDense.Greedy;
+using VolumeMegaStructure.Generate.ProceduralMesh.Voxel.Greedy;
 using VolumeMegaStructure.Util;
 namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.SequentialDense
 {

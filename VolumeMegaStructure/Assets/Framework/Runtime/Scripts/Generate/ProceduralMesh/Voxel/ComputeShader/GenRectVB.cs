@@ -2,7 +2,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using VolumeMegaStructure.Util;
 using static Unity.Mathematics.math;
-namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.ParallelDense
+namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.ComputeShader
 {
 	public static class GenRectVB
 	{
@@ -33,7 +33,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.ParallelDense
 		static int id_rect_buffer;
 		static int id_vertex_buffer;
 
-		static ComputeShader cs;
+		static UnityEngine.ComputeShader cs;
 
 		static GenRectVB()
 		{
@@ -44,7 +44,7 @@ namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.ParallelDense
 			id_rect_buffer_len = Shader.PropertyToID(RECT_BUFFER_LEN);
 			id_rect_buffer = Shader.PropertyToID(RECT_BUFFER);
 
-			cs = Resources.Load<ComputeShader>(CS_PATH);
+			cs = Resources.Load<UnityEngine.ComputeShader>(CS_PATH);
 			kernel_indices = new int[6];
 			for (int i = 0; i < 6; i++) { kernel_indices[i] = cs.FindKernel(KERNEL_NAMES[i]); }
 		}

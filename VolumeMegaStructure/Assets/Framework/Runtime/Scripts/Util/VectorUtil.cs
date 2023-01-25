@@ -95,6 +95,5 @@ namespace VolumeMegaStructure.Util
 	#endregion
 
 
-
 	}
 }

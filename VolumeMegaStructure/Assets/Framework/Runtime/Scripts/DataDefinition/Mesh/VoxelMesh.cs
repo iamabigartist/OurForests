@@ -10,6 +10,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using VolumeMegaStructure.DataDefinition.Container;
 using VolumeMegaStructure.DataDefinition.DataUnit;
+using VolumeMegaStructure.Generate.ProceduralMesh.Voxel.ComputeShader;
 using VolumeMegaStructure.Generate.ProceduralMesh.Voxel.ParallelDense;
 using VolumeMegaStructure.Generate.ProceduralMesh.Voxel.ParallelDense.Greedy;
 using VolumeMegaStructure.Manage;

@@ -4,7 +4,7 @@ using Unity.Collections;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Rendering;
-using VolumeMegaStructure.Generate.ProceduralMesh.Voxel.ParallelDense;
+using VolumeMegaStructure.Generate.ProceduralMesh.Voxel.ComputeShader;
 using VolumeMegaStructure.Util;
 using static Cysharp.Threading.Tasks.UniTask;
 namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.SequentialDense

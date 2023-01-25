@@ -4,6 +4,7 @@ using Unity.Burst;
 using Unity.Collections;
 using Unity.Jobs;
 using Unity.Mathematics;
+using VolumeMegaStructure.Generate.ProceduralMesh.Voxel.Greedy;
 using VolumeMegaStructure.Util;
 using static PrototypePackages.JobUtils.Template.IPlanFor;
 using static VolumeMegaStructure.Util.JobSystem.ScheduleUtils;

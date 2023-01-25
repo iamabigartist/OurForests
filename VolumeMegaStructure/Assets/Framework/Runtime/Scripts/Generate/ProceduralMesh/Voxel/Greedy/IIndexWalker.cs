@@ -1,5 +1,5 @@
 using System.Runtime.CompilerServices;
-namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.ParallelDense.Greedy
+namespace VolumeMegaStructure.Generate.ProceduralMesh.Voxel.Greedy
 {
 	public interface IIndexWalker
 	{

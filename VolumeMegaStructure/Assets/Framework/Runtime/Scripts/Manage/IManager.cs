@@ -1,4 +1,4 @@
 namespace VolumeMegaStructure.Manage
 {
-	public class IDManager {}
+	public interface IManager {}
 }
