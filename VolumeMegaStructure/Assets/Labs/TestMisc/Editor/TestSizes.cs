@@ -1,7 +1,8 @@
 using Unity.Collections.LowLevel.Unsafe;
+using Unity.Mathematics;
 using UnityEditor;
 using UnityEngine;
-using VolumeMegaStructure.Util.JobSystem;
+using VolumeMegaStructure.Generate.ProceduralMesh.Voxel.Sequential256.Octree;
 namespace Labs.TestMisc.Editor
 {
 	public class TestSizes : EditorWindow
@@ -16,8 +17,9 @@ namespace Labs.TestMisc.Editor
 
 		void OnEnable()
 		{
-			Debug.Log(UnsafeUtility.SizeOf(typeof(byte3)));
-			Debug.Log(UnsafeUtility.SizeOf(typeof(byte2)));
+			Debug.Log(UnsafeUtility.SizeOf<int3>());
+			Debug.Log(UnsafeUtility.SizeOf<int>());
+			Debug.Log(UnsafeUtility.SizeOf<OctRegion>());
 		}
 
 	}
